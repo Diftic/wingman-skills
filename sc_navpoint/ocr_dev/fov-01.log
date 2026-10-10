@@ -1,0 +1,7 @@
+Logging to D:\PycharmProjects\wingman-ai\skills\sc_navpoint\ocr_dev\captures\fov-01
+  every 2.0s, up to 80 distinct frames, stopping after 5.0 minutes
+  starting in 10s, stop any time with Ctrl+C
+
+  10 frames kept, 0 unchanged skipped  20 frames kept, 0 unchanged skipped  30 frames kept, 0 unchanged skipped  40 frames kept, 0 unchanged skipped  50 frames kept, 0 unchanged skipped  60 frames kept, 0 unchanged skipped  70 frames kept, 0 unchanged skipped  80 frames kept, 0 unchanged skipped
+80 distinct frames kept, 0 unchanged frames skipped, 0 grabs skipped with the game unfocused, 80 grabs over 2.8 minutes, 16 MB on disk.
+Next: python session_report.py --label fov-01

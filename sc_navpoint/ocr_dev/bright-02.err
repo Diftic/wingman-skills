@@ -1,0 +1,2 @@
+D:\PycharmProjects\wingman-ai\skills\sc_navpoint\ocr_dev\session_log.py:246: DeprecationWarning: mss.mss is deprecated and will be removed in a future release; use mss.MSS instead
+  with mss() as sct, index_path.open("a", encoding="utf-8") as index:

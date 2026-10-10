@@ -23,5 +23,5 @@ Backup snapshot created 2026-10-10 from `D:\PycharmProjects\wingman-ai\skills\` 
 
 ## Not in git (kept locally only)
 - `sc_log_reader/reports/` (~11 GB test/benchmark runs)
-- `sc_navpoint/_vendor/`, `sc_navpoint/models/`, `sc_navpoint/ocr_dev/captures/` (OCR deps, models, ~440 MB screenshots)
+- `sc_navpoint/_vendor/` (vendored `opencv-python 5.0.0.93`, ~86-113 MB — reinstall from pip), old models `specialist_v5/v6`, `ocr_dev/captures/` + `screenshots/` (~480 MB screenshots). Runtime model `specialist_v8` IS included.
 - release `*.zip` bundles, `.venv/`

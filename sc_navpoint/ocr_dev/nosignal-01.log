@@ -1,0 +1,7 @@
+Logging to D:\PycharmProjects\wingman-ai\skills\sc_navpoint\ocr_dev\captures\nosignal-01
+  every 2.0s, up to 20 distinct frames, stopping after 4.0 minutes
+  starting in 30s, stop any time with Ctrl+C
+
+  10 frames kept, 0 unchanged skipped  20 frames kept, 0 unchanged skipped
+20 distinct frames kept, 0 unchanged frames skipped, 0 grabs skipped with the game unfocused, 20 grabs over 0.7 minutes, 3 MB on disk.
+Next: python session_report.py --label nosignal-01

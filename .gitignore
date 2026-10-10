@@ -9,7 +9,8 @@ node_modules/
 *.zip
 **/reports/
 **/_vendor/
-**/models/
+**/models/*
+!sc_navpoint/models/specialist_v8/
 **/captures/
 secrets.yaml
 .env

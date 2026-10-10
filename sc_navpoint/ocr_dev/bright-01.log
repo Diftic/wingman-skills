@@ -1,0 +1,8 @@
+Logging to D:\PycharmProjects\wingman-ai\skills\sc_navpoint\ocr_dev\captures\bright-01
+  every 3.0s, up to 300 distinct frames, stopping after 25.0 minutes
+  capturing only while the focused window is 'Star Citizen' (now: 'wingman-ai – TODO.md')
+  starting in 12s, stop any time with Ctrl+C
+
+D:\PycharmProjects\wingman-ai\skills\sc_navpoint\ocr_dev\session_log.py:246: DeprecationWarning: mss.mss is deprecated and will be removed in a future release; use mss.MSS instead
+  with mss() as sct, index_path.open("a", encoding="utf-8") as index:
+  10 frames kept, 0 unchanged skipped
