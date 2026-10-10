@@ -1,0 +1,28 @@
+SC Accountant v4.7.2: public test
+
+First release on the new SC-patch versioning. This build is qualified against Star Citizen 4.7.2. If your About tab shows v4.7.2 and you're on SC 4.7.2, you're matched.
+
+WHAT'S NEW
+
+- Mobile dashboard, scan to open. When the skill loads, your wingman drops a QR code and LAN URL into chat. Scan from your phone, the dashboard opens on the same network. No more typing IPs while your ship is on fire.
+- Auto fleet tracking. Board a ship, SC Accountant catches the event from SC_LogReader and adds it to My Assets, with current market value pulled from UEX.
+- Live ship valuations. New per-terminal ship and vehicle price feed (24h cached). Your fleet's Avg Market Value column reflects what your hangar is actually worth.
+- Inline portfolio editing. Click any row in Portfolio to edit name, quantity, or comment. New Comment column for notes like "holding for next event".
+- Blueprint asset type. Track your blueprint collection alongside ships and gear.
+
+FIXES THAT MATTER
+
+- 100x cSCU bug squashed. Some commodity positions were inflated; existing data is patched on first run.
+- Second-ship entries now register as assets (was only firing on the first ship).
+- Fleet market value column was showing 0. Fixed.
+
+QUALITY OF LIFE
+
+- Custom Wingman AI tab icon
+- Opportunities location filter simplified to My Location / All Locations
+- Avg Market Value uses cross-terminal average (was best-only, too optimistic)
+- First dashboard launch auto-creates the Windows Firewall rule (one UAC prompt, then never again)
+
+INSTALL
+
+Double-click install.bat in the release folder, then restart Wingman AI.

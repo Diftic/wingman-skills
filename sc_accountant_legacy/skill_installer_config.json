@@ -1,0 +1,30 @@
+{
+  "skill_name": "sc_accountant",
+  "display_name": "SC Accountant",
+  "version": "4.8.3.1",
+  "sc_target_version": "4.8.3",
+  "files": [
+    "__init__.py",
+    "assets.py",
+    "atomic_io.py",
+    "default_config.yaml",
+    "futures.py",
+    "guid_resolver.py",
+    "hauling.py",
+    "logo.png",
+    "main.py",
+    "market_data.py",
+    "models.py",
+    "planning.py",
+    "positions.py",
+    "reports.py",
+    "statements.py",
+    "store.py"
+  ],
+  "dirs": [
+    "accountant_ui"
+  ],
+  "preserve_on_update": [
+    "default_config.yaml"
+  ]
+}

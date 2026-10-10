@@ -1,0 +1,7 @@
+# Local verification, generated state and superseded release copies.
+/reports/
+/release_version/
+/data/
+/*.zip
+/*.zip.sha256
+*.sqlite3*

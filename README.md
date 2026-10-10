@@ -18,6 +18,8 @@ Backup snapshot created 2026-10-10 from `D:\PycharmProjects\wingman-ai\skills\` 
 | `sc_navpoint/` | NavPoint (latest local version, newer than `contrib/sc-navpoint` of 2026-09-21) |
 | `factory_assistant/` | Factory Assistant (Satisfactory + Dyson Sphere Program), successor of `satisfactory_assistant/` |
 | `satisfactory_assistant/`, `sc_navigator/`, `sc_radio/`, `youtube_video_player/` | Older/other skills |
+| `sc_accountant_legacy/` | SC Accountant v2 (pre-Core) files + tests — superseded by ShipBit `skills/sc_accountant` |
+| `docs/` | Notes moved off the fork (ENVIRONMENTS, Versioning, findings0907, old fork CLAUDE.md) |
 | `contribution-tools/` | Sept 2026 PR-prep tooling (Check.ps1, allowlists, validators, publication notes) |
 | `contribution-tools/pending-patches/` | Uncommitted description edits from the contribution clones (NavPoint one still relevant) |
 
