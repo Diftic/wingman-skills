@@ -1,0 +1,6 @@
+Satisfactory Assistant 0.8.0
+
+- Adds calibrated geographic map backgrounds for factory-location popups.
+- Crops the terrain around matching buildings while retaining enough regional context.
+- Uses numbered, high-contrast location pins and preserves the coordinate schematic as a fallback.
+- Adds a Geographic Map Background Image setting; external images are configured locally and are not bundled.

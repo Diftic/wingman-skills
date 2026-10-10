@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "checkout": "D:\\PycharmProjects\\wingman-contributions\\accountant",
+  "base": "6eb31903bbcacd1a9dc15dd6734e2f132bc0b657",
+  "base_branch": "upstream/develop",
+  "branch": "contrib/sc-accountant",
+  "fork_url": "https://github.com/Diftic/wingman-ai.git",
+  "files": {
+    "skills/sc_accountant/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "738115e2489c930a2e303d4b1d490e3f4277c7bd2c4b1b828bcaf6ce5bf61bc8",
+      "blob": "f3b723f2766a723f86dc634f50c38ea40fc9e5a2"
+    },
+    "skills/sc_accountant/LICENSE": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\LICENSE",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+      "blob": "3877ae0a7ff6f94ac222fd704e112723db776114"
+    },
+    "skills/sc_accountant/main.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\main.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "f23151acb128fd0a9ce3600c6283a4a653c79ef5f52b4a525cd7fdb1d6b8eb7e",
+      "blob": "ba831c4ae09042cf714b173448e914317f6471ae"
+    },
+    "skills/sc_accountant/default_config.yaml": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\default_config.yaml",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "049556b6b86f8400666b9365ebbec70244bb893345155c6e994168993aa0ed26",
+      "blob": "468d96eb67e177cd1d7cfb41f43c6aba50b9ad12"
+    },
+    "skills/sc_accountant/erp.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "caa0ccee040725ecf23334bdbfb2255825550a59d6c6fba31196b1d5f6919c12",
+      "blob": "728c1e46734cf731345e98dee6219e5b9366a369"
+    },
+    "skills/sc_accountant/erp_actions.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_actions.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "df9dd0017f247ec9ea248059401134c4d1893ec498e9a9a61beea22b3777a05c",
+      "blob": "11f1b1d4a42e7515df2a522c0c4986f89c099c85"
+    },
+    "skills/sc_accountant/erp_intake.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_intake.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "6a233a66c747d3dfadb7c7196db092204f55e5ae0d29277885a9e98cd93d5c49",
+      "blob": "678fd57ea12b73d958de146439661b917241603a"
+    },
+    "skills/sc_accountant/erp_values.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_values.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "621918e34871d12b50d10b2baa272c99f233048e48273c0513c0fe195806b359",
+      "blob": "e00a56b1a9d38ef6d3544ea1889c5c59ec7507ee"
+    },
+    "skills/sc_accountant/erp_skill.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_skill.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "520b483d17272d731fd36d2a27382157959333f54eaa0f03a0ee04e9d0339fd2",
+      "blob": "2397de19e5c0efc445649dd8c7304ac1f3cf9465"
+    },
+    "skills/sc_accountant/erp_web.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_web.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "395b1050b0d3e78f68bf44225735f9441f789bd9bac5a6aa0d9285df61497076",
+      "blob": "200316231924798194310df28ad92f696a93003c"
+    },
+    "skills/sc_accountant/erp_sharing.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_sharing.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "76c40f25bff9cac32768edc712620727a5462ad5c14e95a52afb2511f6df0971",
+      "blob": "e97b0f034f982798bde04ed6be68dc36f94225bc"
+    },
+    "skills/sc_accountant/erp_feed.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_feed.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "5211d81156a40dcf451d3c33827c2b84294d17f1f4ca47d42a948baf30088778",
+      "blob": "83fd5ea2fc18d57327be577ed11045181a8a96a8"
+    },
+    "skills/sc_accountant/erp_reader_client.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_reader_client.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "0650d0a400c0f20e763523e3cdb6c001b6207c49207430a8f22c224f1ff4c454",
+      "blob": "ef14794d3c1d5d9d9fe03c7bc0095bb6d1c1d795"
+    },
+    "skills/sc_accountant/accountant_ui/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\accountant_ui\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "skills/sc_accountant/accountant_ui/qrcodegen.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\accountant_ui\\qrcodegen.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "d42133a5e01ec3fd233c52117551e95dddcd869be87913c6849cd0e365407a68",
+      "blob": "f1bf250a41e90c5896083f8a4b2dbd27e116d147"
+    },
+    "skills/sc_accountant/erp_ui/app.js": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_ui\\app.js",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "a493eb8f4b141d2db476f60ca48a05a82b8b3cf8e8319ab6590bb555d8cca7b7",
+      "blob": "b79c6f54b93cc0f23703dc9db49a0d2ca4128abf"
+    },
+    "skills/sc_accountant/erp_ui/index.html": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_ui\\index.html",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "98fcbf55de2a92b74c2c388bd1abd9a33f4dfa9cde6917307274bf53bdda9305",
+      "blob": "52c2a7cbb34d9a60bd63f529d84e76150579f184"
+    },
+    "skills/sc_accountant/erp_ui/style.css": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_accountant\\erp_ui\\style.css",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "c7e5c69b402ae1ca46a405ba7fd82f900913d7b59612b0e974b75fb2d9138afb",
+      "blob": "713a90fb36dec76e670e7d8e4f9b4e6fa147543b"
+    },
+    "skills/sc_accountant/README.md": {
+      "source": "New concise documentation",
+      "reason": "Usage, limitations, or dependency attribution",
+      "sha256": "ce9a9bdfcd529a37063b0534cb685e0f91edfdb4f7f61ec6c56bfc9f4198c180",
+      "blob": "fb444ef5783510b0409008e3345a129d19fe77d1"
+    }
+  }
+}

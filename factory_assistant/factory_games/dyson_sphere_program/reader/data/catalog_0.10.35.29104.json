@@ -1,0 +1,13358 @@
+{
+ "game": "dyson_sphere_program",
+ "game_version": "0.10.35.29104",
+ "items": [
+  {
+   "id": 1001,
+   "name": "Iron Ore",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Iron Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1002,
+   "name": "Copper Ore",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Copper Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1003,
+   "name": "Silicon Ore",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Silicon Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1004,
+   "name": "Titanium Ore",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Titanium Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1005,
+   "name": "Stone",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Stone Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1006,
+   "name": "Coal",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Coal Veins",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1030,
+   "name": "Log",
+   "type": "resource",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Tree",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1031,
+   "name": "Plant Fuel",
+   "type": "resource",
+   "stack": 500,
+   "fluid": false,
+   "mining_from": "Plant",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1011,
+   "name": "Fire Ice",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Fire ice vein <color=\"#FFFFFFC1\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1012,
+   "name": "Kimberlite Ore",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Kimberlite vein <color=\"#B9DFFFC4\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1013,
+   "name": "Fractal Silicon",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Fractal silicium vein <color=\"#43FF89D4\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1014,
+   "name": "Grating Crystal",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Grating Crystal vein <color=\"#E37AFFDA\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1015,
+   "name": "Stalagmite Crystal",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Stalagmite Crystal Vein <color=\"#7AF0FFC8\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1016,
+   "name": "Unipolar Magnet",
+   "type": "resource",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "Unipolar magnet vein <color=\"#FFA086C8\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1101,
+   "name": "Iron Ingot",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1104,
+   "name": "Copper Ingot",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1105,
+   "name": "High-purity Silicon",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1106,
+   "name": "Titanium Ingot",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1108,
+   "name": "Stone Brick",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1109,
+   "name": "Energetic Graphite",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1103,
+   "name": "Steel",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1107,
+   "name": "Titanium Alloy",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1110,
+   "name": "Glass",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1119,
+   "name": "Titanium Glass",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1111,
+   "name": "Prism",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1112,
+   "name": "Diamond",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1113,
+   "name": "Crystal Silicon",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1201,
+   "name": "Gear",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1102,
+   "name": "Magnet",
+   "type": "material",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1202,
+   "name": "Magnetic Coil",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1203,
+   "name": "Electric Motor",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1204,
+   "name": "Electromagnetic Turbine",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1205,
+   "name": "Super-magnetic Ring",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1206,
+   "name": "Particle Container",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1127,
+   "name": "Strange Matter",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1301,
+   "name": "Circuit Board",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1303,
+   "name": "Processor",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1305,
+   "name": "Quantum Chip",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1302,
+   "name": "Microcrystalline Component",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1304,
+   "name": "Plane Filter",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1402,
+   "name": "Particle Broadband",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1401,
+   "name": "Plasma Exciter",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1404,
+   "name": "Photon Combiner",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1501,
+   "name": "Solar Sail",
+   "type": "product",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1000,
+   "name": "Water",
+   "type": "resource",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "Ocean",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1007,
+   "name": "Crude Oil",
+   "type": "resource",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "Crude Oil Seep",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1114,
+   "name": "Refined Oil",
+   "type": "material",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1116,
+   "name": "Sulfuric Acid",
+   "type": "material",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "Sulfuric acid ocean",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1120,
+   "name": "Hydrogen",
+   "type": "material",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "Gas Giant Orbit",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1121,
+   "name": "Deuterium",
+   "type": "material",
+   "stack": 20,
+   "fluid": true,
+   "mining_from": "Gas Giant Orbit",
+   "produce_from": "Fractionator",
+   "can_build": false
+  },
+  {
+   "id": 1122,
+   "name": "Antimatter",
+   "type": "material",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1208,
+   "name": "Critical Photon",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "Ray Receiver",
+   "can_build": false
+  },
+  {
+   "id": 1801,
+   "name": "Hydrogen Fuel Rod",
+   "type": "product",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1802,
+   "name": "Deuteron Fuel Rod",
+   "type": "product",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1803,
+   "name": "Antimatter Fuel Rod",
+   "type": "product",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1804,
+   "name": "Strange Annihilation Fuel Rod",
+   "type": "product",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1115,
+   "name": "Plastic",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1123,
+   "name": "Graphene",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1124,
+   "name": "Carbon Nanotube",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1117,
+   "name": "Organic Crystal",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "Organic crystal vein <color=\"#F5FF4FC1\">(rare)</color>",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1118,
+   "name": "Titanium Crystal",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1126,
+   "name": "Casimir Crystal",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1128,
+   "name": "Combustible Unit",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1129,
+   "name": "Explosive Unit",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1130,
+   "name": "Crystal Explosive Unit",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1209,
+   "name": "Graviton Lens",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1210,
+   "name": "Space Warper",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1211,
+   "name": "Dark Fog Lens",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1403,
+   "name": "Annihilation Constraint Sphere",
+   "type": "component",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1407,
+   "name": "Engine",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1405,
+   "name": "Thruster",
+   "type": "component",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1406,
+   "name": "Reinforced Thruster",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5003,
+   "name": "Logistics Bot",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5001,
+   "name": "Logistics Drone",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5002,
+   "name": "Interstellar Logistics Vessel",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1125,
+   "name": "Frame Material",
+   "type": "material",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1502,
+   "name": "Dyson Sphere Component",
+   "type": "component",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1503,
+   "name": "Small Carrier Rocket",
+   "type": "product",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1131,
+   "name": "Foundation",
+   "type": "decoration",
+   "stack": 1000,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 1141,
+   "name": "Proliferator Mk.I",
+   "type": "material",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1142,
+   "name": "Proliferator Mk.II",
+   "type": "material",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1143,
+   "name": "Proliferator Mk.III",
+   "type": "material",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1601,
+   "name": "Magnum Ammo Box",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1602,
+   "name": "Titanium Ammo Box",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1603,
+   "name": "Superalloy Ammo Box",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1604,
+   "name": "Shell Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1605,
+   "name": "High-Explosive Shell Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1606,
+   "name": "Crystal Shell Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1607,
+   "name": "Plasma Capsule",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1608,
+   "name": "Antimatter Capsule",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1609,
+   "name": "Missile Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1610,
+   "name": "Supersonic Missile Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1611,
+   "name": "Gravity Missile Set",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1612,
+   "name": "Jamming Capsule",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1613,
+   "name": "Suppressing Capsule",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5101,
+   "name": "Prototype",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5102,
+   "name": "Precision Drone",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5103,
+   "name": "Attack Drone",
+   "type": "product",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5111,
+   "name": "Corvette",
+   "type": "product",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5112,
+   "name": "Destroyer",
+   "type": "product",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5201,
+   "name": "Dark Fog Matrix",
+   "type": "dark_fog",
+   "stack": 1000,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5202,
+   "name": "Silicon-based Neuron",
+   "type": "dark_fog",
+   "stack": 500,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5203,
+   "name": "Matter Recombinator",
+   "type": "dark_fog",
+   "stack": 500,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5204,
+   "name": "Negentropy Singularity",
+   "type": "dark_fog",
+   "stack": 500,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5205,
+   "name": "Core Element",
+   "type": "dark_fog",
+   "stack": 500,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 5206,
+   "name": "Energy Shard",
+   "type": "dark_fog",
+   "stack": 2000,
+   "fluid": false,
+   "mining_from": "Dark Fog Debris",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 2001,
+   "name": "Conveyor Belt Mk.I",
+   "type": "logistics",
+   "stack": 300,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2002,
+   "name": "Conveyor Belt Mk.II",
+   "type": "logistics",
+   "stack": 300,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2003,
+   "name": "Conveyor Belt Mk.III",
+   "type": "logistics",
+   "stack": 300,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2011,
+   "name": "Sorter Mk.I",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2012,
+   "name": "Sorter Mk.II",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2013,
+   "name": "Sorter Mk.III",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2014,
+   "name": "Pile Sorter",
+   "type": "logistics",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2020,
+   "name": "Splitter",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2040,
+   "name": "Automatic Piler",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2030,
+   "name": "Traffic Monitor",
+   "type": "logistics",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2313,
+   "name": "Spray Coater",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2107,
+   "name": "Logistics Distributor",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2101,
+   "name": "Depot Mk.I",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2102,
+   "name": "Depot Mk.II",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2106,
+   "name": "Storage Tank",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2303,
+   "name": "Assembling Machine Mk.I",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2304,
+   "name": "Assembling Machine Mk.II",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2305,
+   "name": "Assembling Machine Mk.III",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2318,
+   "name": "Re-composing Assembler",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2201,
+   "name": "Tesla Tower",
+   "type": "logistics",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2202,
+   "name": "Wireless Power Tower",
+   "type": "logistics",
+   "stack": 100,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2212,
+   "name": "Satellite Substation",
+   "type": "logistics",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2401,
+   "name": "Holo Beacon",
+   "type": "decoration",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2203,
+   "name": "Wind Turbine",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2204,
+   "name": "Thermal Power Plant",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2211,
+   "name": "Mini Fusion Power Plant",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2213,
+   "name": "Geothermal Power Station",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2301,
+   "name": "Mining Machine",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2316,
+   "name": "Advanced Mining Machine",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2306,
+   "name": "Water Pump",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2302,
+   "name": "Arc Smelter",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2315,
+   "name": "Plane Smelter",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2319,
+   "name": "Negentropy Smelter",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2307,
+   "name": "Oil Extractor",
+   "type": "production",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2308,
+   "name": "Oil Refinery",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2309,
+   "name": "Chemical Plant",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2317,
+   "name": "Quantum Chemical Plant",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2314,
+   "name": "Fractionator",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2205,
+   "name": "Solar Panel",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2206,
+   "name": "Accumulator",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2207,
+   "name": "Accumulator (full)",
+   "type": "logistics",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "Energy Exchanger",
+   "can_build": true
+  },
+  {
+   "id": 2311,
+   "name": "EM-Rail Ejector",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2208,
+   "name": "Ray Receiver",
+   "type": "production",
+   "stack": 30,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2312,
+   "name": "Vertical Launching Silo",
+   "type": "production",
+   "stack": 10,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2209,
+   "name": "Energy Exchanger",
+   "type": "logistics",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2310,
+   "name": "Miniature Particle Collider",
+   "type": "production",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2210,
+   "name": "Artificial Star",
+   "type": "production",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2103,
+   "name": "Planetary Logistics Station",
+   "type": "logistics",
+   "stack": 10,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2104,
+   "name": "Interstellar Logistics Station",
+   "type": "logistics",
+   "stack": 10,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2105,
+   "name": "Orbital Collector",
+   "type": "logistics",
+   "stack": 10,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2901,
+   "name": "Matrix Lab",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 2902,
+   "name": "Self-evolution Lab",
+   "type": "production",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3001,
+   "name": "Gauss Turret",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3002,
+   "name": "Laser Turret",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3003,
+   "name": "Implosion Cannon",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3004,
+   "name": "Plasma Turret",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3005,
+   "name": "Missile Turret",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3006,
+   "name": "Jammer Tower",
+   "type": "turret",
+   "stack": 50,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3007,
+   "name": "Signal Tower",
+   "type": "defense",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3008,
+   "name": "Planetary Shield Generator",
+   "type": "defense",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3009,
+   "name": "Battlefield Analysis Base",
+   "type": "defense",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 3010,
+   "name": "SR Plasma Turret",
+   "type": "turret",
+   "stack": 20,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": true
+  },
+  {
+   "id": 6001,
+   "name": "Electromagnetic Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 6002,
+   "name": "Energy Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 6003,
+   "name": "Structure Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 6004,
+   "name": "Information Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 6005,
+   "name": "Gravity Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 6006,
+   "name": "Universe Matrix",
+   "type": "matrix",
+   "stack": 200,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  },
+  {
+   "id": 1099,
+   "name": "Soil Pile",
+   "type": "resource",
+   "stack": 1000000,
+   "fluid": false,
+   "mining_from": "",
+   "produce_from": "",
+   "can_build": false
+  }
+ ],
+ "recipes": [
+  {
+   "id": 1,
+   "name": "Iron Ingot",
+   "type": "smelt",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1001,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1101,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 2,
+   "name": "Magnet",
+   "type": "smelt",
+   "seconds": 1.5,
+   "inputs": [
+    [
+     1001,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1102,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 3,
+   "name": "Copper Ingot",
+   "type": "smelt",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1002,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1104,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 4,
+   "name": "Stone Brick",
+   "type": "smelt",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1005,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1108,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 5,
+   "name": "Gear",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1101,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1201,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 6,
+   "name": "Magnetic Coil",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1102,
+     2
+    ],
+    [
+     1104,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1202,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 7,
+   "name": "Wind Turbine",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1101,
+     6
+    ],
+    [
+     1201,
+     1
+    ],
+    [
+     1202,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     2203,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 8,
+   "name": "Tesla Tower",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1101,
+     2
+    ],
+    [
+     1202,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2201,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 9,
+   "name": "Electromagnetic Matrix",
+   "type": "research",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1202,
+     1
+    ],
+    [
+     1301,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     6001,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 10,
+   "name": "Matrix Lab",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1101,
+     8
+    ],
+    [
+     1110,
+     4
+    ],
+    [
+     1301,
+     4
+    ],
+    [
+     1202,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2901,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 11,
+   "name": "Prism",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1110,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1111,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 12,
+   "name": "Plasma Exciter",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1202,
+     4
+    ],
+    [
+     1111,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1401,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 13,
+   "name": "Wireless Power Tower",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     2201,
+     1
+    ],
+    [
+     1401,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     2202,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 14,
+   "name": "Oil Extractor",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1103,
+     12
+    ],
+    [
+     1108,
+     12
+    ],
+    [
+     1301,
+     6
+    ],
+    [
+     1401,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2307,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 15,
+   "name": "Oil Refinery",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     10
+    ],
+    [
+     1108,
+     10
+    ],
+    [
+     1301,
+     6
+    ],
+    [
+     1401,
+     6
+    ]
+   ],
+   "outputs": [
+    [
+     2308,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 16,
+   "name": "Plasma Refining",
+   "type": "refine",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1007,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1120,
+     1
+    ],
+    [
+     1114,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 17,
+   "name": "Energetic Graphite",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1006,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1109,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 18,
+   "name": "Energy Matrix",
+   "type": "research",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1109,
+     2
+    ],
+    [
+     1120,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     6002,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 19,
+   "name": "Hydrogen Fuel Rod",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1106,
+     1
+    ],
+    [
+     1120,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1801,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 20,
+   "name": " - Thruster",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1103,
+     2
+    ],
+    [
+     1104,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1405,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 21,
+   "name": "Reinforced Thruster",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1107,
+     5
+    ],
+    [
+     1204,
+     5
+    ]
+   ],
+   "outputs": [
+    [
+     1406,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 22,
+   "name": "Chemical Plant",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1103,
+     8
+    ],
+    [
+     1108,
+     8
+    ],
+    [
+     1110,
+     8
+    ],
+    [
+     1301,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2309,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 23,
+   "name": "Plastic",
+   "type": "chemical",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1114,
+     2
+    ],
+    [
+     1109,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1115,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 24,
+   "name": "Sulfuric Acid",
+   "type": "chemical",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1114,
+     6
+    ],
+    [
+     1005,
+     8
+    ],
+    [
+     1000,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     1116,
+     4
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 25,
+   "name": "Organic Crystal",
+   "type": "chemical",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1115,
+     2
+    ],
+    [
+     1114,
+     1
+    ],
+    [
+     1000,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1117,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 26,
+   "name": "Titanium Crystal",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1117,
+     1
+    ],
+    [
+     1106,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1118,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 27,
+   "name": "Structure Matrix",
+   "type": "research",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1112,
+     1
+    ],
+    [
+     1118,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     6003,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 28,
+   "name": "Casimir Crystal",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1118,
+     1
+    ],
+    [
+     1123,
+     2
+    ],
+    [
+     1120,
+     12
+    ]
+   ],
+   "outputs": [
+    [
+     1126,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 29,
+   "name": "Casimir Crystal (advanced)",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1014,
+     8
+    ],
+    [
+     1123,
+     2
+    ],
+    [
+     1120,
+     12
+    ]
+   ],
+   "outputs": [
+    [
+     1126,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 30,
+   "name": "Titanium Glass",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1110,
+     2
+    ],
+    [
+     1106,
+     2
+    ],
+    [
+     1000,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1119,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 31,
+   "name": "Graphene",
+   "type": "chemical",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1109,
+     3
+    ],
+    [
+     1116,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1123,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 32,
+   "name": "Graphene (advanced)",
+   "type": "chemical",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1011,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1123,
+     2
+    ],
+    [
+     1120,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 33,
+   "name": "Carbon Nanotube",
+   "type": "chemical",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1123,
+     3
+    ],
+    [
+     1106,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1124,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 34,
+   "name": "Silicon Ore",
+   "type": "smelt",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1005,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1003,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 35,
+   "name": "Carbon Nanotube (advanced)",
+   "type": "chemical",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1015,
+     6
+    ]
+   ],
+   "outputs": [
+    [
+     1124,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 36,
+   "name": "Particle Broadband",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1124,
+     2
+    ],
+    [
+     1113,
+     2
+    ],
+    [
+     1115,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1402,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 37,
+   "name": "Crystal Silicon",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1105,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1113,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 38,
+   "name": "Plane Filter",
+   "type": "assemble",
+   "seconds": 12.0,
+   "inputs": [
+    [
+     1126,
+     1
+    ],
+    [
+     1119,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1304,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 39,
+   "name": "Miniature Particle Collider",
+   "type": "assemble",
+   "seconds": 15.0,
+   "inputs": [
+    [
+     1107,
+     20
+    ],
+    [
+     1125,
+     20
+    ],
+    [
+     1205,
+     25
+    ],
+    [
+     1123,
+     10
+    ],
+    [
+     1303,
+     8
+    ]
+   ],
+   "outputs": [
+    [
+     2310,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 40,
+   "name": "Deuterium",
+   "type": "particle",
+   "seconds": 2.5,
+   "inputs": [
+    [
+     1120,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1121,
+     5
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": false
+  },
+  {
+   "id": 41,
+   "name": "Deuteron Fuel Rod",
+   "type": "assemble",
+   "seconds": 12.0,
+   "inputs": [
+    [
+     1107,
+     1
+    ],
+    [
+     1121,
+     20
+    ],
+    [
+     1205,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1802,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 42,
+   "name": "Annihilation Constraint Sphere",
+   "type": "assemble",
+   "seconds": 20.0,
+   "inputs": [
+    [
+     1206,
+     1
+    ],
+    [
+     1303,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1403,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 43,
+   "name": "Artificial Star",
+   "type": "assemble",
+   "seconds": 30.0,
+   "inputs": [
+    [
+     1107,
+     20
+    ],
+    [
+     1125,
+     20
+    ],
+    [
+     1403,
+     10
+    ],
+    [
+     1305,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     2210,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 44,
+   "name": "Antimatter Fuel Rod",
+   "type": "assemble",
+   "seconds": 24.0,
+   "inputs": [
+    [
+     1122,
+     12
+    ],
+    [
+     1120,
+     12
+    ],
+    [
+     1403,
+     1
+    ],
+    [
+     1107,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1803,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": false
+  },
+  {
+   "id": 45,
+   "name": "Assembling Machine Mk.I",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     4
+    ],
+    [
+     1201,
+     8
+    ],
+    [
+     1301,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2303,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 46,
+   "name": "Assembling Machine Mk.II",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     2303,
+     1
+    ],
+    [
+     1123,
+     8
+    ],
+    [
+     1303,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2304,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 47,
+   "name": "Assembling Machine Mk.III",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     2304,
+     1
+    ],
+    [
+     1402,
+     8
+    ],
+    [
+     1305,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2305,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 48,
+   "name": "Mining Machine",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1101,
+     4
+    ],
+    [
+     1301,
+     2
+    ],
+    [
+     1202,
+     2
+    ],
+    [
+     1201,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2301,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 49,
+   "name": "Water Pump",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1101,
+     8
+    ],
+    [
+     1108,
+     4
+    ],
+    [
+     1203,
+     4
+    ],
+    [
+     1301,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2306,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 50,
+   "name": "Circuit Board",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1101,
+     2
+    ],
+    [
+     1104,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1301,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 51,
+   "name": "Processor",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1301,
+     2
+    ],
+    [
+     1302,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1303,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 52,
+   "name": "Quantum Chip",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1303,
+     2
+    ],
+    [
+     1304,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1305,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 53,
+   "name": "Microcrystalline Component",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1105,
+     2
+    ],
+    [
+     1104,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1302,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 54,
+   "name": "Organic Crystal (original)",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1030,
+     20
+    ],
+    [
+     1031,
+     30
+    ],
+    [
+     1000,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1117,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 55,
+   "name": "Information Matrix",
+   "type": "research",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1303,
+     2
+    ],
+    [
+     1402,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     6004,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 56,
+   "name": "Arc Smelter",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1101,
+     4
+    ],
+    [
+     1108,
+     2
+    ],
+    [
+     1301,
+     4
+    ],
+    [
+     1202,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2302,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 57,
+   "name": "Glass",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1005,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1110,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 58,
+   "name": "X-ray Cracking",
+   "type": "refine",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1114,
+     1
+    ],
+    [
+     1120,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1120,
+     3
+    ],
+    [
+     1109,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": false
+  },
+  {
+   "id": 59,
+   "name": "High-purity Silicon",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1003,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1105,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 60,
+   "name": "Diamond",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1109,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1112,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 61,
+   "name": "Diamond (advanced)",
+   "type": "smelt",
+   "seconds": 1.5,
+   "inputs": [
+    [
+     1012,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1112,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 62,
+   "name": "Crystal Silicon (advanced)",
+   "type": "assemble",
+   "seconds": 1.5,
+   "inputs": [
+    [
+     1013,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1113,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 63,
+   "name": "Steel",
+   "type": "smelt",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1101,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1103,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 64,
+   "name": "Thermal Power Plant",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1101,
+     10
+    ],
+    [
+     1108,
+     4
+    ],
+    [
+     1201,
+     4
+    ],
+    [
+     1202,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2204,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 65,
+   "name": "Titanium Ingot",
+   "type": "smelt",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1004,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1106,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 66,
+   "name": "Titanium Alloy",
+   "type": "smelt",
+   "seconds": 12.0,
+   "inputs": [
+    [
+     1106,
+     4
+    ],
+    [
+     1103,
+     4
+    ],
+    [
+     1116,
+     8
+    ]
+   ],
+   "outputs": [
+    [
+     1107,
+     4
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 67,
+   "name": "Solar Panel",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1104,
+     10
+    ],
+    [
+     1105,
+     10
+    ],
+    [
+     1301,
+     5
+    ]
+   ],
+   "outputs": [
+    [
+     2205,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 68,
+   "name": "Photon Combiner",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1111,
+     2
+    ],
+    [
+     1301,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1404,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 69,
+   "name": "Photon Combiner (advanced)",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1014,
+     1
+    ],
+    [
+     1301,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1404,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 70,
+   "name": "Solar Sail",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1123,
+     1
+    ],
+    [
+     1404,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1501,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 71,
+   "name": "EM-Rail Ejector",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     20
+    ],
+    [
+     1201,
+     20
+    ],
+    [
+     1303,
+     5
+    ],
+    [
+     1205,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     2311,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 72,
+   "name": "Ray Receiver",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1103,
+     20
+    ],
+    [
+     1105,
+     20
+    ],
+    [
+     1404,
+     10
+    ],
+    [
+     1303,
+     5
+    ],
+    [
+     1205,
+     20
+    ]
+   ],
+   "outputs": [
+    [
+     2208,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 73,
+   "name": "Satellite Substation",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     2202,
+     1
+    ],
+    [
+     1205,
+     10
+    ],
+    [
+     1125,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2212,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 74,
+   "name": "Mass-energy Storage",
+   "type": "particle",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1208,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1122,
+     2
+    ],
+    [
+     1120,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": false
+  },
+  {
+   "id": 75,
+   "name": "Universe Matrix",
+   "type": "research",
+   "seconds": 15.0,
+   "inputs": [
+    [
+     6001,
+     1
+    ],
+    [
+     6002,
+     1
+    ],
+    [
+     6003,
+     1
+    ],
+    [
+     6004,
+     1
+    ],
+    [
+     6005,
+     1
+    ],
+    [
+     1122,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     6006,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 76,
+   "name": "Accumulator",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1101,
+     6
+    ],
+    [
+     1205,
+     1
+    ],
+    [
+     1113,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     2206,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 77,
+   "name": "Energy Exchanger",
+   "type": "assemble",
+   "seconds": 15.0,
+   "inputs": [
+    [
+     1107,
+     40
+    ],
+    [
+     1103,
+     40
+    ],
+    [
+     1303,
+     40
+    ],
+    [
+     1206,
+     8
+    ]
+   ],
+   "outputs": [
+    [
+     2209,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 78,
+   "name": "Space Warper",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1209,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1210,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 79,
+   "name": "Space Warper (advanced)",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     6005,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1210,
+     8
+    ]
+   ],
+   "handcraft": true,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 80,
+   "name": "Frame Material",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1124,
+     4
+    ],
+    [
+     1107,
+     1
+    ],
+    [
+     1105,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1125,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 81,
+   "name": "Dyson Sphere Component",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1125,
+     3
+    ],
+    [
+     1501,
+     3
+    ],
+    [
+     1303,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1502,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 82,
+   "name": "Vertical Launching Silo",
+   "type": "assemble",
+   "seconds": 30.0,
+   "inputs": [
+    [
+     1107,
+     80
+    ],
+    [
+     1125,
+     30
+    ],
+    [
+     1209,
+     20
+    ],
+    [
+     1305,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     2312,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 83,
+   "name": "Small Carrier Rocket",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1502,
+     2
+    ],
+    [
+     1802,
+     4
+    ],
+    [
+     1305,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1503,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 84,
+   "name": "Conveyor Belt Mk.I",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1101,
+     2
+    ],
+    [
+     1201,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2001,
+     3
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 85,
+   "name": "Sorter Mk.I",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1101,
+     1
+    ],
+    [
+     1301,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2011,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 86,
+   "name": "Depot Mk.I",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     4
+    ],
+    [
+     1108,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2101,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 87,
+   "name": "Splitter",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     3
+    ],
+    [
+     1201,
+     2
+    ],
+    [
+     1301,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2020,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 88,
+   "name": "Sorter Mk.II",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     2011,
+     2
+    ],
+    [
+     1203,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2012,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 89,
+   "name": "Conveyor Belt Mk.II",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     2001,
+     3
+    ],
+    [
+     1204,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2002,
+     3
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 90,
+   "name": "Sorter Mk.III",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     2012,
+     2
+    ],
+    [
+     1204,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2013,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 91,
+   "name": "Depot Mk.II",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1103,
+     8
+    ],
+    [
+     1108,
+     8
+    ]
+   ],
+   "outputs": [
+    [
+     2102,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 92,
+   "name": "Conveyor Belt Mk.III",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     2002,
+     3
+    ],
+    [
+     1205,
+     1
+    ],
+    [
+     1123,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2003,
+     3
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 93,
+   "name": "Planetary Logistics Station",
+   "type": "assemble",
+   "seconds": 20.0,
+   "inputs": [
+    [
+     1103,
+     40
+    ],
+    [
+     1106,
+     40
+    ],
+    [
+     1303,
+     40
+    ],
+    [
+     1206,
+     20
+    ]
+   ],
+   "outputs": [
+    [
+     2103,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 94,
+   "name": "Logistics Drone",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1101,
+     5
+    ],
+    [
+     1303,
+     2
+    ],
+    [
+     1405,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     5001,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 95,
+   "name": "Interstellar Logistics Station",
+   "type": "assemble",
+   "seconds": 30.0,
+   "inputs": [
+    [
+     2103,
+     1
+    ],
+    [
+     1107,
+     40
+    ],
+    [
+     1206,
+     20
+    ]
+   ],
+   "outputs": [
+    [
+     2104,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 96,
+   "name": "Interstellar Logistics Vessel",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1107,
+     10
+    ],
+    [
+     1303,
+     10
+    ],
+    [
+     1406,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     5002,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 97,
+   "name": "Electric Motor",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     2
+    ],
+    [
+     1201,
+     1
+    ],
+    [
+     1202,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1203,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 98,
+   "name": "Electromagnetic Turbine",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1203,
+     2
+    ],
+    [
+     1202,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1204,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 99,
+   "name": "Particle Container",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1204,
+     2
+    ],
+    [
+     1104,
+     2
+    ],
+    [
+     1123,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1206,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 100,
+   "name": "Particle Container (advanced)",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1016,
+     10
+    ],
+    [
+     1104,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1206,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 101,
+   "name": "Graviton Lens",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1112,
+     4
+    ],
+    [
+     1127,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1209,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 102,
+   "name": "Gravity Matrix",
+   "type": "research",
+   "seconds": 24.0,
+   "inputs": [
+    [
+     1209,
+     1
+    ],
+    [
+     1305,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     6005,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 103,
+   "name": "Super-magnetic Ring",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1204,
+     2
+    ],
+    [
+     1102,
+     3
+    ],
+    [
+     1109,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1205,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 104,
+   "name": "Strange Matter",
+   "type": "particle",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1206,
+     2
+    ],
+    [
+     1101,
+     2
+    ],
+    [
+     1121,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1127,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 106,
+   "name": "Proliferator Mk.I",
+   "type": "assemble",
+   "seconds": 0.5,
+   "inputs": [
+    [
+     1006,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1141,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 107,
+   "name": "Proliferator Mk.II",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1141,
+     2
+    ],
+    [
+     1112,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1142,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 108,
+   "name": "Proliferator Mk.III",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1142,
+     2
+    ],
+    [
+     1124,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1143,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 109,
+   "name": "Spray Coater",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1103,
+     4
+    ],
+    [
+     1401,
+     2
+    ],
+    [
+     1301,
+     2
+    ],
+    [
+     1302,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2313,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 110,
+   "name": "Fractionator",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1103,
+     8
+    ],
+    [
+     1108,
+     4
+    ],
+    [
+     1110,
+     4
+    ],
+    [
+     1303,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2314,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 111,
+   "name": "Orbital Collector",
+   "type": "assemble",
+   "seconds": 30.0,
+   "inputs": [
+    [
+     2104,
+     1
+    ],
+    [
+     1205,
+     50
+    ],
+    [
+     1406,
+     20
+    ],
+    [
+     2207,
+     20
+    ]
+   ],
+   "outputs": [
+    [
+     2105,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 112,
+   "name": "Foundation",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1108,
+     3
+    ],
+    [
+     1103,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1131,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 113,
+   "name": "Mini Fusion Power Plant",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1107,
+     12
+    ],
+    [
+     1205,
+     10
+    ],
+    [
+     1124,
+     8
+    ],
+    [
+     1303,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2211,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 114,
+   "name": "Storage Tank",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     8
+    ],
+    [
+     1108,
+     4
+    ],
+    [
+     1110,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2106,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 115,
+   "name": "Deuterium Fractionation",
+   "type": "fractionate",
+   "seconds": 0.016666666666666666,
+   "inputs": [
+    [
+     1120,
+     100
+    ]
+   ],
+   "outputs": [
+    [
+     1121,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": true
+  },
+  {
+   "id": 116,
+   "name": "Plane Smelter",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     2302,
+     1
+    ],
+    [
+     1125,
+     5
+    ],
+    [
+     1304,
+     4
+    ],
+    [
+     1016,
+     15
+    ]
+   ],
+   "outputs": [
+    [
+     2315,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 117,
+   "name": "Traffic Monitor",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     3
+    ],
+    [
+     1201,
+     2
+    ],
+    [
+     1110,
+     1
+    ],
+    [
+     1301,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2030,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 118,
+   "name": "Geothermal Power Station",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     15
+    ],
+    [
+     1104,
+     20
+    ],
+    [
+     1404,
+     4
+    ],
+    [
+     1205,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2213,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 119,
+   "name": "Advanced Mining Machine",
+   "type": "assemble",
+   "seconds": 20.0,
+   "inputs": [
+    [
+     1107,
+     20
+    ],
+    [
+     1125,
+     10
+    ],
+    [
+     1205,
+     10
+    ],
+    [
+     1305,
+     4
+    ],
+    [
+     1014,
+     40
+    ]
+   ],
+   "outputs": [
+    [
+     2316,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 120,
+   "name": "Automatic Piler",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1103,
+     3
+    ],
+    [
+     1201,
+     4
+    ],
+    [
+     1205,
+     1
+    ],
+    [
+     1303,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2040,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 121,
+   "name": "Reformed Refinement",
+   "type": "refine",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1114,
+     2
+    ],
+    [
+     1120,
+     1
+    ],
+    [
+     1006,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1114,
+     3
+    ]
+   ],
+   "handcraft": false,
+   "explicit": true,
+   "productive": false
+  },
+  {
+   "id": 122,
+   "name": "Logistics Distributor",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1101,
+     8
+    ],
+    [
+     1401,
+     4
+    ],
+    [
+     1303,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2107,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 123,
+   "name": "Logistics Bot",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     2
+    ],
+    [
+     1407,
+     1
+    ],
+    [
+     1303,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     5003,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 124,
+   "name": "Quantum Chemical Plant",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     2309,
+     1
+    ],
+    [
+     1119,
+     10
+    ],
+    [
+     1127,
+     3
+    ],
+    [
+     1305,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     2317,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 125,
+   "name": "Gauss Turret",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1101,
+     8
+    ],
+    [
+     1201,
+     8
+    ],
+    [
+     1301,
+     2
+    ],
+    [
+     1202,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     3001,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 126,
+   "name": "Laser Turret",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     9
+    ],
+    [
+     1401,
+     6
+    ],
+    [
+     1301,
+     6
+    ],
+    [
+     1404,
+     9
+    ]
+   ],
+   "outputs": [
+    [
+     3002,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 127,
+   "name": "Implosion Cannon",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1103,
+     10
+    ],
+    [
+     1203,
+     8
+    ],
+    [
+     1301,
+     10
+    ],
+    [
+     1205,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     3003,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 128,
+   "name": "Plasma Turret",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1107,
+     20
+    ],
+    [
+     1119,
+     10
+    ],
+    [
+     1205,
+     10
+    ],
+    [
+     1401,
+     5
+    ],
+    [
+     1303,
+     5
+    ]
+   ],
+   "outputs": [
+    [
+     3004,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 129,
+   "name": "Missile Turret",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     8
+    ],
+    [
+     1203,
+     6
+    ],
+    [
+     1301,
+     12
+    ],
+    [
+     1407,
+     6
+    ]
+   ],
+   "outputs": [
+    [
+     3005,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 130,
+   "name": "Jammer Tower",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1104,
+     12
+    ],
+    [
+     1401,
+     9
+    ],
+    [
+     1112,
+     6
+    ],
+    [
+     1303,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     3006,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 131,
+   "name": "Signal Tower",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     2202,
+     2
+    ],
+    [
+     1103,
+     12
+    ],
+    [
+     1113,
+     6
+    ]
+   ],
+   "outputs": [
+    [
+     3007,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 132,
+   "name": "Planetary Shield Generator",
+   "type": "assemble",
+   "seconds": 10.0,
+   "inputs": [
+    [
+     1103,
+     20
+    ],
+    [
+     1204,
+     20
+    ],
+    [
+     1205,
+     5
+    ],
+    [
+     1206,
+     5
+    ]
+   ],
+   "outputs": [
+    [
+     3008,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 133,
+   "name": "Combustible Unit",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1006,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1128,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 134,
+   "name": "Explosive Unit",
+   "type": "chemical",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1128,
+     2
+    ],
+    [
+     1115,
+     2
+    ],
+    [
+     1116,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1129,
+     2
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 135,
+   "name": "Crystal Explosive Unit",
+   "type": "chemical",
+   "seconds": 24.0,
+   "inputs": [
+    [
+     1129,
+     8
+    ],
+    [
+     1126,
+     1
+    ],
+    [
+     1113,
+     8
+    ]
+   ],
+   "outputs": [
+    [
+     1130,
+     8
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 136,
+   "name": "Magnum Ammo Box",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     1104,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1601,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 137,
+   "name": "Titanium Ammo Box",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1601,
+     1
+    ],
+    [
+     1106,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1602,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 138,
+   "name": "Superalloy Ammo Box",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1602,
+     1
+    ],
+    [
+     1107,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1603,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 139,
+   "name": "Shell Set",
+   "type": "assemble",
+   "seconds": 1.5,
+   "inputs": [
+    [
+     1104,
+     9
+    ],
+    [
+     1128,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1604,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 140,
+   "name": "High-Explosive Shell Set",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1604,
+     1
+    ],
+    [
+     1106,
+     6
+    ],
+    [
+     1129,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1605,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 141,
+   "name": "Crystal Shell Set",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1605,
+     1
+    ],
+    [
+     1107,
+     3
+    ],
+    [
+     1130,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1606,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 142,
+   "name": "Plasma Capsule",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1123,
+     1
+    ],
+    [
+     1102,
+     2
+    ],
+    [
+     1121,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1607,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 143,
+   "name": "Antimatter Capsule",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1607,
+     1
+    ],
+    [
+     1206,
+     1
+    ],
+    [
+     1120,
+     10
+    ],
+    [
+     1122,
+     10
+    ]
+   ],
+   "outputs": [
+    [
+     1608,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 144,
+   "name": "Missile Set",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1104,
+     6
+    ],
+    [
+     1301,
+     3
+    ],
+    [
+     1128,
+     2
+    ],
+    [
+     1407,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1609,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 145,
+   "name": "Supersonic Missile Set",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1609,
+     2
+    ],
+    [
+     1303,
+     4
+    ],
+    [
+     1129,
+     4
+    ],
+    [
+     1405,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1610,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 146,
+   "name": "Gravity Missile Set",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1610,
+     3
+    ],
+    [
+     1130,
+     6
+    ],
+    [
+     1127,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1611,
+     3
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 147,
+   "name": "Prototype",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1101,
+     3
+    ],
+    [
+     1407,
+     1
+    ],
+    [
+     1301,
+     2
+    ],
+    [
+     1401,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     5101,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 148,
+   "name": "Precision Drone",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     5101,
+     1
+    ],
+    [
+     1204,
+     1
+    ],
+    [
+     1301,
+     2
+    ],
+    [
+     1404,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     5102,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 149,
+   "name": "Attack Drone",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     5101,
+     1
+    ],
+    [
+     1204,
+     1
+    ],
+    [
+     1303,
+     1
+    ],
+    [
+     1206,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     5103,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 150,
+   "name": "Corvette",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     1107,
+     5
+    ],
+    [
+     1406,
+     1
+    ],
+    [
+     1303,
+     2
+    ],
+    [
+     1206,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     5111,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 151,
+   "name": "Destroyer",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1125,
+     20
+    ],
+    [
+     1406,
+     4
+    ],
+    [
+     1303,
+     4
+    ],
+    [
+     1127,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     5112,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 105,
+   "name": "Engine",
+   "type": "assemble",
+   "seconds": 3.0,
+   "inputs": [
+    [
+     1202,
+     1
+    ],
+    [
+     1104,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1407,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 152,
+   "name": "Battlefield Analysis Base",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1103,
+     12
+    ],
+    [
+     1301,
+     18
+    ],
+    [
+     1302,
+     6
+    ],
+    [
+     1407,
+     12
+    ]
+   ],
+   "outputs": [
+    [
+     3009,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 153,
+   "name": "Self-evolution Lab",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     2901,
+     1
+    ],
+    [
+     5202,
+     10
+    ],
+    [
+     5201,
+     20
+    ],
+    [
+     1305,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2902,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 154,
+   "name": "Re-composing Assembler",
+   "type": "assemble",
+   "seconds": 5.0,
+   "inputs": [
+    [
+     2305,
+     1
+    ],
+    [
+     5203,
+     10
+    ],
+    [
+     5206,
+     30
+    ],
+    [
+     1305,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2318,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 155,
+   "name": "Negentropy Smelter",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     2315,
+     1
+    ],
+    [
+     5204,
+     10
+    ],
+    [
+     5206,
+     30
+    ],
+    [
+     1305,
+     4
+    ]
+   ],
+   "outputs": [
+    [
+     2319,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 156,
+   "name": "Strange Annihilation Fuel Rod",
+   "type": "assemble",
+   "seconds": 32.0,
+   "inputs": [
+    [
+     1803,
+     8
+    ],
+    [
+     5205,
+     1
+    ],
+    [
+     1127,
+     2
+    ],
+    [
+     1125,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     1804,
+     1
+    ]
+   ],
+   "handcraft": false,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 157,
+   "name": "SR Plasma Turret",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1103,
+     15
+    ],
+    [
+     1205,
+     5
+    ],
+    [
+     1401,
+     5
+    ],
+    [
+     1303,
+     5
+    ]
+   ],
+   "outputs": [
+    [
+     3010,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 158,
+   "name": "Jamming Capsule",
+   "type": "assemble",
+   "seconds": 2.0,
+   "inputs": [
+    [
+     1204,
+     1
+    ],
+    [
+     1401,
+     1
+    ],
+    [
+     1120,
+     3
+    ]
+   ],
+   "outputs": [
+    [
+     1612,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 159,
+   "name": "Suppressing Capsule",
+   "type": "assemble",
+   "seconds": 8.0,
+   "inputs": [
+    [
+     1612,
+     2
+    ],
+    [
+     1205,
+     1
+    ],
+    [
+     1119,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     1613,
+     2
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 160,
+   "name": "Pile Sorter",
+   "type": "assemble",
+   "seconds": 1.0,
+   "inputs": [
+    [
+     2013,
+     2
+    ],
+    [
+     1205,
+     1
+    ],
+    [
+     1303,
+     1
+    ]
+   ],
+   "outputs": [
+    [
+     2014,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 161,
+   "name": "Holo Beacon",
+   "type": "assemble",
+   "seconds": 4.0,
+   "inputs": [
+    [
+     1101,
+     3
+    ],
+    [
+     1111,
+     4
+    ],
+    [
+     1401,
+     2
+    ],
+    [
+     1301,
+     2
+    ]
+   ],
+   "outputs": [
+    [
+     2401,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  },
+  {
+   "id": 162,
+   "name": "Dark Fog Lens",
+   "type": "assemble",
+   "seconds": 6.0,
+   "inputs": [
+    [
+     1209,
+     1
+    ],
+    [
+     5201,
+     12
+    ]
+   ],
+   "outputs": [
+    [
+     1211,
+     1
+    ]
+   ],
+   "handcraft": true,
+   "explicit": false,
+   "productive": true
+  }
+ ],
+ "techs": [
+  {
+   "id": 1,
+   "name": "Dyson Sphere Program",
+   "hash_needed": 1,
+   "items": [],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 1001,
+   "name": "Electromagnetism",
+   "hash_needed": 1200,
+   "items": [
+    [
+     1202,
+     30
+    ]
+   ],
+   "pre_techs": [
+    1
+   ],
+   "unlock_recipes": [
+    7,
+    8,
+    48
+   ]
+  },
+  {
+   "id": 1002,
+   "name": "Electromagnetic Matrix",
+   "hash_needed": 1800,
+   "items": [
+    [
+     1202,
+     20
+    ],
+    [
+     1301,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    9,
+    10
+   ]
+  },
+  {
+   "id": 1101,
+   "name": "High-Efficiency Plasma Control",
+   "hash_needed": 9000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    11,
+    12,
+    13
+   ]
+  },
+  {
+   "id": 1102,
+   "name": "Plasma Extract Refining",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1120,
+    1101
+   ],
+   "unlock_recipes": [
+    14,
+    15,
+    16
+   ]
+  },
+  {
+   "id": 1103,
+   "name": "X-Ray Cracking",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1121,
+    1102
+   ],
+   "unlock_recipes": [
+    58
+   ]
+  },
+  {
+   "id": 1104,
+   "name": "Reformed Refinement",
+   "hash_needed": 90000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1103
+   ],
+   "unlock_recipes": [
+    121
+   ]
+  },
+  {
+   "id": 1105,
+   "name": "Holo Beacon",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1101
+   ],
+   "unlock_recipes": [
+    161
+   ]
+  },
+  {
+   "id": 1111,
+   "name": "Energy Matrix",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1102
+   ],
+   "unlock_recipes": [
+    18
+   ]
+  },
+  {
+   "id": 1112,
+   "name": "Hydrogen Fuel Rod",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1111
+   ],
+   "unlock_recipes": [
+    19
+   ]
+  },
+  {
+   "id": 1113,
+   "name": "Thruster",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1112
+   ],
+   "unlock_recipes": [
+    20
+   ]
+  },
+  {
+   "id": 1114,
+   "name": "Reinforced Thruster",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1113
+   ],
+   "unlock_recipes": [
+    21
+   ]
+  },
+  {
+   "id": 1120,
+   "name": "Fluid Storage Encapsulation",
+   "hash_needed": 9000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    114,
+    49
+   ]
+  },
+  {
+   "id": 1121,
+   "name": "Basic Chemical Engineering",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1120,
+    1102
+   ],
+   "unlock_recipes": [
+    22,
+    23,
+    24
+   ]
+  },
+  {
+   "id": 1122,
+   "name": "Polymer Chemical Engineering",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1121
+   ],
+   "unlock_recipes": [
+    25,
+    54
+   ]
+  },
+  {
+   "id": 1123,
+   "name": "High-Strength Crystal",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1122
+   ],
+   "unlock_recipes": [
+    26
+   ]
+  },
+  {
+   "id": 1124,
+   "name": "Structure Matrix",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1123
+   ],
+   "unlock_recipes": [
+    27
+   ]
+  },
+  {
+   "id": 1125,
+   "name": "Casimir Crystal",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1124
+   ],
+   "unlock_recipes": [
+    28,
+    29
+   ]
+  },
+  {
+   "id": 1126,
+   "name": "High-Strength Glass",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     6
+    ]
+   ],
+   "pre_techs": [
+    1132
+   ],
+   "unlock_recipes": [
+    30
+   ]
+  },
+  {
+   "id": 1131,
+   "name": "Applied Superconductor",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1121
+   ],
+   "unlock_recipes": [
+    31,
+    32
+   ]
+  },
+  {
+   "id": 1132,
+   "name": "High-Strength Material",
+   "hash_needed": 135000,
+   "items": [
+    [
+     6002,
+     16
+    ],
+    [
+     6003,
+     4
+    ]
+   ],
+   "pre_techs": [
+    1131
+   ],
+   "unlock_recipes": [
+    33,
+    35
+   ]
+  },
+  {
+   "id": 1133,
+   "name": "Particle Control",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     16
+    ],
+    [
+     6002,
+     16
+    ],
+    [
+     6003,
+     4
+    ]
+   ],
+   "pre_techs": [
+    1132
+   ],
+   "unlock_recipes": [
+    36,
+    62
+   ]
+  },
+  {
+   "id": 1134,
+   "name": "Deuterium Fractionation",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     30
+    ]
+   ],
+   "pre_techs": [
+    1412,
+    1102
+   ],
+   "unlock_recipes": [
+    110,
+    115
+   ]
+  },
+  {
+   "id": 1141,
+   "name": "Wave Function Interference",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6004,
+     2
+    ]
+   ],
+   "pre_techs": [
+    1126,
+    1125
+   ],
+   "unlock_recipes": [
+    38
+   ]
+  },
+  {
+   "id": 1142,
+   "name": "Miniature Particle Collider",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1124
+   ],
+   "unlock_recipes": [
+    39,
+    40
+   ]
+  },
+  {
+   "id": 1143,
+   "name": "Strange Matter",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1142
+   ],
+   "unlock_recipes": [
+    104
+   ]
+  },
+  {
+   "id": 1144,
+   "name": "Artificial Star",
+   "hash_needed": 432000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1145
+   ],
+   "unlock_recipes": [
+    43
+   ]
+  },
+  {
+   "id": 1145,
+   "name": "Controlled Annihilation Reaction",
+   "hash_needed": 600000,
+   "items": [
+    [
+     6002,
+     24
+    ],
+    [
+     6005,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1506
+   ],
+   "unlock_recipes": [
+    42,
+    44
+   ]
+  },
+  {
+   "id": 1151,
+   "name": "Proliferator Mk.I",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1311,
+    1101
+   ],
+   "unlock_recipes": [
+    106,
+    109
+   ]
+  },
+  {
+   "id": 1152,
+   "name": "Proliferator Mk.II",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     16
+    ],
+    [
+     6002,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1302,
+    1151
+   ],
+   "unlock_recipes": [
+    107
+   ]
+  },
+  {
+   "id": 1153,
+   "name": "Proliferator Mk.III",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     8
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     4
+    ]
+   ],
+   "pre_techs": [
+    1152,
+    1132
+   ],
+   "unlock_recipes": [
+    108
+   ]
+  },
+  {
+   "id": 1201,
+   "name": "Basic Assembling",
+   "hash_needed": 1800,
+   "items": [
+    [
+     1301,
+     20
+    ],
+    [
+     1201,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    45
+   ]
+  },
+  {
+   "id": 1202,
+   "name": "High-Speed Assembling",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1201,
+    1302
+   ],
+   "unlock_recipes": [
+    46
+   ]
+  },
+  {
+   "id": 1203,
+   "name": "Quantum Printing",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1202,
+    1303
+   ],
+   "unlock_recipes": [
+    47
+   ]
+  },
+  {
+   "id": 1302,
+   "name": "Processor",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1311
+   ],
+   "unlock_recipes": [
+    51
+   ]
+  },
+  {
+   "id": 1303,
+   "name": "Quantum Chip",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1312,
+    1141
+   ],
+   "unlock_recipes": [
+    52
+   ]
+  },
+  {
+   "id": 1304,
+   "name": "Photon Spotlight Mining",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    1303
+   ],
+   "unlock_recipes": [
+    119
+   ]
+  },
+  {
+   "id": 1305,
+   "name": "Mesoscopic Quantum Entanglement",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1303,
+    1143
+   ],
+   "unlock_recipes": [
+    124
+   ]
+  },
+  {
+   "id": 1311,
+   "name": "Semiconductor Material",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [
+    1201
+   ],
+   "unlock_recipes": [
+    53
+   ]
+  },
+  {
+   "id": 1312,
+   "name": "Information Matrix",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1302,
+    1133
+   ],
+   "unlock_recipes": [
+    55
+   ]
+  },
+  {
+   "id": 1401,
+   "name": "Automatic Metallurgy",
+   "hash_needed": 1800,
+   "items": [
+    [
+     1202,
+     20
+    ],
+    [
+     1301,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    56,
+    57
+   ]
+  },
+  {
+   "id": 1402,
+   "name": "Smelting Purification",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1401
+   ],
+   "unlock_recipes": [
+    34,
+    17,
+    59
+   ]
+  },
+  {
+   "id": 1403,
+   "name": "Crystal Smelting",
+   "hash_needed": 90000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1402
+   ],
+   "unlock_recipes": [
+    60,
+    61,
+    37
+   ]
+  },
+  {
+   "id": 1411,
+   "name": "Steel Smelting",
+   "hash_needed": 21600,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1401
+   ],
+   "unlock_recipes": [
+    63
+   ]
+  },
+  {
+   "id": 1412,
+   "name": "Thermal Power",
+   "hash_needed": 5400,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1201
+   ],
+   "unlock_recipes": [
+    64
+   ]
+  },
+  {
+   "id": 1413,
+   "name": "Titanium Smelting",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1411
+   ],
+   "unlock_recipes": [
+    65
+   ]
+  },
+  {
+   "id": 1414,
+   "name": "High-Strength Titanium Alloy",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     2
+    ]
+   ],
+   "pre_techs": [
+    1413
+   ],
+   "unlock_recipes": [
+    66
+   ]
+  },
+  {
+   "id": 1415,
+   "name": "Reclamation",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1411
+   ],
+   "unlock_recipes": [
+    112
+   ]
+  },
+  {
+   "id": 1416,
+   "name": "Mini Fusion Power Generation",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1134
+   ],
+   "unlock_recipes": [
+    113,
+    41
+   ]
+  },
+  {
+   "id": 1417,
+   "name": "Plane-Filter Smelting",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1141
+   ],
+   "unlock_recipes": [
+    116
+   ]
+  },
+  {
+   "id": 1501,
+   "name": "Solar Collection",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [
+    1402,
+    1002,
+    1201
+   ],
+   "unlock_recipes": [
+    67
+   ]
+  },
+  {
+   "id": 1502,
+   "name": "Photon Frequency Conversion",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1501
+   ],
+   "unlock_recipes": [
+    68,
+    69
+   ]
+  },
+  {
+   "id": 1503,
+   "name": "Solar Sail Orbit System",
+   "hash_needed": 54000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1502
+   ],
+   "unlock_recipes": [
+    70,
+    71
+   ]
+  },
+  {
+   "id": 1504,
+   "name": "Ray Receiver",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1503
+   ],
+   "unlock_recipes": [
+    72
+   ]
+  },
+  {
+   "id": 1505,
+   "name": "Planetary Ionosphere Utilization",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1504
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 1506,
+   "name": "Dirac Inversion Mechanism",
+   "hash_needed": 540000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1505
+   ],
+   "unlock_recipes": [
+    74
+   ]
+  },
+  {
+   "id": 1507,
+   "name": "Universe Matrix",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1506
+   ],
+   "unlock_recipes": [
+    75
+   ]
+  },
+  {
+   "id": 1508,
+   "name": "Mission Completed !",
+   "hash_needed": 3600000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    1507
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 1509,
+   "name": "Dark Fog Lens",
+   "hash_needed": 30000,
+   "items": [
+    [
+     5201,
+     120
+    ]
+   ],
+   "pre_techs": [
+    1505
+   ],
+   "unlock_recipes": [
+    162
+   ]
+  },
+  {
+   "id": 1511,
+   "name": "Energy Storage",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1403,
+    1501
+   ],
+   "unlock_recipes": [
+    76
+   ]
+  },
+  {
+   "id": 1512,
+   "name": "Interstellar Power Transmission",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     2
+    ]
+   ],
+   "pre_techs": [
+    1414,
+    1511
+   ],
+   "unlock_recipes": [
+    77
+   ]
+  },
+  {
+   "id": 1513,
+   "name": "Geothermal Extraction",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1502
+   ],
+   "unlock_recipes": [
+    118
+   ]
+  },
+  {
+   "id": 1521,
+   "name": "High-Strength Lightweight Structure",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6003,
+     2
+    ]
+   ],
+   "pre_techs": [
+    1503
+   ],
+   "unlock_recipes": [
+    80,
+    81
+   ]
+  },
+  {
+   "id": 1522,
+   "name": "Vertical Launching Silo",
+   "hash_needed": 576000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1521
+   ],
+   "unlock_recipes": [
+    82,
+    83
+   ]
+  },
+  {
+   "id": 1523,
+   "name": "Dyson Sphere Stress System",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1522
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 1601,
+   "name": "Basic Logistics System",
+   "hash_needed": 1800,
+   "items": [
+    [
+     1301,
+     20
+    ],
+    [
+     1201,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    84,
+    85,
+    86
+   ]
+  },
+  {
+   "id": 1602,
+   "name": "Upgraded Logistics System",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1601
+   ],
+   "unlock_recipes": [
+    87,
+    88,
+    117
+   ]
+  },
+  {
+   "id": 1603,
+   "name": "High-Efficiency Logistics System",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1602
+   ],
+   "unlock_recipes": [
+    89,
+    90,
+    91
+   ]
+  },
+  {
+   "id": 1604,
+   "name": "Planetary Logistics System",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1603
+   ],
+   "unlock_recipes": [
+    92,
+    93,
+    94
+   ]
+  },
+  {
+   "id": 1605,
+   "name": "Interstellar Logistics System",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     2
+    ]
+   ],
+   "pre_techs": [
+    1604,
+    1414
+   ],
+   "unlock_recipes": [
+    95,
+    96
+   ]
+  },
+  {
+   "id": 1606,
+   "name": "Gas Giants Exploitation",
+   "hash_needed": 432000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1605,
+    1512
+   ],
+   "unlock_recipes": [
+    111
+   ]
+  },
+  {
+   "id": 1607,
+   "name": "Integrated Logistics System",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     1
+    ]
+   ],
+   "pre_techs": [
+    1603
+   ],
+   "unlock_recipes": [
+    120,
+    160
+   ]
+  },
+  {
+   "id": 1608,
+   "name": "Distribution Logistics System",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1602
+   ],
+   "unlock_recipes": [
+    122,
+    123
+   ]
+  },
+  {
+   "id": 1701,
+   "name": "Electromagnetic Drive",
+   "hash_needed": 9000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    97
+   ]
+  },
+  {
+   "id": 1702,
+   "name": "Magnetic Levitation",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1701
+   ],
+   "unlock_recipes": [
+    98
+   ]
+  },
+  {
+   "id": 1703,
+   "name": "Magnetic Particle Trap",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1702
+   ],
+   "unlock_recipes": [
+    99,
+    100
+   ]
+  },
+  {
+   "id": 1704,
+   "name": "Gravitational Wave Refraction",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1143,
+    1703
+   ],
+   "unlock_recipes": [
+    101,
+    78
+   ]
+  },
+  {
+   "id": 1705,
+   "name": "Gravity Matrix",
+   "hash_needed": 576000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1303,
+    1704
+   ],
+   "unlock_recipes": [
+    102,
+    79
+   ]
+  },
+  {
+   "id": 1711,
+   "name": "Super Magnetic Field Generator",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1702
+   ],
+   "unlock_recipes": [
+    103
+   ]
+  },
+  {
+   "id": 1712,
+   "name": "Satellite Power Distribution System",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1711
+   ],
+   "unlock_recipes": [
+    73
+   ]
+  },
+  {
+   "id": 1801,
+   "name": "Weapon System",
+   "hash_needed": 7200,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    125,
+    136
+   ]
+  },
+  {
+   "id": 1802,
+   "name": "Combustible Unit",
+   "hash_needed": 21600,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1401
+   ],
+   "unlock_recipes": [
+    133
+   ]
+  },
+  {
+   "id": 1803,
+   "name": "Explosive Unit",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1123
+   ],
+   "unlock_recipes": [
+    134
+   ]
+  },
+  {
+   "id": 1804,
+   "name": "Crystal Explosive Unit",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1125
+   ],
+   "unlock_recipes": [
+    135
+   ]
+  },
+  {
+   "id": 1805,
+   "name": "Engine",
+   "hash_needed": 7200,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1001
+   ],
+   "unlock_recipes": [
+    105
+   ]
+  },
+  {
+   "id": 1806,
+   "name": "Missile Turret",
+   "hash_needed": 54000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1805,
+    1801
+   ],
+   "unlock_recipes": [
+    129,
+    144
+   ]
+  },
+  {
+   "id": 1807,
+   "name": "Implosion Cannon",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1806
+   ],
+   "unlock_recipes": [
+    127,
+    139
+   ]
+  },
+  {
+   "id": 1808,
+   "name": "Signal Tower",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1806
+   ],
+   "unlock_recipes": [
+    131
+   ]
+  },
+  {
+   "id": 1809,
+   "name": "Planetary Defense System",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1807
+   ],
+   "unlock_recipes": [
+    126,
+    132
+   ]
+  },
+  {
+   "id": 1810,
+   "name": "Jammer Tower",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1806
+   ],
+   "unlock_recipes": [
+    130,
+    158
+   ]
+  },
+  {
+   "id": 1811,
+   "name": "Plasma Turret",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    1809
+   ],
+   "unlock_recipes": [
+    128,
+    142,
+    157
+   ]
+  },
+  {
+   "id": 1812,
+   "name": "Titanium Ammo Box",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ]
+   ],
+   "pre_techs": [
+    1801
+   ],
+   "unlock_recipes": [
+    137
+   ]
+  },
+  {
+   "id": 1813,
+   "name": "Superalloy Ammo Box",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     5
+    ]
+   ],
+   "pre_techs": [
+    1812
+   ],
+   "unlock_recipes": [
+    138
+   ]
+  },
+  {
+   "id": 1814,
+   "name": "High-Explosive Shell Set",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1807
+   ],
+   "unlock_recipes": [
+    140
+   ]
+  },
+  {
+   "id": 1815,
+   "name": "Supersonic Missile Set",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     3
+    ]
+   ],
+   "pre_techs": [
+    1814
+   ],
+   "unlock_recipes": [
+    145
+   ]
+  },
+  {
+   "id": 1816,
+   "name": "Crystal Shell Set",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1815
+   ],
+   "unlock_recipes": [
+    141
+   ]
+  },
+  {
+   "id": 1817,
+   "name": "Gravity Missile Set",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1816
+   ],
+   "unlock_recipes": [
+    146
+   ]
+  },
+  {
+   "id": 1818,
+   "name": "Antimatter Capsule",
+   "hash_needed": 540000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    1145,
+    1811
+   ],
+   "unlock_recipes": [
+    143
+   ]
+  },
+  {
+   "id": 1819,
+   "name": "Prototype",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1826
+   ],
+   "unlock_recipes": [
+    147
+   ]
+  },
+  {
+   "id": 1820,
+   "name": "Precision Drone",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1819
+   ],
+   "unlock_recipes": [
+    148
+   ]
+  },
+  {
+   "id": 1821,
+   "name": "Attack Drone",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1819
+   ],
+   "unlock_recipes": [
+    149
+   ]
+  },
+  {
+   "id": 1822,
+   "name": "Corvette",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1809,
+    1820
+   ],
+   "unlock_recipes": [
+    150
+   ]
+  },
+  {
+   "id": 1823,
+   "name": "Destroyer",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1822,
+    1821
+   ],
+   "unlock_recipes": [
+    151
+   ]
+  },
+  {
+   "id": 1824,
+   "name": "Suppressing Capsule",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1810
+   ],
+   "unlock_recipes": [
+    159
+   ]
+  },
+  {
+   "id": 1826,
+   "name": "Battlefield Analysis Base",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [
+    1801,
+    1805
+   ],
+   "unlock_recipes": [
+    152
+   ]
+  },
+  {
+   "id": 1901,
+   "name": "Digital Analog Computation",
+   "hash_needed": 24000,
+   "items": [
+    [
+     5201,
+     120
+    ]
+   ],
+   "pre_techs": [
+    1312
+   ],
+   "unlock_recipes": [
+    153
+   ]
+  },
+  {
+   "id": 1902,
+   "name": "Matter Recombination",
+   "hash_needed": 18000,
+   "items": [
+    [
+     5201,
+     120
+    ]
+   ],
+   "pre_techs": [
+    1203
+   ],
+   "unlock_recipes": [
+    154
+   ]
+  },
+  {
+   "id": 1903,
+   "name": "Negentropy Recursion",
+   "hash_needed": 36000,
+   "items": [
+    [
+     5201,
+     120
+    ]
+   ],
+   "pre_techs": [
+    1417
+   ],
+   "unlock_recipes": [
+    155
+   ]
+  },
+  {
+   "id": 1904,
+   "name": "High-Density Controlled Annihilation",
+   "hash_needed": 60000,
+   "items": [
+    [
+     5201,
+     120
+    ]
+   ],
+   "pre_techs": [
+    1145
+   ],
+   "unlock_recipes": [
+    156
+   ]
+  },
+  {
+   "id": 2101,
+   "name": "Mecha Core",
+   "hash_needed": 3600,
+   "items": [
+    [
+     1101,
+     20
+    ],
+    [
+     1104,
+     20
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2102,
+   "name": "Mecha Core",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2101
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2103,
+   "name": "Mecha Core",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2102
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2104,
+   "name": "Mecha Core",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    2103
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2105,
+   "name": "Mecha Core",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     2
+    ],
+    [
+     6002,
+     2
+    ],
+    [
+     6003,
+     2
+    ],
+    [
+     6004,
+     2
+    ],
+    [
+     6005,
+     2
+    ]
+   ],
+   "pre_techs": [
+    2104
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2106,
+   "name": "Mecha Core",
+   "hash_needed": 18000000,
+   "items": [
+    [
+     6006,
+     2
+    ]
+   ],
+   "pre_techs": [
+    2105
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2201,
+   "name": "Mechanical Frame",
+   "hash_needed": 7200,
+   "items": [
+    [
+     1203,
+     30
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2202,
+   "name": "Mechanical Frame",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2201
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2203,
+   "name": "Mechanical Frame",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2202
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2204,
+   "name": "Mechanical Frame",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2203
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2205,
+   "name": "Mechanical Frame",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2204
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2206,
+   "name": "Mechanical Frame",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2205
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2207,
+   "name": "Mechanical Frame",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2206
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2208,
+   "name": "Mechanical Frame",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    2207
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2301,
+   "name": "Inventory Capacity",
+   "hash_needed": 7200,
+   "items": [
+    [
+     1103,
+     60
+    ],
+    [
+     1301,
+     60
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2302,
+   "name": "Inventory Capacity",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2301
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2303,
+   "name": "Inventory Capacity",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2302
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2304,
+   "name": "Inventory Capacity",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2303
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2305,
+   "name": "Inventory Capacity",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2304
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2306,
+   "name": "Inventory Capacity",
+   "hash_needed": 600000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    2305
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2307,
+   "name": "Inventory Capacity",
+   "hash_needed": 900000,
+   "items": [
+    [
+     6006,
+     6
+    ]
+   ],
+   "pre_techs": [
+    2306
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2401,
+   "name": "Communication Control",
+   "hash_needed": 9000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2402,
+   "name": "Communication Control",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2401
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2403,
+   "name": "Communication Control",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2402
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2404,
+   "name": "Communication Control",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2403
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2405,
+   "name": "Communication Control",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2404
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2406,
+   "name": "Communication Control",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2405
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2407,
+   "name": "Communication Control",
+   "hash_needed": 64800000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2406
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2501,
+   "name": "Energy Circuit",
+   "hash_needed": 7200,
+   "items": [
+    [
+     1030,
+     30
+    ],
+    [
+     1006,
+     30
+    ],
+    [
+     1109,
+     30
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2502,
+   "name": "Energy Circuit",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2501
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2503,
+   "name": "Energy Circuit",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2502
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2504,
+   "name": "Energy Circuit",
+   "hash_needed": 600000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2503
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2505,
+   "name": "Energy Circuit",
+   "hash_needed": 2700000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2504
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2506,
+   "name": "Energy Circuit",
+   "hash_needed": 36000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2505
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2601,
+   "name": "Drone Engine",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2602,
+   "name": "Drone Engine",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2601
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2603,
+   "name": "Drone Engine",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2602
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2604,
+   "name": "Drone Engine",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2603
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2605,
+   "name": "Drone Engine",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2604
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2606,
+   "name": "Drone Engine",
+   "hash_needed": 45000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2605
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2701,
+   "name": "Mass Construction",
+   "hash_needed": 12000,
+   "items": [
+    [
+     1301,
+     30
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2702,
+   "name": "Mass Construction",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     30
+    ]
+   ],
+   "pre_techs": [
+    2701
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2703,
+   "name": "Mass Construction",
+   "hash_needed": 60000,
+   "items": [
+    [
+     6001,
+     30
+    ],
+    [
+     6002,
+     30
+    ]
+   ],
+   "pre_techs": [
+    2702
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2704,
+   "name": "Mass Construction",
+   "hash_needed": 192000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ]
+   ],
+   "pre_techs": [
+    2703
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2705,
+   "name": "Mass Construction",
+   "hash_needed": 240000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ],
+    [
+     6004,
+     15
+    ]
+   ],
+   "pre_techs": [
+    2704
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2706,
+   "name": "Mass Construction",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ],
+    [
+     6004,
+     15
+    ],
+    [
+     6005,
+     15
+    ]
+   ],
+   "pre_techs": [
+    2705
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2801,
+   "name": "Energy Shield",
+   "hash_needed": 9000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2802,
+   "name": "Energy Shield",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2801
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2803,
+   "name": "Energy Shield",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ]
+   ],
+   "pre_techs": [
+    2802
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2804,
+   "name": "Energy Shield",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    2803
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2805,
+   "name": "Energy Shield",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    2804
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2806,
+   "name": "Energy Shield",
+   "hash_needed": 18000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2805
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2807,
+   "name": "Energy Shield",
+   "hash_needed": 18000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    2806
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2901,
+   "name": "Drive Engine",
+   "hash_needed": 18000,
+   "items": [
+    [
+     1006,
+     30
+    ],
+    [
+     1407,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2902,
+   "name": "Drive Engine",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2901
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2903,
+   "name": "Drive Engine",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2902
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2904,
+   "name": "Drive Engine",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2903
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2905,
+   "name": "Drive Engine",
+   "hash_needed": 1080000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2904
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2906,
+   "name": "Drive Engine",
+   "hash_needed": 0,
+   "items": [
+    [
+     6006,
+     10
+    ]
+   ],
+   "pre_techs": [
+    2905
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2951,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 18000,
+   "items": [
+    [
+     6001,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2952,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2951
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2953,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    2952
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2954,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    2953
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2955,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     8
+    ],
+    [
+     6002,
+     8
+    ],
+    [
+     6003,
+     8
+    ],
+    [
+     6004,
+     8
+    ],
+    [
+     6005,
+     8
+    ]
+   ],
+   "pre_techs": [
+    2954
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 2956,
+   "name": "Auto Reconstruction Marking",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6006,
+     8
+    ]
+   ],
+   "pre_techs": [
+    2955
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3101,
+   "name": "Solar Sail Life",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ],
+    [
+     6003,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3102,
+   "name": "Solar Sail Life",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3101
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3103,
+   "name": "Solar Sail Life",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3102
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3104,
+   "name": "Solar Sail Life",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3103
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3105,
+   "name": "Solar Sail Life",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3104
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3106,
+   "name": "Solar Sail Life",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3105
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4201,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4202,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4201
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4203,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     30
+    ],
+    [
+     6002,
+     30
+    ],
+    [
+     6003,
+     30
+    ],
+    [
+     6004,
+     30
+    ],
+    [
+     6005,
+     30
+    ]
+   ],
+   "pre_techs": [
+    4202
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4204,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4203
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4205,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4204
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4206,
+   "name": "Solar Sail Attaching Speed",
+   "hash_needed": 2160000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4205
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3201,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 54000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ],
+    [
+     6003,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3202,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3201
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3203,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3202
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3204,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3203
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3205,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 420000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3204
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3206,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ],
+    [
+     6005,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3205
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3207,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": 1620000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3206
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3208,
+   "name": "Ray Transmission Efficiency",
+   "hash_needed": -12600000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3207
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3301,
+   "name": "Sorter Cargo Stacking",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ],
+    [
+     6003,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3302,
+   "name": "Sorter Cargo Stacking",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3301
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3303,
+   "name": "Sorter Cargo Stacking",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3302
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3304,
+   "name": "Sorter Cargo Stacking",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3303
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3305,
+   "name": "Sorter Cargo Stacking",
+   "hash_needed": 900000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3304
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3306,
+   "name": "Sorter Cargo Integration",
+   "hash_needed": 1080000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3305
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3311,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 60000,
+   "items": [
+    [
+     6001,
+     30
+    ],
+    [
+     6002,
+     30
+    ],
+    [
+     6003,
+     30
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3312,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 96000,
+   "items": [
+    [
+     6001,
+     30
+    ],
+    [
+     6002,
+     30
+    ],
+    [
+     6003,
+     30
+    ]
+   ],
+   "pre_techs": [
+    3311
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3313,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 120000,
+   "items": [
+    [
+     6001,
+     30
+    ],
+    [
+     6002,
+     30
+    ],
+    [
+     6003,
+     30
+    ]
+   ],
+   "pre_techs": [
+    3312
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3314,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ]
+   ],
+   "pre_techs": [
+    3313
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3315,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ]
+   ],
+   "pre_techs": [
+    3314
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3316,
+   "name": "Pile Sorter Upgrade",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3315
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4001,
+   "name": "Distribution Range",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4002,
+   "name": "Distribution Range",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4001
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4003,
+   "name": "Distribution Range",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4002
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4004,
+   "name": "Distribution Range",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4003
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4005,
+   "name": "Distribution Range",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ],
+    [
+     6005,
+     12
+    ]
+   ],
+   "pre_techs": [
+    4004
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3401,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ],
+    [
+     6003,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3402,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3401
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3403,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3402
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3404,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3403
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3405,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ],
+    [
+     6005,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3404
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3406,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3405
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3407,
+   "name": "Logistics Carrier Engine",
+   "hash_needed": 64800000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3406
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3501,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ],
+    [
+     6003,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3502,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3501
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3503,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3502
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3504,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3503
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3505,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3504
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3506,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 960000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3505
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3507,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 2400000,
+   "items": [
+    [
+     6001,
+     3
+    ],
+    [
+     6002,
+     3
+    ],
+    [
+     6003,
+     3
+    ],
+    [
+     6004,
+     3
+    ],
+    [
+     6005,
+     3
+    ]
+   ],
+   "pre_techs": [
+    3506
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3508,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": 4800000,
+   "items": [
+    [
+     6001,
+     3
+    ],
+    [
+     6002,
+     3
+    ],
+    [
+     6003,
+     3
+    ],
+    [
+     6004,
+     3
+    ],
+    [
+     6005,
+     3
+    ]
+   ],
+   "pre_techs": [
+    3507
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3509,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": -14400000,
+   "items": [
+    [
+     6006,
+     3
+    ]
+   ],
+   "pre_techs": [
+    3508
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3510,
+   "name": "Logistics Carrier Capacity",
+   "hash_needed": -43200000,
+   "items": [
+    [
+     6006,
+     3
+    ]
+   ],
+   "pre_techs": [
+    3509
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3801,
+   "name": "Station Integrated Logistics",
+   "hash_needed": 9600000,
+   "items": [
+    [
+     6006,
+     3
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3802,
+   "name": "Station Integrated Logistics",
+   "hash_needed": 28800000,
+   "items": [
+    [
+     6006,
+     2
+    ]
+   ],
+   "pre_techs": [
+    3801
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3803,
+   "name": "Station Integrated Logistics",
+   "hash_needed": 43200000,
+   "items": [
+    [
+     6006,
+     2
+    ]
+   ],
+   "pre_techs": [
+    3802
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3601,
+   "name": "Vein Utilization",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     40
+    ],
+    [
+     6002,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3602,
+   "name": "Vein Utilization",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3601
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3603,
+   "name": "Vein Utilization",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3602
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3604,
+   "name": "Vein Utilization",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3603
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3605,
+   "name": "Vein Utilization",
+   "hash_needed": 1800000,
+   "items": [
+    [
+     6001,
+     4
+    ],
+    [
+     6002,
+     4
+    ],
+    [
+     6003,
+     4
+    ],
+    [
+     6004,
+     4
+    ],
+    [
+     6005,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3604
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3606,
+   "name": "Vein Utilization",
+   "hash_needed": -18000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    3605
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3701,
+   "name": "Vertical Construction",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6002,
+     40
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3702,
+   "name": "Vertical Construction",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3701
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3703,
+   "name": "Vertical Construction",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    3702
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3704,
+   "name": "Vertical Construction",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3703
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3705,
+   "name": "Vertical Construction",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6003,
+     12
+    ]
+   ],
+   "pre_techs": [
+    3704
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3706,
+   "name": "Vertical Construction",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3705
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3901,
+   "name": "Research Speed",
+   "hash_needed": 600000,
+   "items": [
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3902,
+   "name": "Research Speed",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3901
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3903,
+   "name": "Research Speed",
+   "hash_needed": 2400000,
+   "items": [
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    3902
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 3904,
+   "name": "Research Speed",
+   "hash_needed": -43200000,
+   "items": [
+    [
+     6006,
+     2
+    ]
+   ],
+   "pre_techs": [
+    3903
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4101,
+   "name": "Cosmic Exploration",
+   "hash_needed": 1800,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4102,
+   "name": "Cosmic Exploration",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ]
+   ],
+   "pre_techs": [
+    4101
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4103,
+   "name": "Cosmic Exploration",
+   "hash_needed": 300000,
+   "items": [
+    [
+     6001,
+     12
+    ],
+    [
+     6002,
+     12
+    ],
+    [
+     6004,
+     12
+    ]
+   ],
+   "pre_techs": [
+    4102
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 4104,
+   "name": "Cosmic Exploration",
+   "hash_needed": 1200000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6004,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    4103
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5001,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5002,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5001
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5003,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5002
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5004,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5003
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5005,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    5004
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5006,
+   "name": "Kinetic Weapon Damage",
+   "hash_needed": 36000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5005
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5101,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5102,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5101
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5103,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5102
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5104,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5103
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5105,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    5104
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5106,
+   "name": "Energy Weapon Damage",
+   "hash_needed": 135000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5105
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5201,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5202,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5201
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5203,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5202
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5204,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5203
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5205,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    5204
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5206,
+   "name": "Explosive Weapon Damage",
+   "hash_needed": 36000000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5205
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5301,
+   "name": "Combat Drone Damage",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5302,
+   "name": "Combat Drone Damage",
+   "hash_needed": 180000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5301
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5303,
+   "name": "Combat Drone Damage",
+   "hash_needed": 480000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5302
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5304,
+   "name": "Combat Drone Damage",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    5303
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5305,
+   "name": "Combat Drone Damage",
+   "hash_needed": 84600000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5304
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5401,
+   "name": "Combat Drone Attack Speed",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5402,
+   "name": "Combat Drone Attack Speed",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5401
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5403,
+   "name": "Combat Drone Attack Speed",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5402
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5404,
+   "name": "Combat Drone Attack Speed",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5403
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5405,
+   "name": "Combat Drone Attack Speed",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5404
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5601,
+   "name": "Combat Drone Durability",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5602,
+   "name": "Combat Drone Durability",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5601
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5603,
+   "name": "Combat Drone Durability",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5602
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5604,
+   "name": "Combat Drone Durability",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5603
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5605,
+   "name": "Combat Drone Durability",
+   "hash_needed": 1800000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5604
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5701,
+   "name": "Planetary Shield",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5702,
+   "name": "Planetary Shield",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ]
+   ],
+   "pre_techs": [
+    5701
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5703,
+   "name": "Planetary Shield",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    5702
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5704,
+   "name": "Planetary Shield",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ],
+    [
+     6005,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5703
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5705,
+   "name": "Planetary Shield",
+   "hash_needed": 1800000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    5704
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5801,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5802,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 108000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5801
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5803,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5802
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5804,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 432000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5803
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5805,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5804
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5806,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 1080000,
+   "items": [
+    [
+     6006,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5805
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5807,
+   "name": "Ground Squadron Expansion",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6006,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5806
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5901,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5902,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 288000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    5901
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5903,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 432000,
+   "items": [
+    [
+     6001,
+     15
+    ],
+    [
+     6002,
+     15
+    ],
+    [
+     6003,
+     15
+    ],
+    [
+     6004,
+     15
+    ]
+   ],
+   "pre_techs": [
+    5902
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5904,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5903
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5905,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 1080000,
+   "items": [
+    [
+     6001,
+     20
+    ],
+    [
+     6002,
+     20
+    ],
+    [
+     6003,
+     20
+    ],
+    [
+     6004,
+     20
+    ],
+    [
+     6005,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5904
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5906,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 1440000,
+   "items": [
+    [
+     6006,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5905
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 5907,
+   "name": "Space Fleet Expansion",
+   "hash_needed": 2160000,
+   "items": [
+    [
+     6006,
+     20
+    ]
+   ],
+   "pre_techs": [
+    5906
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6001,
+   "name": "Enhanced Structure",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6002,
+   "name": "Enhanced Structure",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    6001
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6003,
+   "name": "Enhanced Structure",
+   "hash_needed": 216000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    6002
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6004,
+   "name": "Enhanced Structure",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ],
+    [
+     6004,
+     10
+    ]
+   ],
+   "pre_techs": [
+    6003
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6005,
+   "name": "Enhanced Structure",
+   "hash_needed": 900000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ],
+    [
+     6005,
+     6
+    ]
+   ],
+   "pre_techs": [
+    6004
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6006,
+   "name": "Enhanced Structure",
+   "hash_needed": 4500000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    6005
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6101,
+   "name": "EM Weapon Strength",
+   "hash_needed": 36000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6102,
+   "name": "EM Weapon Strength",
+   "hash_needed": 72000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ]
+   ],
+   "pre_techs": [
+    6101
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6103,
+   "name": "EM Weapon Strength",
+   "hash_needed": 144000,
+   "items": [
+    [
+     6001,
+     10
+    ],
+    [
+     6002,
+     10
+    ],
+    [
+     6003,
+     10
+    ]
+   ],
+   "pre_techs": [
+    6102
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6104,
+   "name": "EM Weapon Strength",
+   "hash_needed": 360000,
+   "items": [
+    [
+     6001,
+     6
+    ],
+    [
+     6002,
+     6
+    ],
+    [
+     6003,
+     6
+    ],
+    [
+     6004,
+     6
+    ]
+   ],
+   "pre_techs": [
+    6103
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6105,
+   "name": "EM Weapon Strength",
+   "hash_needed": 720000,
+   "items": [
+    [
+     6001,
+     5
+    ],
+    [
+     6002,
+     5
+    ],
+    [
+     6003,
+     5
+    ],
+    [
+     6004,
+     5
+    ],
+    [
+     6005,
+     5
+    ]
+   ],
+   "pre_techs": [
+    6104
+   ],
+   "unlock_recipes": []
+  },
+  {
+   "id": 6106,
+   "name": "EM Weapon Strength",
+   "hash_needed": 3600000,
+   "items": [
+    [
+     6006,
+     4
+    ]
+   ],
+   "pre_techs": [
+    6105
+   ],
+   "unlock_recipes": []
+  }
+ ]
+}

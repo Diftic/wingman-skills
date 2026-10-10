@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "checkout": "D:\\PycharmProjects\\wingman-contributions\\checkout",
+  "base": "63b0c8a05dc072cbc87a1ca2515cbc3e8317a56b",
+  "base_branch": "upstream/develop",
+  "branch": "contrib/sc-log-reader-0.5.1",
+  "fork_url": "https://github.com/Diftic/wingman-ai.git",
+  "files": {
+    "skills/sc_log_reader/CONTRACT.md": {
+      "source": "New concise contribution documentation",
+      "reason": "Installation, data semantics, and compatibility information",
+      "sha256": "0dbcc30de576045cc04256859d69629452061b9043bca1b6782fa6c239521d62",
+      "blob": "697c00e99f13f5b67d95c55b2c104b40b661896f"
+    },
+    "skills/sc_log_reader/LICENSE": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\LICENSE",
+      "reason": "License/attribution",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+      "blob": "3877ae0a7ff6f94ac222fd704e112723db776114"
+    },
+    "skills/sc_log_reader/README.md": {
+      "source": "New concise contribution documentation",
+      "reason": "Installation, data semantics, and compatibility information",
+      "sha256": "3f1a9428f456c9417f9411e31e7cadae034ca5f5ceb6328a87c9dc692b77ba57",
+      "blob": "5424a44de37ff7ce1101c20c5bcdd268d1159375"
+    },
+    "skills/sc_log_reader/default_config.yaml": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\default_config.yaml",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "91a64215b087c156f87c3acfe9621f850877799f802ccce25a225026ce17fd25",
+      "blob": "d9fda863915073c8748ea729434324da499c2536"
+    },
+    "skills/sc_log_reader/dependencies/regex-2026.9.10.dist-info/METADATA": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex-2026.9.10.dist-info\\METADATA",
+      "reason": "License/attribution",
+      "sha256": "0162aad3817469db032db6e87e1488a2452be72ec0f18ebcf1166b665586417b",
+      "blob": "dc9d9f596bcfd642701a1cdc963ee2d7daf1f8d4"
+    },
+    "skills/sc_log_reader/dependencies/regex-2026.9.10.dist-info/WHEEL": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex-2026.9.10.dist-info\\WHEEL",
+      "reason": "License/attribution",
+      "sha256": "55ad5e704e1a425731c9b664712be1d8578dd7f0e50bc21a24d249b02258123d",
+      "blob": "e6d8ca10b14c369aa4a2612b6d2c952898290545"
+    },
+    "skills/sc_log_reader/dependencies/regex-2026.9.10.dist-info/licenses/LICENSE.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex-2026.9.10.dist-info\\licenses\\LICENSE.txt",
+      "reason": "License/attribution",
+      "sha256": "3d220c06594b826bbabf110312f60f385f99e57e529fa4b9e536f79091f8b4c7",
+      "blob": "989a872fa6be338f3e91ddb87e107104d370f57a"
+    },
+    "skills/sc_log_reader/dependencies/regex-2026.9.10.dist-info/top_level.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex-2026.9.10.dist-info\\top_level.txt",
+      "reason": "License/attribution",
+      "sha256": "6909a20cc84d4c5dba7022b8ffb0fea9a56f85bc42946d30c824e7121933601b",
+      "blob": "4f9256d62325c75de027d1cd48f1ff520117413e"
+    },
+    "skills/sc_log_reader/dependencies/regex/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex\\__init__.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "2b40f3a1696a161e74dfd3ee8eb926d4d67fadcdb18517a76df06d841d3a5b8f",
+      "blob": "a09c5be0ca624842db12ba39ce4f0d8d890b3a0f"
+    },
+    "skills/sc_log_reader/dependencies/regex/_main.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex\\_main.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "e02a3a0795706f0903127be7767fe1dfa88ad9130dbc9d4c89bb0676a53549e3",
+      "blob": "4b0e0c1d9cdaf5a380042c5321d2f2420c2baafa"
+    },
+    "skills/sc_log_reader/dependencies/regex/_regex.cp311-win_amd64.pyd": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex\\_regex.cp311-win_amd64.pyd",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "c4d48a34897061d3652c85ac0647771e2d22cd47686e19b42a106daaf63b9dd7",
+      "blob": "bb3a1dd43e3cbb0f3d83088073bdb7c2b71fc1f9"
+    },
+    "skills/sc_log_reader/dependencies/regex/_regex_core.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\regex\\_regex_core.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "baf7b83f394d41b4b5e93ef645b49bcf211140757928cfe283e8dff1bb8e7866",
+      "blob": "e0f921f243a2d46000610142abbf81739be532fa"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\__init__.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "799d5b3ae9f50c3555d182ce056e308f614fd5a8d178b8db22b1a6ccdec0481c",
+      "blob": "dd9b22cccc1fd4469ceec38987ae57ec4429c12b"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/contracts.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\contracts.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "0c05e19547c04be5fb7bc47490cf277dc5d362f401f110c67669b5894dfdd831",
+      "blob": "929d2fbb33efa74dfd8ca635690496a469b72903"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/data/instructions.json": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\data\\instructions.json",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "5f4afbc7d64d20587e14518dc19493329427bcac14f204bb2eefa844f6757c3f",
+      "blob": "28f4f9deda348d943e638b475525bc75dcb49b75"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/feed.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\feed.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "0650d0a400c0f20e763523e3cdb6c001b6207c49207430a8f22c224f1ff4c454",
+      "blob": "ef14794d3c1d5d9d9fe03c7bc0095bb6d1c1d795"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/host_boundary.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\host_boundary.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "12100cea7ba5d37cb1a10c782d3f20353864e770d5d33dccd3cd376d2b189a62",
+      "blob": "b20b1332a27b54cd2d921301f0d8de810d2639a3"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/host_notifications.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\host_notifications.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "e56c16759b80f67ceed75eb0945876e4529d40bf9c82bb6308ef3eb21fefc460",
+      "blob": "a9769096073224f5f9039a65df171c9378ca1d9c"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/main.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\main.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "4d3e3161128525369b9b1bca8e1195222e834985282557b2e2612ade53fe27db",
+      "blob": "88999921679ec00ad8619978acb62d5cb8c9b30f"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/notifications.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\notifications.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "019f6e0707c736267ecc1073b9fdc2004a192dc07e6e398d9edfc37b84ac860c",
+      "blob": "0f0aabd60c589ba8f81618f60c89a95e2b2f8e7e"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/reader.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\reader.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "5949f3de0f432ae713f78c2888d627676ea0822f360d8723507915fd2047211d",
+      "blob": "8f25631791e60b3f858c27df585d36f129bfddca"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/review_launcher.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\review_launcher.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "0869adcb4a2a3d5aa2ebc99dce233d4f2cce7731838341f3c79c27b66439cc28",
+      "blob": "9c8f3c73bb5ff0fa9a60fe21a212433a3dc42552"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/review_ui.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\review_ui.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "5ce60c40f68b335643c64c515876682b1b39970d368bf6464fa467290206d0a8",
+      "blob": "f2e0f940f356e433b3ea2a393634f9184cdd3cc3"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/service.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\service.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "eadb09bb7b4f80ff14de5183a7d809408abceb11a77707659b071ebe45cf70bc",
+      "blob": "4901a2f7226d797a424f3f634ad226b987a50b58"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/state.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\state.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "7ee9f62d5ab4b6ef8bb50b72c00f757166fc08e1c25ec12d85340e57068f0027",
+      "blob": "45b5697a267076703ee657fb870050e6dd4d26e2"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/support.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\support.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "2717bac35f2f7edaf2eb8486dcd518f3f44e7b3fdd82f4677826eb0d0417cb8a",
+      "blob": "2e41545823950a9ae1ad80cf0bf3c80f96f417db"
+    },
+    "skills/sc_log_reader/dependencies/sc_log_reader/updates.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\dependencies\\sc_log_reader\\updates.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "333d35b24ca3a150e891e74cc5ebe37e054e57d2b7c3268a6923a49a52fbab87",
+      "blob": "84e146c9f28b45c7b2a2a45190708f7b2c910223"
+    },
+    "skills/sc_log_reader/main.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\main.py",
+      "reason": "Skill runtime, bundled instruction data, or required native dependency",
+      "sha256": "aaadf96615d82bc9f7a1c60e05246e700eb3e0f2b45fa032e448b7de3d74c87f",
+      "blob": "1e23145f15038e55b9ab4a395e13423b3975481a"
+    }
+  }
+}

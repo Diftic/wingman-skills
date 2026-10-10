@@ -1,0 +1,13 @@
+diff --git a/skills/sc_accountant/default_config.yaml b/skills/sc_accountant/default_config.yaml
+index 468d96e..64edb50 100644
+--- a/skills/sc_accountant/default_config.yaml
++++ b/skills/sc_accountant/default_config.yaml
+@@ -8,7 +8,7 @@ auto_activate: true
+ platforms: [windows, darwin, linux]
+ tags: [Star Citizen, Finance, Operations]
+ description:
+-  en: Track personal money, cargo, operations, refining, fleet and plans in Simple or Advanced mode, with evidence-aware capture from SC_LogReader and a local dashboard.
++  en: "Track money, cargo, operations, refining, fleet and plans in Star Citizen, with a dashboard."
+ discovery_keywords: [accountant, ERP, profit, spending, balance, cargo, inventory, refinery, fleet, budget, operation, aUEC, reconciliation]
+ prompt: |
+   Use erp_report for recorded finances and operational status. Use help to discover

@@ -1,0 +1,13 @@
+# 0.4.0 local release candidate — 18 September 2026
+
+Reader now uses one 100 ms parse deadline and a 50 ms allowance per operation, with equivalent literal paths and a shared finditer allowance. Handler commits bounded ordered batches, preserves recognized domain evidence and stores diagnostics/unknown samples within explicit bounds. Orchestrator adds optional bounded notifications, manual update controls, process-start instruction fences, source-host lifecycle and isolated native candidate packaging.
+
+Final accepted ownership correction gives an activating standalone watch an exclusive runtime lease from before instruction/database startup until successful database close. Watch/host and watch/watch overlap is excluded; short status/review operations keep their separate scope. Host process leases and instruction fences remain unchanged. Parser/Tailer deadlines are nominal cooperative budgets, not hard realtime guarantees.
+
+Bundled and publisher instructions remain revision 4, exact SHA-256 `5f4afbc7d64d20587e14518dc19493329427bcac14f204bb2eefa844f6757c3f`. Package version 0.4.0 does not change the normalized event contract or add verified game builds.
+
+Release harnesses now use the production notification policy and shared prior/result backlog suppression with an actual literal GUI sink connected to a bounded local host double. Support reports distinguish committed lifetime counts from bounded retained causes/stages. Corpus restart checks replay clean recognized observations; diagnostic-only bounded storage is explicitly excluded. Story qualifies recognized domain chronology, not Service unknown sampling.
+
+Final corpus and story profiles completed 174 files / 12,187,071 records each, retaining 154,424 clean domain observations and 147,157 events with baseline-equivalent domain values and exact snapshots. All 93 baseline diagnostics remain accounted for in bounded support (87 incomplete records, 6 missing request IDs). Story timeline and source hashes are identical to baseline. Production unknown sampling is explicitly outside cached story scope.
+
+Local paced/recovery qualification is complete. Harness timing uses perf_counter with clock implementation/resolution distinct from 1 ms histogram binning; cached native RSS bindings avoid sampler-induced pointer-type retention. Earlier interrupted/coarse-clock measurements are preserved and establish no final capacity claim. Final local artifacts are prepared under final-artifacts for controller binding/review; earlier packages remain historical. Actual Wingman GUI/heartbeat, native settings review action and frozen runtime are unqualified. No publication, live installation or launch is performed.

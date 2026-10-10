@@ -1,0 +1,241 @@
+{
+  "records": 10,
+  "event_counts": {
+    "user_login": 1,
+    "session_start": 1,
+    "mission_accepted": 1,
+    "mission_objective_new": 1,
+    "location_arrived": 1,
+    "reward_earned": 2,
+    "shop_buy": 2,
+    "mission_complete": 1
+  },
+  "state": {
+    "player_name": "ExamplePilot",
+    "player_geid": "12345",
+    "shard": null,
+    "active_missions": {},
+    "injuries": {},
+    "location_name": "Seraphim",
+    "location_code": "RR_CRU_LEO",
+    "location_status": "at",
+    "location_guid": null,
+    "system": "Stanton",
+    "ship": null,
+    "ship_class": null,
+    "ship_owner": null,
+    "aboard_ship": false,
+    "own_ship": null,
+    "armistice": null,
+    "restricted": null,
+    "monitored": null,
+    "jurisdiction": null,
+    "incapacitated": null,
+    "bleeding": null,
+    "generation": "replay",
+    "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+    "last_source_timestamp": "2026-09-15T12:00:08+00:00",
+    "game_build_verified": false,
+    "environment": "LIVE"
+  },
+  "recent_events": [
+    {
+      "event_type": "reward_earned",
+      "data": {
+        "notification_id": "17",
+        "amount": "500",
+        "currency": "aUEC"
+      },
+      "timestamp": "2026-09-15T12:00:08+00:00",
+      "status": "confirmed",
+      "source_occurrences": [
+        "4a7708ba16cb0b4f5fe55e23c754dfc127928b7dd92376a0fccb6ebb4dd537d3"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "amount_auec": 500.0,
+      "category": "reward",
+      "possible_mission_id": "example-mission",
+      "mission_association": "temporal_only",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "mission_complete",
+      "data": {
+        "mission_name": "Delivery: Priority",
+        "mission_id": "example-mission"
+      },
+      "timestamp": "2026-09-15T12:00:07+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "d8ac40e23b8c4a6ec4f48f018892a0d816566af143e4320a2df961da5e891348"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "shop_buy",
+      "data": {
+        "player_id": "p1",
+        "shop_id": "s1",
+        "kiosk_id": "k1",
+        "item_name": "Medpen",
+        "currency_type": "UEC",
+        "price": 265.0,
+        "quantity": 1,
+        "source_provider": "shopping"
+      },
+      "timestamp": "2026-09-15T12:00:06+00:00",
+      "status": "confirmed",
+      "source_occurrences": [
+        "497af593c182c9e7a0b12c5fcb5758b70c469cd8e10a72b87a8130d535cbbbb8",
+        "ae3ae6c70fc28e7508d58fd7b768ca364f8439cb7246a3a32ec277bc126ee4c8"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "category": "item",
+      "confirmation_match": "shop_kiosk",
+      "amount_auec": -265.0,
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "shop_buy",
+      "data": {
+        "player_id": "p1",
+        "shop_id": "s1",
+        "kiosk_id": "k1",
+        "item_name": "Medpen",
+        "currency_type": "UEC",
+        "price": 265.0,
+        "quantity": 1,
+        "source_provider": "shopping"
+      },
+      "timestamp": "2026-09-15T12:00:05+00:00",
+      "status": "requested",
+      "source_occurrences": [
+        "497af593c182c9e7a0b12c5fcb5758b70c469cd8e10a72b87a8130d535cbbbb8"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "reward_earned",
+      "data": {
+        "notification_id": "15",
+        "quantity": "30",
+        "item_name": "rewards"
+      },
+      "timestamp": "2026-09-15T12:00:04+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "320c62e2c2a3ab08dd17f99d24d812142d683d47e806f6568129890940151f47"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "item_name": "rewards",
+      "quantity": 30.0,
+      "category": "reward",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "location_arrived",
+      "data": {
+        "location": "RR_CRU_LEO",
+        "player_name": "ExamplePilot",
+        "location_name": "Seraphim"
+      },
+      "timestamp": "2026-09-15T12:00:03+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "a2aa829d5c37ec0b4096e6c3b83a8e78d40a13186838a1105bc6de9ebd1a1b33"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "attribution": "inventory_location_observation",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "mission_objective_new",
+      "data": {
+        "objective": "Pick up package",
+        "mission_id": "example-mission"
+      },
+      "timestamp": "2026-09-15T12:00:02+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "5ccc506d6676aa029c75af011770ab903f537e45a59468edc5e92812415c140d"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "mission_accepted",
+      "data": {
+        "mission_name": "Delivery: Priority",
+        "mission_id": "example-mission"
+      },
+      "timestamp": "2026-09-15T12:00:01+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "e2dbebde86a547f0a55105d78fe194a53ed96e81c6b29db3c111d5066d7b7e8e"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "session_start",
+      "data": {
+        "player_name": "ExamplePilot",
+        "player_geid": "12345"
+      },
+      "timestamp": "2026-09-15T12:00:00.100000+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "fb22052e048113980becd8bacc4b0b95a0a5c7604c62482dd129c2ce66b02c3f"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    },
+    {
+      "event_type": "user_login",
+      "data": {
+        "player_name": "ExamplePilot"
+      },
+      "timestamp": "2026-09-15T12:00:00+00:00",
+      "status": "observed",
+      "source_occurrences": [
+        "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9"
+      ],
+      "instruction_version": "0.1.0-baseline",
+      "game_build_verified": false,
+      "session_key": "b2f5351cf6f06b121a2ab6217b5217a29cf7d718e7d9b4bdcfe737b774f159d9",
+      "environment": "LIVE",
+      "game_build": null
+    }
+  ],
+  "diagnostics": [],
+  "instruction_version": "0.1.0-baseline"
+}

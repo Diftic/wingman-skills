@@ -1,0 +1,7 @@
+Satisfactory Assistant 0.9.0
+
+- Finds nitrogen wells correctly by reading the resource in each extractor's output inventory.
+- Keeps nitrogen, water, and crude-oil wells separate on the map.
+- Limits extraction requests to extractors instead of including packagers and other machines.
+- Uses shorter, everyday wording for commands, replies, map directions, factory scans, and planning results.
+- Keeps internal IDs, file paths, database details, and diagnostic wording out of normal player replies.

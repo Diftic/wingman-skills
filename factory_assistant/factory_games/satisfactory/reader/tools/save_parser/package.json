@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "@etothepii/satisfactory-file-parser": "4.1.1",
+    "pako": "2.1.0"
+  },
+  "overrides": {
+    "pako": "2.1.0"
+  }
+}

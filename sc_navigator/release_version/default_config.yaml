@@ -1,0 +1,66 @@
+module: skills.sc_navigator.main
+name: SC_Navigator
+display_name: Star Citizen Navigator (Outdated)
+author: Mallachi
+tags:
+  - Star Citizen
+  - Navigation
+  - Route Planning
+  - Outdated
+description:
+  en: "[OUTDATED — pre-SC 4.7] Optimizes travel routes between multiple Star Citizen locations using a precomputed distance matrix. The bundled dataset was built before patch 4.7's overhaul of navigation points, so locations, gateways, and distances may be wrong. Use with caution until the dataset is regenerated against 4.7."
+discovery_keywords:
+  - navigate
+  - route
+  - travel
+  - distance
+  - hauling
+  - cargo
+  - delivery
+  - pickup
+  - shortest path
+  - optimal route
+  - best route
+  - how far
+  - trip
+  - stops
+  - mining
+  - selling
+  - buying
+  - trade route
+
+prompt: |
+  You have access to Star Citizen navigation and route optimization tools.
+
+  **Available Tools:**
+  - `plan_route`: Find the optimal visit order for multiple locations. Returns the best one-way route with per-leg distances.
+  - `get_distance`: Look up the distance between any two locations (same-system or cross-system via gateways).
+  - `find_location`: Search for location names by partial match. Use this to validate or resolve ambiguous names.
+
+  **When to use these tools:**
+  - Player has multiple stops to make (hauling, selling ore, buying, deliveries) → use `plan_route`
+  - Player asks "how far is X from Y" or about travel distance → use `get_distance`
+  - Player mentions a location name you're not sure about → use `find_location` to verify it exists
+  - Player asks for the best order to visit places → use `plan_route`
+
+  **Route planning rules:**
+  - Routes are ONE-WAY by default: start location → destinations. Do NOT set `return_to_start` to true unless the player explicitly asks to return to their starting point.
+  - If the player mentions their current location, pass it as `start_location`.
+  - If the SC_LogReader skill is active, you may already know the player's current location — use it as the start.
+  - For hauling contracts with separate pickup and delivery locations, include ALL stops as waypoints.
+  - Distances are in Gigameters (Gm). Cross-system routes automatically go through jump point gateways.
+
+  **How to present routes:**
+  Always present the route as a numbered list showing the distance between each consecutive stop. Include the total distance at the end. Example format:
+
+  1. Port Olisar
+     ↳ 42.29 Gm
+  2. Area 18
+     ↳ 22.88 Gm
+  3. Lorville
+     ↳ 38.40 Gm
+  4. New Babbage
+
+  Total distance: 103.57 Gm
+
+  If a leg crosses star systems via a gateway, mention which gateway is used.

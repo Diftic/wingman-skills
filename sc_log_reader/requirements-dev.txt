@@ -1,0 +1,6 @@
+# Versions used for this development verification on Windows / Python 3.13.
+regex==2026.9.10
+setuptools==84.0.0
+wheel==0.48.0
+build==1.6.1
+ruff==0.16.7

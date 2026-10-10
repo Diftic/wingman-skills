@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC_LogReader DevKit</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>SC_LogReader DevKit</h1>
+        <div id="connection-status" class="status disconnected">Disconnected</div>
+    </header>
+
+    <div class="dashboard">
+        <!-- Panel 1: Log Reader (Layer 3) -->
+        <div class="panel" id="panel-reader">
+            <div class="panel-header">
+                <h2>Log Reader</h2>
+                <span class="badge" id="reader-count">0</span>
+            </div>
+            <div class="panel-body" id="reader-feed"></div>
+        </div>
+
+        <!-- Panel 2: State Monitor -->
+        <div class="panel" id="panel-states">
+            <div class="panel-header">
+                <h2>State Monitor</h2>
+            </div>
+            <div class="panel-body" id="state-grid"></div>
+        </div>
+
+        <!-- Panel 3: Event Stream (Layer 2) -->
+        <div class="panel" id="panel-events">
+            <div class="panel-header">
+                <h2>Event Stream</h2>
+                <span class="badge" id="event-count">0</span>
+            </div>
+            <div class="panel-body" id="event-feed"></div>
+        </div>
+
+        <!-- Panel 4: Rule Evaluations -->
+        <div class="panel" id="panel-rules">
+            <div class="panel-header">
+                <h2>Rules</h2>
+                <span class="badge" id="rule-count">0</span>
+            </div>
+            <div class="panel-body" id="rule-feed"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

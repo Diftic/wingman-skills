@@ -1,0 +1,6 @@
+# release_version/ holds the build-injected donor token in plaintext.
+# Never commit the injected file — it MUST be rebuilt via update_release.py
+# with DONOR_TOKEN_BUILD set in env (see plans/2026-05-14-cloudflare-environment.md).
+# The dev-tree placeholder at log_donor/_build_config.py is fine to commit
+# (it still contains __INJECT_AT_BUILD__).
+release_version/log_donor/_build_config.py

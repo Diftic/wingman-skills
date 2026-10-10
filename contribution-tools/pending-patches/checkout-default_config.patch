@@ -1,0 +1,13 @@
+diff --git a/skills/sc_log_reader/default_config.yaml b/skills/sc_log_reader/default_config.yaml
+index d9fda86..7146f78 100644
+--- a/skills/sc_log_reader/default_config.yaml
++++ b/skills/sc_log_reader/default_config.yaml
+@@ -7,7 +7,7 @@ author: Mallachi
+ auto_activate: true
+ tags: [Star Citizen, Game Integration]
+ description:
+-  en: Game observations with automatic reading-instruction updates and optional Wingman reactions or GUI notifications. See CONTRACT.md.
++  en: "Reads the Star Citizen game log: game state, missions and events, with optional reactions."
+ prompt: |
+   Read game observations with get_current_game_state, get_active_missions,
+   get_recent_game_events, get_trade_entries and get_trade_ledger.

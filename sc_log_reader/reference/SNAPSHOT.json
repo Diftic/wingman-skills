@@ -1,0 +1,96 @@
+{
+  "files": [
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\__init__.py",
+      "destination": "reference\\current_skill\\__init__.py",
+      "sha256": "63849CE61A62B53CA2A9D608BBDA6D0042342072BF24BF22B1D960F9B381A7C3"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\main.py",
+      "destination": "reference\\current_skill\\main.py",
+      "sha256": "E0C63169272FC84F376A239E3585FD54645FBE58880D3766954E303E0171ECDD"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\parser.py",
+      "destination": "reference\\current_skill\\parser.py",
+      "sha256": "7FD78DD0B8C2994330CE91E3EB7DE771623A0245510A9923B31C4A06D7C8CDE3"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\logic.py",
+      "destination": "reference\\current_skill\\logic.py",
+      "sha256": "481A333D4D4A66BAE7E46C6760F17A678D4A5FCAD9467DBEF29BF2E14DA7EADB"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\event_log.py",
+      "destination": "reference\\current_skill\\event_log.py",
+      "sha256": "5C991925145FE1A8556208CC57B3C8DA72F2FEFC406784555A5F600ED9E829DD"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\ledger.py",
+      "destination": "reference\\current_skill\\ledger.py",
+      "sha256": "BA270B1F59FE62DE5C60125684544E0B3984E06D0E58DB9DC3261B0E3783A43B"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\atomic_io.py",
+      "destination": "reference\\current_skill\\atomic_io.py",
+      "sha256": "F2EF5F377A30EF41C1F2F4FAC4172529DFB199F64596569B08801B952956A6EA"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\location_names.py",
+      "destination": "reference\\current_skill\\location_names.py",
+      "sha256": "76BF3C4434CF00DE6E2AD1E73638B13D1FF8C764F3E5BC568A6CA49F46D13945"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\debug_emitter.py",
+      "destination": "reference\\current_skill\\debug_emitter.py",
+      "sha256": "307956A9FE748BCBBEADABAC981CD5D71B8E62BC8CEF7EE806FAE555F134EAD5"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\default_config.yaml",
+      "destination": "reference\\current_skill\\default_config.yaml",
+      "sha256": "577A9DD86FA8E8F11D45803AF104CA41CAE14B4E45E89D8C4A2BE45218849160"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_parser_ownership.py",
+      "destination": "reference\\current_skill\\tests\\test_parser_ownership.py",
+      "sha256": "6E943A5662C510B3AA08030CB0069B5B41A0CE805B18AAB7C5355536C2C959A2"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_location_departure.py",
+      "destination": "reference\\current_skill\\tests\\test_location_departure.py",
+      "sha256": "A6497E20C88C061844584672713188E65B0ECF822935809DB572B4B11C27B8D2"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_reward_tokens.py",
+      "destination": "reference\\current_skill\\tests\\test_reward_tokens.py",
+      "sha256": "828A9B8F5E235E5CE440438C372DE170F45E8B1D5C76125AE575661AFF03668D"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_movement_reconciliation.py",
+      "destination": "reference\\current_skill\\tests\\test_movement_reconciliation.py",
+      "sha256": "455CE9BB5BE3222573339901166284D60EB04F991456B7544096B91B20A59680"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\ASSESSMENT.md",
+      "destination": "docs\\design\\ASSESSMENT.md",
+      "sha256": "8641A4BDC0154C6958079F34D42EF1505DB18B1D86D85E7A9778B5375ECDB0A5"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\reader-instructions.draft.json",
+      "destination": "docs\\design\\reader-instructions.draft.json",
+      "sha256": "3161A7FDF82227F597E0892DF82DC25BC96EE62053CFF447F4A6AEB501FAD30E"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\source-inventory.json",
+      "destination": "docs\\design\\source-inventory.json",
+      "sha256": "E3F3C935BCFA4A87334E7872AC11613828757BEDF59D0AB72A18FC0D24405DC8"
+    },
+    {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\verification.json",
+      "destination": "docs\\design\\verification.json",
+      "sha256": "B6DE567BA6834E4206BB38B33B1FC61999CE955A6FB1E4DB7E95C0EF95022D72"
+    }
+  ],
+  "created_at_utc": "2026-09-15T20:20:04.8895299Z",
+  "source_root": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader"
+}

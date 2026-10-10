@@ -1,0 +1,18 @@
+Satisfactory Assistant v0.6.0
+
+Automatic live factory mirror refresh.
+
+- Satisfactory Assistant now activates with its configured wingman so the
+  factory-mirror watcher starts during Wingman startup.
+- The watcher audits immediately when an active save is detected, refreshes
+  whenever Satisfactory adds or changes a save file, and otherwise stays idle.
+  The in-game autosave interval therefore controls the mirror refresh cadence.
+- Automatic and manual audits are serialized. Parsing runs off the main event
+  loop, and unload waits for any in-flight parse to finish cleanly.
+- Location routing is explicit: where, coordinate, resource-node, and map
+  questions use the locate parameter; lookup remains catalog-only.
+
+Requirements remain unchanged: scipy, numpy, and Pillow are bundled with
+Wingman AI. Node.js/npm are optional for planning, but the local save parser
+used by audit and locate requires the pinned npm runtime installed by
+install.bat.

@@ -1,0 +1,6 @@
+Satisfactory Assistant 0.8.1
+
+- Makes the geographic terrain background an internal static asset instead of a user-facing path setting.
+- Changes the default map popup duration from 30 seconds to 15 seconds.
+- Adds Top Left, Top Centre, and Top Right popup-position choices.
+- Hides automatically resolved save, Docs, locale, and parser-runtime paths from settings.

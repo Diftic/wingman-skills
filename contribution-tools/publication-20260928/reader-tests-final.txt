@@ -1,0 +1,29 @@
+Testing contribution runtime: D:\PycharmProjects\wingman-contributions\checkout\skills\sc_log_reader\dependencies\sc_log_reader
+..............................................................................................................................................................................usage: stream_test.py [-h] --profile {typical,burst,sustained,recovery}
+                      --output OUTPUT [--source-log SOURCE_LOG]
+                      [--source-size SOURCE_SIZE]
+                      [--source-sha256 SOURCE_SHA256]
+                      [--source-second SOURCE_SECOND]
+                      [--group-entry-count GROUP_ENTRY_COUNT]
+                      [--recovery-case {restart,truncate,replace,malformed,database,disk}]
+                      [--rate RATE] [--duration DURATION]
+                      [--drain-timeout DRAIN_TIMEOUT] [--notifications]
+stream_test.py: error: rate, duration and drain-timeout must be finite positive numbers
+.....................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 339 tests in 36.347s
+
+OK
+{
+  "exported": true,
+  "redacted": true
+}
+{"error": "Choose a new JSON file outside the runtime in an existing directory"}
+{"error": "Choose a new JSON file outside the runtime in an existing directory"}
+{"error": "Choose a new JSON file outside the runtime in an existing directory"}
+{"error": "Cannot read support data from runtime"}
+{
+  "exported": true,
+  "redacted": true
+}
+{"error": "Choose a new JSON file outside the runtime in an existing directory"}

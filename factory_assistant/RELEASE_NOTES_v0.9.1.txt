@@ -1,0 +1,5 @@
+Satisfactory Assistant 0.9.1
+
+- Carries its complete Satisfactory behavior inside the skill instead of relying on Apex-specific instructions.
+- Works immediately when enabled for any Wingman profile, using the skill's own defaults and automatic save scan.
+- Includes save separation, map routing, layered planning, plan correction, power and logistics checks, and plain-language replies by default.

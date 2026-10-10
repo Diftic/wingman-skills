@@ -1,0 +1,2892 @@
+{
+  "status": "source inventory, not executable instructions",
+  "source_hashes": {
+    "parser.py": "7fd78dd0b8c2994330ce91e3eb7de771623a0245510a9923b31c4a06d7c8cde3",
+    "logic.py": "481a333d4d4a66bae7e46c6760f17a678d4a5fcad9467dbef29bf2e14da7eadb",
+    "main.py": "e0c63169272fc84f376a239e3585fd54645fbe58880d3766954e303e0171ecdd",
+    "location_names.py": "76bf3c4434cf00de6e2ad1e73638b13d1ff8c764f3e5bc568a6ca49f46d13945"
+  },
+  "classifier_returns": [
+    {
+      "event": "user_login",
+      "source": {
+        "file": "parser.py",
+        "start": 620,
+        "end": 620
+      }
+    },
+    {
+      "event": "session_start",
+      "source": {
+        "file": "parser.py",
+        "start": 622,
+        "end": 622
+      }
+    },
+    {
+      "event": "join_pu",
+      "source": {
+        "file": "parser.py",
+        "start": 626,
+        "end": 626
+      }
+    },
+    {
+      "event": "med_bed_heal",
+      "source": {
+        "file": "parser.py",
+        "start": 630,
+        "end": 630
+      }
+    },
+    {
+      "event": "injury",
+      "source": {
+        "file": "parser.py",
+        "start": 632,
+        "end": 632
+      }
+    },
+    {
+      "event": "qt_arrived",
+      "source": {
+        "file": "parser.py",
+        "start": 643,
+        "end": 643
+      }
+    },
+    {
+      "event": "fatal_collision",
+      "source": {
+        "file": "parser.py",
+        "start": 654,
+        "end": 654
+      }
+    },
+    {
+      "event": "insurance_claim",
+      "source": {
+        "file": "parser.py",
+        "start": 659,
+        "end": 659
+      }
+    },
+    {
+      "event": "insurance_claim_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 661,
+        "end": 661
+      }
+    },
+    {
+      "event": "contract_accepted",
+      "source": {
+        "file": "parser.py",
+        "start": 667,
+        "end": 667
+      }
+    },
+    {
+      "event": "contract_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 669,
+        "end": 669
+      }
+    },
+    {
+      "event": "contract_failed",
+      "source": {
+        "file": "parser.py",
+        "start": 671,
+        "end": 671
+      }
+    },
+    {
+      "event": "contract_shared",
+      "source": {
+        "file": "parser.py",
+        "start": 673,
+        "end": 673
+      }
+    },
+    {
+      "event": "contract_available",
+      "source": {
+        "file": "parser.py",
+        "start": 675,
+        "end": 675
+      }
+    },
+    {
+      "event": "objective_new",
+      "source": {
+        "file": "parser.py",
+        "start": 679,
+        "end": 679
+      }
+    },
+    {
+      "event": "objective_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 681,
+        "end": 681
+      }
+    },
+    {
+      "event": "objective_withdrawn",
+      "source": {
+        "file": "parser.py",
+        "start": 683,
+        "end": 683
+      }
+    },
+    {
+      "event": "entered_monitored_space",
+      "source": {
+        "file": "parser.py",
+        "start": 687,
+        "end": 687
+      }
+    },
+    {
+      "event": "exited_monitored_space",
+      "source": {
+        "file": "parser.py",
+        "start": 689,
+        "end": 689
+      }
+    },
+    {
+      "event": "monitored_space_down",
+      "source": {
+        "file": "parser.py",
+        "start": 691,
+        "end": 691
+      }
+    },
+    {
+      "event": "monitored_space_restored",
+      "source": {
+        "file": "parser.py",
+        "start": 693,
+        "end": 693
+      }
+    },
+    {
+      "event": "journal_entry",
+      "source": {
+        "file": "parser.py",
+        "start": 698,
+        "end": 698
+      }
+    },
+    {
+      "event": "jurisdiction_change",
+      "source": {
+        "file": "parser.py",
+        "start": 702,
+        "end": 702
+      }
+    },
+    {
+      "event": "armistice_zone",
+      "source": {
+        "file": "parser.py",
+        "start": 704,
+        "end": 704
+      }
+    },
+    {
+      "event": "restricted_area",
+      "source": {
+        "file": "parser.py",
+        "start": 706,
+        "end": 706
+      }
+    },
+    {
+      "event": "hangar_ready",
+      "source": {
+        "file": "parser.py",
+        "start": 710,
+        "end": 710
+      }
+    },
+    {
+      "event": "hangar_queue",
+      "source": {
+        "file": "parser.py",
+        "start": 712,
+        "end": 712
+      }
+    },
+    {
+      "event": "quantum_calibration_started",
+      "source": {
+        "file": "parser.py",
+        "start": 716,
+        "end": 716
+      }
+    },
+    {
+      "event": "qt_calibration_complete_group",
+      "source": {
+        "file": "parser.py",
+        "start": 718,
+        "end": 718
+      }
+    },
+    {
+      "event": "quantum_calibration_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 720,
+        "end": 720
+      }
+    },
+    {
+      "event": "party_invite",
+      "source": {
+        "file": "parser.py",
+        "start": 724,
+        "end": 724
+      }
+    },
+    {
+      "event": "incoming_call",
+      "source": {
+        "file": "parser.py",
+        "start": 726,
+        "end": 726
+      }
+    },
+    {
+      "event": "reward_earned",
+      "source": {
+        "file": "parser.py",
+        "start": 730,
+        "end": 730
+      }
+    },
+    {
+      "event": "reward_earned",
+      "source": {
+        "file": "parser.py",
+        "start": 732,
+        "end": 732
+      }
+    },
+    {
+      "event": "blueprint_received",
+      "source": {
+        "file": "parser.py",
+        "start": 734,
+        "end": 734
+      }
+    },
+    {
+      "event": "refinery_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 736,
+        "end": 736
+      }
+    },
+    {
+      "event": "emergency_services",
+      "source": {
+        "file": "parser.py",
+        "start": 740,
+        "end": 740
+      }
+    },
+    {
+      "event": "bleeding",
+      "source": {
+        "file": "parser.py",
+        "start": 744,
+        "end": 744
+      }
+    },
+    {
+      "event": "fuel_low",
+      "source": {
+        "file": "parser.py",
+        "start": 746,
+        "end": 746
+      }
+    },
+    {
+      "event": "crimestat_increased",
+      "source": {
+        "file": "parser.py",
+        "start": 750,
+        "end": 750
+      }
+    },
+    {
+      "event": "vehicle_impounded",
+      "source": {
+        "file": "parser.py",
+        "start": 752,
+        "end": 752
+      }
+    },
+    {
+      "event": "party_left",
+      "source": {
+        "file": "parser.py",
+        "start": 756,
+        "end": 756
+      }
+    },
+    {
+      "event": "party_member_joined",
+      "source": {
+        "file": "parser.py",
+        "start": 758,
+        "end": 758
+      }
+    },
+    {
+      "event": "fined",
+      "source": {
+        "file": "parser.py",
+        "start": 762,
+        "end": 762
+      }
+    },
+    {
+      "event": "transaction_complete",
+      "source": {
+        "file": "parser.py",
+        "start": 764,
+        "end": 764
+      }
+    },
+    {
+      "event": "incapacitated",
+      "source": {
+        "file": "parser.py",
+        "start": 768,
+        "end": 768
+      }
+    },
+    {
+      "event": "_money_sent_partial",
+      "source": {
+        "file": "parser.py",
+        "start": 772,
+        "end": 772
+      }
+    },
+    {
+      "event": "location_change",
+      "source": {
+        "file": "parser.py",
+        "start": 776,
+        "end": 776
+      }
+    },
+    {
+      "event": "inventory_location_update",
+      "source": {
+        "file": "parser.py",
+        "start": 781,
+        "end": 781
+      }
+    },
+    {
+      "event": "personal_inventory_data",
+      "source": {
+        "file": "parser.py",
+        "start": 785,
+        "end": 785
+      }
+    },
+    {
+      "event": "quantum_route_set",
+      "source": {
+        "file": "parser.py",
+        "start": 787,
+        "end": 787
+      }
+    },
+    {
+      "event": "channel_change",
+      "source": {
+        "file": "parser.py",
+        "start": 794,
+        "end": 794
+      }
+    },
+    {
+      "event": "cargo_transfer",
+      "source": {
+        "file": "parser.py",
+        "start": 798,
+        "end": 798
+      }
+    },
+    {
+      "event": "refinery_submitted",
+      "source": {
+        "file": "parser.py",
+        "start": 802,
+        "end": 802
+      }
+    },
+    {
+      "event": "attachment_received",
+      "source": {
+        "file": "parser.py",
+        "start": 810,
+        "end": 810
+      }
+    },
+    {
+      "event": "shop_buy",
+      "source": {
+        "file": "parser.py",
+        "start": 816,
+        "end": 816
+      }
+    },
+    {
+      "event": "shop_sell",
+      "source": {
+        "file": "parser.py",
+        "start": 818,
+        "end": 818
+      }
+    },
+    {
+      "event": "shop_transaction_result",
+      "source": {
+        "file": "parser.py",
+        "start": 820,
+        "end": 820
+      }
+    },
+    {
+      "event": "commodity_buy",
+      "source": {
+        "file": "parser.py",
+        "start": 824,
+        "end": 824
+      }
+    },
+    {
+      "event": "commodity_sell",
+      "source": {
+        "file": "parser.py",
+        "start": 826,
+        "end": 826
+      }
+    }
+  ],
+  "extraction_blocks": [
+    {
+      "events": [
+        "user_login"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 841,
+        "end": 845
+      },
+      "source_excerpt": "        if event_type == \"user_login\":\n            # Pattern: \"User Login Success - Handle[Mallachi] - Time[...]\"\n            handle_match = re.search(r\"Handle\\[([^\\]]+)\\]\", line)\n            if handle_match:\n                data[\"player_name\"] = handle_match.group(1)"
+    },
+    {
+      "events": [
+        "session_start"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 847,
+        "end": 853
+      },
+      "source_excerpt": "        elif event_type == \"session_start\":\n            match = re.search(r\"name\\s+(\\S+)\", line)\n            if match:\n                data[\"player_name\"] = match.group(1)\n            match = re.search(r\"geid\\s+(\\S+)\", line)\n            if match:\n                data[\"player_geid\"] = match.group(1)"
+    },
+    {
+      "events": [
+        "join_pu"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 855,
+        "end": 862
+      },
+      "source_excerpt": "        elif event_type == \"join_pu\":\n            # Pattern: <Join PU> address[...] shard[pub_euw1b_11135423_170] ...\n            match = re.search(r\"shard\\[([^\\]]+)\\]\", line)\n            if match:\n                data[\"shard\"] = match.group(1)\n            addr_match = re.search(r\"address\\[([^\\]]+)\\]\", line)\n            if addr_match:\n                data[\"server_address\"] = addr_match.group(1)"
+    },
+    {
+      "events": [
+        "contract_accepted",
+        "contract_complete",
+        "contract_failed"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 864,
+        "end": 881
+      },
+      "source_excerpt": "        elif event_type in (\n            \"contract_accepted\",\n            \"contract_complete\",\n            \"contract_failed\",\n        ):\n            # Full mission name captured between quotes\n            type_map = {\n                \"contract_accepted\": \"Contract Accepted\",\n                \"contract_complete\": \"Contract Complete\",\n                \"contract_failed\": \"Contract Failed\",\n            }\n            pattern = rf'\"{type_map[event_type]}:\\s*(.+?):\\s*\"'\n            name_match = re.search(pattern, line)\n            if name_match:\n                data[\"mission_name\"] = name_match.group(1).strip()\n            mission_id_match = re.search(r\"MissionId:\\s*\\[([^\\]]+)\\]\", line)\n            if mission_id_match:\n                data[\"mission_id\"] = mission_id_match.group(1)"
+    },
+    {
+      "events": [
+        "contract_shared",
+        "contract_available"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 883,
+        "end": 894
+      },
+      "source_excerpt": "        elif event_type in (\"contract_shared\", \"contract_available\"):\n            type_map = {\n                \"contract_shared\": \"Contract Shared\",\n                \"contract_available\": \"Contract Available\",\n            }\n            pattern = rf'\"{type_map[event_type]}:\\s*(.+?):\\s*\"'\n            name_match = re.search(pattern, line)\n            if name_match:\n                data[\"mission_name\"] = name_match.group(1).strip()\n            mission_id_match = re.search(r\"MissionId:\\s*\\[([^\\]]+)\\]\", line)\n            if mission_id_match:\n                data[\"mission_id\"] = mission_id_match.group(1)"
+    },
+    {
+      "events": [
+        "objective_new"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 896,
+        "end": 902
+      },
+      "source_excerpt": "        elif event_type == \"objective_new\":\n            obj_match = re.search(r'\"New Objective:\\s*(.+?):\\s*\"', line)\n            if obj_match:\n                data[\"objective\"] = obj_match.group(1).strip()\n            mission_id_match = re.search(r\"MissionId:\\s*\\[([^\\]]+)\\]\", line)\n            if mission_id_match:\n                data[\"mission_id\"] = mission_id_match.group(1)"
+    },
+    {
+      "events": [
+        "objective_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 904,
+        "end": 910
+      },
+      "source_excerpt": "        elif event_type == \"objective_complete\":\n            obj_match = re.search(r'\"Objective Complete:\\s*(.+?)(?::\\s*\"|\\s*\")', line)\n            if obj_match:\n                data[\"objective\"] = obj_match.group(1).strip()\n            mission_id_match = re.search(r\"MissionId:\\s*\\[([^\\]]+)\\]\", line)\n            if mission_id_match:\n                data[\"mission_id\"] = mission_id_match.group(1)"
+    },
+    {
+      "events": [
+        "objective_withdrawn"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 912,
+        "end": 918
+      },
+      "source_excerpt": "        elif event_type == \"objective_withdrawn\":\n            obj_match = re.search(r'\"Objective Withdrawn:\\s*(.+?):\\s*\"', line)\n            if obj_match:\n                data[\"objective\"] = obj_match.group(1).strip()\n            mission_id_match = re.search(r\"MissionId:\\s*\\[([^\\]]+)\\]\", line)\n            if mission_id_match:\n                data[\"mission_id\"] = mission_id_match.group(1)"
+    },
+    {
+      "events": [
+        "injury"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 920,
+        "end": 931
+      },
+      "source_excerpt": "        elif event_type == \"injury\":\n            # Pattern: \"Minor Injury Detected - Left arm - Tier 3 Treatment Required\"\n            severity_match = re.search(r\"(\\w+)\\s+Injury Detected\", line)\n            if severity_match:\n                data[\"severity\"] = severity_match.group(1)\n            # Body part is between first and second dash\n            part_match = re.search(r\"Injury Detected\\s*-\\s*([^-]+)\\s*-\", line)\n            if part_match:\n                data[\"body_part\"] = part_match.group(1).strip()\n            tier_match = re.search(r\"Tier\\s*(\\d+)\", line)\n            if tier_match:\n                data[\"tier\"] = int(tier_match.group(1))"
+    },
+    {
+      "events": [
+        "med_bed_heal"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 933,
+        "end": 939
+      },
+      "source_excerpt": "        elif event_type == \"med_bed_heal\":\n            # Pattern: \"head: true torso: false leftArm: true ...\"\n            healed = {}\n            for part in [\"head\", \"torso\", \"leftArm\", \"rightArm\", \"leftLeg\", \"rightLeg\"]:\n                if f\"{part}: true\" in line:\n                    healed[part] = True\n            data[\"healed_parts\"] = healed"
+    },
+    {
+      "events": [
+        "location_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 941,
+        "end": 951
+      },
+      "source_excerpt": "        elif event_type == \"location_change\":\n            # Pattern: \"Location[RR_CRU_LEO]\" or \"Location[Stanton1_Lorville]\"\n            loc_match = re.search(r\"Location\\[([^\\]]+)\\]\", line)\n            if loc_match:\n                data[\"location\"] = loc_match.group(1)\n            # Fallback player name from \"Player[name]\" — session_start fires\n            # before parser attaches (starts at EOF), so this is often the\n            # first opportunity to capture the player name.\n            player_match = re.search(r\"Player\\[([^\\]]+)\\]\", line)\n            if player_match:\n                data[\"player_name\"] = player_match.group(1)"
+    },
+    {
+      "events": [
+        "inventory_location_update"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 953,
+        "end": 987
+      },
+      "source_excerpt": "        elif event_type == \"inventory_location_update\":\n            # Pattern: \"... Landing [a] -> [b]. Location [c] -> [d]. ...\"\n            # GUIDs are numeric; a value of \"0\" means no location (respawn,\n            # relog, or leaving to open space).\n            landing_match = re.search(\n                r\"Landing\\s*\\[(\\w+)\\]\\s*->\\s*\\[(\\w+)\\]\", line\n            )\n            if landing_match:\n                data[\"landing_from\"] = landing_match.group(1)\n                data[\"landing_to\"] = landing_match.group(2)\n            loc_match = re.search(\n                r\"Location\\s*\\[(\\w+)\\]\\s*->\\s*\\[(\\w+)\\]\", line\n            )\n            if loc_match:\n                data[\"loc_from\"] = loc_match.group(1)\n                data[\"loc_to\"] = loc_match.group(2)\n            player_match = re.search(r\"Player\\s*\\[([^\\]]+)\\]\", line)\n            if player_match:\n                data[\"player_name\"] = player_match.group(1)\n            # A departure is a Location move whose from-field is the GUID of the\n            # location the player is currently at. Resolved here, while\n            # _current_location_guid still holds the arrived GUID (it is cleared\n            # in _update_state after this line is processed).\n            loc_from = data.get(\"loc_from\")\n            if (\n                loc_from\n                and loc_from != \"0\"\n                and loc_from == self._current_location_guid\n            ):\n                data[\"is_departure\"] = True\n                code = self._location_guid_to_code.get(loc_from)\n                data[\"departed_location_code\"] = code\n                data[\"departed_location_name\"] = (\n                    get_location_name(code) if code else None\n                )"
+    },
+    {
+      "events": [
+        "personal_inventory_data"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 989,
+        "end": 998
+      },
+      "source_excerpt": "        elif event_type == \"personal_inventory_data\":\n            # Pattern: \"... inventoryID[<player>:Location:<guid>] ...\"\n            guid_match = re.search(\n                r\"inventoryID\\[\\d+:Location:(\\w+)\\]\", line\n            )\n            if guid_match:\n                data[\"location_guid\"] = guid_match.group(1)\n            player_match = re.search(r\"Player\\[([^\\]]+)\\]\", line)\n            if player_match:\n                data[\"player_name\"] = player_match.group(1)"
+    },
+    {
+      "events": [
+        "quantum_route_set"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1000,
+        "end": 1003
+      },
+      "source_excerpt": "        elif event_type == \"quantum_route_set\":\n            # Destination names in logs are unreliable (LOCRRS codes, asset IDs)\n            # so we no longer extract them. Event detection is sufficient.\n            pass"
+    },
+    {
+      "events": [
+        "channel_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1005,
+        "end": 1026
+      },
+      "source_excerpt": "        elif event_type == \"channel_change\":\n            # Detect ship entry/exit via channel changes\n            line_lower = line.lower()\n            if \"joined channel\" in line_lower:\n                data[\"action\"] = \"joined\"\n            elif \"left channel\" in line_lower or \"left the channel\" in line_lower:\n                data[\"action\"] = \"left\"\n            # Extract channel name\n            channel_match = re.search(\n                r\"(?:joined|left(?:\\s+the)?)\\s+channel\\s+'([^']+)'\",\n                line,\n                re.IGNORECASE,\n            )\n            if channel_match:\n                raw_channel = channel_match.group(1)\n                data[\"channel_raw\"] = raw_channel\n                # Extract owner name before cleaning\n                # (e.g., \"Aegis Avenger Titan : Mallachi\" → owner = \"Mallachi\")\n                if \" : \" in raw_channel:\n                    data[\"channel_owner\"] = raw_channel.split(\" : \", 1)[1].strip()\n                # Clean up ship name: \"@vehicle_NameAEGS_Avenger_Titan : Player\" -> \"Avenger Titan\"\n                data[\"channel\"] = self._clean_ship_name(raw_channel)"
+    },
+    {
+      "events": [
+        "jurisdiction_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1028,
+        "end": 1032
+      },
+      "source_excerpt": "        elif event_type == \"jurisdiction_change\":\n            # Pattern: \"Entered Hurston Dynamics Jurisdiction: \"\n            jur_match = re.search(r'\"Entered\\s+(.+?)\\s+Jurisdiction', line)\n            if jur_match:\n                data[\"jurisdiction\"] = jur_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "entered_monitored_space",
+        "exited_monitored_space",
+        "monitored_space_down",
+        "monitored_space_restored"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1034,
+        "end": 1044
+      },
+      "source_excerpt": "        elif event_type in (\n            \"entered_monitored_space\",\n            \"exited_monitored_space\",\n            \"monitored_space_down\",\n            \"monitored_space_restored\",\n        ):\n            # Derive the monitored state from event type\n            data[\"monitored\"] = event_type in (\n                \"entered_monitored_space\",\n                \"monitored_space_restored\",\n            )"
+    },
+    {
+      "events": [
+        "armistice_zone"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1046,
+        "end": 1050
+      },
+      "source_excerpt": "        elif event_type == \"armistice_zone\":\n            if \"Entering\" in line or \"entered\" in line.lower():\n                data[\"action\"] = \"entered\"\n            elif \"Leaving\" in line or \"exited\" in line.lower():\n                data[\"action\"] = \"exited\""
+    },
+    {
+      "events": [
+        "restricted_area"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1052,
+        "end": 1056
+      },
+      "source_excerpt": "        elif event_type == \"restricted_area\":\n            if \"Leaving\" in line:\n                data[\"action\"] = \"exited\"\n            else:\n                data[\"action\"] = \"entered\""
+    },
+    {
+      "events": [
+        "hangar_ready"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1058,
+        "end": 1059
+      },
+      "source_excerpt": "        elif event_type == \"hangar_ready\":\n            data[\"action\"] = \"ready\""
+    },
+    {
+      "events": [
+        "hangar_queue"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1061,
+        "end": 1062
+      },
+      "source_excerpt": "        elif event_type == \"hangar_queue\":\n            data[\"action\"] = \"queued\""
+    },
+    {
+      "events": [
+        "quantum_calibration_started"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1064,
+        "end": 1070
+      },
+      "source_excerpt": "        elif event_type == \"quantum_calibration_started\":\n            # Pattern: \"Quantum Travel Calibration Started By PlayerName: \"\n            cal_match = re.search(\n                r\"Quantum Travel Calibration Started By\\s+([^:]+)\", line\n            )\n            if cal_match:\n                data[\"player\"] = cal_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "quantum_calibration_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1072,
+        "end": 1074
+      },
+      "source_excerpt": "        elif event_type == \"quantum_calibration_complete\":\n            # Own player's calibration — no \"By\" suffix, no player data to extract\n            pass"
+    },
+    {
+      "events": [
+        "party_invite"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1076,
+        "end": 1080
+      },
+      "source_excerpt": "        elif event_type == \"party_invite\":\n            # Pattern: \"PlayerName\\nParty Invite Received: Accept Invitation?\"\n            invite_match = re.search(r'\"([^\"\\\\]+?)\\\\nParty Invite Received', line)\n            if invite_match:\n                data[\"from_player\"] = invite_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "journal_entry"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1082,
+        "end": 1086
+      },
+      "source_excerpt": "        elif event_type == \"journal_entry\":\n            # Pattern: \"Journal Entry Added: Jurisdiction: Crusader Industries : \"\n            journal_match = re.search(r'\"Journal Entry Added:\\s*(.+?):\\s*\"', line)\n            if journal_match:\n                data[\"subject\"] = journal_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "incoming_call"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1088,
+        "end": 1094
+      },
+      "source_excerpt": "        elif event_type == \"incoming_call\":\n            # Pattern: \"Incoming call: \" with possible caller info\n            call_match = re.search(r'\"Incoming call:\\s*([^\"]*)\"', line)\n            if call_match:\n                caller = call_match.group(1).strip()\n                if caller:\n                    data[\"caller\"] = caller"
+    },
+    {
+      "events": [
+        "refinery_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1096,
+        "end": 1100
+      },
+      "source_excerpt": "        elif event_type == \"refinery_complete\":\n            # Pattern: \"Refinery Work Order(s) Completed at CRU-L1\"\n            ref_match = re.search(r\"Refinery Work Order.*?at\\s+([^:\\\"]+)\", line)\n            if ref_match:\n                data[\"location\"] = ref_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "reward_earned"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1102,
+        "end": 1133
+      },
+      "source_excerpt": "        elif event_type == \"reward_earned\":\n            # \"Awarded 79250 aUEC: \" (SHUDEvent_OnNotification) is money.\n            # \"You've earned: N\" with unit \"aUEC\" or no unit is the legacy\n            # pre-2026-02 money format, so it is booked as aUEC. But\n            # \"You've earned: N <unit>\" (SC 4.9.0 \"You've earned: 30 rewards\")\n            # is a physical reward-item drop delivered to a freight elevator,\n            # not currency, so the count and unit stay out of the aUEC ledger.\n            # The 4.9.0 notification text spans several physical lines, so this\n            # first line is truncated with no closing quote; the unit capture\n            # is bounded to avoid swallowing the legacy format's trailing\n            # `\" [13]` bracket junk.\n            self._extract_notification_context(line, data)\n            amount_match = re.search(r\"Awarded\\s*([\\d,]+)\\s*aUEC\", line)\n            if amount_match:\n                data[\"amount\"] = amount_match.group(1).replace(\",\", \"\")\n            else:\n                earned_match = re.search(\n                    r\"You've earned:\\s*([\\d,]+)\\s*([A-Za-z][\\w ]*)?\", line\n                )\n                if earned_match:\n                    unit = (earned_match.group(2) or \"\").strip()\n                    if not unit or unit.lower() == \"auec\":\n                        data[\"amount\"] = earned_match.group(1).replace(\",\", \"\")\n                    else:\n                        data[\"quantity\"] = earned_match.group(1).replace(\",\", \"\")\n                        data[\"item_name\"] = unit\n                else:\n                    item_match = re.search(\n                        r'\"You\\'ve earned:\\s*(.+?)(?::\\s*\"|\\s*\")', line\n                    )\n                    if item_match:\n                        data[\"item_name\"] = item_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "transaction_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1135,
+        "end": 1136
+      },
+      "source_excerpt": "        elif event_type == \"transaction_complete\":\n            self._extract_notification_context(line, data)"
+    },
+    {
+      "events": [
+        "blueprint_received"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1138,
+        "end": 1143
+      },
+      "source_excerpt": "        elif event_type == \"blueprint_received\":\n            # Format: \"Received Blueprint: Citadel Core Base: \"\n            self._extract_notification_context(line, data)\n            bp_match = re.search(r'Received Blueprint:\\s*([^\":]+)', line)\n            if bp_match:\n                data[\"blueprint_name\"] = bp_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "shop_buy",
+        "shop_sell"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1147,
+        "end": 1167
+      },
+      "source_excerpt": "        elif event_type in (\"shop_buy\", \"shop_sell\"):\n            data[\"source_provider\"] = (\n                \"shopping\" if \"ShoppingProvider\" in line else \"shop_ui\"\n            )\n            self._extract_bracketed(\n                line,\n                data,\n                (\"player_id\", \"playerId\"),\n                (\"shop_id\", \"shopId\"),\n                (\"shop_name\", \"shopName\"),\n                (\"kiosk_id\", \"kioskId\"),\n                (\"item_guid\", \"itemClassGUID\"),\n                (\"item_name\", \"itemName\"),\n                (\"currency_type\", \"currencyType\"),\n            )\n            price_match = re.search(r\"client_price\\[([^\\]]+)\\]\", line)\n            if price_match:\n                data[\"price\"] = float(price_match.group(1))\n            qty_match = re.search(r\"quantity\\[([^\\]]+)\\]\", line)\n            if qty_match:\n                data[\"quantity\"] = int(qty_match.group(1))"
+    },
+    {
+      "events": [
+        "commodity_buy"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1169,
+        "end": 1188
+      },
+      "source_excerpt": "        elif event_type == \"commodity_buy\":\n            self._extract_bracketed(\n                line,\n                data,\n                (\"player_id\", \"playerId\"),\n                (\"shop_id\", \"shopId\"),\n                (\"shop_name\", \"shopName\"),\n                (\"kiosk_id\", \"kioskId\"),\n                (\"resource_guid\", \"resourceGUID\"),\n            )\n            price_match = re.search(r\"price\\[([^\\]]+)\\]\", line)\n            if price_match:\n                data[\"price\"] = float(price_match.group(1))\n            qty_match = re.search(r\"quantity\\[([^\\]]+)\\]\", line)\n            if qty_match:\n                raw_qty = qty_match.group(1)\n                # Commodity buy quantity is \"12800.000000 cSCU\"\n                num_match = re.search(r\"([\\d.]+)\", raw_qty)\n                if num_match:\n                    data[\"quantity_cscu\"] = float(num_match.group(1))"
+    },
+    {
+      "events": [
+        "commodity_sell"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1190,
+        "end": 1205
+      },
+      "source_excerpt": "        elif event_type == \"commodity_sell\":\n            self._extract_bracketed(\n                line,\n                data,\n                (\"player_id\", \"playerId\"),\n                (\"shop_id\", \"shopId\"),\n                (\"shop_name\", \"shopName\"),\n                (\"kiosk_id\", \"kioskId\"),\n                (\"resource_guid\", \"resourceGUID\"),\n            )\n            amount_match = re.search(r\"amount\\[([^\\]]+)\\]\", line)\n            if amount_match:\n                data[\"price\"] = float(amount_match.group(1))\n            qty_match = re.search(r\"quantity\\[(\\d+)\\]\", line)\n            if qty_match:\n                data[\"quantity\"] = int(qty_match.group(1))"
+    },
+    {
+      "events": [
+        "vehicle_impounded"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1207,
+        "end": 1211
+      },
+      "source_excerpt": "        elif event_type == \"vehicle_impounded\":\n            # Pattern: \"Vehicle Impounded: Parking Violation: \"\n            reason_match = re.search(r'\"Vehicle Impounded:\\s*(.+?):\\s*\"', line)\n            if reason_match:\n                data[\"reason\"] = reason_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "party_member_joined"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1213,
+        "end": 1217
+      },
+      "source_excerpt": "        elif event_type == \"party_member_joined\":\n            # Pattern: \"{username} has joined the party.: \"\n            player_match = re.search(r'\"(.+?) has joined the party\\.', line)\n            if player_match:\n                data[\"player_name\"] = player_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "qt_calibration_complete_group"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1219,
+        "end": 1225
+      },
+      "source_excerpt": "        elif event_type == \"qt_calibration_complete_group\":\n            # Pattern: \"Quantum Travel Calibration Complete By {player}: \"\n            cal_match = re.search(\n                r'\"Quantum Travel Calibration Complete By\\s+(.+?):\\s*\"', line\n            )\n            if cal_match:\n                data[\"player\"] = cal_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "shop_transaction_result"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1229,
+        "end": 1247
+      },
+      "source_excerpt": "        elif event_type == \"shop_transaction_result\":\n            data[\"source_provider\"] = (\n                \"shopping\" if \"ShoppingProvider\" in line else \"shop_ui\"\n            )\n            self._extract_bracketed(\n                line,\n                data,\n                (\"player_id\", \"playerId\"),\n                (\"shop_id\", \"shopId\"),\n                (\"shop_name\", \"shopName\"),\n                (\"kiosk_id\", \"kioskId\"),\n                (\"kiosk_state\", \"kioskState\"),\n            )\n            result_match = re.search(r\"result\\[([^\\]]+)\\]\", line)\n            if result_match:\n                data[\"result\"] = result_match.group(1)\n            type_match = re.search(r\"type\\[([^\\]]+)\\]\", line)\n            if type_match:\n                data[\"transaction_type\"] = type_match.group(1)"
+    },
+    {
+      "events": [
+        "fined"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1249,
+        "end": 1253
+      },
+      "source_excerpt": "        elif event_type == \"fined\":\n            # Pattern: \"Fined 5,000 UEC\" or \"Fined 5000 UEC\"\n            amount_match = re.search(r'\"Fined\\s+([\\d,]+)\\s+UEC', line)\n            if amount_match:\n                data[\"amount\"] = amount_match.group(1).replace(\",\", \"\")"
+    },
+    {
+      "events": [
+        "_money_sent_partial"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1255,
+        "end": 1259
+      },
+      "source_excerpt": "        elif event_type == \"_money_sent_partial\":\n            # First line of two-line money_sent notification: \"You sent PlayerName:\"\n            recipient_match = re.search(r'\"You sent\\s+(.+?):', line)\n            if recipient_match:\n                data[\"recipient\"] = recipient_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "fatal_collision"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1261,
+        "end": 1270
+      },
+      "source_excerpt": "        elif event_type == \"fatal_collision\":\n            # Pattern: <FatalCollision> Fatal Collision occured for vehicle AEGS_Avenger Zone: Lorville, ...\n            vehicle_match = re.search(\n                r\"<FatalCollision>\\s+Fatal Collision occured for vehicle\\s+(\\S+)\", line\n            )\n            if vehicle_match:\n                data[\"vehicle\"] = vehicle_match.group(1)\n            zone_match = re.search(r\"Zone:\\s*([^,\\]]+)\", line)\n            if zone_match:\n                data[\"zone\"] = zone_match.group(1).strip()"
+    },
+    {
+      "events": [
+        "insurance_claim"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1272,
+        "end": 1279
+      },
+      "source_excerpt": "        elif event_type == \"insurance_claim\":\n            # Pattern: New Insurance Claim Request - entitlementURN: urn:..., requestId : 1\n            urn_match = re.search(r\"entitlementURN:\\s*([^,]+)\", line)\n            if urn_match:\n                data[\"urn\"] = urn_match.group(1).strip()\n            req_match = re.search(r\"requestId\\s*:\\s*(\\d+)\", line)\n            if req_match:\n                data[\"request_id\"] = int(req_match.group(1))"
+    },
+    {
+      "events": [
+        "insurance_claim_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1281,
+        "end": 1288
+      },
+      "source_excerpt": "        elif event_type == \"insurance_claim_complete\":\n            # Pattern: Claim Complete - entitlementURN: urn:..., result: 7,  requestId: 1\n            urn_match = re.search(r\"entitlementURN:\\s*([^,]+)\", line)\n            if urn_match:\n                data[\"urn\"] = urn_match.group(1).strip()\n            result_match = re.search(r\"result:\\s*(\\d+)\", line)\n            if result_match:\n                data[\"result\"] = int(result_match.group(1))"
+    },
+    {
+      "events": [
+        "cargo_transfer"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1292,
+        "end": 1310
+      },
+      "source_excerpt": "        elif event_type == \"cargo_transfer\":\n            # Pattern: FreightElevatorKiosk_{type}[{kiosk_id}] - Processed bindings\n            # into transfer request - Entities: {count}, Location: {loc_id}\n            # - RequestId: {req_id}, ItemBank: {bank}\n            kiosk_match = re.search(\n                r\"FreightElevatorKiosk_(\\w+)\\[(\\d+)\\]\", line\n            )\n            if kiosk_match:\n                data[\"kiosk_type\"] = kiosk_match.group(1)\n                data[\"kiosk_id\"] = kiosk_match.group(2)\n            entities_match = re.search(r\"Entities:\\s*(\\d+)\", line)\n            if entities_match:\n                data[\"entity_count\"] = int(entities_match.group(1))\n            location_match = re.search(r\"Location:\\s*(\\d+)\", line)\n            if location_match:\n                data[\"location_id\"] = location_match.group(1)\n            req_match = re.search(r\"RequestId:\\s*(\\d+)\", line)\n            if req_match:\n                data[\"request_id\"] = int(req_match.group(1))"
+    },
+    {
+      "events": [
+        "refinery_submitted"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1312,
+        "end": 1323
+      },
+      "source_excerpt": "        elif event_type == \"refinery_submitted\":\n            # Pattern: Sending SShopRefineryRequest - playerId[{id}] shopId[{id}]\n            # shopName[{name}] kioskId[{id}] request[] currencyType[UEC]\n            self._extract_bracketed(\n                line,\n                data,\n                (\"player_id\", \"playerId\"),\n                (\"shop_id\", \"shopId\"),\n                (\"shop_name\", \"shopName\"),\n                (\"kiosk_id\", \"kioskId\"),\n                (\"currency_type\", \"currencyType\"),\n            )"
+    },
+    {
+      "events": [
+        "attachment_received"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1325,
+        "end": 1351
+      },
+      "source_excerpt": "        elif event_type == \"attachment_received\":\n            # Pattern: Player[{name}] Attachment[{full_name}_{entity_id},\n            # {short_name}, {entity_id}] Status[persistent] Port[{port}]\n            # Elapsed[{seconds}]\n            #\n            # Only log gameplay-relevant ports — cosmetic face/hair/body-model\n            # ports are skipped at classification time in _classify_event via\n            # the port filter below; extraction runs only when we reach here.\n            player_match = re.search(r\"Player\\[([^\\]]+)\\]\", line)\n            if player_match:\n                data[\"player_name\"] = player_match.group(1)\n            attach_match = re.search(\n                r\"Attachment\\[([^\\]]+),\\s*([^\\]]+),\\s*(\\d+)\\]\", line\n            )\n            if attach_match:\n                data[\"item_full_name\"] = attach_match.group(1).strip()\n                data[\"item_short_name\"] = attach_match.group(2).strip()\n                data[\"entity_id\"] = attach_match.group(3).strip()\n            port_match = re.search(r\"Port\\[([^\\]]+)\\]\", line)\n            if port_match:\n                data[\"port\"] = port_match.group(1)\n            elapsed_match = re.search(r\"Elapsed\\[([^\\]]+)\\]\", line)\n            if elapsed_match:\n                try:\n                    data[\"elapsed\"] = float(elapsed_match.group(1))\n                except ValueError:\n                    pass"
+    }
+  ],
+  "state_blocks": [
+    {
+      "events": [
+        "user_login"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1364,
+        "end": 1366
+      },
+      "source_excerpt": "        if event_type == \"user_login\":\n            if \"player_name\" in data:\n                self._state_store.set(\"player_name\", data[\"player_name\"])"
+    },
+    {
+      "events": [
+        "session_start"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1368,
+        "end": 1372
+      },
+      "source_excerpt": "        elif event_type == \"session_start\":\n            if \"player_name\" in data:\n                self._state_store.set(\"player_name\", data[\"player_name\"])\n            if \"player_geid\" in data:\n                self._state_store.set(\"player_geid\", data[\"player_geid\"])"
+    },
+    {
+      "events": [
+        "join_pu"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1374,
+        "end": 1376
+      },
+      "source_excerpt": "        elif event_type == \"join_pu\":\n            if \"shard\" in data:\n                self._state_store.set(\"server\", data[\"shard\"])"
+    },
+    {
+      "events": [
+        "contract_accepted"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1378,
+        "end": 1380
+      },
+      "source_excerpt": "        elif event_type == \"contract_accepted\":\n            self._state_store.set(\"last_contract_accepted\", data.get(\"mission_name\"))\n            self._state_store.set(\"last_contract_accepted_id\", data.get(\"mission_id\"))"
+    },
+    {
+      "events": [
+        "contract_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1382,
+        "end": 1384
+      },
+      "source_excerpt": "        elif event_type == \"contract_complete\":\n            self._state_store.set(\"last_contract_completed\", data.get(\"mission_name\"))\n            self._state_store.set(\"last_contract_completed_id\", data.get(\"mission_id\"))"
+    },
+    {
+      "events": [
+        "contract_failed"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1386,
+        "end": 1388
+      },
+      "source_excerpt": "        elif event_type == \"contract_failed\":\n            self._state_store.set(\"last_contract_failed\", data.get(\"mission_name\"))\n            self._state_store.set(\"last_contract_failed_id\", data.get(\"mission_id\"))"
+    },
+    {
+      "events": [
+        "objective_new"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1390,
+        "end": 1391
+      },
+      "source_excerpt": "        elif event_type == \"objective_new\":\n            self._state_store.set(\"current_objective\", data.get(\"objective\"))"
+    },
+    {
+      "events": [
+        "injury"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1393,
+        "end": 1407
+      },
+      "source_excerpt": "        elif event_type == \"injury\":\n            raw_part = data.get(\"body_part\", \"\")\n            # Normalize body part to camelCase to match med_bed_heal keys\n            _part_map = {\n                \"head\": \"head\",\n                \"torso\": \"torso\",\n                \"left arm\": \"leftArm\",\n                \"right arm\": \"rightArm\",\n                \"left leg\": \"leftLeg\",\n                \"right leg\": \"rightLeg\",\n            }\n            part = _part_map.get(raw_part.lower(), raw_part.lower().replace(\" \", \"\"))\n            severity = data.get(\"severity\")\n            if part and severity:\n                self._state_store.set(f\"injury_{part}\", severity)"
+    },
+    {
+      "events": [
+        "med_bed_heal"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1409,
+        "end": 1411
+      },
+      "source_excerpt": "        elif event_type == \"med_bed_heal\":\n            for part in data.get(\"healed_parts\", {}):\n                self._state_store.set(f\"injury_{part}\", None)"
+    },
+    {
+      "events": [
+        "location_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1413,
+        "end": 1421
+      },
+      "source_excerpt": "        elif event_type == \"location_change\":\n            raw_location = data.get(\"location\")\n            self._state_store.set(\"location\", raw_location)\n            self._state_store.set(\"location_name\", get_location_name(raw_location))\n            self._state_store.set(\"star_system\", get_location_system(raw_location))\n            # Fallback: set player name if not yet known from session_start\n            if \"player_name\" in data and not self._state_store.get(\"player_name\"):\n                self._state_store.set(\"player_name\", data[\"player_name\"])\n            self._learn_location_guid_at_arrival(raw_location, event.timestamp)"
+    },
+    {
+      "events": [
+        "inventory_location_update"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1423,
+        "end": 1424
+      },
+      "source_excerpt": "        elif event_type == \"inventory_location_update\":\n            self._handle_inventory_location_update(event)"
+    },
+    {
+      "events": [
+        "personal_inventory_data"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1426,
+        "end": 1427
+      },
+      "source_excerpt": "        elif event_type == \"personal_inventory_data\":\n            self._handle_personal_inventory_data(event)"
+    },
+    {
+      "events": [
+        "quantum_route_set"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1429,
+        "end": 1431
+      },
+      "source_excerpt": "        elif event_type == \"quantum_route_set\":\n            # No state update — destination names are unreliable\n            pass"
+    },
+    {
+      "events": [
+        "channel_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1433,
+        "end": 1451
+      },
+      "source_excerpt": "        elif event_type == \"channel_change\":\n            channel_raw = data.get(\"channel_raw\", \"\")\n            channel_clean = data.get(\"channel\", \"\")\n            action = data.get(\"action\")\n            # Ship detection heuristic: channel names that look like ships\n            if self._is_ship_channel(channel_raw):\n                if action == \"joined\":\n                    self._state_store.set(\"ship\", channel_clean)\n                    owner = data.get(\"channel_owner\")\n                    self._state_store.set(\"ship_owner\", owner)\n                    player = self._state_store.get(\"player_name\")\n                    if owner and player:\n                        self._state_store.set(\"own_ship\", owner == player)\n                    else:\n                        self._state_store.set(\"own_ship\", None)\n                elif action == \"left\":\n                    self._state_store.set(\"ship\", None)\n                    self._state_store.set(\"ship_owner\", None)\n                    self._state_store.set(\"own_ship\", None)"
+    },
+    {
+      "events": [
+        "jurisdiction_change"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1453,
+        "end": 1455
+      },
+      "source_excerpt": "        elif event_type == \"jurisdiction_change\":\n            if \"jurisdiction\" in data:\n                self._state_store.set(\"jurisdiction\", data[\"jurisdiction\"])"
+    },
+    {
+      "events": [
+        "entered_monitored_space",
+        "exited_monitored_space",
+        "monitored_space_down",
+        "monitored_space_restored"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1457,
+        "end": 1463
+      },
+      "source_excerpt": "        elif event_type in (\n            \"entered_monitored_space\",\n            \"exited_monitored_space\",\n            \"monitored_space_down\",\n            \"monitored_space_restored\",\n        ):\n            self._state_store.set(\"in_monitored_space\", data.get(\"monitored\", False))"
+    },
+    {
+      "events": [
+        "armistice_zone"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1465,
+        "end": 1467
+      },
+      "source_excerpt": "        elif event_type == \"armistice_zone\":\n            action = data.get(\"action\")\n            self._state_store.set(\"in_armistice\", action == \"entered\")"
+    },
+    {
+      "events": [
+        "restricted_area"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1469,
+        "end": 1471
+      },
+      "source_excerpt": "        elif event_type == \"restricted_area\":\n            action = data.get(\"action\")\n            self._state_store.set(\"in_restricted_area\", action == \"entered\")"
+    },
+    {
+      "events": [
+        "objective_complete"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1473,
+        "end": 1474
+      },
+      "source_excerpt": "        elif event_type == \"objective_complete\":\n            self._state_store.set(\"current_objective\", None)"
+    },
+    {
+      "events": [
+        "objective_withdrawn"
+      ],
+      "source": {
+        "file": "parser.py",
+        "start": 1476,
+        "end": 1477
+      },
+      "source_excerpt": "        elif event_type == \"objective_withdrawn\":\n            self._state_store.set(\"current_objective\", None)"
+    }
+  ],
+  "conditional_branches": [
+    {
+      "method": "_classify_event",
+      "line": 615,
+      "condition_evidence": "'UpdateNotificationItem' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 619,
+      "condition_evidence": "'User Login Success' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 621,
+      "condition_evidence": "'AccountLoginCharacterStatus_Character' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 625,
+      "condition_evidence": "'<Join PU>' in line and 'shard[' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 629,
+      "condition_evidence": "'<MED BED HEAL>' in line and 'Perform surgery event Success' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 631,
+      "condition_evidence": "'Injury Detected' in line and 'SHUDEvent' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 639,
+      "condition_evidence": "'Quantum Drive has arrived at final destination' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 640,
+      "condition_evidence": "self._event_belongs_to_player_ship(self._extract_qt_arrival_class(line))",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 648,
+      "condition_evidence": "'<FatalCollision>' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 649,
+      "condition_evidence": "not re.search('PlayerPilot:\\\\s*1\\\\b', line)",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 651,
+      "condition_evidence": "self._event_belongs_to_player_ship(self._extract_collision_vehicle_class(line))",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 658,
+      "condition_evidence": "'CWallet::ProcessClaimToNextStep' in line and 'New Insurance Claim Request' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 660,
+      "condition_evidence": "'CWallet::RmMulticastOnProcessClaimCallback' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 664,
+      "condition_evidence": "'SHUDEvent' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 666,
+      "condition_evidence": "'Contract Accepted:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 668,
+      "condition_evidence": "'Contract Complete:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 670,
+      "condition_evidence": "'Contract Failed:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 672,
+      "condition_evidence": "'Contract Shared:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 674,
+      "condition_evidence": "'Contract Available:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 678,
+      "condition_evidence": "'New Objective:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 680,
+      "condition_evidence": "'Objective Complete:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 682,
+      "condition_evidence": "'Objective Withdrawn:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 686,
+      "condition_evidence": "'Entered Monitored Space' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 688,
+      "condition_evidence": "'Exited Monitored Space' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 690,
+      "condition_evidence": "'Monitored Space Down' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 692,
+      "condition_evidence": "'Monitored Space Restored' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 697,
+      "condition_evidence": "'Journal Entry Added:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 701,
+      "condition_evidence": "'Jurisdiction' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 703,
+      "condition_evidence": "'Armistice Zone' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 705,
+      "condition_evidence": "'Restricted Area' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 709,
+      "condition_evidence": "'Hangar Request Completed' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 711,
+      "condition_evidence": "'Joined hangar queue' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 715,
+      "condition_evidence": "'Quantum Travel Calibration Started' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 717,
+      "condition_evidence": "'Quantum Travel Calibration Complete By' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 719,
+      "condition_evidence": "'Quantum Travel Calibration Complete' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 723,
+      "condition_evidence": "'Party Invite Received' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 725,
+      "condition_evidence": "'Incoming call:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 729,
+      "condition_evidence": "\"You've earned:\" in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 731,
+      "condition_evidence": "'Awarded' in line and 'aUEC' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 733,
+      "condition_evidence": "'Received Blueprint:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 735,
+      "condition_evidence": "'Refinery Work Order' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 739,
+      "condition_evidence": "'Emergency Services Are En Route' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 743,
+      "condition_evidence": "'Bleeding:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 745,
+      "condition_evidence": "'Low Fuel:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 749,
+      "condition_evidence": "'CrimeStat Rating Increased:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 751,
+      "condition_evidence": "'Vehicle Impounded:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 755,
+      "condition_evidence": "'You have left the party.' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 757,
+      "condition_evidence": "'has joined the party.' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 761,
+      "condition_evidence": "'Fined' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 763,
+      "condition_evidence": "'Transaction Complete:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 767,
+      "condition_evidence": "'Incapacitated:' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 771,
+      "condition_evidence": "'You sent' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 775,
+      "condition_evidence": "'RequestLocationInventory' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 780,
+      "condition_evidence": "'<Update Inventory Location>' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 784,
+      "condition_evidence": "'RequestOrCreatePersonalInventoryData' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 786,
+      "condition_evidence": "'Player Selected Quantum Target' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 789,
+      "condition_evidence": "'SHUDEvent' in line and ('joined channel' in line_lower or 'left channel' in line_lower or 'left the channel' in line_lower)",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 797,
+      "condition_evidence": "'FreightElevatorUIProvider::FillUnstowRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 801,
+      "condition_evidence": "'MiningShopUIProvider::OnRefineryRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 807,
+      "condition_evidence": "'AttachmentReceived' in line and 'Status[persistent]' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 809,
+      "condition_evidence": "port_match and port_match.group(1) not in _COSMETIC_PORTS",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 814,
+      "condition_evidence": "'ShopUIProvider' in line or 'ShoppingProvider' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 815,
+      "condition_evidence": "'SendShopBuyRequest' in line or 'SendStandardItemBuyRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 817,
+      "condition_evidence": "'SendShopSellRequest' in line or 'SendStandardItemSellRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 819,
+      "condition_evidence": "'RmShopFlowResponse' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 822,
+      "condition_evidence": "'CommodityUIProvider' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 823,
+      "condition_evidence": "'SendCommodityBuyRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_classify_event",
+      "line": 825,
+      "condition_evidence": "'SendCommoditySellRequest' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 841,
+      "condition_evidence": "event_type == 'user_login'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 844,
+      "condition_evidence": "handle_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 847,
+      "condition_evidence": "event_type == 'session_start'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 849,
+      "condition_evidence": "match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 852,
+      "condition_evidence": "match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 855,
+      "condition_evidence": "event_type == 'join_pu'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 858,
+      "condition_evidence": "match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 861,
+      "condition_evidence": "addr_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 864,
+      "condition_evidence": "event_type in ('contract_accepted', 'contract_complete', 'contract_failed')",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 877,
+      "condition_evidence": "name_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 880,
+      "condition_evidence": "mission_id_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 883,
+      "condition_evidence": "event_type in ('contract_shared', 'contract_available')",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 890,
+      "condition_evidence": "name_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 893,
+      "condition_evidence": "mission_id_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 896,
+      "condition_evidence": "event_type == 'objective_new'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 898,
+      "condition_evidence": "obj_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 901,
+      "condition_evidence": "mission_id_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 904,
+      "condition_evidence": "event_type == 'objective_complete'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 906,
+      "condition_evidence": "obj_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 909,
+      "condition_evidence": "mission_id_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 912,
+      "condition_evidence": "event_type == 'objective_withdrawn'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 914,
+      "condition_evidence": "obj_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 917,
+      "condition_evidence": "mission_id_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 920,
+      "condition_evidence": "event_type == 'injury'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 923,
+      "condition_evidence": "severity_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 927,
+      "condition_evidence": "part_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 930,
+      "condition_evidence": "tier_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 933,
+      "condition_evidence": "event_type == 'med_bed_heal'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 937,
+      "condition_evidence": "f'{part}: true' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 941,
+      "condition_evidence": "event_type == 'location_change'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 944,
+      "condition_evidence": "loc_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 950,
+      "condition_evidence": "player_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 953,
+      "condition_evidence": "event_type == 'inventory_location_update'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 960,
+      "condition_evidence": "landing_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 966,
+      "condition_evidence": "loc_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 970,
+      "condition_evidence": "player_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 977,
+      "condition_evidence": "loc_from and loc_from != '0' and (loc_from == self._current_location_guid)",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 989,
+      "condition_evidence": "event_type == 'personal_inventory_data'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 994,
+      "condition_evidence": "guid_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 997,
+      "condition_evidence": "player_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1000,
+      "condition_evidence": "event_type == 'quantum_route_set'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1005,
+      "condition_evidence": "event_type == 'channel_change'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1008,
+      "condition_evidence": "'joined channel' in line_lower",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1010,
+      "condition_evidence": "'left channel' in line_lower or 'left the channel' in line_lower",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1018,
+      "condition_evidence": "channel_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1023,
+      "condition_evidence": "' : ' in raw_channel",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1028,
+      "condition_evidence": "event_type == 'jurisdiction_change'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1031,
+      "condition_evidence": "jur_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1034,
+      "condition_evidence": "event_type in ('entered_monitored_space', 'exited_monitored_space', 'monitored_space_down', 'monitored_space_restored')",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1046,
+      "condition_evidence": "event_type == 'armistice_zone'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1047,
+      "condition_evidence": "'Entering' in line or 'entered' in line.lower()",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1049,
+      "condition_evidence": "'Leaving' in line or 'exited' in line.lower()",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1052,
+      "condition_evidence": "event_type == 'restricted_area'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1053,
+      "condition_evidence": "'Leaving' in line",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1058,
+      "condition_evidence": "event_type == 'hangar_ready'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1061,
+      "condition_evidence": "event_type == 'hangar_queue'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1064,
+      "condition_evidence": "event_type == 'quantum_calibration_started'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1069,
+      "condition_evidence": "cal_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1072,
+      "condition_evidence": "event_type == 'quantum_calibration_complete'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1076,
+      "condition_evidence": "event_type == 'party_invite'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1079,
+      "condition_evidence": "invite_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1082,
+      "condition_evidence": "event_type == 'journal_entry'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1085,
+      "condition_evidence": "journal_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1088,
+      "condition_evidence": "event_type == 'incoming_call'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1091,
+      "condition_evidence": "call_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1093,
+      "condition_evidence": "caller",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1096,
+      "condition_evidence": "event_type == 'refinery_complete'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1099,
+      "condition_evidence": "ref_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1102,
+      "condition_evidence": "event_type == 'reward_earned'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1115,
+      "condition_evidence": "amount_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1121,
+      "condition_evidence": "earned_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1123,
+      "condition_evidence": "not unit or unit.lower() == 'auec'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1132,
+      "condition_evidence": "item_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1135,
+      "condition_evidence": "event_type == 'transaction_complete'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1138,
+      "condition_evidence": "event_type == 'blueprint_received'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1142,
+      "condition_evidence": "bp_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1147,
+      "condition_evidence": "event_type in ('shop_buy', 'shop_sell')",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1163,
+      "condition_evidence": "price_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1166,
+      "condition_evidence": "qty_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1169,
+      "condition_evidence": "event_type == 'commodity_buy'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1180,
+      "condition_evidence": "price_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1183,
+      "condition_evidence": "qty_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1187,
+      "condition_evidence": "num_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1190,
+      "condition_evidence": "event_type == 'commodity_sell'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1201,
+      "condition_evidence": "amount_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1204,
+      "condition_evidence": "qty_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1207,
+      "condition_evidence": "event_type == 'vehicle_impounded'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1210,
+      "condition_evidence": "reason_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1213,
+      "condition_evidence": "event_type == 'party_member_joined'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1216,
+      "condition_evidence": "player_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1219,
+      "condition_evidence": "event_type == 'qt_calibration_complete_group'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1224,
+      "condition_evidence": "cal_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1229,
+      "condition_evidence": "event_type == 'shop_transaction_result'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1243,
+      "condition_evidence": "result_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1246,
+      "condition_evidence": "type_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1249,
+      "condition_evidence": "event_type == 'fined'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1252,
+      "condition_evidence": "amount_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1255,
+      "condition_evidence": "event_type == '_money_sent_partial'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1258,
+      "condition_evidence": "recipient_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1261,
+      "condition_evidence": "event_type == 'fatal_collision'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1266,
+      "condition_evidence": "vehicle_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1269,
+      "condition_evidence": "zone_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1272,
+      "condition_evidence": "event_type == 'insurance_claim'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1275,
+      "condition_evidence": "urn_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1278,
+      "condition_evidence": "req_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1281,
+      "condition_evidence": "event_type == 'insurance_claim_complete'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1284,
+      "condition_evidence": "urn_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1287,
+      "condition_evidence": "result_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1292,
+      "condition_evidence": "event_type == 'cargo_transfer'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1299,
+      "condition_evidence": "kiosk_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1303,
+      "condition_evidence": "entities_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1306,
+      "condition_evidence": "location_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1309,
+      "condition_evidence": "req_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1312,
+      "condition_evidence": "event_type == 'refinery_submitted'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1325,
+      "condition_evidence": "event_type == 'attachment_received'",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1334,
+      "condition_evidence": "player_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1339,
+      "condition_evidence": "attach_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1344,
+      "condition_evidence": "port_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_extract_event_data",
+      "line": 1347,
+      "condition_evidence": "elapsed_match",
+      "owner": "JSON definitions + fixed Tier 3 operators"
+    },
+    {
+      "method": "_update_state",
+      "line": 1364,
+      "condition_evidence": "event_type == 'user_login'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1365,
+      "condition_evidence": "'player_name' in data",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1368,
+      "condition_evidence": "event_type == 'session_start'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1369,
+      "condition_evidence": "'player_name' in data",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1371,
+      "condition_evidence": "'player_geid' in data",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1374,
+      "condition_evidence": "event_type == 'join_pu'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1375,
+      "condition_evidence": "'shard' in data",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1378,
+      "condition_evidence": "event_type == 'contract_accepted'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1382,
+      "condition_evidence": "event_type == 'contract_complete'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1386,
+      "condition_evidence": "event_type == 'contract_failed'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1390,
+      "condition_evidence": "event_type == 'objective_new'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1393,
+      "condition_evidence": "event_type == 'injury'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1406,
+      "condition_evidence": "part and severity",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1409,
+      "condition_evidence": "event_type == 'med_bed_heal'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1413,
+      "condition_evidence": "event_type == 'location_change'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1419,
+      "condition_evidence": "'player_name' in data and (not self._state_store.get('player_name'))",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1423,
+      "condition_evidence": "event_type == 'inventory_location_update'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1426,
+      "condition_evidence": "event_type == 'personal_inventory_data'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1429,
+      "condition_evidence": "event_type == 'quantum_route_set'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1433,
+      "condition_evidence": "event_type == 'channel_change'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1438,
+      "condition_evidence": "self._is_ship_channel(channel_raw)",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1439,
+      "condition_evidence": "action == 'joined'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1444,
+      "condition_evidence": "owner and player",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1448,
+      "condition_evidence": "action == 'left'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1453,
+      "condition_evidence": "event_type == 'jurisdiction_change'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1454,
+      "condition_evidence": "'jurisdiction' in data",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1457,
+      "condition_evidence": "event_type in ('entered_monitored_space', 'exited_monitored_space', 'monitored_space_down', 'monitored_space_restored')",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1465,
+      "condition_evidence": "event_type == 'armistice_zone'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1469,
+      "condition_evidence": "event_type == 'restricted_area'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1473,
+      "condition_evidence": "event_type == 'objective_complete'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_update_state",
+      "line": 1476,
+      "condition_evidence": "event_type == 'objective_withdrawn'",
+      "owner": "Tier 2"
+    },
+    {
+      "method": "_process_line",
+      "line": 510,
+      "condition_evidence": "self._pending_money_sent is not None",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 512,
+      "condition_evidence": "amount_match",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 530,
+      "condition_evidence": "event is None",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 534,
+      "condition_evidence": "event.event_type == '_money_sent_partial'",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 539,
+      "condition_evidence": "event.event_type == 'session_start'",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 541,
+      "condition_evidence": "geid and geid == self._last_session_geid",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 560,
+      "condition_evidence": "self._file_output_enabled",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    },
+    {
+      "method": "_process_line",
+      "line": 562,
+      "condition_evidence": "len(self._event_history) % 10 == 0",
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification"
+    }
+  ],
+  "parser_methods": {
+    "__init__": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 230,
+        "end": 282
+      }
+    },
+    "prepare": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 288,
+        "end": 309
+      }
+    },
+    "start": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 311,
+        "end": 350
+      }
+    },
+    "stop": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 352,
+        "end": 359
+      }
+    },
+    "subscribe": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 361,
+        "end": 364
+      }
+    },
+    "subscribe_state": {
+      "owner": "Tier 2; keep compatibility facade for existing consumers",
+      "source": {
+        "file": "parser.py",
+        "start": 366,
+        "end": 368
+      }
+    },
+    "get_state": {
+      "owner": "Tier 2; keep compatibility facade for existing consumers",
+      "source": {
+        "file": "parser.py",
+        "start": 370,
+        "end": 374
+      }
+    },
+    "save_state": {
+      "owner": "Tier 2; keep compatibility facade for existing consumers",
+      "source": {
+        "file": "parser.py",
+        "start": 376,
+        "end": 380
+      }
+    },
+    "load_state": {
+      "owner": "Tier 2; keep compatibility facade for existing consumers",
+      "source": {
+        "file": "parser.py",
+        "start": 382,
+        "end": 385
+      }
+    },
+    "clear_state": {
+      "owner": "Tier 2; keep compatibility facade for existing consumers",
+      "source": {
+        "file": "parser.py",
+        "start": 387,
+        "end": 389
+      }
+    },
+    "is_running": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 391,
+        "end": 393
+      }
+    },
+    "enable_file_output": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 395,
+        "end": 399
+      }
+    },
+    "disable_file_output": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 401,
+        "end": 405
+      }
+    },
+    "_monitor_loop": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 413,
+        "end": 428
+      }
+    },
+    "_scan_log_startup": {
+      "owner": "Tier 3 scanner using the same JSON session matchers as live parsing; Tier 2 session reset",
+      "source": {
+        "file": "parser.py",
+        "start": 430,
+        "end": 464
+      }
+    },
+    "last_session_timestamp": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 467,
+        "end": 469
+      }
+    },
+    "_check_for_new_lines": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 471,
+        "end": 505
+      }
+    },
+    "_process_line": {
+      "owner": "Split: record assembly Tier 3; session dedup/state/qualification Tier 2; public dispatch only after qualification",
+      "source": {
+        "file": "parser.py",
+        "start": 507,
+        "end": 572
+      }
+    },
+    "_parse_line": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 578,
+        "end": 592
+      }
+    },
+    "_extract_timestamp": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 594,
+        "end": 608
+      }
+    },
+    "_classify_event": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 610,
+        "end": 835
+      }
+    },
+    "_extract_event_data": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 837,
+        "end": 1353
+      }
+    },
+    "_update_state": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1359,
+        "end": 1477
+      }
+    },
+    "_learn_location_guid_at_arrival": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1488,
+        "end": 1517
+      }
+    },
+    "_recent_pending_inventory_guid": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1519,
+        "end": 1526
+      }
+    },
+    "_register_location_guid": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1528,
+        "end": 1533
+      }
+    },
+    "_handle_inventory_location_update": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1535,
+        "end": 1550
+      }
+    },
+    "_handle_personal_inventory_data": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1552,
+        "end": 1561
+      }
+    },
+    "_persist_location_guid_map": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1563,
+        "end": 1575
+      }
+    },
+    "_load_location_guid_map": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1577,
+        "end": 1590
+      }
+    },
+    "_is_ship_channel": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1592,
+        "end": 1605
+      }
+    },
+    "_extract_notification_context": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 1608,
+        "end": 1618
+      }
+    },
+    "_extract_bracketed": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 1621,
+        "end": 1636
+      }
+    },
+    "_clean_ship_name": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1638,
+        "end": 1662
+      }
+    },
+    "_event_belongs_to_player_ship": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1664,
+        "end": 1693
+      }
+    },
+    "_ship_model_tokens": {
+      "owner": "Tier 2",
+      "source": {
+        "file": "parser.py",
+        "start": 1696,
+        "end": 1712
+      }
+    },
+    "_extract_qt_arrival_class": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 1715,
+        "end": 1728
+      }
+    },
+    "_extract_collision_vehicle_class": {
+      "owner": "JSON definitions + fixed Tier 3 operators",
+      "source": {
+        "file": "parser.py",
+        "start": 1731,
+        "end": 1743
+      }
+    },
+    "_flush_file_output": {
+      "owner": "Tier 3 engine",
+      "source": {
+        "file": "parser.py",
+        "start": 1749,
+        "end": 1765
+      }
+    }
+  }
+}

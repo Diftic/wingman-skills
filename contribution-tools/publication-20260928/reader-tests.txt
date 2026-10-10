@@ -1,0 +1,44 @@
+usage: stream_test.py [-h] --profile {typical,burst,sustained,recovery}
+                      --output OUTPUT [--source-log SOURCE_LOG]
+                      [--source-size SOURCE_SIZE]
+                      [--source-sha256 SOURCE_SHA256]
+                      [--source-second SOURCE_SECOND]
+                      [--group-entry-count GROUP_ENTRY_COUNT]
+                      [--recovery-case {restart,truncate,replace,malformed,database,disk}]
+                      [--rate RATE] [--duration DURATION]
+                      [--drain-timeout DRAIN_TIMEOUT] [--notifications]
+stream_test.py: error: rate, duration and drain-timeout must be finite positive numbers
+======================================================================
+ERROR: test_interfaces (unittest.loader._FailedTest.test_interfaces)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_interfaces
+Traceback (most recent call last):
+  File "C:\Users\larse\AppData\Roaming\uv\python\cpython-3.11.15-windows-x86_64-none\Lib\unittest\loader.py", line 419, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\larse\AppData\Roaming\uv\python\cpython-3.11.15-windows-x86_64-none\Lib\unittest\loader.py", line 362, in _get_module_from_name
+    __import__(name)
+  File "D:\PycharmProjects\wingman-ai\skills\sc_log_reader\tests\test_interfaces.py", line 13, in <module>
+    from sc_log_reader.cli import main
+ModuleNotFoundError: No module named 'sc_log_reader.cli'
+
+
+======================================================================
+ERROR: test_resource_health (unittest.loader._FailedTest.test_resource_health)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_resource_health
+Traceback (most recent call last):
+  File "C:\Users\larse\AppData\Roaming\uv\python\cpython-3.11.15-windows-x86_64-none\Lib\unittest\loader.py", line 419, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\larse\AppData\Roaming\uv\python\cpython-3.11.15-windows-x86_64-none\Lib\unittest\loader.py", line 362, in _get_module_from_name
+    __import__(name)
+  File "D:\PycharmProjects\wingman-ai\skills\sc_log_reader\tests\test_resource_health.py", line 12, in <module>
+    from sc_log_reader.cli import main
+ModuleNotFoundError: No module named 'sc_log_reader.cli'
+
+
+----------------------------------------------------------------------
+Ran 313 tests in 32.621s
+
+FAILED (errors=2)

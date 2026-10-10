@@ -1,0 +1,50 @@
+[
+  {
+    "fixture": "channel.log",
+    "source": "LIVE/Game.log",
+    "byte_start": 544897,
+    "bytes": 323
+  },
+  {
+    "fixture": "apostrophe.log",
+    "source": "LIVE/logbackups/Game Build(12232306) 16 Jul 26 (17 17 37).log",
+    "byte_start": 502070,
+    "bytes": 313
+  },
+  {
+    "fixture": "objective.log",
+    "source": "LIVE/logbackups/Game Build(12232306) 16 Jul 26 (17 17 37).log",
+    "byte_start": 1209506,
+    "bytes": 333
+  },
+  {
+    "fixture": "reward.log",
+    "source": "LIVE\\logbackups\\Game Build(12232306) 16 Jul 26 (17 17 37).log",
+    "byte_start": 5019037,
+    "bytes": 360
+  },
+  {
+    "fixture": "singular_reward.log",
+    "source": "LIVE/logbackups/Game Build(12248363) 18 Jul 26 (13 21 15).log",
+    "byte_start": 3165979,
+    "bytes": 372
+  },
+  {
+    "fixture": "millisecond_reward.log",
+    "source": "LIVE/logbackups/Game Build(12248363) 18 Jul 26 (13 21 15).log",
+    "byte_start": 22842261,
+    "bytes": 361
+  },
+  {
+    "fixture": "millisecond_channel.log",
+    "source": "LIVE/logbackups/Game Build(12248363) 19 Jul 26 (00 23 18).log",
+    "byte_start": 611863,
+    "bytes": 323
+  },
+  {
+    "fixture": "quoted_reward.log",
+    "source": "LIVE/logbackups/Game Build(12248363) 18 Jul 26 (13 21 15).log",
+    "byte_start": 3165224,
+    "bytes": 395
+  }
+]

@@ -1,0 +1,5 @@
+Satisfactory Assistant 0.8.2
+
+- Reads extractor resources from their output-inventory descriptors when world-object references are ambiguous.
+- Separates nitrogen, water, and crude-oil Resource Well Extractors in the factory mirror.
+- Resolves nitrogen extractor, nitrogen extraction, and nitrogen gas extractor requests to nitrogen wells only.

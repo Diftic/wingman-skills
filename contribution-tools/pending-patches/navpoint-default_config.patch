@@ -1,0 +1,23 @@
+diff --git a/skills/sc_navpoint/default_config.yaml b/skills/sc_navpoint/default_config.yaml
+index 52d5c6d..aa3fd90 100644
+--- a/skills/sc_navpoint/default_config.yaml
++++ b/skills/sc_navpoint/default_config.yaml
+@@ -10,7 +10,7 @@ tags:
+   - Navigation
+   - Waypoints
+ description:
+-  en: "Save, log or mark the player's OWN current position as a personal waypoint in Star Citizen, anywhere: in open space or on a planet or moon surface. Then navigate back to it later with distance and direction. Every NavPoint tool that needs a position captures and reads the game screen itself, inside its own call, and no NavPoint tool accepts a position argument. Do NOT activate the VisionAI skill before a save, log or mark request: it cannot pass a position to NavPoint and only adds a wasted screen capture. USE THIS whenever the player wants their current position remembered ('log this spot', 'save my location', 'mark where I am', 'drop a pin') or wants to return to a place they marked earlier ('navigate back to X', 'take me back to X'). Do NOT use the route planner for these: that plans between named in-game destinations and knows nothing about the player's own saved waypoints. Do NOT answer with a HUD information card either: that displays text and stores no position."
++  en: "Save your current position in Star Citizen as a waypoint and navigate back to it later."
+ discovery_keywords:
+   - star citizen
+   - navigation
+@@ -110,6 +110,9 @@ prompt: |
+   inside the tool call. Never use the VisionAI skill or any other skill to look at
+   the screen for NavPoint, and never try to supply coordinates: no NavPoint tool
+   takes a position argument.
++  Use NavPoint, not the route planner, for the player's own saved spots: the route
++  planner only knows named in-game destinations. Do not answer a save or mark request
++  with a HUD information card: it shows text and stores no position.
+ 
+   **Available Tools:**
+   - `mark_location(name)`: Capture the current position and save it as a named

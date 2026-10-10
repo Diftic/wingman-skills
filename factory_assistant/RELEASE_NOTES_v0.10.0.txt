@@ -1,0 +1,10 @@
+Factory Assistant 0.10.0
+
+- New name and folder: Factory Assistant (skills/factory_assistant). It is built from Satisfactory Assistant 0.9.1.
+- One Orchestrator for all factory games. Each game has its own Reader and Handler. Satisfactory and Dyson Sphere Program are supported.
+- New "Game" setting: Auto (the game with the most recently loaded save) or a specific game.
+- The tools have game-neutral names: get_factory_context, show_factory_map, update_factory_plan, calculate_factory_plan. In calculate_factory_plan, "phase" is now "stage" and "include_alternates" is now "allow_recipes".
+- The Satisfactory calculations, audit and map do not change.
+- The data updates each time the game autosaves. Change the autosave interval in the game settings.
+- Satisfactory Assistant can stay installed. The two skills use different folders and names. Notes and plans from Satisfactory Assistant are not copied.
+- Dyson Sphere Program (first version): reads the newest save and reports what you make and use per minute, what you use faster than you make, power, and research speed, from the game's own statistics. Item and recipe lookup. Notes and jobs per galaxy. No map or planning yet.

@@ -1,0 +1,105 @@
+{
+  "status": "assessment verified structurally; proposed reader not implemented or behaviorally qualified",
+  "source_hashes_unchanged": true,
+  "unique_rule_names_complete": true,
+  "all_classifier_return_sites_accounted": true,
+  "all_top_level_extraction_and_state_blocks_accounted": true,
+  "all_logparser_methods_accounted": true,
+  "all_event_table_rows_present": true,
+  "regex_expressions_compiled": 89,
+  "operator_families_used": [
+    "bracket_fields",
+    "capture",
+    "choose",
+    "collect_true_fields",
+    "constant",
+    "exclude_values",
+    "normalize",
+    "notification_context",
+    "notification_payload",
+    "quantity_with_unit",
+    "sequence"
+  ],
+  "current_parser_probes": [
+    {
+      "name": "baseline",
+      "synthetic": true,
+      "actual_event": "contract_accepted",
+      "actual_fields": {
+        "mission_name": "Delivery",
+        "mission_id": "mission-123"
+      }
+    },
+    {
+      "name": "space_before_label_colon",
+      "synthetic": true,
+      "actual_event": null,
+      "actual_fields": null
+    },
+    {
+      "name": "missing_title_terminator_colon",
+      "synthetic": true,
+      "actual_event": "contract_accepted",
+      "actual_fields": {
+        "mission_id": "mission-123"
+      }
+    },
+    {
+      "name": "field_case_variant",
+      "synthetic": true,
+      "actual_event": "contract_accepted",
+      "actual_fields": {
+        "mission_name": "Delivery"
+      }
+    },
+    {
+      "name": "objective_contains_failed_contract_label",
+      "synthetic": true,
+      "actual_event": "contract_failed",
+      "actual_fields": {
+        "mission_id": "mission-123"
+      }
+    },
+    {
+      "name": "timestamp_without_fraction",
+      "synthetic": true,
+      "result": "falls back to observation time, losing source time"
+    },
+    {
+      "name": "existing_token_fixture",
+      "synthetic": false,
+      "actual_fields": {
+        "quantity": "30",
+        "item_name": "rewards"
+      }
+    },
+    {
+      "name": "wrap_before_reward_unit",
+      "synthetic": true,
+      "actual_fields": {
+        "amount": "30"
+      },
+      "continuation": "ignored"
+    }
+  ],
+  "existing_regression_tests": {
+    "files": [
+      "tests/test_parser_ownership.py",
+      "tests/test_location_departure.py",
+      "tests/test_reward_tokens.py",
+      "tests/test_movement_reconciliation.py"
+    ],
+    "result": "29 passed, 22 warnings in 0.17s",
+    "warnings": "Pydantic deprecations",
+    "scope": "unchanged current implementation; not the proposed JSON definitions",
+    "initial_environment_error": "sandbox temp-directory WinError 5; rerun in a fresh approved temp directory passed"
+  },
+  "not_performed": [
+    "new interpreter execution",
+    "real-log corpus replay",
+    "live game test",
+    "Wingman startup/update/rollback test",
+    "full test suite",
+    "JSON Schema conformance: formal runtime schema not implemented"
+  ]
+}

@@ -1,0 +1,144 @@
+running egg_info
+writing src\sc_log_reader_2.egg-info\PKG-INFO
+writing dependency_links to src\sc_log_reader_2.egg-info\dependency_links.txt
+writing entry points to src\sc_log_reader_2.egg-info\entry_points.txt
+writing requirements to src\sc_log_reader_2.egg-info\requires.txt
+writing top-level names to src\sc_log_reader_2.egg-info\top_level.txt
+reading manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+running sdist
+running egg_info
+writing src\sc_log_reader_2.egg-info\PKG-INFO
+writing dependency_links to src\sc_log_reader_2.egg-info\dependency_links.txt
+writing entry points to src\sc_log_reader_2.egg-info\entry_points.txt
+writing requirements to src\sc_log_reader_2.egg-info\requires.txt
+writing top-level names to src\sc_log_reader_2.egg-info\top_level.txt
+reading manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+running check
+creating sc_log_reader_2-0.1.0
+creating sc_log_reader_2-0.1.0\docs
+creating sc_log_reader_2-0.1.0\docs\superpowers\plans
+creating sc_log_reader_2-0.1.0\examples
+creating sc_log_reader_2-0.1.0\integrations\wingman_legacy
+creating sc_log_reader_2-0.1.0\src\sc_log_reader_2
+creating sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+creating sc_log_reader_2-0.1.0\src\sc_log_reader_2\data
+creating sc_log_reader_2-0.1.0\tests
+copying files to sc_log_reader_2-0.1.0...
+copying MANIFEST.in -> sc_log_reader_2-0.1.0
+copying README.md -> sc_log_reader_2-0.1.0
+copying pyproject.toml -> sc_log_reader_2-0.1.0
+copying docs\ARCHITECTURE.md -> sc_log_reader_2-0.1.0\docs
+copying docs\INSTRUCTIONS.md -> sc_log_reader_2-0.1.0\docs
+copying docs\superpowers\plans\2026-09-15-first-implementation.md -> sc_log_reader_2-0.1.0\docs\superpowers\plans
+copying examples\sample.log -> sc_log_reader_2-0.1.0\examples
+copying integrations\wingman_legacy\README.md -> sc_log_reader_2-0.1.0\integrations\wingman_legacy
+copying integrations\wingman_legacy\default_config.yaml -> sc_log_reader_2-0.1.0\integrations\wingman_legacy
+copying src\sc_log_reader_2\__init__.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\__main__.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\cli.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\main.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\reader.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\service.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\state.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2\updates.py -> sc_log_reader_2-0.1.0\src\sc_log_reader_2
+copying src\sc_log_reader_2.egg-info\PKG-INFO -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2.egg-info\SOURCES.txt -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2.egg-info\dependency_links.txt -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2.egg-info\entry_points.txt -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2.egg-info\requires.txt -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2.egg-info\top_level.txt -> sc_log_reader_2-0.1.0\src\sc_log_reader_2.egg-info
+copying src\sc_log_reader_2\data\instructions.json -> sc_log_reader_2-0.1.0\src\sc_log_reader_2\data
+copying tests\test_interfaces.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_reader.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_recipe_matrix.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_resilience.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_review_regressions.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_service.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_state.py -> sc_log_reader_2-0.1.0\tests
+copying tests\test_updates.py -> sc_log_reader_2-0.1.0\tests
+Writing sc_log_reader_2-0.1.0\setup.cfg
+Creating tar archive
+removing 'sc_log_reader_2-0.1.0' (and everything under it)
+running egg_info
+writing src\sc_log_reader_2.egg-info\PKG-INFO
+writing dependency_links to src\sc_log_reader_2.egg-info\dependency_links.txt
+writing entry points to src\sc_log_reader_2.egg-info\entry_points.txt
+writing requirements to src\sc_log_reader_2.egg-info\requires.txt
+writing top-level names to src\sc_log_reader_2.egg-info\top_level.txt
+reading manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+creating build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\cli.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\main.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\reader.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\service.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\state.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\updates.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\__init__.py -> build\lib\sc_log_reader_2
+copying src\sc_log_reader_2\__main__.py -> build\lib\sc_log_reader_2
+running egg_info
+writing src\sc_log_reader_2.egg-info\PKG-INFO
+writing dependency_links to src\sc_log_reader_2.egg-info\dependency_links.txt
+writing entry points to src\sc_log_reader_2.egg-info\entry_points.txt
+writing requirements to src\sc_log_reader_2.egg-info\requires.txt
+writing top-level names to src\sc_log_reader_2.egg-info\top_level.txt
+reading manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'src\sc_log_reader_2.egg-info\SOURCES.txt'
+creating build\lib\sc_log_reader_2\data
+copying src\sc_log_reader_2\data\instructions.json -> build\lib\sc_log_reader_2\data
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\sc_log_reader_2
+copying build\lib\sc_log_reader_2\cli.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+creating build\bdist.win-amd64\wheel\sc_log_reader_2\data
+copying build\lib\sc_log_reader_2\data\instructions.json -> build\bdist.win-amd64\wheel\.\sc_log_reader_2\data
+copying build\lib\sc_log_reader_2\main.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\reader.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\service.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\state.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\updates.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\__init__.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+copying build\lib\sc_log_reader_2\__main__.py -> build\bdist.win-amd64\wheel\.\sc_log_reader_2
+running install_egg_info
+Copying src\sc_log_reader_2.egg-info to build\bdist.win-amd64\wheel\.\sc_log_reader_2-0.1.0-py3.13.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\sc_log_reader_2-0.1.0.dist-info\WHEEL
+creating 'D:\\PycharmProjects\\Sc_log_reader_2\\dist\\.tmp-ezbtsu5d\\sc_log_reader_2-0.1.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'sc_log_reader_2/__init__.py'
+adding 'sc_log_reader_2/__main__.py'
+adding 'sc_log_reader_2/cli.py'
+adding 'sc_log_reader_2/main.py'
+adding 'sc_log_reader_2/reader.py'
+adding 'sc_log_reader_2/service.py'
+adding 'sc_log_reader_2/state.py'
+adding 'sc_log_reader_2/updates.py'
+adding 'sc_log_reader_2/data/instructions.json'
+adding 'sc_log_reader_2-0.1.0.dist-info/METADATA'
+adding 'sc_log_reader_2-0.1.0.dist-info/WHEEL'
+adding 'sc_log_reader_2-0.1.0.dist-info/entry_points.txt'
+adding 'sc_log_reader_2-0.1.0.dist-info/top_level.txt'
+adding 'sc_log_reader_2-0.1.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built sc_log_reader_2-0.1.0.tar.gz and sc_log_reader_2-0.1.0-py3-none-any.whl
+* Getting build dependencies for sdist...
+no previously-included directories found matching 'reference'
+* Building sdist...
+no previously-included directories found matching 'reference'
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+no previously-included directories found matching 'reference'
+no previously-included directories found matching 'docs\design'
+* Building wheel...
+no previously-included directories found matching 'reference'
+no previously-included directories found matching 'docs\design'

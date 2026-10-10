@@ -1,0 +1,15 @@
+{
+  "fixture_type": "metadata only; private logs are not distributed",
+  "retained_archive": {
+    "path": "D:\\Roberts Space Industries\\StarCitizen\\LIVE\\logbackups\\Game Build(12545750) 31 Aug 26 (22 08 34).log",
+    "bytes": 487705181,
+    "sha256": "24780b2af990dfd73d4e10cbf986ac354e7e696ad88ba270fca9ecd3fdaece67",
+    "verification_status": "recorded preflight; harness must verify before and after replay"
+  },
+  "timestamp_groups": [
+    {"entries": 111918, "utc_second": "2026-08-31T20:33:13", "source": "retained_archive"},
+    {"entries": 4101, "utc_second": "2026-09-06T10:56:40", "source": "PTU/logbackups/Game Build(12572603) 06 Sep 26 (11 36 45).log"}
+  ],
+  "append_schedule": "unknown for original sources; synthetic harness schedules are labelled separately",
+  "sentinels": "hand authored login, mission accept/objective/complete, unique shop request/Success; exact confirmed amount -265 aUEC"
+}

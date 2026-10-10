@@ -1,0 +1,20 @@
+Satisfactory Assistant v0.7.2
+
+Focused, complete location maps and speech-routing recovery.
+
+- Faster Whisper's observed "oilless extractor" transcription is normalized
+  to Oil Extractor instead of falling back to broad oil-production matches.
+- Explicit building-type queries now exclude production-line centroids and
+  other oil-related buildings. The live test query returns all 17 Oil
+  Extractors, not three Crude Oil lines plus two extractors.
+- Spoken responses remain capped at five coordinates, while the map includes
+  up to 100 matching buildings. Pins are numbered and the map reports total
+  coverage.
+- Location maps frame the matching buildings instead of the entire 1,185-
+  machine factory. Nearby factory points remain as orientation context.
+- If the model mistakenly sends a recognized building type through the
+  context tool's focus field, the skill now runs the location path and opens
+  the popup instead of claiming that no planning record exists.
+
+The standalone top-centre popup and machine aliases remain as introduced in
+v0.7.0 and v0.7.1.

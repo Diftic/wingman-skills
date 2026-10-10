@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "host_source_sha256": {
+    "wingmen/facade.py": "97fde69f9de54cd058290efe386e0c13bcd12275cb249a6dac022a6573f31b43",
+    "wingmen/wingman_context.py": "60eb19975ed99840cd70c832eb054ceef52382fa2e99f6b7e01ada20ef62a4fb",
+    "skills/skill_base.py": "0964065bc555fc26d574357b24b317c7d2ce6c97a4b492d58b46c5a8936e93a1",
+    "services/module_manager.py": "a84005b5f2cecf153300930378e504ee3055df9e83ceffb80c195287e5105105"
+  },
+  "checks": [
+    "actual module probe and load",
+    "actual closed facade",
+    "actual base init prepare unload",
+    "seven tool calls",
+    "isolated log ingestion",
+    "explicit reaction context",
+    "history append",
+    "non-interrupting TTS delegation"
+  ],
+  "limits": "Selected installed methods with configuration, provider, GUI and hardware doubles; no live Wingman launch or audible playback."
+}

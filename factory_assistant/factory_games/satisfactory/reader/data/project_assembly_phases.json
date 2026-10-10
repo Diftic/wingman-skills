@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "source_url": "https://satisfactory.wiki.gg/wiki/Space_Elevator",
+    "retrieved": "2026-07-01",
+    "note": "Quantities and unlocked tiers cross-checked in-game at G3 acceptance; a future game patch changing quantities requires a data-file update."
+  },
+  "base_tiers": [0, 1, 2],
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Distribution Platform",
+      "window_hours_baseline": 1,
+      "unlocks_tiers": [3, 4],
+      "parts": [
+        {
+          "item_class": "Desc_SpaceElevatorPart_1_C",
+          "display_name": "Smart Plating",
+          "quantity": 50
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Construction Dock",
+      "window_hours_baseline": 2,
+      "unlocks_tiers": [5, 6],
+      "parts": [
+        {
+          "item_class": "Desc_SpaceElevatorPart_1_C",
+          "display_name": "Smart Plating",
+          "quantity": 1000
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_2_C",
+          "display_name": "Versatile Framework",
+          "quantity": 1000
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_3_C",
+          "display_name": "Automated Wiring",
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Main Body",
+      "window_hours_baseline": 4,
+      "unlocks_tiers": [7, 8],
+      "parts": [
+        {
+          "item_class": "Desc_SpaceElevatorPart_2_C",
+          "display_name": "Versatile Framework",
+          "quantity": 2500
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_4_C",
+          "display_name": "Modular Engine",
+          "quantity": 500
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_5_C",
+          "display_name": "Adaptive Control Unit",
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Propulsion",
+      "window_hours_baseline": 8,
+      "unlocks_tiers": [9],
+      "parts": [
+        {
+          "item_class": "Desc_SpaceElevatorPart_7_C",
+          "display_name": "Assembly Director System",
+          "quantity": 500
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_6_C",
+          "display_name": "Magnetic Field Generator",
+          "quantity": 500
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_8_C",
+          "display_name": "Thermal Propulsion Rocket",
+          "quantity": 250
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_9_C",
+          "display_name": "Nuclear Pasta",
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Assembly",
+      "window_hours_baseline": 16,
+      "unlocks_tiers": [],
+      "parts": [
+        {
+          "item_class": "Desc_SpaceElevatorPart_9_C",
+          "display_name": "Nuclear Pasta",
+          "quantity": 1000
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_10_C",
+          "display_name": "Biochemical Sculptor",
+          "quantity": 1000
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_12_C",
+          "display_name": "AI Expansion Server",
+          "quantity": 256
+        },
+        {
+          "item_class": "Desc_SpaceElevatorPart_11_C",
+          "display_name": "Ballistic Warp Drive",
+          "quantity": 200
+        }
+      ]
+    }
+  ]
+}

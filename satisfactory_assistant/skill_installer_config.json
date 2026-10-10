@@ -1,0 +1,44 @@
+{
+  "skill_name": "satisfactory_assistant",
+  "display_name": "Satisfactory Assistant",
+  "version": "0.5.0",
+  "files": [
+    "__init__.py",
+    "default_config.yaml",
+    "install.bat",
+    "logo.png",
+    "main.py",
+    "RELEASE_NOTES_v0.5.0.txt",
+    "satisfactory_active_save.py",
+    "satisfactory_actuals.py",
+    "satisfactory_adapter.py",
+    "satisfactory_construction.py",
+    "satisfactory_dataset.py",
+    "satisfactory_docs.py",
+    "satisfactory_extraction.py",
+    "satisfactory_install.py",
+    "satisfactory_logistics.py",
+    "satisfactory_map.py",
+    "satisfactory_master_plan.py",
+    "satisfactory_mirror.py",
+    "satisfactory_models.py",
+    "satisfactory_plan_models.py",
+    "satisfactory_progression.py",
+    "satisfactory_reference.py",
+    "satisfactory_reports.py",
+    "satisfactory_save_parser.py",
+    "satisfactory_scenarios.py",
+    "satisfactory_solver.py",
+    "satisfactory_store.py",
+    "satisfactory_workspace.py",
+    "skill_installer_config.json",
+    "TESTER_README.md"
+  ],
+  "dirs": [
+    "data",
+    "tools/save_parser"
+  ],
+  "preserve_on_update": [
+    "default_config.yaml"
+  ]
+}

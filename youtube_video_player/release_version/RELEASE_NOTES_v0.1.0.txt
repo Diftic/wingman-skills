@@ -1,0 +1,76 @@
+YouTube Video Player — v0.1.0
+==============================
+
+Initial release. Voice-driven YouTube video playback. The skill drives the
+Wingman Player overlay (a separate sci-fi-framed Windows app) over a localhost
+HTTP API. Search by song / artist / arbitrary query; auto-plays when confident,
+otherwise speaks a top-5 list and waits for the user to pick. Transport controls
+(pause / resume / stop / next / previous / seek) drive the overlay's embedded
+YouTube IFrame. No volume control by design.
+
+What's included
+---------------
+- search_and_play_youtube         — search; auto-play if composite confidence >= 0.98, else top-5 list
+- play_search_result(index)       — pick numbered item from the most recent list
+- pause_player / resume_player / stop_player
+- next_track / previous_track     — playlist navigation
+- seek_player(seconds)            — absolute seek; relative seeks via get_player_status first
+- get_player_status               — what's playing, position, duration
+- set_youtube_api_key             — re-open the API key prompt if it was dismissed
+
+The Wingman Player overlay
+--------------------------
+The player ships independently from this skill. Download the latest installer:
+
+  https://github.com/Diftic/Wingman-Player/releases/latest
+
+Grab Wingman-Player-Setup.msi and run it. The MSI installs per-user to
+%LocalAppData%\Programs\Wingman Player\ and adds a Start Menu shortcut. The
+skill auto-resolves that path and launches the player when needed — no extra
+configuration required after the MSI install.
+
+If you keep a development build elsewhere, set the Player Executable Path
+custom property to point at it (overrides the canonical install).
+
+The player has its own auto-update channel — open Settings → Check for updates
+inside the player to upgrade in place when new releases ship. The skill is
+unaware of player upgrades.
+
+Requirements
+------------
+- Wingman AI installed
+- Wingman Player installed (link above)
+- Free YouTube Data API v3 key from console.cloud.google.com
+  (enable YouTube Data API v3 → Credentials → Create → API key,
+   then Restrict Key → API restrictions: YouTube Data API v3 only)
+
+Daily quota
+-----------
+Free tier: 10,000 quota units / day. search.list costs 100 units, so the
+practical ceiling is ~95 searches/day. The skill caches identical queries
+(default 60 min TTL) and persists a daily counter to its data dir
+(resets at midnight UTC).
+
+Configuration
+-------------
+All knobs are in default_config.yaml under custom_properties, also editable
+via Wingman's UI:
+
+  daily_search_limit       100        soft cap on searches per UTC day
+  cache_ttl_minutes        60         repeat-query cache window
+  auto_play_threshold      0.98       composite confidence above which top result auto-plays
+  player_host              127.0.0.1
+  player_port              17330
+  player_exe_path          (empty)    optional override; leave empty to use the canonical install
+  auto_launch_player       true
+
+Known limitations
+-----------------
+- Search relies on YouTube's frontend remaining stable; Google occasionally
+  tweaks the API surface.
+- Auto-play accuracy depends on (a) the LLM passing a sensible llm_confidence
+  and naming song/artist when the user did, and (b) YouTube returning the
+  expected video as the top result. Default threshold (0.98) is intentionally
+  strict — lower it to ~0.85 if you want more eager auto-play.
+- API key is stored in Wingman's secrets.yaml in plain text, same as every
+  other key managed by SecretKeeper.

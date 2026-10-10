@@ -1,0 +1,11 @@
+<2026-09-15T12:00:00Z> User Login Success Handle[ExamplePilot]
+<2026-09-15T12:00:00.100Z> AccountLoginCharacterStatus_Character name ExamplePilot geid 12345
+<2026-09-15T12:00:01Z> <SHUDEvent> Added notification "Contract Accepted : Delivery: Priority" [13] to queue. MissionID: [example-mission]
+<2026-09-15T12:00:02Z> <SHUDEvent> Added notification "New Objective: Pick up package:" [14] to queue. MissionId: [example-mission]
+<2026-09-15T12:00:03Z> <RequestLocationInventory> Player[ExamplePilot] Location[RR_CRU_LEO]
+<2026-09-15T12:00:04Z> <SHUDEvent> Added notification "You've earned: 30
+rewards: " [15] to queue.
+<2026-09-15T12:00:05Z> ShoppingProvider SendStandardItemBuyRequest playerId[p1] shopId[s1] kioskId[k1] client_price[265] quantity[1] currencyType[UEC] itemName[Medpen]
+<2026-09-15T12:00:06Z> ShoppingProvider RmShopFlowResponse playerId[p1] shopId[s1] kioskId[k1] result[Success]
+<2026-09-15T12:00:07Z> <SHUDEvent> Added notification "Contract Complete: Delivery: Priority:" [16] to queue. MissionId: [example-mission]
+<2026-09-15T12:00:08Z> <SHUDEvent> Added notification "Awarded 500 aUEC:" [17] to queue.

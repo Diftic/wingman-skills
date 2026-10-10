@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "checkout": "D:\\PycharmProjects\\wingman-contributions\\navpoint",
+  "base": "6eb31903bbcacd1a9dc15dd6734e2f132bc0b657",
+  "base_branch": "upstream/develop",
+  "branch": "contrib/sc-navpoint",
+  "fork_url": "https://github.com/Diftic/wingman-ai.git",
+  "files": {
+    "skills/sc_navpoint/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "a7baa97ae6ea98e3f62db5e89402d95bd4696853223c4c7b4f2eab42532fd7e3",
+      "blob": "e0e9e098f1ec7adcf2dcd3f831e7a8c185783e4f"
+    },
+    "skills/sc_navpoint/LICENSE": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\LICENSE",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+      "blob": "3877ae0a7ff6f94ac222fd704e112723db776114"
+    },
+    "skills/sc_navpoint/coordinate_stack.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\coordinate_stack.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "dd1a33fa9b561703d92b927e0474f88f0fbd5ca0092f40083457e562d86bbf5e",
+      "blob": "d81f22fc22f40888da01649c09dde87766ca4f5c"
+    },
+    "skills/sc_navpoint/active_frame.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\active_frame.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "e1b79367fe6db11f40c175b58ca4c1d6e74fba3fa856012af5ec7cbab6d1bfdd",
+      "blob": "7af53c2d26f62b07bf6776119f06ec8ffd58a01e"
+    },
+    "skills/sc_navpoint/distance_precision.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\distance_precision.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "dfa0e38b33d8d2a0289fb0ad9c01c31339085ed8f9a14a3abf3a0847eda1bfc1",
+      "blob": "78bce7de9da995723630df41c882991ffb7f407d"
+    },
+    "skills/sc_navpoint/frame_reader.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\frame_reader.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "78356c293a394a2a856b087db0d494ed5f4fbc80c1ffd09647a579ba41a54fb6",
+      "blob": "219ec88b9ba47fd3c8efa62214da7b16ad343f61"
+    },
+    "skills/sc_navpoint/planet_rotation.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\planet_rotation.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "184a26d68603f40a7e8df3dbce61041e1501d5824ae7465aa7b2ca7c94f29216",
+      "blob": "60190e8eed3199bf6a7ae0d7a6a37da94402b85a"
+    },
+    "skills/sc_navpoint/site_rotation.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\site_rotation.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "99cbe6d257708a406a22b7a1cf8f40d825510fa2004cbfb9c6a4f0dabea13e0f",
+      "blob": "eaad7911c8993fd6221e095366379d8ce2cccac6"
+    },
+    "skills/sc_navpoint/navpoint_location_names.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_location_names.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "ca576564db935040733ffc540f245c8973c22f72f67b28a6df72071c244febd9",
+      "blob": "54f3f1415fa292d2d6ed1c49336b2e65fd99a409"
+    },
+    "skills/sc_navpoint/frame_names.json": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\frame_names.json",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "b6cbbbcc66f99be59e14676e062c45b9299b24b2357966428a67291e9784e929",
+      "blob": "a3ea2caaf44d6b0cbab46831ec6b82ade8bfacfd"
+    },
+    "skills/sc_navpoint/database.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\database.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "b227dfc208e9f3e17cab30e7142b002cab7e2bce580db925aac6488112861b10",
+      "blob": "b04c22c9117b523e398ccea7e1c191ce4ab28def"
+    },
+    "skills/sc_navpoint/default_config.yaml": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\default_config.yaml",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "07160770b4f0255f5f01c9bdbe5c9ba8c744d1f4a475baf9a4e4a79c33739114",
+      "blob": "52d5c6d859a6a40388d8298b26e811c4750e155d"
+    },
+    "skills/sc_navpoint/main.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\main.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "a08aaf76abd32cb469e6d5b9a7535cb1dffc21a0ca1ba0c6cf3a701ac286fc78",
+      "blob": "1250e816c8b7a6c1528509e1383914e79b07815f"
+    },
+    "skills/sc_navpoint/learned_fields.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\learned_fields.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "3ce1fd6477b9bac06db74efe2e9b90578bc55643b6d62f534cbc67299d323074",
+      "blob": "ca7b1e317471636f0e6686fa44b4a653cef19043"
+    },
+    "skills/sc_navpoint/specialist_reader.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\specialist_reader.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "2bf85883743043ad175f2dc3fcfa847bc5bf7e250fa3c4e8b319b51da1e4f207",
+      "blob": "75ec119c760fd06c5d623038f7d164aacb264587"
+    },
+    "skills/sc_navpoint/navigation.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navigation.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "87e872d2d833e31040ded6628bb8266988b782de2aa60e4ad3578b72ef79a52b",
+      "blob": "1be8181ba6af665a0d558542b7a12443d6e49d54"
+    },
+    "skills/sc_navpoint/overlay_fields.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\overlay_fields.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "3639b4dbcb64fa9208d48e8595d4fbda14ead9079f937492adbc1bac52721dda",
+      "blob": "1254a56f3a20ddec4c1fd444826e26ba628bb3e7"
+    },
+    "skills/sc_navpoint/overlay_reader.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\overlay_reader.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "0788bc02bbfd74fae235b7306a440eb5689d8ce6fc6263759d37e54b305a4f0d",
+      "blob": "cb47a6d3b5a532cb0f2ac4c80afeabbd99f02935"
+    },
+    "skills/sc_navpoint/overlay_win32.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\overlay_win32.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "e40c2ef0d020648d0ca28eb1fb662bf7afe813a402b8e69b9205124c47bd8c7b",
+      "blob": "948a797c87243c9075e8e92b6e269ce56f78bbdb"
+    },
+    "skills/sc_navpoint/ring_overlay.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\ring_overlay.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "01b6cd56f9ce4c5e37a064c42c4f3aea21781592a454d94ae392c4a8515d8d7f",
+      "blob": "62ca7debba69d1a984685ca36244bb622e1624f5"
+    },
+    "skills/sc_navpoint/scanner.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\scanner.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "0a610efe76b692466f4a14edcaee7cb4bf383c89a7d8e8c163044d7fd89158de",
+      "blob": "d8c1fb769145b03d80cd4ca3c2125791787b586a"
+    },
+    "skills/sc_navpoint/telemetry.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\telemetry.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "36fd5f00e4304ec9771fe365214abc17413f07258b728fc1f882bd23d1ed1767",
+      "blob": "08fa86053d3e313e6b0cf0abc9e2ed3d3391d990"
+    },
+    "skills/sc_navpoint/navpoint_ui/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    "skills/sc_navpoint/navpoint_ui/app.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\app.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "697f810467dce937062e490d98440e798e30010f1d428019bbdc8976b57d5814",
+      "blob": "fa4aa742d27d2a266cbb359ff767efb569d7c047"
+    },
+    "skills/sc_navpoint/navpoint_ui/qrcodegen.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\qrcodegen.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "d42133a5e01ec3fd233c52117551e95dddcd869be87913c6849cd0e365407a68",
+      "blob": "f1bf250a41e90c5896083f8a4b2dbd27e116d147"
+    },
+    "skills/sc_navpoint/navpoint_ui/sharing.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\sharing.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "9e1bce42703a58be62e3788735743c1da7c3663578b5a988d397ef5fd843c5db",
+      "blob": "9e6f78c69c7f22a40a55be3f6eaebba3378fd5d0"
+    },
+    "skills/sc_navpoint/navpoint_ui/window.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\window.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "48473dfb7e3ff6358189945884dc887db64d6778159f9d7c32ad68af7dc99468",
+      "blob": "356b9e1d12f3579492a22ee1a2ee6ce953059438"
+    },
+    "skills/sc_navpoint/navpoint_ui/static/app.js": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\static\\app.js",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "2eef711477ed8b65a159a83a08ba9179e4711124b54610644e785774acf4bc40",
+      "blob": "2232d85cc62deebf2b140d8a014acedee579ef6f"
+    },
+    "skills/sc_navpoint/navpoint_ui/static/index.html": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\static\\index.html",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "3173094d53185c32a7af63f9d7f0c57991a76aff24f01f4f489e312752043675",
+      "blob": "bb65b8d773da70209d0d96f70bf6571b31286068"
+    },
+    "skills/sc_navpoint/navpoint_ui/static/style.css": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\navpoint_ui\\static\\style.css",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "3087fef15c110640b8f550cbe1bf6cf9a793367c6a0e3a6b81ea6f61236cc7c8",
+      "blob": "9aaca6d71574d788dd20a50670f457912f929325"
+    },
+    "skills/sc_navpoint/models/specialist_v8/model.onnx": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\models\\specialist_v8\\model.onnx",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "0c775c270fda57437b34af99a1e0e8609a4e86dcbd3265201fde061b5aac0a39",
+      "blob": "57d8ec4097f435e5344289f39dcbd91921c1b1cb"
+    },
+    "skills/sc_navpoint/models/specialist_v8/characters.json": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\models\\specialist_v8\\characters.json",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "0ed1103bb1a1b50ddfd5edf725e97ad3e77a66622e196562ed65fbfb66d732a0",
+      "blob": "090f01e487cf7400f3e3366399267a4ac16089f4"
+    },
+    "skills/sc_navpoint/_vendor/cv2/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "a58fad4f4b41d500d1cf981e963b7b34c9284ca077186a11223fb728713cdcb0",
+      "blob": "18f4f273bf7051a7df9b1b5fdea498afa9859638"
+    },
+    "skills/sc_navpoint/_vendor/cv2/config.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\config.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "6c6367abce55995ae4a8d3c199420ec53afab287cb17dfc2f430378af75dd301",
+      "blob": "677484feddc84886f79d9b7abf54a8d26982bed7"
+    },
+    "skills/sc_navpoint/_vendor/cv2/config-3.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\config-3.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "de28c7b5213cca148f09469916584611b3d66c1c8c432880259d6a3a92380213",
+      "blob": "37e2535b748de3c8bf67b8696e6cbcfff2a7b147"
+    },
+    "skills/sc_navpoint/_vendor/cv2/cv2.pyd": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\cv2.pyd",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "f1e76ab01cf4d33af780adf8ada1a26c5eaeecc55d2cbe8a5e288195e8f9b0dd",
+      "blob": "d347bd30f6fca654cef34f48950632e770e2ead4"
+    },
+    "skills/sc_navpoint/_vendor/cv2/load_config_py3.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\load_config_py3.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "074dfaf20ac94f2ca3815393de3a394944470334c51a85b9521f452e0e17bb85",
+      "blob": "a96ecbbce1495856c128d94f8bb908519aa2f070"
+    },
+    "skills/sc_navpoint/_vendor/cv2/version.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\version.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "fc17efee9203c23cac641981068621e80d3b0bbabe459f4133c9b2b4d91957fb",
+      "blob": "ab32284c5812670a1c54ca6bd44f6ebbcfbdd8a2"
+    },
+    "skills/sc_navpoint/_vendor/cv2/LICENSE.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\LICENSE.txt",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "blob": "91533f1f31fa7376d70b935f1755df04a79e660f"
+    },
+    "skills/sc_navpoint/_vendor/cv2/LICENSE-3RD-PARTY.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\LICENSE-3RD-PARTY.txt",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "blob": "61bb53d12b13e81446a8c91bda850e6c075f55d8"
+    },
+    "skills/sc_navpoint/_vendor/cv2/data/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\data\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "f4ce16721ed7f623a4dcc443ba600d1856db610cb2c3d53c13a8ca028cc68f6d",
+      "blob": "bd3c93703732ab1c84eee81e362748eac6a7b67c"
+    },
+    "skills/sc_navpoint/_vendor/cv2/mat_wrapper/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\mat_wrapper\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "c44707ea1c76f35518ae572b6c1989d76c2ada7e850432e41805dfe112d4e306",
+      "blob": "81142ee85b4beb17db9dae503cd26b4ad836f2c2"
+    },
+    "skills/sc_navpoint/_vendor/cv2/misc/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\misc\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "495bd79594cce174673e372c85c4dd8f4ffdf2b3a73fd4623955b0d55de0d462",
+      "blob": "00d9809f0f358ec9b46d91cc6c114e2da307177c"
+    },
+    "skills/sc_navpoint/_vendor/cv2/misc/version.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\misc\\version.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "c93a418793fcb15b9b4316c0741b8336740e490e94f3b7d1ebe8cd5f6f23815c",
+      "blob": "37a9be325291d2ab2cc0066b61761ff0490ec458"
+    },
+    "skills/sc_navpoint/_vendor/cv2/typing/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\typing\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "f8a066f22a98b56641a69200f0aaf9c3b5832b2f59f57862e56289cced8d9179",
+      "blob": "5cb8269ed7d90d117072de4179ffabba0a680af2"
+    },
+    "skills/sc_navpoint/_vendor/cv2/utils/__init__.py": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\cv2\\utils\\__init__.py",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "2b16990b35b569af1ca7239dc10f7b24ec62f27a46626b1e2f1271d2e1aa3554",
+      "blob": "21616cdae0fb19b568fd358afc5505306cc876f4"
+    },
+    "skills/sc_navpoint/_vendor/opencv_python-5.0.0.93.dist-info/METADATA": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\opencv_python-5.0.0.93.dist-info\\METADATA",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "b81ca3fc0f3a4ab5d214e2d2ac24f1db7c38b8a3a27f9588e62a14bfd42992f2",
+      "blob": "0948fb469cd3e6d09d4f721acacf541a3043a79a"
+    },
+    "skills/sc_navpoint/_vendor/opencv_python-5.0.0.93.dist-info/WHEEL": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\opencv_python-5.0.0.93.dist-info\\WHEEL",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "ee1dadc9761cd36148a1e2cb6009d4c081305d9b669bee21eacd2ee6d05ce607",
+      "blob": "41b6aff0ce1e7bf99b19e1f2c3874d0e4c5e1a3e"
+    },
+    "skills/sc_navpoint/_vendor/opencv_python-5.0.0.93.dist-info/top_level.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\opencv_python-5.0.0.93.dist-info\\top_level.txt",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "498f2fadffec60e83df4e3fd7ae873eeadfaa4fcbfd952b9bdb784597c304a87",
+      "blob": "6f372d8a15f09406879e280cf72b22712505404d"
+    },
+    "skills/sc_navpoint/_vendor/opencv_python-5.0.0.93.dist-info/LICENSE.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\opencv_python-5.0.0.93.dist-info\\LICENSE.txt",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "blob": "91533f1f31fa7376d70b935f1755df04a79e660f"
+    },
+    "skills/sc_navpoint/_vendor/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt": {
+      "source": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_navpoint\\_vendor\\opencv_python-5.0.0.93.dist-info\\LICENSE-3RD-PARTY.txt",
+      "reason": "Runtime module, required data/asset/dependency, or retained license",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "blob": "61bb53d12b13e81446a8c91bda850e6c075f55d8"
+    },
+    "skills/sc_navpoint/README.md": {
+      "source": "New concise documentation",
+      "reason": "Usage, limitations, or dependency attribution",
+      "sha256": "976414478a2f4de7eaa69c72cdf7d0022dec43adc0ba00a4a5afab83ea1d0b5e",
+      "blob": "5df46b64b34d4b3c87c465eeddbc9b89fba3e4fc"
+    },
+    "skills/sc_navpoint/_vendor/THIRD_PARTY.md": {
+      "source": "New concise documentation",
+      "reason": "Usage, limitations, or dependency attribution",
+      "sha256": "bedbf206b6f6f98460b29864a205456a864c04846bf6b9ae3d0db6c26271370c",
+      "blob": "22e8b4010ff1cf33b982b8b381cf66cfc480652f"
+    }
+  }
+}

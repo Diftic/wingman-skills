@@ -1,0 +1,84 @@
+module: skills.sc_navpoint.main
+name: SC_NavPoint
+display_name: Star Citizen NavPoint (Outdated)
+author: Mallachi
+auto_activate: false
+tags:
+  - Star Citizen
+  - Navigation
+  - Outdated
+description:
+  en: "[OUTDATED — pre-SC 4.7] Mark and navigate to custom waypoints in Star Citizen. Captures r_displayinfo 4 coordinates via Vision AI, stores them per-server, and shows a navigation HUD with compass rose and step-by-step guidance. Built before patch 4.7's overhaul of navigation points and not yet re-validated against 4.7 — use with caution until verified."
+discovery_keywords:
+  - star citizen
+  - navigation
+  - waypoint
+  - mark location
+  - nav marker
+  - coordinates
+  - position
+  - navigate to
+  - guide me
+  - drop pin
+  - save location
+
+custom_properties:
+  - id: display
+    name: Display to capture (1 = primary monitor)
+    property_type: number
+    required: true
+    value: 1
+  - id: poll_interval
+    name: Auto-tracking interval in seconds (1–10)
+    property_type: number
+    required: false
+    value: 5
+
+prompt: |
+  You have access to a Star Citizen navigation assistant through the SC_NavPoint skill.
+  This skill marks and navigates to custom waypoints using r_displayinfo 4 position data.
+
+  **Prerequisites:** The player must have r_displayinfo 4 active in game.
+  Enable it: open the console with F1 and type: r_displayinfo 4
+
+  **Available Tools:**
+  - `mark_location(name)`: Capture current position and save as a named waypoint.
+    Captures the screen, extracts coordinates from r_displayinfo overlay via Vision AI.
+    If no name provided, use a default like "Location 1" and ask the player for a better name.
+
+  - `show_navpoint_hud()`: Open the NavPoint HUD showing all waypoints and the navigation compass.
+
+  - `list_navpoints(server_id)`: List all saved waypoints. Optionally filter by server ID.
+
+  - `navigate_to(name)`: Set a waypoint as the active navigation target and show bearing/guidance.
+    Also captures current position for immediate direction calculation.
+
+  - `update_position()`: Re-capture current position and refresh navigation bearing to active target.
+
+  - `delete_navpoint(name)`: Delete a saved waypoint by name.
+
+  - `rename_navpoint(old_name, new_name)`: Rename a saved waypoint.
+  - `stop_navigation()`: Cancel the active navigation target and stop auto-tracking.
+  - `enable_displayinfo()`: Types "r_displayinfo 4" into the SC console to show the position overlay.
+  - `disable_displayinfo()`: Types "r_displayinfo 0" into the SC console to hide the overlay.
+
+  **When to use:**
+  - Player says "mark location", "drop waypoint", "save position", "place nav marker", "drop a pin" → call `mark_location`
+  - Player says "show HUD", "open navigation", "show waypoints" → call `show_navpoint_hud`
+  - Player says "list waypoints", "what locations did I save" → call `list_navpoints`
+  - Player says "navigate to X", "guide me to X", "how do I get to X" → call `navigate_to`
+  - Player says "update position", "refresh bearing", "how far am I" → call `update_position`
+  - Player says "delete X", "remove waypoint X" → call `delete_navpoint`
+  - Player says "rename X to Y", "call it Y" → call `rename_navpoint`
+  - Player says "stop navigation", "cancel navigation", "stop tracking" → call `stop_navigation`
+  - Player says "enable position overlay", "activate r_displayinfo", "turn on position tracking" → call `enable_displayinfo`
+  - Player says "disable position overlay", "deactivate r_displayinfo", "hide debug overlay" → call `disable_displayinfo`
+
+  **After marking a location:**
+  Tell the player the coordinates, zone/planet info, and server. If the waypoint used a default name,
+  ask: "What would you like to call this location?"
+
+  **Navigation guidance:**
+  When giving navigation guidance, describe: distance, turn direction, elevation adjustment, and
+  step-by-step route (system → planet → zone → coordinates). Remind players to update position
+  as they travel to refresh the bearing.

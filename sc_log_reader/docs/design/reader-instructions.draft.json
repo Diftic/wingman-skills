@@ -1,0 +1,4382 @@
+{
+  "status": "DESIGN ONLY - the current skill cannot load this file; no engine equivalence or game-build qualification has been established",
+  "format_version": "0.1-design",
+  "package_id": "sc_log_reader",
+  "instruction_version": "2026-09-15-draft",
+  "requires_reader_engine": "not implemented",
+  "compatibility": {
+    "verified_game_builds": [],
+    "source_declared_target": "4.9.0",
+    "unknown_build_policy": "recognized records are candidates with unverified build status; missing or ambiguous fields cannot change authoritative state"
+  },
+  "source_hashes": {
+    "parser.py": "7fd78dd0b8c2994330ce91e3eb7de771623a0245510a9923b31c4a06d7c8cde3",
+    "logic.py": "481a333d4d4a66bae7e46c6760f17a678d4a5fcad9467dbef29bf2e14da7eadb",
+    "main.py": "e0c63169272fc84f376a239e3585fd54645fbe58880d3766954e303e0171ecdd",
+    "location_names.py": "76bf3c4434cf00de6e2ad1e73638b13d1ff8c764f3e5bc568a6ca49f46d13945"
+  },
+  "update_contract": {
+    "check": "metadata/JSON download only",
+    "activation": "explicit user approval, then next Wingman startup before monitoring",
+    "validation": "size/schema/known operations/regex resource budgets/compatibility/authenticated publisher",
+    "rollback": "keep last-known-good complete JSON; never merge partial versions",
+    "apply_during_session": false,
+    "embedded_arbitrary_code": false
+  },
+  "record_contract": {
+    "envelope": [
+      "event_type",
+      "fields",
+      "environment",
+      "game_build",
+      "file_generation",
+      "session_key",
+      "source_timestamp",
+      "observed_timestamp",
+      "byte_start",
+      "byte_end",
+      "record_complete",
+      "rule_id",
+      "instruction_version",
+      "validation_errors",
+      "provenance"
+    ],
+    "timestamp": "parse optional fractional seconds and retain UTC; failure produces missing source timestamp, not a fabricated now timestamp",
+    "notification": "extract complete quoted notification payload; support physical and escaped newlines; preserve payload punctuation",
+    "ambiguity": "reject conflicting rule matches; diagnostics never masquerade as gameplay events",
+    "required_field_failure": "retain incomplete candidate locally; no authoritative state mutation or outward notification",
+    "rule_match_default_source": "record.text"
+  },
+  "ignore_records": [
+    {
+      "contains": "UpdateNotificationItem",
+      "source": "record.text"
+    }
+  ],
+  "sequence_profiles": {
+    "money_transfer": {
+      "start_event": "_money_sent_partial",
+      "carry_fields": [
+        "recipient"
+      ],
+      "continuation_regex": "([\\d,]+)\\s+aUEC\\b",
+      "legacy_max_following_physical_lines": 1,
+      "output_event": "money_sent",
+      "emit_partial": false,
+      "unrelated_record": "discard pending and parse new record normally",
+      "reset_on": [
+        "file_generation_change",
+        "session_change",
+        "instruction_change"
+      ],
+      "record_size_and_timeout_limits": "fixed engine limits; values must be established by replay before implementation"
+    }
+  },
+  "operator_contracts": {
+    "match": "Boolean all/any/not of literal/regex conditions against record or extracted notification text; no state access. All matches are considered; conflicting public event types are ambiguous rather than first-match wins.",
+    "capture": "Regex search with explicit numbered capture-to-field assignments. No match leaves fields absent. DOTALL is only used on an already bounded complete record.",
+    "bracket_fields": "Extract named key[value] fields independently of order; tolerate whitespace before brackets and optional colon. No silent global case folding or substring aliases.",
+    "constant": "Assign a JSON literal to a field.",
+    "normalize": "Finite sequence of trim, remove_commas, int, float, lower, replace, split_once, regex_replace operations. Invalid conversions produce a field error, never zero.",
+    "choose": "Ordered alternatives local to one event recipe, using the same finite match vocabulary; no arbitrary expressions, loops, imports or function names.",
+    "collect_true_fields": "Read a bounded declared list of name:true flags into an object. Absence is not evidence of false.",
+    "notification_context": "Extract notification ID, MissionId and ObjectiveId from the complete record. IDs are evidence fields, not assumed stable event classifiers.",
+    "exclude_values": "Reject a record when an extracted field belongs to a named finite exclusion set; absent required discriminator is incomplete.",
+    "quantity_with_unit": "Extract number and unit separately, normalize only explicitly declared units; missing/unknown unit stays unresolved.",
+    "notification_payload": "Use an explicit notification label and bounded text payload; remove only a declared legacy terminator, preserving internal punctuation.",
+    "sequence": "Bounded record assembly, not game-state reasoning. Track start/continuation/end within one file generation; flush incomplete on next independent record, timeout, rotation or size limit."
+  },
+  "lookups": {
+    "ship_manufacturer_prefixes": [
+      "AEGS_",
+      "ANVL_",
+      "ORIG_",
+      "CRUS_",
+      "DRAK_",
+      "MISC_",
+      "RSI_",
+      "ARGO_",
+      "BANU_",
+      "CNOU_",
+      "ESPR_",
+      "GAMA_",
+      "KRIG_",
+      "TMBL_",
+      "VNCL_",
+      "XIAN_",
+      "XNAA_"
+    ],
+    "ship_manufacturer_names": [
+      "Aegis",
+      "Anvil",
+      "Origin",
+      "Crusader",
+      "Drake",
+      "MISC",
+      "RSI",
+      "Argo",
+      "Banu",
+      "Consolidated",
+      "Esperia",
+      "Gatac",
+      "Kruger",
+      "Tumbril",
+      "Vanduul",
+      "Aopoa"
+    ],
+    "cosmetic_ports": [
+      "Beard_ItemPort",
+      "Body_ItemPort",
+      "Eyebrow_ItemPort",
+      "Eyedetail_ItemPort",
+      "Eyelashes_ItemPort",
+      "Eyes_ItemPort",
+      "Hair_ItemPort",
+      "Head_ItemPort",
+      "Lens_ItemPort",
+      "Piercings_Eyebrows_ItemPort",
+      "Piercings_L_Ear_ItemPort",
+      "Piercings_L_Eye_ItemPort",
+      "Piercings_Nose_ItemPort",
+      "Piercings_R_Ear_ItemPort",
+      "Piercings_R_Eye_ItemPort",
+      "Scar_ItemPort",
+      "Tattoo_ItemPort",
+      "Teeth_ItemPort",
+      "Universal_Scalp_ItemPort",
+      "legacy_mobiglas_screen_attach",
+      "mobiglas_attach",
+      "mobiglas_screen_attach",
+      "universal_necksock",
+      "universal_necksock_undersuit"
+    ],
+    "locations": {
+      "RR_MIC_LEO": {
+        "name": "Port Tressler",
+        "system": "Stanton"
+      },
+      "RR_HUR_LEO": {
+        "name": "Everus Harbor",
+        "system": "Stanton"
+      },
+      "RR_CRU_LEO": {
+        "name": "Seraphim",
+        "system": "Stanton"
+      },
+      "RR_ARC_LEO": {
+        "name": "Baijini Point",
+        "system": "Stanton"
+      },
+      "RR_HUR_L1": {
+        "name": "HUR-L1",
+        "system": "Stanton"
+      },
+      "RR_HUR_L2": {
+        "name": "HUR-L2",
+        "system": "Stanton"
+      },
+      "RR_HUR_L3": {
+        "name": "HUR-L3",
+        "system": "Stanton"
+      },
+      "RR_HUR_L4": {
+        "name": "HUR-L4",
+        "system": "Stanton"
+      },
+      "RR_HUR_L5": {
+        "name": "HUR-L5",
+        "system": "Stanton"
+      },
+      "RR_CRU_L1": {
+        "name": "CRU-L1",
+        "system": "Stanton"
+      },
+      "RR_CRU_L2": {
+        "name": "CRU-L2",
+        "system": "Stanton"
+      },
+      "RR_CRU_L3": {
+        "name": "CRU-L3",
+        "system": "Stanton"
+      },
+      "RR_CRU_L4": {
+        "name": "CRU-L4",
+        "system": "Stanton"
+      },
+      "RR_CRU_L5": {
+        "name": "CRU-L5",
+        "system": "Stanton"
+      },
+      "RR_ARC_L1": {
+        "name": "ARC-L1",
+        "system": "Stanton"
+      },
+      "RR_ARC_L2": {
+        "name": "ARC-L2",
+        "system": "Stanton"
+      },
+      "RR_ARC_L3": {
+        "name": "ARC-L3",
+        "system": "Stanton"
+      },
+      "RR_ARC_L4": {
+        "name": "ARC-L4",
+        "system": "Stanton"
+      },
+      "RR_ARC_L5": {
+        "name": "ARC-L5",
+        "system": "Stanton"
+      },
+      "RR_MIC_L1": {
+        "name": "MIC-L1",
+        "system": "Stanton"
+      },
+      "RR_MIC_L2": {
+        "name": "MIC-L2",
+        "system": "Stanton"
+      },
+      "RR_MIC_L3": {
+        "name": "MIC-L3",
+        "system": "Stanton"
+      },
+      "RR_MIC_L4": {
+        "name": "MIC-L4",
+        "system": "Stanton"
+      },
+      "RR_MIC_L5": {
+        "name": "MIC-L5",
+        "system": "Stanton"
+      },
+      "Stanton1_Lorville": {
+        "name": "Lorville",
+        "system": "Stanton"
+      },
+      "HUR_Lorville": {
+        "name": "Lorville",
+        "system": "Stanton"
+      },
+      "Stanton2_Area18": {
+        "name": "Area 18",
+        "system": "Stanton"
+      },
+      "Stanton3_Area18": {
+        "name": "Area 18",
+        "system": "Stanton"
+      },
+      "ARC_Area18": {
+        "name": "Area 18",
+        "system": "Stanton"
+      },
+      "Stanton2_Orison": {
+        "name": "Orison",
+        "system": "Stanton"
+      },
+      "Stanton3_Orison": {
+        "name": "Orison",
+        "system": "Stanton"
+      },
+      "CRU_Orison": {
+        "name": "Orison",
+        "system": "Stanton"
+      },
+      "Stanton4_NewBabbage": {
+        "name": "New Babbage",
+        "system": "Stanton"
+      },
+      "MIC_NewBabbage": {
+        "name": "New Babbage",
+        "system": "Stanton"
+      },
+      "Stanton1a": {
+        "name": "Arial",
+        "system": "Stanton"
+      },
+      "Stanton1b": {
+        "name": "Aberdeen",
+        "system": "Stanton"
+      },
+      "Stanton1c": {
+        "name": "Magda",
+        "system": "Stanton"
+      },
+      "Stanton1d": {
+        "name": "Ita",
+        "system": "Stanton"
+      },
+      "Stanton2a": {
+        "name": "Lyria",
+        "system": "Stanton"
+      },
+      "Stanton2b": {
+        "name": "Wala",
+        "system": "Stanton"
+      },
+      "Stanton3a": {
+        "name": "Cellin",
+        "system": "Stanton"
+      },
+      "Stanton3b": {
+        "name": "Daymar",
+        "system": "Stanton"
+      },
+      "Stanton3c": {
+        "name": "Yela",
+        "system": "Stanton"
+      },
+      "Stanton4a": {
+        "name": "Calliope",
+        "system": "Stanton"
+      },
+      "Stanton4b": {
+        "name": "Clio",
+        "system": "Stanton"
+      },
+      "Stanton4c": {
+        "name": "Euterpe",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSEdmond": {
+        "name": "HDMS-Edmond",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSHadley": {
+        "name": "HDMS-Hadley",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSOparei": {
+        "name": "HDMS-Oparei",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSPinewood": {
+        "name": "HDMS-Pinewood",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSStanhope": {
+        "name": "HDMS-Stanhope",
+        "system": "Stanton"
+      },
+      "Stanton1_HurdynMining_HDMSThedus": {
+        "name": "HDMS-Thedus",
+        "system": "Stanton"
+      },
+      "Stanton1a_HurdynMining_HDMSBezdek": {
+        "name": "HDMS-Bezdek",
+        "system": "Stanton"
+      },
+      "Stanton1a_HurdynMining_HDMSLathan": {
+        "name": "HDMS-Lathan",
+        "system": "Stanton"
+      },
+      "Stanton1b_HurdynMining_HDMSAnderson": {
+        "name": "HDMS-Anderson",
+        "system": "Stanton"
+      },
+      "Stanton1b_HurdynMining_HDMSNorgaard": {
+        "name": "HDMS-Norgaard",
+        "system": "Stanton"
+      },
+      "Stanton1c_HurdynMining_HDMSHahn": {
+        "name": "HDMS-Hahn",
+        "system": "Stanton"
+      },
+      "Stanton1c_HurdynMining_HDMSPerlman": {
+        "name": "HDMS-Perlman",
+        "system": "Stanton"
+      },
+      "Stanton1d_HurdynMining_HDMSRyder": {
+        "name": "HDMS-Ryder",
+        "system": "Stanton"
+      },
+      "Stanton1d_HurdynMining_HDMSWoodruff": {
+        "name": "HDMS-Woodruff",
+        "system": "Stanton"
+      },
+      "Stanton2a_IndyFarmer_GalleteFamily": {
+        "name": "Gallete Family Farms",
+        "system": "Stanton"
+      },
+      "Stanton2a_EMShelter_AshburnChannel": {
+        "name": "Ashburn Channel",
+        "system": "Stanton"
+      },
+      "Stanton2b_ArcCorpMining_Area141": {
+        "name": "ArcCorp Mining Area 141",
+        "system": "Stanton"
+      },
+      "Stanton2b_ShubinMining_SCD1": {
+        "name": "Shubin Mining Facility SCD-1",
+        "system": "Stanton"
+      },
+      "Stanton4_RayariHydro_Deltana": {
+        "name": "Rayari Deltana Research Outpost",
+        "system": "Stanton"
+      },
+      "Stanton4c_IndyFarm_BudsGrowery": {
+        "name": "Bud's Growery",
+        "system": "Stanton"
+      },
+      "Stanton1_DistributionCentre_Covalex_S1DC06": {
+        "name": "Covalex S1DC06",
+        "system": "Stanton"
+      },
+      "Stanton1_DistributionCentre_DupreeIndustrial_ManufacturingFacility": {
+        "name": "Dupree Industrial",
+        "system": "Stanton"
+      },
+      "Stanton1_DistributionCentre_Greycat_ComplexB": {
+        "name": "Greycat Complex B",
+        "system": "Stanton"
+      },
+      "GrimHex": {
+        "name": "GrimHEX",
+        "system": "Stanton"
+      },
+      "GH_GrimHex": {
+        "name": "GrimHEX",
+        "system": "Stanton"
+      },
+      "RR_Grim_Hex": {
+        "name": "GrimHEX",
+        "system": "Stanton"
+      },
+      "Nyx_Levski": {
+        "name": "Levski",
+        "system": "Nyx"
+      },
+      "NYX_Levski": {
+        "name": "Levski",
+        "system": "Nyx"
+      },
+      "Nyx_Kaboos": {
+        "name": "Kaboos",
+        "system": "Nyx"
+      },
+      "RR_JP_NyxCastra": {
+        "name": "Nyx-Castra Jump Point",
+        "system": "Jump Point"
+      },
+      "RR_JP_StantonPyro": {
+        "name": "Stanton-Pyro Jump Point",
+        "system": "Jump Point"
+      },
+      "JP_StantonPyro": {
+        "name": "Stanton-Pyro Jump Point",
+        "system": "Jump Point"
+      },
+      "RR_JP_NyxPyro": {
+        "name": "Nyx-Pyro Jump Point",
+        "system": "Jump Point"
+      },
+      "RR_JP_PyroNyx": {
+        "name": "Pyro-Nyx Jump Point",
+        "system": "Jump Point"
+      },
+      "RR_JP_StantonMagnus": {
+        "name": "Stanton-Nyx Jump Point",
+        "system": "Jump Point"
+      },
+      "JP_StantonMagnus": {
+        "name": "Stanton-Nyx Jump Point",
+        "system": "Jump Point"
+      },
+      "Pyro_Ruin": {
+        "name": "Ruin Station",
+        "system": "Pyro"
+      },
+      "PYRO_Ruin": {
+        "name": "Ruin Station",
+        "system": "Pyro"
+      }
+    },
+    "system_prefixes": [
+      [
+        "Stanton",
+        "Stanton"
+      ],
+      [
+        "RR_HUR",
+        "Stanton"
+      ],
+      [
+        "RR_CRU",
+        "Stanton"
+      ],
+      [
+        "RR_ARC",
+        "Stanton"
+      ],
+      [
+        "RR_MIC",
+        "Stanton"
+      ],
+      [
+        "RR_Grim",
+        "Stanton"
+      ],
+      [
+        "HUR_",
+        "Stanton"
+      ],
+      [
+        "ARC_",
+        "Stanton"
+      ],
+      [
+        "CRU_",
+        "Stanton"
+      ],
+      [
+        "MIC_",
+        "Stanton"
+      ],
+      [
+        "GH_",
+        "Stanton"
+      ],
+      [
+        "GrimHex",
+        "Stanton"
+      ],
+      [
+        "Pyro",
+        "Pyro"
+      ],
+      [
+        "PYRO",
+        "Pyro"
+      ],
+      [
+        "Nyx",
+        "Nyx"
+      ],
+      [
+        "NYX",
+        "Nyx"
+      ],
+      [
+        "RR_JP_",
+        "Jump Point"
+      ],
+      [
+        "JP_",
+        "Jump Point"
+      ]
+    ]
+  },
+  "tier2_handler_contracts": {
+    "session": "Track file generation/player/session; suppress only evidenced duplicate session records; reset scoped missions, pending transactions and injuries with explicit handling of stale ship/location state.",
+    "missions": "Mission-ID keyed lifecycle, objective assignment/completion, zero-ID handling, recent completed-mission context; no mission closure from a word in payload.",
+    "health": "Normalize body parts; update/heal injuries; armistice-triggered reminders. An unknown part is not a reason to erase all injuries.",
+    "locations": "Resolve names/system; learn GUID/name pairs within the current 60s/15s windows; departure from Location.from only, excluding zero; preserve arrival dedup and re-arrival behavior; scope learned identifiers by environment/build.",
+    "ships": "Derive ship entry/exit and owner from channel; qualify ship-specific observations before public emission. Current overlapping model tokens and missing-class fail-open are a known accuracy limitation, not a guarantee.",
+    "zones": "Apply explicit armistice/restricted/monitored/jurisdiction transitions. Unknown direction does not mean exited or entered.",
+    "trades": "Keep item requests pending, correlate result by scoped identity and occurrence, handle duplicates/timeouts; retain evidence strength; conversion of units/currency and ledger commit live here. Ambiguous candidate sets stay unresolved.",
+    "rewards": "Validate money versus physical quantity, associate mission context, bundle/deduplicate components with event time and provenance; keep unknown unit/amount out of confirmed financial totals.",
+    "movement": "Record cargo/refinery/equipment/insurance observations without inventing completion; distinguish event time, observation time, source and confidence.",
+    "passthrough": "Forward a validated event to existing subscriptions with stable event name/data shape; optional context does not invent state."
+  },
+  "rules": [
+    {
+      "event": "_money_sent_partial",
+      "visibility": "internal",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^You sent\\s+",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^You sent\\s+(.+?):",
+          "groups": {
+            "1": "recipient"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "recipient",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "recipient"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "recipient"
+      ],
+      "new_candidate_fields": [
+        "recipient"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          772
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1255,
+          "end": 1259
+        },
+        "state": null
+      },
+      "notes": "Internal assembly marker only; never a public state event."
+    },
+    {
+      "event": "armistice_zone",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^(?:Entering|Entered|Leaving|Exited)\\s+Armistice Zone\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "regex": "^(?:Entering|Entered)\\b",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "entered"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^(?:Leaving|Exited)\\b",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "exited"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "action"
+      ],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "action"
+      ],
+      "new_candidate_fields": [
+        "action"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          704
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1046,
+          "end": 1050
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1465,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "attachment_received",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "AttachmentReceived",
+            "source": "record.text"
+          },
+          {
+            "contains": "Status[persistent]",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_name": "Player",
+            "port": "Port"
+          }
+        },
+        {
+          "op": "exclude_values",
+          "field": "port",
+          "table": "cosmetic_ports"
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Attachment\\[([^\\]]+),\\s*([^\\]]+),\\s*(\\d+)\\]",
+          "groups": {
+            "1": "item_full_name",
+            "2": "item_short_name",
+            "3": "entity_id"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "item_full_name",
+          "steps": [
+            "trim"
+          ]
+        },
+        {
+          "op": "normalize",
+          "field": "item_short_name",
+          "steps": [
+            "trim"
+          ]
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "elapsed": "Elapsed"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "elapsed",
+          "steps": [
+            "float"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "port",
+        "entity_id"
+      ],
+      "tier2_handler": "movement",
+      "current_output_fields": [
+        "elapsed",
+        "entity_id",
+        "item_full_name",
+        "item_short_name",
+        "player_name",
+        "port"
+      ],
+      "new_candidate_fields": [
+        "elapsed",
+        "entity_id",
+        "item_full_name",
+        "item_short_name",
+        "player_name",
+        "port"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          810
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1325,
+          "end": 1351
+        },
+        "state": null
+      },
+      "notes": "Attachment is not by itself a purchase, consumption, or item removal."
+    },
+    {
+      "event": "bleeding",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Bleeding",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          744
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "blueprint_received",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Received Blueprint\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_context"
+        },
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^Received Blueprint\\s*:\\s*([^:]+)",
+          "groups": {
+            "1": "blueprint_name"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "blueprint_name",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "blueprint_name"
+      ],
+      "tier2_handler": "rewards",
+      "current_output_fields": [
+        "blueprint_name",
+        "mission_id",
+        "notification_id",
+        "objective_id"
+      ],
+      "new_candidate_fields": [
+        "blueprint_name",
+        "mission_id",
+        "notification_id",
+        "objective_id"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          734
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1138,
+          "end": 1143
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "cargo_transfer",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "FreightElevatorUIProvider::FillUnstowRequest",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "FreightElevatorKiosk_(\\w+)\\[(\\d+)\\]",
+          "groups": {
+            "1": "kiosk_type",
+            "2": "kiosk_id"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Entities:\\s*(\\d+)",
+          "groups": {
+            "1": "entity_count"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "entity_count",
+          "steps": [
+            "int"
+          ]
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Location:\\s*(\\d+)",
+          "groups": {
+            "1": "location_id"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "RequestId:\\s*(\\d+)",
+          "groups": {
+            "1": "request_id"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "request_id",
+          "steps": [
+            "int"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "request_id"
+      ],
+      "tier2_handler": "movement",
+      "current_output_fields": [
+        "entity_count",
+        "kiosk_id",
+        "kiosk_type",
+        "location_id",
+        "request_id"
+      ],
+      "new_candidate_fields": [
+        "entity_count",
+        "kiosk_id",
+        "kiosk_type",
+        "location_id",
+        "request_id"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          798
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1292,
+          "end": 1310
+        },
+        "state": null
+      },
+      "notes": "This source describes a transfer request; do not infer delivery of cargo."
+    },
+    {
+      "event": "channel_change",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "(?:joined|left(?:\\s+the)?)\\s+channel\\s+'",
+            "source": "record.text",
+            "flags": [
+              "IGNORECASE"
+            ]
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "(joined|left(?:\\s+the)?)\\s+channel\\s+'([^']+)'",
+          "groups": {
+            "1": "action_text",
+            "2": "channel_raw"
+          },
+          "flags": [
+            "IGNORECASE"
+          ]
+        },
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "regex": "^joined$",
+                "source": "fields.action_text",
+                "flags": [
+                  "IGNORECASE"
+                ]
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "joined"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^left",
+                "source": "fields.action_text",
+                "flags": [
+                  "IGNORECASE"
+                ]
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "left"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "action",
+        "channel_raw"
+      ],
+      "tier2_handler": "ships",
+      "current_output_fields": [
+        "action",
+        "channel",
+        "channel_owner",
+        "channel_raw"
+      ],
+      "new_candidate_fields": [
+        "action",
+        "action_text",
+        "channel_raw"
+      ],
+      "fields_moved_to_tier2": [
+        "channel",
+        "channel_owner"
+      ],
+      "current_source": {
+        "classifier_lines": [
+          794
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1005,
+          "end": 1026
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1433,
+          "end": 1477
+        }
+      },
+      "notes": "Tier 2 derives owner, cleaned channel, ship status and own_ship from the raw channel and lookup tables; retains existing external fields."
+    },
+    {
+      "event": "commodity_buy",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "CommodityUIProvider",
+            "source": "record.text"
+          },
+          {
+            "contains": "SendCommodityBuyRequest",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "resource_guid": "resourceGUID",
+            "price": "price",
+            "quantity_raw": "quantity"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "price",
+          "steps": [
+            "float"
+          ]
+        },
+        {
+          "op": "quantity_with_unit",
+          "source": "fields.quantity_raw",
+          "number_field": "quantity_cscu",
+          "unit_field": "quantity_unit",
+          "accepted_units": [
+            "cSCU"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "price",
+        "quantity_cscu",
+        "quantity_unit"
+      ],
+      "tier2_handler": "trades",
+      "current_output_fields": [
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity_cscu",
+        "resource_guid",
+        "shop_id",
+        "shop_name"
+      ],
+      "new_candidate_fields": [
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity_cscu",
+        "quantity_raw",
+        "quantity_unit",
+        "resource_guid",
+        "shop_id",
+        "shop_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          824
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1169,
+          "end": 1188
+        },
+        "state": null
+      },
+      "notes": "Tier 2 owns cSCU->SCU conversion and confidence. Current code immediately books this request; preserving or tightening that policy is a separate decision."
+    },
+    {
+      "event": "commodity_sell",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "CommodityUIProvider",
+            "source": "record.text"
+          },
+          {
+            "contains": "SendCommoditySellRequest",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "resource_guid": "resourceGUID",
+            "price": "amount",
+            "quantity": "quantity"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "price",
+          "steps": [
+            "float"
+          ]
+        },
+        {
+          "op": "normalize",
+          "field": "quantity",
+          "steps": [
+            "int"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "price",
+        "quantity"
+      ],
+      "tier2_handler": "trades",
+      "current_output_fields": [
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "resource_guid",
+        "shop_id",
+        "shop_name"
+      ],
+      "new_candidate_fields": [
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "resource_guid",
+        "shop_id",
+        "shop_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          826
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1190,
+          "end": 1205
+        },
+        "state": null
+      },
+      "notes": "Current implicit quantity unit is SCU; requires evidenced format metadata before using on an unfamiliar build. Request is currently booked immediately."
+    },
+    {
+      "event": "contract_accepted",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Contract Accepted\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Contract Accepted",
+          "field": "mission_name",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "mission_name",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          667
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 864,
+          "end": 881
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1378,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "contract_available",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Contract Available\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Contract Available",
+          "field": "mission_name",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "mission_name",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          675
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 883,
+          "end": 894
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "contract_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Contract Complete\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Contract Complete",
+          "field": "mission_name",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "mission_name",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          669
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 864,
+          "end": 881
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1382,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "contract_failed",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Contract Failed\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Contract Failed",
+          "field": "mission_name",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "mission_name",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          671
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 864,
+          "end": 881
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1386,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "contract_shared",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Contract Shared\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Contract Shared",
+          "field": "mission_name",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "mission_name",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "mission_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          673
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 883,
+          "end": 894
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "crimestat_increased",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^CrimeStat\\ Rating\\ Increased",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          750
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "emergency_services",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Emergency\\ Services\\ Are\\ En\\ Route",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          740
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "entered_monitored_space",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Entered Monitored Space\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "monitored": true
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "monitored"
+      ],
+      "new_candidate_fields": [
+        "monitored"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          687
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1034,
+          "end": 1044
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1457,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "exited_monitored_space",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Exited Monitored Space\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "monitored": false
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "monitored"
+      ],
+      "new_candidate_fields": [
+        "monitored"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          689
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1034,
+          "end": 1044
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1457,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "fatal_collision",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "<FatalCollision>",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "PlayerPilot:\\s*(\\d+)",
+          "groups": {
+            "1": "player_pilot"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "player_pilot",
+          "steps": [
+            "int"
+          ]
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Fatal Collision occured for vehicle\\s+(\\S+)",
+          "groups": {
+            "1": "vehicle"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Zone:\\s*([^,\\]]+)",
+          "groups": {
+            "1": "zone"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "zone",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "player_pilot"
+      ],
+      "tier2_handler": "ships",
+      "current_output_fields": [
+        "vehicle",
+        "zone"
+      ],
+      "new_candidate_fields": [
+        "player_pilot",
+        "vehicle",
+        "zone"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          654
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1261,
+          "end": 1270
+        },
+        "state": null
+      },
+      "notes": "Tier 2 requires PlayerPilot=1 and applies the ship qualification before public delivery. Spelling occured is deliberately current-source evidence."
+    },
+    {
+      "event": "fined",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Fined\\s+",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^Fined\\s+([\\d,]+)\\s+(UEC)\\b",
+          "groups": {
+            "1": "amount",
+            "2": "currency"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "amount",
+          "steps": [
+            "remove_commas"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "amount",
+        "currency"
+      ],
+      "tier2_handler": "rewards",
+      "current_output_fields": [
+        "amount"
+      ],
+      "new_candidate_fields": [
+        "amount",
+        "currency"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          762
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1249,
+          "end": 1253
+        },
+        "state": null
+      },
+      "notes": "UEC label retained explicitly; Tier 2 owns the signed ledger entry and approved currency semantics."
+    },
+    {
+      "event": "fuel_low",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Low\\ Fuel",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          746
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "hangar_queue",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Joined hangar queue\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "action": "queued"
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "action"
+      ],
+      "new_candidate_fields": [
+        "action"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          712
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1061,
+          "end": 1062
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "hangar_ready",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Hangar Request Completed\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "action": "ready"
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "action"
+      ],
+      "new_candidate_fields": [
+        "action"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          710
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1058,
+          "end": 1059
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "incapacitated",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Incapacitated",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          768
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "incoming_call",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Incoming call\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^Incoming call\\s*:\\s*(.*)$",
+          "groups": {
+            "1": "caller"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "caller",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "caller"
+      ],
+      "new_candidate_fields": [
+        "caller"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          726
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1088,
+          "end": 1094
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "injury",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^\\w+\\s+Injury Detected\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "(\\w+)\\s+Injury Detected",
+          "groups": {
+            "1": "severity"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Injury Detected\\s*-\\s*([^-]+)\\s*-",
+          "groups": {
+            "1": "body_part"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Tier\\s*(\\d+)",
+          "groups": {
+            "1": "tier"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "body_part",
+          "steps": [
+            "trim"
+          ]
+        },
+        {
+          "op": "normalize",
+          "field": "tier",
+          "steps": [
+            "int"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "body_part",
+        "severity"
+      ],
+      "tier2_handler": "health",
+      "current_output_fields": [
+        "body_part",
+        "severity",
+        "tier"
+      ],
+      "new_candidate_fields": [
+        "body_part",
+        "severity",
+        "tier"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          632
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 920,
+          "end": 931
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1393,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "insurance_claim",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "CWallet::ProcessClaimToNextStep",
+            "source": "record.text"
+          },
+          {
+            "contains": "New Insurance Claim Request",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "entitlementURN:\\s*([^,]+)",
+          "groups": {
+            "1": "urn"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "urn",
+          "steps": [
+            "trim"
+          ]
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "requestId\\s*:\\s*(\\d+)",
+          "groups": {
+            "1": "request_id"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "request_id",
+          "steps": [
+            "int"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "urn"
+      ],
+      "tier2_handler": "movement",
+      "current_output_fields": [
+        "request_id",
+        "urn"
+      ],
+      "new_candidate_fields": [
+        "request_id",
+        "urn"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          659
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1272,
+          "end": 1279
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "insurance_claim_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "CWallet::RmMulticastOnProcessClaimCallback",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "entitlementURN:\\s*([^,]+)",
+          "groups": {
+            "1": "urn"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "urn",
+          "steps": [
+            "trim"
+          ]
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "result:\\s*(\\d+)",
+          "groups": {
+            "1": "result"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "result",
+          "steps": [
+            "int"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "urn",
+        "result"
+      ],
+      "tier2_handler": "movement",
+      "current_output_fields": [
+        "result",
+        "urn"
+      ],
+      "new_candidate_fields": [
+        "result",
+        "urn"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          661
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1281,
+          "end": 1288
+        },
+        "state": null
+      },
+      "notes": "Numeric result codes are not interpreted as success without a verified mapping. Current parser does not capture callback request_id."
+    },
+    {
+      "event": "inventory_location_update",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "<Update Inventory Location>",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Landing\\s*\\[(\\w+)\\]\\s*->\\s*\\[(\\w+)\\]",
+          "groups": {
+            "1": "landing_from",
+            "2": "landing_to"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Location\\s*\\[(\\w+)\\]\\s*->\\s*\\[(\\w+)\\]",
+          "groups": {
+            "1": "loc_from",
+            "2": "loc_to"
+          }
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_name": "Player"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "loc_from",
+        "loc_to"
+      ],
+      "tier2_handler": "locations",
+      "current_output_fields": [
+        "departed_location_code",
+        "departed_location_name",
+        "is_departure",
+        "landing_from",
+        "landing_to",
+        "loc_from",
+        "loc_to",
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "landing_from",
+        "landing_to",
+        "loc_from",
+        "loc_to",
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [
+        "is_departure",
+        "departed_location_code",
+        "departed_location_name"
+      ],
+      "current_source": {
+        "classifier_lines": [
+          781
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 953,
+          "end": 987
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1423,
+          "end": 1477
+        }
+      },
+      "notes": "is_departure/departed_location_code/departed_location_name move to Tier 2; calculate before changing current GUID. Landing is never the departure signal."
+    },
+    {
+      "event": "join_pu",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "<Join PU>",
+            "source": "record.text"
+          },
+          {
+            "contains": "shard[",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "shard": "shard",
+            "server_address": "address"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "shard"
+      ],
+      "tier2_handler": "session",
+      "current_output_fields": [
+        "server_address",
+        "shard"
+      ],
+      "new_candidate_fields": [
+        "server_address",
+        "shard"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          626
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 855,
+          "end": 862
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1374,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "journal_entry",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Journal Entry Added\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Journal Entry Added",
+          "field": "subject",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "subject"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "subject"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "subject"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          698
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1082,
+          "end": 1086
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "jurisdiction_change",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Entered\\s+.+?\\s+Jurisdiction\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^Entered\\s+(.+?)\\s+Jurisdiction",
+          "groups": {
+            "1": "jurisdiction"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "jurisdiction",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "jurisdiction"
+      ],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "jurisdiction"
+      ],
+      "new_candidate_fields": [
+        "jurisdiction"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          702
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1028,
+          "end": 1032
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1453,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "location_change",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "RequestLocationInventory",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "location": "Location",
+            "player_name": "Player"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "location"
+      ],
+      "tier2_handler": "locations",
+      "current_output_fields": [
+        "location",
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "location",
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          776
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 941,
+          "end": 951
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1413,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "med_bed_heal",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "<MED BED HEAL>",
+            "source": "record.text"
+          },
+          {
+            "contains": "Perform surgery event Success",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "collect_true_fields",
+          "field": "healed_parts",
+          "names": [
+            "head",
+            "torso",
+            "leftArm",
+            "rightArm",
+            "leftLeg",
+            "rightLeg"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "healed_parts"
+      ],
+      "tier2_handler": "health",
+      "current_output_fields": [
+        "healed_parts"
+      ],
+      "new_candidate_fields": [
+        "healed_parts"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          630
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 933,
+          "end": 939
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1409,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "money_sent",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "assembled_from": "_money_sent_partial"
+      },
+      "read": [
+        {
+          "op": "sequence",
+          "profile": "money_transfer"
+        },
+        {
+          "op": "capture",
+          "source": "sequence.continuation",
+          "pattern": "([\\d,]+)\\s+(aUEC)\\b",
+          "groups": {
+            "1": "amount",
+            "2": "currency"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "amount",
+          "steps": [
+            "remove_commas"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "recipient",
+        "amount",
+        "currency"
+      ],
+      "tier2_handler": "rewards",
+      "current_output_fields": [
+        "recipient",
+        "amount"
+      ],
+      "new_candidate_fields": [
+        "amount",
+        "currency",
+        "recipient"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Preserve recipient from sequence start. Current implementation uses the continuation timestamp; retain both source timestamps in the new envelope."
+    },
+    {
+      "event": "monitored_space_down",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Monitored Space Down\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "monitored": false
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "monitored"
+      ],
+      "new_candidate_fields": [
+        "monitored"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          691
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1034,
+          "end": 1044
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1457,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "monitored_space_restored",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Monitored Space Restored\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "constant",
+          "fields": {
+            "monitored": true
+          }
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "monitored"
+      ],
+      "new_candidate_fields": [
+        "monitored"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          693
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1034,
+          "end": 1044
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1457,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "objective_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Objective Complete\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Objective Complete",
+          "field": "objective",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "objective",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          681
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 904,
+          "end": 910
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1473,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "objective_new",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^New Objective\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "New Objective",
+          "field": "objective",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "objective",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          679
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 896,
+          "end": 902
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1390,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "objective_withdrawn",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Objective Withdrawn\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Objective Withdrawn",
+          "field": "objective",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "mission_id": "MissionId"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "objective",
+        "mission_id"
+      ],
+      "tier2_handler": "missions",
+      "current_output_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "objective"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          683
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 912,
+          "end": 918
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1476,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "party_invite",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^[^\\n]+\\nParty Invite Received\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^([^\\n]+)\\nParty Invite Received",
+          "groups": {
+            "1": "from_player"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "from_player",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "from_player"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "from_player"
+      ],
+      "new_candidate_fields": [
+        "from_player"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          724
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1076,
+          "end": 1080
+        },
+        "state": null
+      },
+      "notes": "Record decoder must handle both literal backslash-n and physical newlines without decoding arbitrary escape sequences."
+    },
+    {
+      "event": "party_left",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^You\\ have\\ left\\ the\\ party\\.",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          756
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "party_member_joined",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^.+ has joined the party\\.",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^(.+?) has joined the party\\.",
+          "groups": {
+            "1": "player_name"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "player_name"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          758
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1213,
+          "end": 1217
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "personal_inventory_data",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "RequestOrCreatePersonalInventoryData",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "inventoryID\\[\\d+:Location:(\\w+)\\]",
+          "groups": {
+            "1": "location_guid"
+          }
+        },
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_name": "Player"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "location_guid"
+      ],
+      "tier2_handler": "locations",
+      "current_output_fields": [
+        "location_guid",
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "location_guid",
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          785
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 989,
+          "end": 998
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1426,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "qt_arrived",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "Quantum Drive has arrived at final destination",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "([A-Za-z0-9_]+)\\[\\d+\\]\\|CSCItemNavigation::OnQuantumDriveArrived",
+          "groups": {
+            "1": "entity_class"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "entity_class",
+          "steps": [
+            {
+              "regex_replace": {
+                "pattern": "_\\d+$",
+                "replacement": ""
+              }
+            }
+          ]
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "ships",
+      "current_output_fields": [],
+      "new_candidate_fields": [
+        "entity_class"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          643
+        ],
+        "extraction": null,
+        "state": null
+      },
+      "notes": "Reader emits a candidate. Tier 2 qualifies it before any public event; existing aboard/model-overlap heuristic is not unique ownership proof."
+    },
+    {
+      "event": "qt_calibration_complete_group",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Quantum Travel Calibration Complete By\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "notification.text",
+          "pattern": "^Quantum Travel Calibration Complete By\\s+(.+?)(?::\\s*)?$",
+          "groups": {
+            "1": "player"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "player",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [
+        "player"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "player"
+      ],
+      "new_candidate_fields": [
+        "player"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          718
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1219,
+          "end": 1225
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "quantum_calibration_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Quantum Travel Calibration Complete(?!\\s+By\\b)\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          720
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1072,
+          "end": 1074
+        },
+        "state": null
+      },
+      "notes": "No destination, player identity or readiness beyond the literal event may be inferred."
+    },
+    {
+      "event": "quantum_calibration_started",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Quantum Travel Calibration Started\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Quantum Travel Calibration Started By\\s+([^:]+)",
+          "groups": {
+            "1": "player"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "player",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "player"
+      ],
+      "new_candidate_fields": [
+        "player"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          716
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1064,
+          "end": 1070
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "quantum_route_set",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "Player Selected Quantum Target",
+        "source": "record.text"
+      },
+      "read": [],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [],
+      "new_candidate_fields": [],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          787
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1000,
+          "end": 1003
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1429,
+          "end": 1477
+        }
+      },
+      "notes": "Detection-only remains intentional; destination names were explicitly removed as unreliable."
+    },
+    {
+      "event": "refinery_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Refinery Work Order",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "Refinery Work Order.*?at\\s+([^:\\\"]+)",
+          "groups": {
+            "1": "location"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "location",
+          "steps": [
+            "trim"
+          ]
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "location"
+      ],
+      "new_candidate_fields": [
+        "location"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          736
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1096,
+          "end": 1100
+        },
+        "state": null
+      },
+      "notes": ""
+    },
+    {
+      "event": "refinery_submitted",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "MiningShopUIProvider::OnRefineryRequest",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "currency_type": "currencyType"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "player_id"
+      ],
+      "tier2_handler": "movement",
+      "current_output_fields": [
+        "currency_type",
+        "kiosk_id",
+        "player_id",
+        "shop_id",
+        "shop_name"
+      ],
+      "new_candidate_fields": [
+        "currency_type",
+        "kiosk_id",
+        "player_id",
+        "shop_id",
+        "shop_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          802
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1312,
+          "end": 1323
+        },
+        "state": null
+      },
+      "notes": "Submission is not proof that refining completed."
+    },
+    {
+      "event": "restricted_area",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^(?:Leaving\\s+)?Restricted Area\\b",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "regex": "^Leaving\\b",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "exited"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^Restricted Area\\b",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "action": "entered"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "action"
+      ],
+      "tier2_handler": "zones",
+      "current_output_fields": [
+        "action"
+      ],
+      "new_candidate_fields": [
+        "action"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          706
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1052,
+          "end": 1056
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1469,
+          "end": 1477
+        }
+      },
+      "notes": "Proposed stricter label; actual arrival wording needs fixture validation. Never default unfamiliar text to entered."
+    },
+    {
+      "event": "reward_earned",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^(?:You've earned\\s*:|Awarded\\s+)",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_context"
+        },
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "regex": "^Awarded\\s+([\\d,]+)\\s+aUEC\\b",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "capture",
+                  "source": "notification.text",
+                  "pattern": "^Awarded\\s+([\\d,]+)\\s+(aUEC)\\b",
+                  "groups": {
+                    "1": "amount",
+                    "2": "currency"
+                  }
+                },
+                {
+                  "op": "normalize",
+                  "field": "amount",
+                  "steps": [
+                    "remove_commas"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^You've earned\\s*:\\s*[\\d,]+\\s+aUEC\\b",
+                "source": "notification.text",
+                "flags": [
+                  "IGNORECASE"
+                ]
+              },
+              "steps": [
+                {
+                  "op": "capture",
+                  "source": "notification.text",
+                  "pattern": "^You've earned\\s*:\\s*([\\d,]+)\\s+(aUEC)\\b",
+                  "groups": {
+                    "1": "amount",
+                    "2": "currency"
+                  },
+                  "flags": [
+                    "IGNORECASE"
+                  ]
+                },
+                {
+                  "op": "normalize",
+                  "field": "amount",
+                  "steps": [
+                    "remove_commas"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^You've earned\\s*:\\s*[\\d,]+\\s+[A-Za-z]",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "capture",
+                  "source": "notification.text",
+                  "pattern": "^You've earned\\s*:\\s*([\\d,]+)\\s*([A-Za-z][\\w ]*)",
+                  "groups": {
+                    "1": "quantity",
+                    "2": "item_name"
+                  }
+                },
+                {
+                  "op": "normalize",
+                  "field": "quantity",
+                  "steps": [
+                    "remove_commas"
+                  ]
+                },
+                {
+                  "op": "normalize",
+                  "field": "item_name",
+                  "steps": [
+                    "trim"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^You've earned\\s*:\\s*[\\d,]+\\s*:?[\\s]*$",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "capture",
+                  "source": "notification.text",
+                  "pattern": "^You've earned\\s*:\\s*([\\d,]+)",
+                  "groups": {
+                    "1": "unresolved_number"
+                  }
+                },
+                {
+                  "op": "normalize",
+                  "field": "unresolved_number",
+                  "steps": [
+                    "remove_commas"
+                  ]
+                }
+              ]
+            },
+            {
+              "when": {
+                "regex": "^You've earned\\s*:\\s*[^\\d\\s]",
+                "source": "notification.text"
+              },
+              "steps": [
+                {
+                  "op": "notification_payload",
+                  "label": "You've earned",
+                  "field": "item_name",
+                  "legacy_terminal_colon": "strip_one_only_at_payload_end"
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "rewards",
+      "current_output_fields": [
+        "amount",
+        "item_name",
+        "mission_id",
+        "notification_id",
+        "objective_id",
+        "quantity"
+      ],
+      "new_candidate_fields": [
+        "amount",
+        "currency",
+        "item_name",
+        "mission_id",
+        "notification_id",
+        "objective_id",
+        "quantity",
+        "unresolved_number"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          730,
+          732
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1102,
+          "end": 1133
+        },
+        "state": null
+      },
+      "notes": "Intentional delta: unitless numbers stay unresolved outside a separately evidenced legacy format. Do not mark the format verified from a version label alone. Validate monetary/physical-reward exclusivity in Tier 2."
+    },
+    {
+      "event": "session_start",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "AccountLoginCharacterStatus_Character",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "name\\s+(\\S+)",
+          "groups": {
+            "1": "player_name"
+          }
+        },
+        {
+          "op": "capture",
+          "source": "record.text",
+          "pattern": "geid\\s+(\\S+)",
+          "groups": {
+            "1": "player_geid"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "player_geid"
+      ],
+      "tier2_handler": "session",
+      "current_output_fields": [
+        "player_geid",
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "player_geid",
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          622
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 847,
+          "end": 853
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1368,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "shop_buy",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "contains": "SendShopBuyRequest",
+                "source": "record.text"
+              },
+              {
+                "contains": "SendStandardItemBuyRequest",
+                "source": "record.text"
+              }
+            ]
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "item_guid": "itemClassGUID",
+            "item_name": "itemName",
+            "currency_type": "currencyType",
+            "price": "client_price",
+            "quantity": "quantity"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "price",
+          "steps": [
+            "float"
+          ]
+        },
+        {
+          "op": "normalize",
+          "field": "quantity",
+          "steps": [
+            "int"
+          ]
+        },
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shopping"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shop_ui"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "price",
+        "quantity"
+      ],
+      "tier2_handler": "trades",
+      "current_output_fields": [
+        "currency_type",
+        "item_guid",
+        "item_name",
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "shop_id",
+        "shop_name",
+        "source_provider"
+      ],
+      "new_candidate_fields": [
+        "currency_type",
+        "item_guid",
+        "item_name",
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "shop_id",
+        "shop_name",
+        "source_provider"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          816
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1147,
+          "end": 1167
+        },
+        "state": null
+      },
+      "notes": "Request only; Tier 2 confirms before booking money. Missing identity fields remain explicit and can make correlation ambiguous."
+    },
+    {
+      "event": "shop_sell",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "contains": "SendShopSellRequest",
+                "source": "record.text"
+              },
+              {
+                "contains": "SendStandardItemSellRequest",
+                "source": "record.text"
+              }
+            ]
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "item_guid": "itemClassGUID",
+            "item_name": "itemName",
+            "currency_type": "currencyType",
+            "price": "client_price",
+            "quantity": "quantity"
+          }
+        },
+        {
+          "op": "normalize",
+          "field": "price",
+          "steps": [
+            "float"
+          ]
+        },
+        {
+          "op": "normalize",
+          "field": "quantity",
+          "steps": [
+            "int"
+          ]
+        },
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shopping"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shop_ui"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "price",
+        "quantity"
+      ],
+      "tier2_handler": "trades",
+      "current_output_fields": [
+        "currency_type",
+        "item_guid",
+        "item_name",
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "shop_id",
+        "shop_name",
+        "source_provider"
+      ],
+      "new_candidate_fields": [
+        "currency_type",
+        "item_guid",
+        "item_name",
+        "kiosk_id",
+        "player_id",
+        "price",
+        "quantity",
+        "shop_id",
+        "shop_name",
+        "source_provider"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          818
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1147,
+          "end": 1167
+        },
+        "state": null
+      },
+      "notes": "Request only; Tier 2 confirms before booking money. Missing identity fields remain explicit and can make correlation ambiguous."
+    },
+    {
+      "event": "shop_transaction_result",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              }
+            ]
+          },
+          {
+            "contains": "RmShopFlowResponse",
+            "source": "record.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_id": "playerId",
+            "shop_id": "shopId",
+            "shop_name": "shopName",
+            "kiosk_id": "kioskId",
+            "kiosk_state": "kioskState",
+            "result": "result",
+            "transaction_type": "type"
+          }
+        },
+        {
+          "op": "choose",
+          "cases": [
+            {
+              "when": {
+                "contains": "ShoppingProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shopping"
+                  }
+                }
+              ]
+            },
+            {
+              "when": {
+                "contains": "ShopUIProvider",
+                "source": "record.text"
+              },
+              "steps": [
+                {
+                  "op": "constant",
+                  "fields": {
+                    "source_provider": "shop_ui"
+                  }
+                }
+              ]
+            }
+          ],
+          "otherwise": "leave_missing_and_record_diagnostic"
+        }
+      ],
+      "required_before_state_effect": [
+        "result"
+      ],
+      "tier2_handler": "trades",
+      "current_output_fields": [
+        "kiosk_id",
+        "kiosk_state",
+        "player_id",
+        "result",
+        "shop_id",
+        "shop_name",
+        "source_provider",
+        "transaction_type"
+      ],
+      "new_candidate_fields": [
+        "kiosk_id",
+        "kiosk_state",
+        "player_id",
+        "result",
+        "shop_id",
+        "shop_name",
+        "source_provider",
+        "transaction_type"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          820
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1229,
+          "end": 1247
+        },
+        "state": null
+      },
+      "notes": "Missing player/shop/kiosk must not silently authorize an unrelated pending request."
+    },
+    {
+      "event": "transaction_complete",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Transaction\\ Complete",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_context"
+        }
+      ],
+      "required_before_state_effect": [],
+      "tier2_handler": "rewards",
+      "current_output_fields": [
+        "mission_id",
+        "notification_id",
+        "objective_id"
+      ],
+      "new_candidate_fields": [
+        "mission_id",
+        "notification_id",
+        "objective_id"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          764
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1135,
+          "end": 1136
+        },
+        "state": null
+      },
+      "notes": "Event-only or optional context; absence of a later event must not imply recovery/completion."
+    },
+    {
+      "event": "user_login",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "contains": "User Login Success",
+        "source": "record.text"
+      },
+      "read": [
+        {
+          "op": "bracket_fields",
+          "source": "record.text",
+          "fields": {
+            "player_name": "Handle"
+          }
+        }
+      ],
+      "required_before_state_effect": [
+        "player_name"
+      ],
+      "tier2_handler": "session",
+      "current_output_fields": [
+        "player_name"
+      ],
+      "new_candidate_fields": [
+        "player_name"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          620
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 841,
+          "end": 845
+        },
+        "state": {
+          "file": "parser.py",
+          "start": 1364,
+          "end": 1477
+        }
+      },
+      "notes": ""
+    },
+    {
+      "event": "vehicle_impounded",
+      "visibility": "public_after_tier2_qualification",
+      "match": {
+        "all": [
+          {
+            "contains": "SHUDEvent",
+            "source": "record.text"
+          },
+          {
+            "regex": "^Vehicle Impounded\\s*:",
+            "source": "notification.text"
+          }
+        ]
+      },
+      "read": [
+        {
+          "op": "notification_payload",
+          "label": "Vehicle Impounded",
+          "field": "reason",
+          "legacy_terminal_colon": "strip_one_only_at_payload_end"
+        }
+      ],
+      "required_before_state_effect": [
+        "reason"
+      ],
+      "tier2_handler": "passthrough",
+      "current_output_fields": [
+        "reason"
+      ],
+      "new_candidate_fields": [
+        "reason"
+      ],
+      "fields_moved_to_tier2": [],
+      "current_source": {
+        "classifier_lines": [
+          752
+        ],
+        "extraction": {
+          "file": "parser.py",
+          "start": 1207,
+          "end": 1211
+        },
+        "state": null
+      },
+      "notes": ""
+    }
+  ],
+  "intentional_changes_requiring_review": [
+    "notification label scoped to payload prefix rather than arbitrary whole-line substring",
+    "complete record assembly instead of first-line interpretation",
+    "required fields block state mutation instead of being replaced with None/zero",
+    "unitless reward is unresolved unless a verified legacy profile explicitly gives currency semantics",
+    "reader emits ship/departure candidates for Tier 2 qualification; no new public event leaks",
+    "startup and live paths use the same session rules",
+    "new-build or same-model ship identity uncertainty remains visible rather than claiming confirmed ownership"
+  ],
+  "unresolved_design_decisions": [
+    "real corpus coverage for stricter labels, multiline boundaries, escapes and last-record flush latency",
+    "finite regex execution budget and enforcement mechanism",
+    "multi-profile selection by actual source format plus build evidence, without guessed version ranges",
+    "legacy unitless rewards: verified format/build scope needed; fallback must not infer currency",
+    "ownership policy for missing entity class and multiple nearby ships of same model",
+    "commodity request-only ledger confidence and zero-default behavior",
+    "configuration/data rollback policy and source timestamp migration",
+    "static main.py consumes raw data and formatting; keep legacy adapter fields/event names while Tier 2 takes ownership of state"
+  ],
+  "coverage": {
+    "classifier_return_sites": 60,
+    "classifier_event_types": 59,
+    "public_event_types": 59,
+    "internal_markers": 1,
+    "mapped_event_definitions": 60,
+    "extraction_blocks": 45,
+    "state_blocks": 20,
+    "traced_conditionals": 226,
+    "parser_methods_accounted_for": 39,
+    "unmapped_current_output_fields": 0,
+    "proposed_operator_families": 12,
+    "tier2_handler_groups": 10,
+    "rule_groups": {
+      "passthrough": 19,
+      "zones": 7,
+      "movement": 5,
+      "rewards": 5,
+      "ships": 3,
+      "trades": 5,
+      "missions": 8,
+      "health": 2,
+      "locations": 3,
+      "session": 3
+    },
+    "regex_expressions_compiled": 89
+  }
+}

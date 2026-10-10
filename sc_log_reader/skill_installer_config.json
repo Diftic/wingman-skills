@@ -1,0 +1,22 @@
+{
+  "skill_name": "sc_log_reader",
+  "display_name": "SC Log Reader",
+  "version": "4.8.3.4",
+  "sc_target_version": "4.8.3",
+  "files": [
+    "__init__.py",
+    "atomic_io.py",
+    "debug_emitter.py",
+    "default_config.yaml",
+    "event_log.py",
+    "ledger.py",
+    "location_names.py",
+    "logic.py",
+    "logo.png",
+    "main.py",
+    "parser.py"
+  ],
+  "preserve_on_update": [
+    "default_config.yaml"
+  ]
+}

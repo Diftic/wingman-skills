@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC_LogReader DevKit — NodeView</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>SC_LogReader DevKit — NodeView</h1>
+        <div id="connection-status" class="status disconnected">Disconnected</div>
+    </header>
+
+    <div class="canvas-wrap" id="canvas-wrap">
+        <!-- SVG edge layer (rendered behind nodes) -->
+        <svg id="edge-svg" class="edge-layer">
+            <defs>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- 4 columns — nodes are created dynamically by JS -->
+        <div class="columns" id="columns">
+            <div class="column" id="col-events">
+                <div class="col-header">
+                    <span class="col-dot dot-event"></span>
+                    Events
+                    <span class="col-count" id="count-events">0</span>
+                </div>
+            </div>
+            <div class="column" id="col-states">
+                <div class="col-header">
+                    <span class="col-dot dot-state"></span>
+                    States
+                    <span class="col-count" id="count-states">0</span>
+                </div>
+            </div>
+            <div class="column" id="col-rules">
+                <div class="col-header">
+                    <span class="col-dot dot-rule"></span>
+                    Rules
+                    <span class="col-count" id="count-rules">0</span>
+                </div>
+            </div>
+            <div class="column" id="col-output">
+                <div class="col-header">
+                    <span class="col-dot dot-output"></span>
+                    Output
+                    <span class="col-count" id="count-output">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

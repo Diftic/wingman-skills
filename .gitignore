@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+node_modules/
+.pytest_cache/
+.idea/
+*.zip
+**/reports/
+**/_vendor/
+**/models/
+**/captures/
+secrets.yaml
+.env
+.dev.vars

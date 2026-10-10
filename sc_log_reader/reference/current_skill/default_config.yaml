@@ -1,0 +1,454 @@
+module: skills.sc_log_reader.main
+name: SC_LogReader
+display_name: Star Citizen Log Reader
+author: Mallachi
+auto_activate: true
+tags:
+  - Star Citizen
+  - Game Integration
+description:
+  en: Monitors the Star Citizen Game.log file for events like contracts, missions, location changes, injuries, and more. Provides real-time game state awareness to your Wingman.
+hint:
+  en: >
+    <p><strong>Help improve SC Log Reader:</strong> say "donate logs" to your Wingman
+    to review and contribute your Star Citizen logs.</p>
+    <p>Your browser opens a local page where you preview every file before anything
+    is uploaded. You explicitly confirm the donation; nothing happens in the
+    background. Logs are content-hashed and deduplicated, and stored privately
+    only to improve parser coverage for future patches.</p>
+discovery_keywords:
+  - star citizen
+  - game log
+  - mission
+  - contract
+  - location
+  - injury
+  - death
+  - ship
+
+prompt: |
+  You have access to real-time Star Citizen game data through the SC_LogReader skill.
+
+  **Available Tools:**
+  - `get_current_game_state`: Get current player state (location, ship, active missions, injuries, etc.)
+  - `get_active_missions`: Get list of all active contracts/missions with objectives
+  - `get_recent_game_events`: Get recent game events (contracts accepted, objectives, location changes, etc.)
+  - `get_trade_ledger`: Get trade financial summary and per-item profit breakdown for a time period
+  - `get_trade_entries`: List individual trade ledger entries (buy/sell transactions)
+
+  **When to use these tools:**
+  - Player asks about their current mission/contract → use `get_active_missions`
+  - Player asks where they are or what ship they're in → use `get_current_game_state`
+  - Player asks to MARK, SAVE, or DROP a waypoint at their location → do NOT use these tools; that is an action for the NavPoint skill's `mark_location` tool. Reporting the location name is not marking.
+  - Player asks what happened recently → use `get_recent_game_events`
+  - Player asks about injuries or health status → use `get_current_game_state`
+  - Player asks about profit, spending, income, or trade analytics → use `get_trade_ledger` (returns summary with totals and per-item breakdown)
+  - Player asks to "show", "list", or "display" their trades/ledger → use `get_trade_entries` (returns individual entries, default sorted: purchases first, sales last)
+  - If the player says "tell me about" or asks a general question about trades, use `get_trade_ledger` for a summary. If they say "show me" the ledger or trades, use `get_trade_entries` for the full list.
+
+  **Important:** You DO have access to game state data. Always use these tools when the player asks about in-game information.
+
+  **Game Event Reactions:**
+  Messages prefixed with [Game Event] or [Game Events] are automated records from the game log. They describe things that have ALREADY happened. They are not spoken by the player and they are not requests.
+  - React briefly in character, one short sentence. Do not summarize or repeat the event details; the player already sees them in the UI.
+  - State only what the event says. Never infer intent, readiness, next steps, or outcomes. A set destination means only that a destination was set, not that travel is imminent.
+  - Never call tools, trigger commands, or take any action in response to a game event. Actions require an explicit request spoken by the player.
+
+custom_properties:
+  # Path to Star Citizen installation (containing Game.log)
+  # Leave empty to auto-detect common installation paths
+  - id: sc_game_path
+    name: Star Citizen Path
+    hint: "Path to the StarCitizen folder (e.g., C:/Roberts Space Industries/StarCitizen). The skill monitors LIVE, PTU, and HOTFIX subfolders automatically. Restart the skill after changing this setting."
+    value: ""
+    property_type: string
+    required: false
+
+  # Master switch - must be ON for any event notifications to fire
+  - id: proactive_notifications
+    name: Enable Proactive Notifications
+    hint: "Master switch for all proactive game event notifications. Must be enabled for any individual events below to fire."
+    value: true
+    property_type: boolean
+    required: false
+
+  # Contracts & Missions
+  - id: notify_mission_accepted
+    name: Contract Accepted
+    hint: "Notify when a contract is accepted"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_mission_complete
+    name: Contract Completed
+    hint: "Notify when a contract is completed"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_mission_failed
+    name: Contract Failed
+    hint: "Notify when a contract is failed or abandoned"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_contract_shared
+    name: Contract Shared
+    hint: "Notify when a contract is shared with the party"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_contract_available
+    name: Contract Available
+    hint: "Notify when a new contract becomes available"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Objectives
+  - id: notify_mission_objective_new
+    name: New Objective
+    hint: "Notify when a new mission objective is assigned"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_objective_complete
+    name: Objective Completed
+    hint: "Notify when a mission objective is completed"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_objective_withdrawn
+    name: Objective Withdrawn
+    hint: "Notify when a mission objective is withdrawn"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Travel
+  - id: notify_location_arrived
+    name: Arrived at Location
+    hint: "Notify when arriving at a new location"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_quantum_route_set
+    name: Quantum Route Set
+    hint: "Notify when a quantum travel route is set"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_quantum_calibration_started
+    name: Quantum Calibration Started
+    hint: "Notify when quantum drive begins calibrating"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_quantum_calibration_complete
+    name: Quantum Jump Complete
+    hint: "Notify when quantum jump completes"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_qt_calibration_complete_group
+    name: Party Member Quantum Ready
+    hint: "Notify when a party member's quantum calibration completes"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Zones
+  - id: notify_zone_entered_armistice
+    name: Entered Armistice Zone
+    hint: "Notify when entering an armistice zone"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_zone_left_armistice
+    name: Left Armistice Zone
+    hint: "Notify when leaving an armistice zone"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_hangar_access
+    name: Hangar Access
+    hint: "Notify when hangar access is granted"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_hangar_queue
+    name: Added to Hangar Queue
+    hint: "Notify when added to the hangar landing queue"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_entered_monitored_space
+    name: Entered Monitored Space
+    hint: "Notify when entering monitored/lawful space"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_exited_monitored_space
+    name: Exited Monitored Space
+    hint: "Notify when leaving monitored/lawful space"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_monitored_space_down
+    name: Monitored Space Offline
+    hint: "Notify when monitored space enforcement goes offline"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_monitored_space_restored
+    name: Monitored Space Restored
+    hint: "Notify when monitored space enforcement comes back online"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_jurisdiction_change
+    name: Jurisdiction Change
+    hint: "Notify when the player crosses into a different jurisdiction"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_restricted_area
+    name: Restricted Area Detected
+    hint: "Notify when a restricted area is detected nearby"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Ships
+  - id: notify_ship_entered
+    name: Entered Ship
+    hint: "Notify when the player enters a ship"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_ship_exited
+    name: Exited Ship
+    hint: "Notify when the player exits a ship"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Health
+  - id: notify_injury
+    name: Injured
+    hint: "Notify when the player is injured"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_health_injury_reminder
+    name: Injury Reminder
+    hint: "Reminds about untreated injuries when entering an armistice zone"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_med_bed_heal
+    name: Healed at Med Bed
+    hint: "Notify when the player is healed at a med bed"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_emergency_services
+    name: Emergency Services Called
+    hint: "Notify when emergency medical services are called"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_bleeding
+    name: Bleeding
+    hint: "Notify when the player starts bleeding"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_fuel_low
+    name: Low Fuel Warning
+    hint: "Notify when ship fuel is low (fires every ~2 minutes while fuel stays low)"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Law
+  - id: notify_crimestat_increased
+    name: CrimeStat Increased
+    hint: "Notify when the player's CrimeStat rating increases"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_vehicle_impounded
+    name: Vehicle Impounded
+    hint: "Notify when a vehicle is impounded (includes impound reason)"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Social
+  - id: notify_party_invite
+    name: Party Invite Received
+    hint: "Notify when a party invite is received"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_incoming_call
+    name: Incoming Call
+    hint: "Notify when an incoming comms call is detected"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_party_member_joined
+    name: Party Member Joined
+    hint: "Notify when a player joins the party"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_party_left
+    name: Left Party
+    hint: "Notify when the player leaves the party"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Economy
+  - id: notify_reward_earned
+    name: Reward Earned
+    hint: "Notify when aUEC rewards are earned"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_refinery_complete
+    name: Refinery Job Complete
+    hint: "Notify when a refinery processing job is complete"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Session
+  - id: notify_user_login
+    name: Player Logged In
+    hint: "Notify when the player logs into the game"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_session_start
+    name: New Session Started
+    hint: "Notify when a new game session begins"
+    value: false
+    property_type: boolean
+    required: false
+
+  - id: notify_join_pu
+    name: Joined Persistent Universe
+    hint: "Notify when the player joins the persistent universe"
+    value: false
+    property_type: boolean
+    required: false
+
+  # Journal
+  - id: notify_journal_entry
+    name: Journal Entry
+    hint: "Notify when a journal entry is recorded"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Travel
+  - id: notify_qt_arrived
+    name: Quantum Arrived
+    hint: "Notify when the quantum drive arrives at its destination"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Economy (transactions)
+  - id: notify_fined
+    name: Fined
+    hint: "Notify when the player is fined (includes fine amount)"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_transaction_complete
+    name: Transaction Complete
+    hint: "Notify when a shop transaction is confirmed by the game UI"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_money_sent
+    name: Money Sent
+    hint: "Notify when the player sends aUEC to another player"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Health
+  - id: notify_incapacitated
+    name: Incapacitated
+    hint: "Notify when the player is incapacitated (downed)"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Game items
+  - id: notify_blueprint_received
+    name: Blueprint Received
+    hint: "Notify when a blueprint is received (4.7+ content)"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Incidents
+  - id: notify_fatal_collision
+    name: Fatal Collision
+    hint: "Notify when a fatal ship collision is detected"
+    value: true
+    property_type: boolean
+    required: false
+
+  # Insurance
+  - id: notify_insurance_claim
+    name: Insurance Claim Filed
+    hint: "Notify when an insurance claim is submitted"
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: notify_insurance_claim_complete
+    name: Insurance Claim Complete
+    hint: "Notify when an insurance claim is resolved"
+    value: true
+    property_type: boolean
+    required: false

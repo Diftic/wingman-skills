@@ -1,0 +1,18 @@
+Satisfactory Assistant v0.7.1
+
+Player-facing machine and resource aliases for location maps.
+
+- Oilfield, oil node, oil pump, and oil extractor requests now resolve to the
+  save's Oil Extractor buildings instead of requiring the internal OilPump
+  class name or the broader Crude Oil line name.
+- Location matching now understands official production-building names,
+  singular/plural forms, model suffixes, and the raw save classes. This covers
+  miners, smelters, foundries, constructors, assemblers, manufacturers,
+  refineries, packagers, blenders, particle accelerators, converters, quantum
+  encoders, oil/water extractors, and resource-well equipment, with generator
+  aliases included as well.
+- Map pins use player-facing building labels instead of unresolved
+  Persistent_Level resource references or internal Build_* names.
+
+The standalone top-centre popup and its Wingman settings are unchanged from
+v0.7.0.

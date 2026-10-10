@@ -1,0 +1,206 @@
+module: skills.factory_assistant.main
+api_version: 3
+name: FactoryAssistant
+display_name: Factory Assistant
+author: Mallachi
+auto_activate: true
+discoverable_by_default: false
+tags:
+  - Game
+  - Factory
+  - Satisfactory
+  - Dyson Sphere Program
+  - Planning
+description:
+  en: "Reads your Satisfactory or Dyson Sphere Program save: production, shortages, map and plans."
+discovery_keywords:
+  - factory game
+  - dyson sphere program
+  - dsp
+  - satisfactory
+  - factory planning
+  - production plan
+  - active save
+  - factory notes
+  - game save planning
+  - recipe
+  - inputs
+  - outputs
+  - materials
+  - factory rates
+  - factory mirror
+  - factory audit
+  - expected rates
+  - production lines
+  - stopped production
+  - bottleneck
+  - machine count
+  - space elevator
+  - project assembly
+  - phase
+  - phase 4
+  - phase four
+  - assembly director system
+  - magnetic field generator
+  - nuclear pasta
+  - thermal propulsion rocket
+  - plan factory
+  - calculate plan
+  - phase plan
+  - power budget
+  - machines needed
+  - how many machines
+
+prompt: |
+  You are the active Wingman's factory-game companion. Everything needed for
+  factory-game behavior comes from this skill; do not rely on the Wingman's
+  backstory or any profile-specific instructions.
+  Treat the active save as the source of truth. Keep every save's notes, jobs,
+  goals, scans, and plans separate. Never carry factory details from one save
+  into another.
+  Speak like a helpful, experienced player. Use short sentences and everyday words.
+  Lead with what the player needs to know or do next. Do not read internal IDs,
+  file paths, database terms, or diagnostic labels aloud. Translate technical
+  tool wording into normal game language, and explain uncommon terms briefly.
+  Use the skill tools when the player asks about save-specific plans, notes, todos,
+  production goals, factory layouts, material inputs, item outputs, recipes,
+  machine counts, bottlenecks, or maintenance work.
+  The factory scan refreshes automatically when a save is detected and each time
+  the game writes a save, so the data is as new as the last autosave. For any
+  question asking where something is, its coordinates, a resource node, or a map,
+  call show_factory_map with the search term in query. This opens the skill's
+  own positionable popup; it does not use the HUD skill. Use action "hide" when
+  the player asks to close the map. Never use lookup for a location request;
+  lookup is only for item and recipe catalog facts.
+  Keep plans useful during play. Start with the goal, what is holding it back,
+  materials and machines needed, the next few build steps, and a simple way to
+  check that it works. Consider logistics and power when they matter.
+  When correcting a plan, compare it with the latest save and the player's current
+  goal. Point out old assumptions, missing prerequisites, production shortages or
+  excess, transport bottlenecks, and power risks. Suggest the smallest useful fix.
+  If exact save information is missing, say what is missing in plain language and
+  clearly label any estimate instead of presenting it as a fact.
+  Never claim access to other saves. If the tool says no active save is confirmed,
+  ask the player to start or load a save first.
+
+custom_properties:
+  - id: game
+    name: Game
+    hint: "Which game this skill reads. Auto uses the game with the most recently loaded save. Data updates each time the game autosaves; change the autosave interval in the game settings."
+    value: auto
+    property_type: single_select
+    required: false
+    options:
+      - label: Auto
+        value: auto
+      - label: Satisfactory
+        value: satisfactory
+      - label: Dyson Sphere Program
+        value: dyson_sphere_program
+
+  - id: satisfactory_install_dir
+    name: Satisfactory Install Directory
+    hint: "Optional path to the Satisfactory game install root (e.g. D:/SteamLibrary/steamapps/common/Satisfactory). Leave empty to auto-detect via Steam, Epic, or common install paths."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: dsp_save_dir
+    name: Dyson Sphere Program Save Folder
+    hint: "Optional. Leave empty to find the save folder automatically (Documents, also when Documents is in OneDrive)."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: dsp_rate_window_minutes
+    name: Dyson Sphere Program Rate Window
+    hint: "Average production over this period, like the in-game Statistics panel."
+    value: 10
+    property_type: single_select
+    required: false
+    options:
+      - label: 1 minute
+        value: 1
+      - label: 10 minutes
+        value: 10
+      - label: 1 hour
+        value: 60
+      - label: 10 hours
+        value: 600
+
+  - id: max_response_items
+    name: Max Response Items
+    hint: "Cap the number of list items (todos, notes, goals) returned to the AI."
+    value: 12
+    property_type: number
+    required: false
+
+  - id: allow_plan_writes
+    name: Allow Plan Writes
+    hint: "Allow the assistant to write per-save planning notes, todos, and goals."
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: map_overlay_enabled
+    name: Enable Map Popup
+    hint: "Show location maps in the skill's own click-through popup, independent of the HUD skill. Requires borderless-windowed or windowed game mode."
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: map_overlay_display
+    name: Map Popup Display (1 = Primary Monitor)
+    hint: "One-based monitor number used for the map popup."
+    value: 1
+    property_type: number
+    required: false
+
+  - id: map_overlay_size
+    name: Map Popup Size in Pixels (240-1200)
+    hint: "Width and height of the square location-map popup."
+    value: 520
+    property_type: number
+    required: false
+
+  - id: map_overlay_duration_seconds
+    name: Map Popup Duration in Seconds (0 = Until Hidden)
+    hint: "How long a map remains visible after opening. Set to 0 to keep it open until you ask the assistant to close it."
+    value: 15
+    property_type: number
+    required: false
+
+  - id: map_overlay_position
+    name: Map Popup Position
+    hint: "Choose the popup's standard position on the selected monitor."
+    value: top_center
+    property_type: single_select
+    required: false
+    options:
+      - label: Top Left
+        value: top_left
+      - label: Top Centre
+        value: top_center
+      - label: Top Right
+        value: top_right
+
+  - id: mirror_trend_window_saves
+    name: Mirror Trend Window Saves
+    hint: "Number of recent autosave snapshots used for rolling estimated average health checks."
+    value: 5
+    property_type: number
+    required: false
+
+  - id: mirror_zero_streak_saves
+    name: Mirror Zero Streak Saves
+    hint: "Flag machines only after estimated zero output repeats for this many parsed snapshots."
+    value: 3
+    property_type: number
+    required: false
+
+  - id: mirror_deviation_threshold_percent
+    name: Mirror Deviation Threshold Percent
+    hint: "Flag rolling estimated output when it is this percent below expected output."
+    value: 25
+    property_type: number
+    required: false

@@ -1,0 +1,29 @@
+Satisfactory Assistant v0.5.0
+
+Actuals audit and locate release.
+
+- calculate_satisfactory_plan mode="audit" now accepts phase 1-5: when the
+  save's master plan has a stored revision for that phase, the mirrored
+  factory is compared against it and a bounded "Plan vs actual" section is
+  appended, listing build-more lines for missing capacity, unplanned
+  production the plan never called for, and surplus over the plan. Phase 0
+  (default) or no stored plan keeps the classic audit byte-identical.
+- get_satisfactory_context gains locate: search the factory mirror for an
+  item, recipe, or resource name and get back world coordinates for up to 5
+  matches plus a rendered schematic map PNG for the top match, with a
+  display hint for showing the image on the HUD. Requires a prior audit to
+  have built the mirror; without one, the response explains how to run
+  one. Pillow is bundled with Wingman AI, so map rendering needs no extra
+  install.
+- v0.4.0 carried construction bills with commissioning checks, opt-in
+  build todos, and pace scenario comparisons; all of that remains
+  unchanged.
+
+Requirements:
+- scipy and numpy (bundled with Wingman AI's Python runtime).
+- Pillow (bundled with Wingman AI's Python runtime), needed for the
+  locate map artifact.
+- Node.js/npm are optional, needed only for the factory mirror save parser
+  used by audit, actuals, and locate. install.bat runs npm ci with the
+  bundled package-lock when npm is available; otherwise planning still works
+  and audit will report how to install or configure the parser runtime.

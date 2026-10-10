@@ -1,0 +1,232 @@
+{
+  "verified_at_utc": "2026-09-15T20:58:56.413205+00:00",
+  "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "checks": {
+    "format": {
+      "exit_code": 0,
+      "log": "docs/verification/format.txt"
+    },
+    "format_layout": {
+      "exit_code": 0,
+      "log": "docs/verification/format_layout.txt"
+    },
+    "lint": {
+      "exit_code": 0,
+      "log": "docs/verification/lint.txt"
+    },
+    "unittest": {
+      "exit_code": 0,
+      "log": "docs/verification/unittest.txt"
+    },
+    "build": {
+      "exit_code": 0,
+      "log": "docs/verification/build.txt"
+    },
+    "clean_wheel_install_and_replay": {
+      "exit_code": 0,
+      "rules": 59,
+      "sample_records": 10,
+      "log": "docs/verification/sample-replay.json",
+      "environment": ".package-smoke"
+    }
+  },
+  "frozen_file_checks": [
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\__init__.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\__init__.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\main.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\main.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\parser.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\parser.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\logic.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\logic.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\event_log.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\event_log.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\ledger.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\ledger.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\atomic_io.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\atomic_io.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\location_names.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\location_names.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\debug_emitter.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\debug_emitter.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\default_config.yaml",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\default_config.yaml",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\tests\\test_parser_ownership.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_parser_ownership.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\tests\\test_location_departure.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_location_departure.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\tests\\test_reward_tokens.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_reward_tokens.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\reference\\current_skill\\tests\\test_movement_reconciliation.py",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\tests\\test_movement_reconciliation.py",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\docs\\design\\ASSESSMENT.md",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\ASSESSMENT.md",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\docs\\design\\reader-instructions.draft.json",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\reader-instructions.draft.json",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\docs\\design\\source-inventory.json",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\source-inventory.json",
+      "matches": true
+    },
+    {
+      "kind": "reference",
+      "path": "D:\\PycharmProjects\\Sc_log_reader_2\\docs\\design\\verification.json",
+      "matches": true
+    },
+    {
+      "kind": "original",
+      "path": "D:\\PycharmProjects\\wingman-ai\\skills\\sc_log_reader\\specs\\2026-09-15-reader-instruction-mapping\\verification.json",
+      "matches": true
+    }
+  ],
+  "runtime_rules": 59,
+  "builds_qualified": [],
+  "live_wingman_tested": false,
+  "independent_review": "Three reproduced findings fixed; reviewer independently confirmed 3 regression tests passed.",
+  "artifacts": [
+    {
+      "path": "dist\\sc_log_reader_2-0.1.0-py3-none-any.whl",
+      "sha256": "db34185b9fec2c28b2eb31df503557307ae3f9fffa809640444441f31d2588f6",
+      "bytes": 35056
+    },
+    {
+      "path": "dist\\sc_log_reader_2-0.1.0.tar.gz",
+      "sha256": "b73faea1925c10d888b750f6b7f5f47fa18991ad1f9f2b03c137113a9f6dc1d7",
+      "bytes": 51717
+    }
+  ],
+  "unittest_count": 60
+}

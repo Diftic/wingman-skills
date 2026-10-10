@@ -1,0 +1,14 @@
+[
+  {
+    "event_type": "emergency_services",
+    "text": "<2026-07-26T13:12:34.997Z> [Notice] <SHUDEvent_OnNotification> Added notification \"Standby, Local Emergency Services Are En Route: \" [58] to queue. New queue size: 1, MissionId: [00000000-0000-0000-0000-000000000000], ObjectiveId: [] [Team_CoreGameplayFeatures][Missions][Comms]"
+  },
+  {
+    "event_type": "refinery_complete",
+    "text": "<2026-09-08T18:00:56.637Z> [Notice] <SHUDEvent_OnNotification> Added notification \"A Refinery Work Order has been Completed at Levski: \" [2] to queue. New queue size: 1, MissionId: [00000000-0000-0000-0000-000000000000], ObjectiveId: [] [Team_CoreGameplayFeatures][Missions][Comms]"
+  },
+  {
+    "event_type": "contract_withdrawn",
+    "text": "<2026-08-30T19:15:17.125Z> [Notice] <SHUDEvent_OnNotification> Added notification \"Contract Withdrawn:  A Call to Arms: \" [49] to queue. New queue size: 1, MissionId: [06484da0-92e1-4f7c-9d5f-bd491b9fe326], ObjectiveId: [] [Team_CoreGameplayFeatures][Missions][Comms]"
+  }
+]

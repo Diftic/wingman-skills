@@ -1,0 +1,11 @@
+include README.md
+recursive-include docs *.md
+recursive-include examples *.log
+recursive-include integrations *.md *.yaml *.py
+recursive-include tools *.py
+recursive-include updates *.md *.json
+recursive-include src/sc_log_reader_2/data *.json
+recursive-include tests *.py
+recursive-include tests/fixtures *.log *.json
+prune reference
+prune docs/design

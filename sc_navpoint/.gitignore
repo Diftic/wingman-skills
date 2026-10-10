@@ -1,0 +1,12 @@
+# Runtime files remain tracked; local experiments and release output do not.
+/reports/
+/release_version/
+/ledger/
+/screenshots/
+/ocr_dev/
+/*.zip
+/*.zip.sha256
+/overlay_glyphs*
+/models/*
+!/models/specialist_v8/
+*.sqlite3*

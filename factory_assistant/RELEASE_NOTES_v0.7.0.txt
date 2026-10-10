@@ -1,0 +1,17 @@
+Satisfactory Assistant v0.7.0
+
+Standalone top-centre location map popup.
+
+- Location maps now open in Satisfactory Assistant's own click-through,
+  always-on-top popup. The popup follows the proven SC NavPoint navigation-ring
+  window pattern and does not depend on the HUD skill.
+- The popup is centred at the top of the selected monitor and works over a
+  windowed or borderless-windowed game. Exclusive fullscreen bypasses the
+  Windows desktop compositor and cannot display desktop overlays.
+- New Wingman settings control whether the popup is enabled, which monitor it
+  uses, its pixel size, and how long it remains visible.
+- A dedicated show/hide map tool routes location, coordinate, resource-node,
+  and map requests directly to the popup. Asking to show the map again reopens
+  the latest rendered map; asking to close it hides the popup.
+- The old HUD markdown-image hint has been removed. Factory mirror refresh
+  remains save-driven as introduced in v0.6.0.

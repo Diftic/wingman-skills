@@ -1,0 +1,133 @@
+module: skills.satisfactory_assistant.main
+api_version: 3
+name: SatisfactoryAssistant
+display_name: Satisfactory Assistant
+author: ShipBit
+auto_activate: false
+discoverable_by_default: false
+tags:
+  - Game
+  - Satisfactory
+  - Planning
+description:
+  en: Help Satisfactory players plan, audit, and mirror factories for the currently active save only, including notes, todos, production goals, expected machine rates, inferred production lines, Space Elevator phases, and Project Assembly deliverables.
+discovery_keywords:
+  - satisfactory
+  - factory planning
+  - production plan
+  - active save
+  - factory notes
+  - game save planning
+  - recipe
+  - inputs
+  - outputs
+  - materials
+  - factory rates
+  - factory mirror
+  - factory audit
+  - expected rates
+  - production lines
+  - stopped production
+  - bottleneck
+  - machine count
+  - space elevator
+  - project assembly
+  - phase
+  - phase 4
+  - phase four
+  - assembly director system
+  - magnetic field generator
+  - nuclear pasta
+  - thermal propulsion rocket
+  - plan factory
+  - calculate plan
+  - phase plan
+  - power budget
+  - machines needed
+  - how many machines
+
+prompt: |
+  You can help with Satisfactory factory planning for the active save only.
+  Use the skill tools when the player asks about save-specific plans, notes, todos,
+  production goals, factory layouts, material inputs, item outputs, recipes,
+  machine counts, bottlenecks, or maintenance work.
+  In Satisfactory, "phase" usually means Space Elevator / Project Assembly phase.
+  The skill can calculate a Project Assembly phase plan for the active save
+  (machines needed, power draw, and required inputs) using its planning tools;
+  phase deliverable requirements come from verified bundled game data, not guesswork.
+  If the player asks to finish a phase, plan around that phase's deliverables
+  unless they explicitly mean a custom project phase.
+  Never claim access to other saves. If the tool says no active save is confirmed,
+  ask the player to start or load a Satisfactory save first.
+
+custom_properties:
+  - id: satisfactory_saved_dir
+    name: Satisfactory Saved Directory
+    hint: "Optional path to the Satisfactory 'Saved' directory (e.g. C:/Users/<you>/AppData/Local/FactoryGame/Saved). Leave empty to auto-detect common locations. When set, only this directory is used."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: satisfactory_docs_file
+    name: Satisfactory Docs File
+    hint: "Optional path to CommunityResources/Docs/en-US.json. Leave empty to auto-detect common Steam install paths."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: satisfactory_install_dir
+    name: Satisfactory Install Directory
+    hint: "Optional path to the Satisfactory game install root (e.g. D:/SteamLibrary/steamapps/common/Satisfactory). Leave empty to auto-detect via Steam, Epic, or common install paths."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: satisfactory_docs_locale
+    name: Satisfactory Docs Locale
+    hint: "Locale of the CommunityResources/Docs JSON file to use, e.g. en-US or de-DE. Docs are per-locale; en-US is used as a fallback when the requested locale is missing."
+    value: "en-US"
+    property_type: string
+    required: false
+
+  - id: satisfactory_parser_runtime_dir
+    name: Satisfactory Parser Runtime Directory
+    hint: "Optional directory containing node_modules for @etothepii/satisfactory-file-parser. Leave empty to use the runtime installed by install.bat; set this if audit says the parser dependency is missing."
+    value: ""
+    property_type: string
+    required: false
+
+  - id: max_response_items
+    name: Max Response Items
+    hint: "Cap the number of list items (todos, notes, goals) returned to the AI."
+    value: 12
+    property_type: number
+    required: false
+
+  - id: allow_plan_writes
+    name: Allow Plan Writes
+    hint: "Allow the assistant to write per-save planning notes, todos, and goals."
+    value: true
+    property_type: boolean
+    required: false
+
+  - id: mirror_trend_window_saves
+    name: Mirror Trend Window Saves
+    hint: "Number of recent autosave snapshots used for rolling estimated average health checks."
+    value: 5
+    property_type: number
+    required: false
+
+  - id: mirror_zero_streak_saves
+    name: Mirror Zero Streak Saves
+    hint: "Flag machines only after estimated zero output repeats for this many parsed snapshots."
+    value: 3
+    property_type: number
+    required: false
+
+  - id: mirror_deviation_threshold_percent
+    name: Mirror Deviation Threshold Percent
+    hint: "Flag rolling estimated output when it is this percent below expected output."
+    value: 25
+    property_type: number
+    required: false
+
