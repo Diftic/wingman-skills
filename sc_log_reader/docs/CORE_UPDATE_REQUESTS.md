@@ -17,10 +17,12 @@ Core paths below are relative to the `wingman-ai` repository.
 | 5 | `sc_game_events` reads the wrong detail fields | Requested |
 | 6 | Shop purchases: double reaction, failures never corrected | Reaction part ready: branch `feat/sc-gamelog-item-names`, commit `aa962a58` |
 | 7 | New notification: Entering/Leaving Private Property | Requested |
-| 8 | `qt_arrived` / `fatal_collision` need an internal ship class | Requested |
+| 8 | `qt_arrived` / `fatal_collision` need an internal ship class | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
 | 9 | Bundled rules copy is revision 4 | Requested at release |
 | 10 | Shop UI purchases have no currency | Solved in rules revision 10 (released) |
 | 11 | `sc_game_events` passes the environment as the generation | Minor |
+| 12 | Departures never detected (game renamed the inventory line) | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
+| 13 | A contract keeps only its last objective | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
 
 ---
 
@@ -176,6 +178,23 @@ rule then ships in the live rules file.
 text starts with an internal manufacturer prefix. Ships logged by display name
 never set it, so both events are dropped for them.
 
+Seen live on hotfix 12913470: `channel_change` joined
+`'RSI Constellation Mk V Centaurus'` (display name), then
+`qt_arrived` with `entity_class` `RSI_Constellation_Mk5_Centaurus`, dropped.
+**Proposal:** also accept the arrival when the entity class, with
+manufacturer prefix and underscores normalised, matches the boarded ship's
+display name, or map display names to classes with the item-name table
+(item 2).
+
+Note: the game only logs `Player Selected Quantum Target` for a destination
+picked on the star map. A jump to a mission marker left no quantum line at all
+(Everus Harbor -> HUR-L4, 13 Oct), so that travel cannot be reported.
+
+**Done** in `services/sc_gamelog/state.py`, commit `58adf0a2`, tests in
+`tests/star_citizen/test_travel_and_objectives.py`. Without an internal class, the arrival counts when the class matches the
+boarded ship's display name after the manufacturer, with `Mk` and Roman
+numerals normalised. Replayed: the 17:03 Constellation arrival is kept.
+
 ## 9. Bundled rules copy is revision 4
 
 `services/sc_gamelog/data/instructions.json` ships revision 4 (0.3.0). The live
@@ -206,3 +225,53 @@ an amount. No Core change needed. Purchases already in SC Accountant's
 reset on a new Game.log never fires. `GameEvent` does not expose a generation;
 either expose it or drop the argument. The 30-second quiet interval covers most
 of the effect.
+
+## 12. Departures never detected (game renamed the inventory line)
+
+`location_departed` needs the location's inventory ID (`location_guid`), which
+`state.py` takes from `personal_inventory_data` shortly after an arrival. That
+rule matches `RequestOrCreatePersonalInventoryData`, which the game last wrote
+in January (build 11010425). Since at least build 12660092 (29 Sep) it writes:
+
+```
+<Request Personal Inventory Data> Inventory data Request[0] sent for Player[Mallachi] [Team_CoreGameplayFeatures][Inventory]
+```
+
+with no location ID. So `location_guid` is never set and no departure has been
+reported in any build Core has shipped with. The rules cannot fix this alone:
+the new line carries no ID.
+
+The ID is still in the log. The arrival comes with an inventory move in the
+same second or within ~20 s, e.g. on 13 Oct:
+
+```
+19:42:17 Update Inventory Location  3141311038 -> 4243852663
+19:42:17 location_change            RR_HUR_L4  (arrived at HUR-L4)
+```
+
+**Proposal:** in `state.py`, adopt the pending `_inventory_candidate`
+(`loc_to`) as `location_guid` when `location_change` arrives within the
+existing window, instead of waiting for `personal_inventory_data`. The next
+move with `loc_from` equal to it is then the departure.
+
+**Done** in `services/sc_gamelog/state.py`, commit `58adf0a2`, tests in
+`tests/star_citizen/test_travel_and_objectives.py`. The id is adopted on arrival, or from the move logged up to 15 s after it.
+A move out of it counts as a departure only aboard a ship: at 17:10 the pilot
+walked from Everus Harbor's inventory into another and back. Replayed on
+12913470: departures from Lorville (17:00) and Everus Harbor (19:07) at
+takeoff, none on foot.
+
+## 13. A contract keeps only its last objective
+
+`state.py` stores one `objective` per active mission. A contract that hands out
+several at once keeps only the last: "RSI Disc. Month: Courier Run (Exp. E)"
+logged six New Objective notifications in the same second (collect and deliver
+three cargo types), and the `missions` answer shows one of them.
+
+**Proposal:** keep a short list of open objectives per mission (new adds,
+complete/withdrawn removes), capped like the rest of the state.
+
+**Done** in `services/sc_gamelog/state.py`, commit `58adf0a2`, tests in
+`tests/star_citizen/test_travel_and_objectives.py`. Missions keep `objectives` (capped at 16); `objective` stays the latest open
+one. The `sc_game_events` missions answer lists them: all six for the courier
+run.
