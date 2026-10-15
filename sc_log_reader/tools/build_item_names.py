@@ -19,7 +19,7 @@ variant (..._01_01_07 -> ..._01).
 
 Usage:
     python build_item_names.py --global-ini global.ini [--sc-bridge DIR]
-        [--build 12913470] [--logs Game.log ...] --out item_names.json
+        --revision N [--build 12913470] [--logs Game.log ...] --out item_names.json
 --logs only reports how many of the items bought in those logs get a name.
 """
 
@@ -36,6 +36,9 @@ INSERT = re.compile(r"INSERT INTO (\w+) \(([^)]*)\) VALUES \((.*)\);?\s*$")
 VALUE = re.compile(r"'((?:[^']|'')*)'|(NULL)|([-\d.]+)|(\(SELECT[^)]*\))")
 ITEM = re.compile(rb"itemName\[([^\]]+)\]")
 GUID = re.compile(rb"itemClassGUID\[([^\]]+)\]")
+# Endings shops add to a class that the localization does not use; Core strips
+# them before the lookup. Ship components are sold as <class>_SCItem.
+STRIP_SUFFIXES = ("_SCItem",)
 
 
 def localization(path):
@@ -87,7 +90,9 @@ def prefixed(by_class):
 
 
 def lookup(cls, by_class, by_prefix):
-    cls = cls.lower().removesuffix("_scitem")  # Ship components sold as <class>_SCItem.
+    cls = cls.lower()
+    for suffix in STRIP_SUFFIXES:
+        cls = cls.removesuffix(suffix.lower())
     if cls in by_class:
         return by_class[cls]
     if len(by_prefix.get(cls, ())) == 1:
@@ -106,6 +111,8 @@ def main():
     ap.add_argument("--sc-bridge")
     ap.add_argument("--logs", nargs="*", default=[])
     ap.add_argument("--build", default="", help="game build the localization comes from")
+    ap.add_argument("--revision", type=int, required=True,
+                    help="higher than the published table's, or Core keeps the old one")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
@@ -121,9 +128,11 @@ def main():
 
     table = {
         "format_version": 1,
+        "revision": args.revision,
         "game_build": args.build,
         "generated": date.today().isoformat(),
         "sources": ["english/global.ini"] + (["sc-bridge item records"] if records else []),
+        "strip_suffixes": list(STRIP_SUFFIXES),
         "by_guid": dict(sorted(by_guid.items())),
         "by_class": dict(sorted(by_class.items())),
     }
