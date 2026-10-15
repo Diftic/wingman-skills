@@ -70,9 +70,9 @@ def sc_bridge(root):
                     text.replace("''", "'") if text or not (null or num or sub) else None
                     for text, null, num, sub in VALUE.findall(m.group(3))
                 ]
-                if len(vals) != len(cols):  # A value the simple parser cannot split.
-                    continue
-                row = dict(zip(cols, vals, strict=True))
+                # The simple value parser can split a long description or a
+                # subquery differently; uuid, class_name and name come first.
+                row = dict(zip(cols, vals, strict=False))
                 guid, cls, name = (row.get("uuid") or "").lower(), row.get("class_name"), row.get("name")
                 if guid and cls and name and not name.startswith("@"):
                     rows.setdefault(guid, (cls, name))
