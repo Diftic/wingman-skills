@@ -23,6 +23,7 @@ Core paths below are relative to the `wingman-ai` repository.
 | 11 | `sc_game_events` passes the environment as the generation | Minor |
 | 12 | Departures never detected (game renamed the inventory line) | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
 | 13 | A contract keeps only its last objective | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
+| 14 | Item names stay current without a Wingman release | Ready: branch `feat/sc-gamelog-item-names`, commit `5a629173` |
 
 ---
 
@@ -275,3 +276,34 @@ complete/withdrawn removes), capped like the rest of the state.
 `tests/star_citizen/test_travel_and_objectives.py`. Missions keep `objectives` (capped at 16); `objective` stays the latest open
 one. The `sc_game_events` missions answer lists them: all six for the courier
 run.
+
+## 14. Item names stay current without a Wingman release
+
+Item names (item 2) change with every Star Citizen patch, far more often than
+Wingman ships. On 15 Oct a 3.2.8 user saw `SHLD_BEHR_S03_7CA_SCItem`: shops sell
+ship components with an `_SCItem` suffix the localization does not use (fixed
+in `e912de09`).
+
+**Built** (commit `5a629173`): `services/sc_gamelog/item_names.py` keeps the
+table current the way `rules.py` keeps the rules: the higher revision of the
+bundled `data/item_names.json` and the last valid download wins at start, and
+`service.py` checks
+`https://raw.githubusercontent.com/Diftic/wingman-ai/main/skills/sc_log_reader/updates/item_names.json`
+alongside the rules every half hour. A download replaces the running table only
+when it validates (format 1, revision, maps of strings, at most 4 MB and 100,000
+entries each) and carries a higher revision. Unreachable, missing (404) or
+invalid changes nothing.
+
+Kept out of the rules file on purpose: the table is ~570 KB (rules cap 512 KB),
+and an older Core rejects a rules file with a lookup it does not know, which
+would stop its rule updates.
+
+The table carries its fixes as data: `strip_suffixes` (`["_SCItem"]`) is read
+from it. The bundled table is revision 1. `build_item_names.py --revision N`
+writes the next one. Tests: `tests/star_citizen/test_item_names.py` (newer
+revision replaces and is cached; older, wrong format, not JSON, 404 and offline
+change nothing; suffixes from the table). The test fixture keeps the download
+offline.
+
+**For the release:** the URL must serve a table before 3.2.9 users can update;
+until then they keep the bundled revision 1.
