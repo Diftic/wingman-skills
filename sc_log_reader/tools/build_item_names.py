@@ -87,7 +87,7 @@ def prefixed(by_class):
 
 
 def lookup(cls, by_class, by_prefix):
-    cls = cls.lower()
+    cls = cls.lower().removesuffix("_scitem")  # Ship components sold as <class>_SCItem.
     if cls in by_class:
         return by_class[cls]
     if len(by_prefix.get(cls, ())) == 1:
