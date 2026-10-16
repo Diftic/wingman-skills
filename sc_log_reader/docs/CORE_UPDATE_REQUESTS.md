@@ -10,20 +10,21 @@ Core paths below are relative to the `wingman-ai` repository.
 
 | # | Area | Status |
 |---|---|---|
-| 1 | `sc_game_events`: one switch per event type | Ready: branch `feat/sc-game-events-event-switches`, commit `371f989b` |
-| 2 | Item display names (translation table) | Ready: branch `feat/sc-gamelog-item-names`, commit `ba278dae` (stacked on item 1) |
+| 1 | `sc_game_events`: one switch per event type | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
+| 2 | Item display names (translation table) | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 3 | Shop display names | Requested |
 | 4 | Missions the game logs without a name are dropped | Requested |
 | 5 | `sc_game_events` reads the wrong detail fields | Requested |
-| 6 | Shop purchases: double reaction, failures never corrected | Reaction part ready: branch `feat/sc-gamelog-item-names`, commit `aa962a58` |
+| 6 | Shop purchases: double reaction, failures never corrected | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9); failed trades still not mentioned |
 | 7 | New notification: Entering/Leaving Private Property | Requested |
-| 8 | `qt_arrived` / `fatal_collision` need an internal ship class | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
-| 9 | Bundled rules copy is revision 4 | Requested at release |
-| 10 | Shop UI purchases have no currency | Solved in rules revision 10 (released) |
+| 8 | `qt_arrived` / `fatal_collision` need an internal ship class | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
+| 9 | Bundled rules copy is revision 4 | Done by ShipBit in #472: develop bundles revision 10 |
+| 10 | Shop UI purchases have no currency | Solved in rules revision 10 (released, bundled in 3.2.9) |
 | 11 | `sc_game_events` passes the environment as the generation | Minor |
-| 12 | Departures never detected (game renamed the inventory line) | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
-| 13 | A contract keeps only its last objective | Ready: branch `feat/sc-gamelog-item-names`, commit `58adf0a2` |
-| 14 | Item names stay current without a Wingman release | Ready: branch `feat/sc-gamelog-item-names`, commit `5a629173` |
+| 12 | Departures never detected (game renamed the inventory line) | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
+| 13 | A contract keeps only its last objective | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
+| 14 | Item names stay current without a Wingman release | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
+| 15 | Routine pacing (#472) silences arrivals; make the gap a setting | Draft PR ShipBit/wingman-ai#476 |
 
 ---
 
@@ -307,3 +308,16 @@ offline.
 
 **For the release:** the URL must serve a table before 3.2.9 users can update;
 until then they keep the bundled revision 1.
+
+## 15. Routine pacing silences arrivals; the gap should be a setting
+
+ShipBit's #472 (16 Oct) gives zones, travel, the hangar and the login one spoken
+line per ten minutes per group. Its "travel" group held the quantum steps and
+arriving at and leaving a place, so a trip (route, takeoff, jump, arrival) kept
+only its first line: the arrivals players asked for were silenced again.
+
+**Proposed in draft ShipBit/wingman-ai#476** (`e37bdab1`): arrivals and
+departures are not paced (the quantum steps keep their own group), and the gap
+is the slider "Minutes between routine lines" (`routine_gap_minutes`), 2 to 20
+minutes, default 5. Ten minutes reads as harsh, and players differ on how
+chatty they want it. No migration (new property, merged by id).
