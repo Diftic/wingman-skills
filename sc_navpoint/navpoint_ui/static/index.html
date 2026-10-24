@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SC NavPoint HUD</title>
+  <title>SC NavPoint · Navigation desk</title>
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="SC NavPoint home"><span class="brandmark">SC</span><span>NAVPOINT<small>Your navigation desk</small></span></a>
+    <nav aria-label="Dashboard sections">
+      <a href="#waypoints"><span class="nav-number">01</span>Waypoints</a>
+      <a href="#navigation"><span class="nav-number">02</span>Navigation</a>
+    </nav>
+    <div class="sidebar-foot">Saved locations<small>Local to this Wingman profile</small></div>
+  </aside>
+  <div class="workspace">
   <header>
     <div class="header-title">
-      <span class="logo">◈</span>
-      <h1>SC NavPoint HUD</h1>
+      <span class="eyebrow">PERSONAL NAVIGATION</span>
+      <h1>Navigation desk</h1>
     </div>
-    <div class="header-meta" id="status-bar">Ready</div>
+    <div class="header-meta" id="status-bar" role="status">Ready</div>
   </header>
 
   <main>
     <!-- Left panel: Waypoint list -->
-    <section class="panel panel-waypoints">
+    <section class="panel panel-waypoints" id="waypoints" aria-labelledby="waypoints-title">
       <div class="panel-header">
-        <h2>Waypoints</h2>
+        <h2 id="waypoints-title">Waypoints</h2>
         <div class="filter-row">
-          <select id="server-filter">
-            <option value="">All Servers</option>
+          <select id="body-filter" aria-label="Filter waypoints by body">
+            <option value="">All Bodies</option>
           </select>
-          <button class="btn-icon" onclick="refreshWaypoints()" title="Refresh">↺</button>
+          <button class="btn-icon" onclick="refreshWaypoints()" title="Refresh waypoints" aria-label="Refresh waypoints">↺</button>
         </div>
       </div>
       <div id="waypoint-list" class="waypoint-list">
@@ -33,9 +42,9 @@
     </section>
 
     <!-- Right panel: Navigation -->
-    <section class="panel panel-nav">
+    <section class="panel panel-nav" id="navigation" aria-labelledby="navigation-title">
       <div class="panel-header">
-        <h2>Navigation</h2>
+        <h2 id="navigation-title">Navigation</h2>
         <button class="btn-sm" id="clear-target-btn" onclick="clearTarget()" style="display:none">✕ Clear</button>
       </div>
 
@@ -50,7 +59,7 @@
 
       <!-- Compass rose -->
       <div class="compass-wrap" id="compass-wrap">
-        <canvas id="compass" width="220" height="220"></canvas>
+        <canvas id="compass" width="220" height="220" role="img" aria-label="Direction indicator; distance and direction are shown below"></canvas>
         <div class="compass-labels">
           <span class="compass-label-n">▲ FWD</span>
         </div>
@@ -89,6 +98,8 @@
       </div>
     </section>
   </main>
+  <footer>Saved waypoints and guidance from your latest position reading.</footer>
+  </div>
 
   <script src="/static/app.js"></script>
 </body>

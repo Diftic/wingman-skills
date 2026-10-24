@@ -1,16 +1,25 @@
 # Star Citizen NavPoint — live-test package
 
-Version 4.9.0.27, targeting Star Citizen 4.9.0. Prepared for Wingman AI 3.2.2
-on 64-bit Windows. This package includes the V8 OCR model and bundled OpenCV;
-no separate Python installation is needed for the batch installer.
+Version 4.10.2.1, targeting Star Citizen 4.10.2. Prepared for Wingman AI 3.2.x
+(loads on 3.2.11) on 64-bit Windows. This package includes the V8 OCR model and
+bundled OpenCV; no separate Python installation is needed for the batch installer.
+
+New in 4.10.2.1:
+
+- Quieter logs. A capture that keeps failing for the same reason (game not
+  focused, position panel off) is logged once, not every second. When the
+  reason changes or a capture succeeds, one line says how many repeats were
+  skipped. Before this, an evening with the game in the background wrote
+  thousands of identical warnings to the Wingman log.
+- Shorter skill description. The guidance that keeps saved waypoints apart
+  from the route planner and HUD info cards now sits in the skill prompt.
+
+NavPoint is meant for planet and moon surfaces and open space. Most station
+interiors are refused with a message; Levski remains a supported site.
 
 This release uses Wingman's Skill API v3 threading and speech interfaces.
-Wingman AI 2.1.1 is no longer a supported target for this package.
-
-The web dashboard now matches SC Accountant's operations desk: dark slate
-panels, mint highlights, shared typography and controls, and a responsive phone
-layout. Waypoint filters, editing, navigation guidance and offline warnings
-remain available. The in-game navigation ring and OCR are unchanged.
+Wingman AI 2.1.1 is no longer a supported target for this package. The web
+dashboard keeps SC Accountant's operations-desk style.
 
 NavPoint now activates automatically when Wingman starts, once enabled for your
 wingman. Its compact dashboard card appears about 15 seconds later, with one

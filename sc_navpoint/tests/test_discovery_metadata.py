@@ -48,14 +48,18 @@ def test_description_does_not_claim_surface_only() -> None:
     assert "on planetary and moon surfaces in star citizen" not in text
 
 
-def test_description_distinguishes_itself_from_the_route_planner() -> None:
-    """SC_Navigator's plan_route stole 'navigate back to <my waypoint>'."""
-    assert "route planner" in _DESC.lower()
+def test_prompt_distinguishes_itself_from_the_route_planner() -> None:
+    """SC_Navigator's plan_route stole 'navigate back to <my waypoint>'.
+
+    Since 4.10.2.1 the description is one short sentence and this guidance
+    lives in the prompt, which the model always sees: the skill auto-activates.
+    """
+    assert "route planner" in _CONFIG["prompt"].lower()
 
 
-def test_description_distinguishes_itself_from_hud_info_cards() -> None:
+def test_prompt_distinguishes_itself_from_hud_info_cards() -> None:
     """HUD Overlay's hud_add_info stole 'log the current location'."""
-    assert "hud information card" in _DESC.lower()
+    assert "hud information card" in _CONFIG["prompt"].lower()
 
 
 @pytest.mark.parametrize(

@@ -1,8 +1,8 @@
 {
   "skill_name": "sc_navpoint",
   "display_name": "SC NavPoint",
-  "version": "4.9.0.27",
-  "sc_target_version": "4.9.0",
+  "version": "4.10.2.1",
+  "sc_target_version": "4.10.2",
   "files": [
     "__init__.py",
     "LICENSE",

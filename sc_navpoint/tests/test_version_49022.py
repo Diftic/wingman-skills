@@ -33,33 +33,44 @@ _INSTALLER_SRC = (_SKILL_DIR / "skill_installer_config.json").read_text(encoding
 _SCANNER_SRC = (_SKILL_DIR / "scanner.py").read_text(encoding="utf-8")
 
 
+# 2026-10-24: the user moved the skill to 4.10.2.1, targeting SC 4.10.2 (LIVE
+# is sc-alpha-4.10.2). The assertions below track the current version; the test
+# names keep their history.
+
+
 def test_main_version_constant_is_49022() -> None:
-    assert 'VERSION = "4.9.0.27"' in _MAIN_SRC
+    assert 'VERSION = "4.10.2.1"' in _MAIN_SRC
 
 
 def test_main_docstring_version_is_49022() -> None:
-    assert "Version: 4.9.0.27" in _MAIN_SRC
+    assert "Version: 4.10.2.1" in _MAIN_SRC
 
 
 def test_main_has_two_49022_occurrences() -> None:
     # The docstring line and the VERSION constant.
-    assert _MAIN_SRC.count("4.9.0.27") >= 2
+    assert _MAIN_SRC.count("4.10.2.1") >= 2
 
 
 def test_init_version_is_49022() -> None:
-    assert '__version__ = "4.9.0.27"' in _INIT_SRC
+    assert '__version__ = "4.10.2.1"' in _INIT_SRC
 
 
 def test_installer_config_version_is_49022() -> None:
-    assert '"version": "4.9.0.27"' in _INSTALLER_SRC
+    assert '"version": "4.10.2.1"' in _INSTALLER_SRC
+    assert '"sc_target_version": "4.10.2"' in _INSTALLER_SRC
+
+
+def test_default_config_version_matches() -> None:
+    config = (_SKILL_DIR / "default_config.yaml").read_text(encoding="utf-8")
+    assert "version: 4.10.2.1" in config
 
 
 def test_main_sc_target_stays_490() -> None:
-    assert 'SC_TARGET_VERSION = "4.9.0"' in _MAIN_SRC
+    assert 'SC_TARGET_VERSION = "4.10.2"' in _MAIN_SRC
 
 
 def test_init_sc_target_stays_490() -> None:
-    assert '__sc_target_version__ = "4.9.0"' in _INIT_SRC
+    assert '__sc_target_version__ = "4.10.2"' in _INIT_SRC
 
 
 def test_main_has_no_stale_49021_version_declaration() -> None:
@@ -146,8 +157,8 @@ def test_space_waypoint_support_is_present() -> None:
 def test_version_line_stays_on_the_490_patch() -> None:
     # The fourth component is the within-patch counter; the first three must
     # remain the SC patch this is qualified against.
-    assert 'SC_TARGET_VERSION = "4.9.0"' in _MAIN_SRC
-    assert "4.9.1" not in _MAIN_SRC
+    assert 'SC_TARGET_VERSION = "4.10.2"' in _MAIN_SRC
+    assert "4.10.3" not in _MAIN_SRC
 
 
 def test_tool_results_do_not_carry_raw_coordinates() -> None:
