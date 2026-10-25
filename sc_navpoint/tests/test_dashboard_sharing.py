@@ -22,11 +22,21 @@ def test_dashboard_lan_url_uses_actual_server_port(monkeypatch):
     from navpoint_ui.app import NavPointServer
     from navpoint_ui import sharing
     monkeypatch.setattr(sharing, 'get_lan_ip', lambda: '192.168.1.20')
-    server = NavPointServer(db=None, port=8765)
-    assert server.lan_url == 'http://192.168.1.20:8765'
-    monkeypatch.setattr(sharing, 'get_lan_ip', lambda: '')
-    assert server.lan_url == ''
+    server = NavPointServer(db=None, port=8765, share_on_lan=True, access_token='t' * 24)
+    assert server.lan_url == 'http://192.168.1.20:8765/?share=' + 't' * 24
     assert server.url == 'http://127.0.0.1:8765'
+    assert NavPointServer(db=None, port=8765).lan_url == ''  # sharing is opt-in
+    monkeypatch.setattr(sharing, 'get_lan_ip', lambda: '')
+    assert NavPointServer(db=None, port=8765, share_on_lan=True).lan_url == ''
+
+
+def test_dashboard_token_survives_restarts(tmp_path):
+    from navpoint_ui.sharing import dashboard_token
+    first = dashboard_token(tmp_path)
+    assert len(first) >= 24
+    assert dashboard_token(tmp_path) == first
+    (tmp_path / 'dashboard_token').write_text('short', encoding='utf-8')
+    assert dashboard_token(tmp_path) not in ('short', first)
 
 
 def test_lan_lookup_failure_does_not_advertise_loopback(monkeypatch):
