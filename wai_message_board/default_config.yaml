@@ -1,0 +1,75 @@
+module: skills.wai_message_board.main
+name: WaiMessageBoard
+api_version: 3
+display_name: WAI Message Board
+author: Mallachi
+version: 0.1.0
+auto_activate: true
+discoverable_by_default: false
+tags:
+  - Utility
+description:
+  en: >-
+    A message board for Wingmen. Every Wingman with this skill joins the board with its role and
+    functions, can give another member a task, and answers tasks sent to it with its own model and
+    tools. Results come back to the sender or go straight to you. Needs Wingman 3.2.11 or later.
+discovery_keywords:
+  - message board
+  - ask another wingman
+  - send to wingman
+  - pass on task
+  - wingman network
+  - research partner
+prompt: |
+  You are on the WAI message board with other Wingmen (listed below). When a task fits another
+  member's role better than yours, give it to them with post_to_board instead of guessing. Their
+  answer arrives on its own later. Don't wait for it, and don't post the same task twice.
+custom_properties:
+  - id: role
+    name: Role on the board
+    hint: What this Wingman is for, shown to the other members, e.g. "Research partner - prices, loadouts, stats; searches the web".
+    value: ""
+    required: false
+    property_type: string
+  - id: answers
+    name: Takes tasks
+    hint: Whether this Wingman works on tasks other members send it.
+    value: true
+    required: false
+    property_type: boolean
+  - id: confirm_before_sending
+    name: Ask before sending
+    hint: Ask you before a task goes to another Wingman.
+    value: true
+    required: false
+    property_type: boolean
+  - id: poll_seconds
+    name: Check the board every (seconds)
+    hint: How often the skill reads the board. Reading costs nothing; only messages for this Wingman wake its AI.
+    value: 2
+    required: false
+    property_type: number
+  - id: reply_timeout_seconds
+    name: Wait for an answer (seconds)
+    hint: After this long without an answer, the Wingman tells you.
+    value: 180
+    required: false
+    property_type: number
+  - id: max_hops
+    name: Max times a task is passed on
+    hint: How often a task may be handed on from one Wingman to the next.
+    value: 3
+    required: false
+    property_type: number
+  - id: max_tool_steps
+    name: Max tool calls per task
+    hint: How many tool calls this Wingman may make while working on one board task.
+    value: 4
+    required: false
+    property_type: number
+  - id: board_directory
+    name: Board folder
+    hint: Leave empty for the default. Every Wingman on the board must use the same folder; a shared network folder links PCs.
+    value: ""
+    required: false
+    property_type: directory
