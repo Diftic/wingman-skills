@@ -72,12 +72,14 @@ class SC_distances(Skill):
     @tool()
     async def get_distance(self, from_location: str, to_location: str, system: str = "",
                            **kwargs: Any) -> str:
-        """Distance between two Star Citizen locations in Stanton, Pyro or Nyx: stations, planets,
-        moons, cities, outposts, Lagrange points, gateways.
+        """How far it is between two Star Citizen places in Stanton, Pyro or Nyx (cities, stations,
+        planets, moons, outposts, Lagrange points, gateways). Use it for "how far is X", the distance
+        to a mission or contract location, or from the player's current location.
 
         Args:
-            from_location: Location name, e.g. "Lorville", "ARC-L1" or "Checkmate".
-            to_location: Location name.
+            from_location: Location name, e.g. "Lorville", "ARC-L1" or "Checkmate"; for "from here",
+                the player's current location.
+            to_location: Location name, e.g. the mission's location.
             system: Only if a name exists in several systems: Stanton, Pyro or Nyx.
         """
         try:

@@ -3,23 +3,32 @@ api_version: 3
 name: SC_distances
 display_name: SC Distances
 author: Mallachi
-version: 4.10.2.1
+version: 4.10.2.2
 auto_activate: false
 tags:
   - Star Citizen
   - Navigation
 description:
   en: >-
-    Distances between Star Citizen locations in Stanton, Pyro and Nyx: stations, planets, moons,
-    cities, outposts, Lagrange points and gateways. The data is read from the game files and updates
-    itself from GitHub after patches.
+    Calculates how far it is between any two places in Star Citizen (Stanton, Pyro, Nyx): cities,
+    stations, planets, moons, outposts, Lagrange points, gateways. Use it whenever the user asks how
+    far away something is, including a mission or contract location, or the distance from where the
+    player is now. Also says where a named place is (system, planet or moon).
 discovery_keywords:
   - distance
   - how far
+  - how far away
   - how far is it
+  - far from here
   - how many kilometers
   - km to
   - distance between
+  - distance to the mission
+  - how far is the mission
+  - how far is the contract
+  - mission location
+  - closest
+  - nearest
   - where is
   - which planet is
   - star citizen location
@@ -27,5 +36,8 @@ discovery_keywords:
   - pyro
   - nyx
 prompt: |
-  For distances between Star Citizen locations use get_distance, and find_location to check a name
-  or say where a place is. Report the numbers the tool gives; never estimate distances yourself.
+  Use get_distance for every Star Citizen distance question, including how far away a mission or
+  contract is: take the player's current location and the destination from your other tools or the
+  conversation, then call get_distance. Use find_location to check a name or say where a place is.
+  If the destination is only described (e.g. "a derelict outpost on Hurston"), ask for the marker's
+  name. Report the numbers the tool gives; never estimate distances yourself.
