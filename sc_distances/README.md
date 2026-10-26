@@ -7,6 +7,15 @@ The positions are read straight from the game files (`Data.p4k`), one file per s
 - Data: LIVE 4.10.2 (build 12913470). Revision and build are in each file and in `data/index.json`.
 - Needs Wingman AI 3.2.11 or later.
 
+## Install
+
+1. Fully close Wingman AI, including its system-tray process.
+2. Download `sc_distances_v<version>.zip` from the [releases](https://github.com/Diftic/wingman-skills/releases) and extract the **whole** ZIP to a normal folder.
+3. Double-click `sc_distances\installer.bat` as your normal Windows user. It copies the skill to `%AppData%\ShipBit\WingmanAI\custom_skills\sc_distances`.
+4. Restart Wingman AI and enable **SC Distances** for your wingman.
+
+Reinstalling over an older version is fine. Data updates the skill has already downloaded are kept.
+
 ## Using the skill
 
 Two tools, loaded only when a request matches the skill's keywords (`auto_activate: false`):
@@ -137,13 +146,24 @@ Rules if you write your own reader instead:
 5. If a new system is released, add it to `SYSTEMS` in `tools/build.py` and rebuild.
 6. Bump `format` (in `tools/build.py` and `FORMAT` in `dependencies/sc_data.py`) only for a change that existing readers can't handle. Ship the updated skill first, then push the data.
 
+A data update needs no new skill release. For a new skill release (code changes):
+
+1. Bump `version` in `default_config.yaml`.
+2. Build the ZIP: `python .\sc_distances\tools\package.py`. This writes `sc_distances_v<version>.zip` and its `.sha256` into `sc_distances\`; both are git-ignored.
+3. Commit and push, then upload both files as a GitHub release tagged `sc_distances-v<version>`:
+
+   ```powershell
+   gh release create sc_distances-v<version> .\sc_distances\sc_distances_v<version>.zip .\sc_distances\sc_distances_v<version>.zip.sha256 --repo Diftic/wingman-skills --title "SC Distances <version>" --notes-file <notes.md>
+   ```
+
 ## Files
 
 | Path | What |
 |---|---|
 | `main.py`, `default_config.yaml`, `__init__.py` | The skill |
+| `installer.bat` | Installer shipped in the release ZIP |
 | `dependencies/sc_distance.py` | Name matching and distance maths (also a command-line check: `python sc_distance.py Lorville "HDMS-Edmond"`) |
 | `dependencies/sc_data.py` | Bundled/downloaded data and the GitHub update check |
 | `data/` | The location data and `index.json` |
-| `tools/` | Maintainer tooling: rebuild, walker, CryXmlB reader, Aaron Halo check, install |
+| `tools/` | Maintainer tooling: rebuild, walker, CryXmlB reader, Aaron Halo check, local install, release packaging |
 | `tests/` | `python -m pytest` |
