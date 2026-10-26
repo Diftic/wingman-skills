@@ -1,0 +1,31 @@
+module: skills.sc_distances.main
+api_version: 3
+name: SC_distances
+display_name: SC Distances
+author: Mallachi
+version: 4.10.2.1
+auto_activate: false
+tags:
+  - Star Citizen
+  - Navigation
+description:
+  en: >-
+    Distances between Star Citizen locations in Stanton, Pyro and Nyx: stations, planets, moons,
+    cities, outposts, Lagrange points and gateways. The data is read from the game files and updates
+    itself from GitHub after patches.
+discovery_keywords:
+  - distance
+  - how far
+  - how far is it
+  - how many kilometers
+  - km to
+  - distance between
+  - where is
+  - which planet is
+  - star citizen location
+  - stanton
+  - pyro
+  - nyx
+prompt: |
+  For distances between Star Citizen locations use get_distance, and find_location to check a name
+  or say where a place is. Report the numbers the tool gives; never estimate distances yourself.

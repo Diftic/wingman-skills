@@ -16,6 +16,7 @@ Backup snapshot created 2026-10-10 from `D:\PycharmProjects\wingman-ai\skills\` 
 |---|---|
 | `sc_log_reader/` | Old v2 skill + Log Reader 2 R&D (`src/`, `tests/`, `tools/`, `docs/`, `reference/`, `integrations/`), log donor, plans/specs |
 | `sc_navpoint/` | NavPoint (latest local version, newer than `contrib/sc-navpoint` of 2026-09-21) |
+| `sc_distances/` | SC_distances: distances between Star Citizen locations (Stanton, Pyro, Nyx) from game data, with online data updates. See its README |
 | `factory_assistant/` | Factory Assistant (Satisfactory + Dyson Sphere Program), successor of `satisfactory_assistant/` |
 | `satisfactory_assistant/`, `sc_navigator/`, `sc_radio/`, `youtube_video_player/` | Older/other skills |
 | `sc_accountant_legacy/` | SC Accountant v2 (pre-Core) files + tests — superseded by ShipBit `skills/sc_accountant` |

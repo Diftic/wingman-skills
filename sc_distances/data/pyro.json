@@ -1,0 +1,2761 @@
+{
+ "name": "Star Citizen distances: Pyro",
+ "system": "Pyro",
+ "format": 1,
+ "revision": 202610261602,
+ "units": "km (straight-line)",
+ "source": {
+  "game_branch": "sc-alpha-4.10.2",
+  "game_version": "4.10.197.2878",
+  "build": "12913470",
+  "data": "LIVE Data.p4k: ObjectContainers (positions) + DataCore starmap records (names, types) + english global.ini",
+  "extracted": "2026-10-26"
+ },
+ "how_to_read": {
+  "hierarchy": "One file per system: solar | planetary.<planet> | lunar.<moon>. Distances between systems are not covered.",
+  "solar": "Everything in space: star, planets and moons (as points at their centre), stations, Lagrange points, jump-point gateways, asteroid bases, comm arrays. pos_km is relative to the star. Planets and moons do not orbit in-game, so these distances are fixed.",
+  "planetary_lunar": "Surface locations (less than 100 km altitude) on that body, stored as coordinates only. pos_km is in the body's own frame (centre = 0), so distances between two locations on the same body hold whatever the body's rotation: straight line = |pos_A - pos_B|.",
+  "body_distance": "Distances to a planet or moon in `solar` are to its centre; subtract radius_km for distance to the surface.",
+  "lookup": "The file holds coordinates only. The SC_distances skill (dependencies/sc_distance.py) computes any distance from pos_km: space to space exact, same body straight line plus over the ground, and a min-max range for a surface location to anywhere else as the body rotates. By hand: straight line = |pos_A - pos_B| within the same group.",
+  "nearest_body": "Space locations name the nearest planet or moon and their altitude_km above its surface.",
+  "duplicate_names": "If a name occurs twice in one group, the label gets the nearest body or a short record id in brackets.",
+  "revision": "Higher revision = newer data. format changes only when readers must change."
+ },
+ "rules": {
+  "included": "Released systems only, one file each. Locations shown in the starmap and placed in the game world in the current LIVE build.",
+  "excluded": "Starmap-hidden markers, records with no localized name, locations marked NOT CURRENTLY ACCESSIBLE, event-only markers, gateways to unreleased systems, and starmap entries nothing places in the world. What was left out is listed under `excluded`."
+ },
+ "star": "Pyro",
+ "solar": {
+  "locations": {
+   "Pyro": {
+    "type": "star",
+    "qt_destination": false,
+    "pos_km": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "from_star_km": 0
+   },
+   "PYAM-EXHANG-0-1": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -2125019.172,
+     -1195699.085,
+     802187.349
+    ],
+    "from_star_km": 2566887,
+    "nearest_body": "Pyro I",
+    "altitude_km": 5970779.3
+   },
+   "RMB-PURI": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6210634.529,
+     -2068831.306,
+     -15720.636
+    ],
+    "from_star_km": 6546166,
+    "nearest_body": "Pyro I",
+    "altitude_km": 1739284.4
+   },
+   "RMB-SURD": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -7414528.836,
+     -623928.264,
+     -14913.728
+    ],
+    "from_star_km": 7440749,
+    "nearest_body": "Pyro I",
+    "altitude_km": 1833980.4
+   },
+   "PYR1 L1": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -7090224.631,
+     -2272462.148,
+     0.0
+    ],
+    "from_star_km": 7445493,
+    "nearest_body": "Pyro I",
+    "altitude_km": 838140.4
+   },
+   "RMB-BALM": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6407570.816,
+     -3839235.778,
+     -15720.636
+    ],
+    "from_star_km": 7469735,
+    "nearest_body": "Pyro I",
+    "altitude_km": 2097094.5
+   },
+   "RMB-CEDI": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -5975085.892,
+     4763165.774,
+     -15720.636
+    ],
+    "from_star_km": 7641312,
+    "nearest_body": "Pyro I",
+    "altitude_km": 7409787.7
+   },
+   "RAB-ALPHA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     7042819.025,
+     2993307.496,
+     0.0
+    ],
+    "from_star_km": 7652528,
+    "nearest_body": "Monox",
+    "altitude_km": 11759080.4
+   },
+   "RMB-DREG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -2458599.476,
+     -7273470.171,
+     -15720.636
+    ],
+    "from_star_km": 7677781,
+    "nearest_body": "Pyro I",
+    "altitude_km": 7328641.5
+   },
+   "RMB-VOES": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -859758.604,
+     -8171832.372,
+     -15720.636
+    ],
+    "from_star_km": 8216951,
+    "nearest_body": "Monox",
+    "altitude_km": 6938592.3
+   },
+   "PYR1 L5": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -6027626.63,
+     5666241.158,
+     0.0
+    ],
+    "from_star_km": 8272761,
+    "nearest_body": "Pyro I",
+    "altitude_km": 8272367.7
+   },
+   "PYR1 L4": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -1893296.27,
+     -8053202.233,
+     0.0
+    ],
+    "from_star_km": 8272765,
+    "nearest_body": "Monox",
+    "altitude_km": 7978360.1
+   },
+   "Pyro I": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 411.7,
+    "orbits": "Pyro",
+    "pos_km": [
+     -7920920.767,
+     -2386976.557,
+     0.0
+    ],
+    "from_star_km": 8272765
+   },
+   "RMB-ZARF": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     5030736.222,
+     -6916005.061,
+     -15720.636
+    ],
+    "from_star_km": 8552174,
+    "nearest_body": "Monox",
+    "altitude_km": 2079428.7
+   },
+   "PYR1 L3": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     8274711.419,
+     2229680.54,
+     0.0
+    ],
+    "from_star_km": 8569850,
+    "nearest_body": "Monox",
+    "altitude_km": 11176257.7
+   },
+   "RMB-NIGH": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     5792164.119,
+     -6347703.0,
+     -14913.728
+    ],
+    "from_star_km": 8593179,
+    "nearest_body": "Monox",
+    "altitude_km": 2391481.1
+   },
+   "RMB-RIGG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -5841023.302,
+     6524704.703,
+     -15720.636
+    ],
+    "from_star_km": 8757258,
+    "nearest_body": "Pyro I",
+    "altitude_km": 9150778.6
+   },
+   "RMB-BALE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6885717.445,
+     5418176.087,
+     -15720.636
+    ],
+    "from_star_km": 8761848,
+    "nearest_body": "Pyro I",
+    "altitude_km": 7873107.3
+   },
+   "RMB-ONER": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -8810166.619,
+     -1505607.383,
+     -15720.636
+    ],
+    "from_star_km": 8937904,
+    "nearest_body": "Pyro I",
+    "altitude_km": 1251713.3
+   },
+   "RMB-MYAL": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -8083562.114,
+     -4104762.193,
+     -15720.636
+    ],
+    "from_star_km": 9066052,
+    "nearest_body": "Pyro I",
+    "altitude_km": 1725127.9
+   },
+   "PYR1 L2": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -8713009.555,
+     -2625677.634,
+     0.0
+    ],
+    "from_star_km": 9100039,
+    "nearest_body": "Pyro I",
+    "altitude_km": 826862.7
+   },
+   "RMB-GREX": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     4354603.143,
+     -8018599.819,
+     -15720.636
+    ],
+    "from_star_km": 9124733,
+    "nearest_body": "Monox",
+    "altitude_km": 1842895.5
+   },
+   "RAB-TUNG": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     8380397.401,
+     3880161.199,
+     0.0
+    ],
+    "from_star_km": 9235080,
+    "nearest_body": "Monox",
+    "altitude_km": 12816852.6
+   },
+   "RMB-IKAN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -1949473.214,
+     -9176753.873,
+     -15720.636
+    ],
+    "from_star_km": 9381551,
+    "nearest_body": "Monox",
+    "altitude_km": 8018964.5
+   },
+   "PYR2 L1": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     5587580.868,
+     -7754529.25,
+     0.0
+    ],
+    "from_star_km": 9557917,
+    "nearest_body": "Monox",
+    "altitude_km": 1077563.6
+   },
+   "RMB-SHEW": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     6595719.657,
+     -6997291.394,
+     -15720.636
+    ],
+    "from_star_km": 9615917,
+    "nearest_body": "Monox",
+    "altitude_km": 1809143.6
+   },
+   "RMB-KAIN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -9555020.732,
+     -2776892.133,
+     -15720.636
+    ],
+    "from_star_km": 9950367,
+    "nearest_body": "Pyro I",
+    "altitude_km": 1679637.1
+   },
+   "RMB-LIRE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6048479.692,
+     -7933451.692,
+     -15720.636
+    ],
+    "from_star_km": 9976172,
+    "nearest_body": "Pyro I",
+    "altitude_km": 5853618.5
+   },
+   "RAB-NOVEMBER": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -5478426.81,
+     -8763862.878,
+     0.0
+    ],
+    "from_star_km": 10335301,
+    "nearest_body": "Pyro I",
+    "altitude_km": 6828237.9
+   },
+   "Checkmate": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     10550859.982,
+     -959304.751,
+     2570.931
+    ],
+    "from_star_km": 10594381,
+    "nearest_body": "Monox",
+    "altitude_km": 8971501.1
+   },
+   "Monox": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 529.5,
+    "orbits": "Pyro",
+    "pos_km": [
+     6057267.232,
+     -8724930.98,
+     0.0
+    ],
+    "from_star_km": 10621436
+   },
+   "PYR2 L3": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -2707846.803,
+     10270479.184,
+     0.0
+    ],
+    "from_star_km": 10621449,
+    "nearest_body": "Bloom",
+    "altitude_km": 13661581.6
+   },
+   "PYR2 L5": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -6127061.353,
+     -8676078.936,
+     0.0
+    ],
+    "from_star_km": 10621451,
+    "nearest_body": "Pyro I",
+    "altitude_km": 6539522.6
+   },
+   "RMB-HOWE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6852487.851,
+     -8396494.329,
+     -15720.636
+    ],
+    "from_star_km": 10837802,
+    "nearest_body": "Pyro I",
+    "altitude_km": 6103365.8
+   },
+   "RMB-TIAN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -6002983.812,
+     -9628376.282,
+     -14913.728
+    ],
+    "from_star_km": 11346439,
+    "nearest_body": "Pyro I",
+    "altitude_km": 7490688.0
+   },
+   "PYR2 L2": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     6662973.735,
+     -9597452.964,
+     0.0
+    ],
+    "from_star_km": 11683592,
+    "nearest_body": "Monox",
+    "altitude_km": 1061626.3
+   },
+   "RMB-NAIN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     7883125.14,
+     -8919159.223,
+     -15720.636
+    ],
+    "from_star_km": 11903584,
+    "nearest_body": "Monox",
+    "altitude_km": 1835697.3
+   },
+   "RMB-ELMS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     5838989.916,
+     -10781678.629,
+     -15720.636
+    ],
+    "from_star_km": 12261266,
+    "nearest_body": "Monox",
+    "altitude_km": 2067828.1
+   },
+   "RMB-LAZO": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     7439603.703,
+     -10249427.129,
+     -15720.636
+    ],
+    "from_star_km": 12664861,
+    "nearest_body": "Monox",
+    "altitude_km": 2057428.2
+   },
+   "RMB-EVEN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     6869973.357,
+     -10689136.466,
+     -14913.728
+    ],
+    "from_star_km": 12706471,
+    "nearest_body": "Monox",
+    "altitude_km": 2125221.4
+   },
+   "RAB-YORK": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -13732765.712,
+     -2092306.637,
+     0.0
+    ],
+    "from_star_km": 13891242,
+    "nearest_body": "Pyro I",
+    "altitude_km": 5818898.6
+   },
+   "RMB-JONG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13805357.471,
+     6169452.166,
+     -15720.636
+    ],
+    "from_star_km": 15121187,
+    "nearest_body": "Bloom",
+    "altitude_km": 2700627.3
+   },
+   "RMB-KNAP": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -14473715.148,
+     5553130.628,
+     -15720.636
+    ],
+    "from_star_km": 15502449,
+    "nearest_body": "Bloom",
+    "altitude_km": 2606917.2
+   },
+   "RMB-LEST": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13714009.061,
+     7624913.11,
+     -15720.636
+    ],
+    "from_star_km": 15691195,
+    "nearest_body": "Bloom",
+    "altitude_km": 2389809.3
+   },
+   "Starlight Service Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -14605363.939,
+     6564832.242,
+     1357.701
+    ],
+    "from_star_km": 16012922,
+    "nearest_body": "Bloom",
+    "altitude_km": 1814067.4
+   },
+   "RAB-CHARLIE": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -16207303.518,
+     720733.454,
+     0.0
+    ],
+    "from_star_km": 16223321,
+    "nearest_body": "Bloom",
+    "altitude_km": 6867569.7
+   },
+   "RMB-OXID": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -15351780.134,
+     5765979.376,
+     -15720.636
+    ],
+    "from_star_km": 16398900,
+    "nearest_body": "Bloom",
+    "altitude_km": 1970742.7
+   },
+   "RMB-TACK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -14427189.72,
+     7825273.385,
+     -14913.728
+    ],
+    "from_star_km": 16412767,
+    "nearest_body": "Bloom",
+    "altitude_km": 1693070.5
+   },
+   "RAB-BRAVO": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     550357.005,
+     16771591.541,
+     0.0
+    ],
+    "from_star_km": 16780619,
+    "nearest_body": "Bloom",
+    "altitude_km": 19018092.3
+   },
+   "RAB-KILO": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     14907563.786,
+     -9617699.997,
+     0.0
+    ],
+    "from_star_km": 17740789,
+    "nearest_body": "Monox",
+    "altitude_km": 8894681.9
+   },
+   "PYAM-SUPVISR-3-5": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     12612846.326,
+     12539014.44,
+     10407.351
+    ],
+    "from_star_km": 17785131,
+    "nearest_body": "Monox",
+    "altitude_km": 22251012.0
+   },
+   "PYAM-SUPVISR-3-4": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -14606614.874,
+     -10150451.419,
+     13011.159
+    ],
+    "from_star_km": 17787215,
+    "nearest_body": "Pyro I",
+    "altitude_km": 10245085.7
+   },
+   "Patch City": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     14526917.43,
+     -10272845.276,
+     2752.554
+    ],
+    "from_star_km": 17792209,
+    "nearest_body": "Monox",
+    "altitude_km": 8609407.8
+   },
+   "Bloom": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 413.9,
+    "orbits": "Pyro",
+    "pos_km": [
+     -16103894.559,
+     7587938.546,
+     0.0
+    ],
+    "from_star_km": 17802029
+   },
+   "PYR3 L5": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     12638431.308,
+     12537403.48,
+     0.0
+    ],
+    "from_star_km": 17802147,
+    "nearest_body": "Monox",
+    "altitude_km": 22257021.7
+   },
+   "PYR3 L4": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -14623507.633,
+     -10152318.659,
+     0.0
+    ],
+    "from_star_km": 17802150,
+    "nearest_body": "Pyro I",
+    "altitude_km": 10257522.2
+   },
+   "Orbituary": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -16104579.206,
+     7587500.245,
+     226.044
+    ],
+    "from_star_km": 17802461,
+    "nearest_body": "Bloom",
+    "altitude_km": 429.9
+   },
+   "RAB-IGNITION": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     11941611.752,
+     13213100.756,
+     0.0
+    ],
+    "from_star_km": 17809776,
+    "nearest_body": "Monox",
+    "altitude_km": 22712963.1
+   },
+   "RMB-GRAY": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13600298.577,
+     12718112.172,
+     -15720.636
+    ],
+    "from_star_km": 18620385,
+    "nearest_body": "Bloom",
+    "altitude_km": 5708081.6
+   },
+   "RMB-LUNE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13535061.737,
+     12791442.66,
+     -15720.636
+    ],
+    "from_star_km": 18623081,
+    "nearest_body": "Bloom",
+    "altitude_km": 5802654.6
+   },
+   "RMB-DARI": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13521418.45,
+     12915975.799,
+     -14913.728
+    ],
+    "from_star_km": 18698968,
+    "nearest_body": "Bloom",
+    "altitude_km": 5920513.9
+   },
+   "RMB-MAGE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13639864.428,
+     12814456.547,
+     -15720.636
+    ],
+    "from_star_km": 18715139,
+    "nearest_body": "Bloom",
+    "altitude_km": 5777836.9
+   },
+   "Cluster BGR-560": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -13584661.215,
+     12865630.846,
+     -700000.0
+    ],
+    "from_star_km": 18723180,
+    "nearest_body": "Bloom",
+    "altitude_km": 5889456.4
+   },
+   "RMB-WARB": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13577913.323,
+     12992256.636,
+     -15720.636
+    ],
+    "from_star_km": 18792517,
+    "nearest_body": "Bloom",
+    "altitude_km": 5965110.6
+   },
+   "RMB-GADE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -13633195.156,
+     12937661.515,
+     -15720.636
+    ],
+    "from_star_km": 18794875,
+    "nearest_body": "Bloom",
+    "altitude_km": 5892305.2
+   },
+   "RMB-AXIL": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -17247047.718,
+     7999384.336,
+     -14913.728
+    ],
+    "from_star_km": 19011865,
+    "nearest_body": "Bloom",
+    "altitude_km": 1214620.8
+   },
+   "RMB-BUCK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -16988962.917,
+     9152183.863,
+     -15720.636
+    ],
+    "from_star_km": 19297346,
+    "nearest_body": "Bloom",
+    "altitude_km": 1796933.2
+   },
+   "RMB-PALL": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -17907786.209,
+     7512365.392,
+     -15720.636
+    ],
+    "from_star_km": 19419698,
+    "nearest_body": "Bloom",
+    "altitude_km": 1805128.5
+   },
+   "RAB-WHISKEY": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -18333258.719,
+     6880572.262,
+     0.0
+    ],
+    "from_star_km": 19581896,
+    "nearest_body": "Bloom",
+    "altitude_km": 2338481.5
+   },
+   "PYR3 L2": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -17714300.564,
+     8346987.623,
+     0.0
+    ],
+    "from_star_km": 19582355,
+    "nearest_body": "Bloom",
+    "altitude_km": 1779912.8
+   },
+   "RMB-BASK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -17887477.41,
+     9357232.648,
+     -15720.636
+    ],
+    "from_star_km": 20187122,
+    "nearest_body": "Bloom",
+    "altitude_km": 2511919.0
+   },
+   "RMB-HELM": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18394040.502,
+     8595832.82,
+     -15720.636
+    ],
+    "from_star_km": 20303431,
+    "nearest_body": "Bloom",
+    "altitude_km": 2501758.4
+   },
+   "Cluster NBD-102": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     16481986.126,
+     -12482403.14,
+     -77598.676
+    ],
+    "from_star_km": 20675403,
+    "nearest_body": "Monox",
+    "altitude_km": 11080958.8
+   },
+   "RMB-YEAD": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -21672311.319,
+     3612240.825,
+     -14913.728
+    ],
+    "from_star_km": 21971290,
+    "nearest_body": "Bloom",
+    "altitude_km": 6841637.0
+   },
+   "RMB-KIFF": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -21754582.869,
+     3965126.471,
+     -15720.636
+    ],
+    "from_star_km": 22112991,
+    "nearest_body": "Bloom",
+    "altitude_km": 6711910.1
+   },
+   "RMB-HORN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -21902452.027,
+     3148927.745,
+     -15720.636
+    ],
+    "from_star_km": 22127661,
+    "nearest_body": "Bloom",
+    "altitude_km": 7302211.2
+   },
+   "Cluster CAJ-445": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -21872594.514,
+     3675536.925,
+     -397575.997
+    ],
+    "from_star_km": 22182832,
+    "nearest_body": "Bloom",
+    "altitude_km": 6981194.2
+   },
+   "RMB-MUGG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -21981304.576,
+     4014562.396,
+     -15720.636
+    ],
+    "from_star_km": 22344903,
+    "nearest_body": "Bloom",
+    "altitude_km": 6878046.2
+   },
+   "RMB-PEKE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -22113452.587,
+     3615772.541,
+     -15720.636
+    ],
+    "from_star_km": 22407116,
+    "nearest_body": "Bloom",
+    "altitude_km": 7203275.3
+   },
+   "RAB-GULF": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -25094126.091,
+     11121799.927,
+     0.0
+    ],
+    "from_star_km": 27448308,
+    "nearest_body": "Bloom",
+    "altitude_km": 9659422.5
+   },
+   "RAB-ROTH": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -10300469.628,
+     -25846993.788,
+     0.0
+    ],
+    "from_star_km": 27823852,
+    "nearest_body": "Vuur",
+    "altitude_km": 17926457.4
+   },
+   "RAB-FOXTROT": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     3252766.41,
+     -28504213.195,
+     0.0
+    ],
+    "from_star_km": 28689208,
+    "nearest_body": "Vatra",
+    "altitude_km": 15880393.6
+   },
+   "RAB-XENO": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -21309168.751,
+     -29573071.086,
+     0.0
+    ],
+    "from_star_km": 36450613,
+    "nearest_body": "Vuur",
+    "altitude_km": 21652669.9
+   },
+   "RMB-NARY": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3746142.279,
+     -37997836.418,
+     -15720.636
+    ],
+    "from_star_km": 38182056,
+    "nearest_body": "Vuur",
+    "altitude_km": 4660598.8
+   },
+   "RMB-TYRO": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3184248.408,
+     -38178674.533,
+     -15720.636
+    ],
+    "from_star_km": 38311237,
+    "nearest_body": "Vuur",
+    "altitude_km": 4552908.0
+   },
+   "PYR5 L1": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -3522319.931,
+     -38482740.114,
+     0.0
+    ],
+    "from_star_km": 38643603,
+    "nearest_body": "Vuur",
+    "altitude_km": 4199037.4
+   },
+   "Cluster JWY-925": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -38686397.376,
+     -2151992.644,
+     -727088.911
+    ],
+    "from_star_km": 38753027,
+    "nearest_body": "Bloom",
+    "altitude_km": 24603739.2
+   },
+   "RAB-POINT": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -3969034.308,
+     -38677890.311,
+     0.0
+    ],
+    "from_star_km": 38881003,
+    "nearest_body": "Vuur",
+    "altitude_km": 3971429.1
+   },
+   "RMB-JUTE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3163015.884,
+     -38881071.45,
+     -15720.636
+    ],
+    "from_star_km": 39009520,
+    "nearest_body": "Vuur",
+    "altitude_km": 3870446.3
+   },
+   "Cluster WDH-387": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -3535817.996,
+     -39205389.178,
+     50000.0
+    ],
+    "from_star_km": 39364541,
+    "nearest_body": "Vuur",
+    "altitude_km": 3481639.3
+   },
+   "RMB-KYUS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -1985402.455,
+     -40986037.496,
+     -15720.636
+    ],
+    "from_star_km": 41034100,
+    "nearest_body": "Adir",
+    "altitude_km": 2527070.3
+   },
+   "RMB-DORY": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -2611032.858,
+     -41337382.699,
+     -15720.636
+    ],
+    "from_star_km": 41419765,
+    "nearest_body": "Adir",
+    "altitude_km": 1840271.5
+   },
+   "Cluster RSC-340": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -2287529.254,
+     -41412197.319,
+     376521.068
+    ],
+    "from_star_km": 41477038,
+    "nearest_body": "Adir",
+    "altitude_km": 2051667.4
+   },
+   "RMB-RODE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -1906098.446,
+     -41874245.817,
+     -15720.636
+    ],
+    "from_star_km": 41917609,
+    "nearest_body": "Adir",
+    "altitude_km": 2091783.9
+   },
+   "RAB-HELIO": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     713586.468,
+     -42289692.507,
+     0.0
+    ],
+    "from_star_km": 42295713,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4486074.9
+   },
+   "RAB-DELTA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -3992874.72,
+     -42593554.153,
+     0.0
+    ],
+    "from_star_km": 42780298,
+    "nearest_body": "Vuur",
+    "altitude_km": 79113.0
+   },
+   "Vuur": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 452.8,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -4049991.709,
+     -42648947.048,
+     0.0
+    ],
+    "from_star_km": 42840811
+   },
+   "Vatra": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 365.8,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3889836.641,
+     -42688068.156,
+     0.0
+    ],
+    "from_star_km": 42864927
+   },
+   "Adir": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 431.0,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3815640.758,
+     -42729093.306,
+     0.0
+    ],
+    "from_star_km": 42899120
+   },
+   "Rod's Fuel 'N Supplies": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     41418353.194,
+     -11259077.204,
+     -9518.769
+    ],
+    "from_star_km": 42921404,
+    "nearest_body": "Monox",
+    "altitude_km": 35451246.0
+   },
+   "Rat's Nest": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -42308391.379,
+     -7276095.29,
+     18513.515
+    ],
+    "from_star_km": 42929499,
+    "nearest_body": "Bloom",
+    "altitude_km": 30126243.7
+   },
+   "RMB-RINE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4049749.493,
+     -42739693.436,
+     -15720.636
+    ],
+    "from_star_km": 42931132,
+    "nearest_body": "Vuur",
+    "altitude_km": 91645.5
+   },
+   "PYR5 L3": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     18302065.35,
+     38841341.857,
+     0.0
+    ],
+    "from_star_km": 42937343,
+    "nearest_body": "Bloom",
+    "altitude_km": 46481252.3
+   },
+   "Pyro V": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 7812.3,
+    "orbits": "Pyro",
+    "pos_km": [
+     -3912426.18,
+     -42758732.341,
+     0.0
+    ],
+    "from_star_km": 42937353
+   },
+   "Ignis": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 393.2,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3965334.849,
+     -42774798.489,
+     0.0
+    ],
+    "from_star_km": 42958204
+   },
+   "RMB-OAKS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3658952.459,
+     -42804576.885,
+     -15720.636
+    ],
+    "from_star_km": 42960679,
+    "nearest_body": "Fuego",
+    "altitude_km": 123785.4
+   },
+   "RMB-LYES": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4107636.253,
+     -42774550.886,
+     -14913.728
+    ],
+    "from_star_km": 42971329,
+    "nearest_body": "Vuur",
+    "altitude_km": 138549.5
+   },
+   "Cluster YKA-011": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -4071053.545,
+     -42775983.261,
+     -715878.0
+    ],
+    "from_star_km": 42975234,
+    "nearest_body": "Ignis",
+    "altitude_km": 723249.8
+   },
+   "Fuego": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 465.7,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3780111.815,
+     -42827195.806,
+     0.0
+    ],
+    "from_star_km": 42993697
+   },
+   "RMB-ALME": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4059832.77,
+     -42824799.445,
+     -15720.636
+    ],
+    "from_star_km": 43016810,
+    "nearest_body": "Ignis",
+    "altitude_km": 107667.4
+   },
+   "Fairo": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 392.2,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3946434.491,
+     -42879838.463,
+     0.0
+    ],
+    "from_star_km": 43061060
+   },
+   "RMB-HADE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3603363.943,
+     -42920385.983,
+     -14913.728
+    ],
+    "from_star_km": 43071382,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 182055.0
+   },
+   "Cluster GRP-839": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -3740106.403,
+     -42953752.978,
+     -525692.2
+    ],
+    "from_star_km": 43119481,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 539630.4
+   },
+   "RAB-LAMDA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -3697112.928,
+     -43018812.477,
+     0.0
+    ],
+    "from_star_km": 43177388,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 52989.9
+   },
+   "RMB-NONG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3870148.229,
+     -43005520.79,
+     -15720.636
+    ],
+    "from_star_km": 43179313,
+    "nearest_body": "Fairo",
+    "altitude_km": 147468.5
+   },
+   "RAB-OVER": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -3630639.222,
+     -43054284.747,
+     0.0
+    ],
+    "from_star_km": 43207094,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 75202.0
+   },
+   "Pyro IV": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 321.4,
+    "orbits": "Pyro V",
+    "pos_km": [
+     -3704136.987,
+     -43071659.05,
+     0.0
+    ],
+    "from_star_km": 43230642
+   },
+   "RAB-ECHO": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -3761711.856,
+     -43100948.71,
+     0.0
+    ],
+    "from_star_km": 43264792,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 64275.4
+   },
+   "RMB-ARID": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3559067.41,
+     -43136308.515,
+     -15720.636
+    ],
+    "from_star_km": 43282887,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 159277.7
+   },
+   "Cluster FSN-704": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -3663643.94,
+     -43199314.55,
+     818102.0
+    ],
+    "from_star_km": 43362107,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 828669.9
+   },
+   "RMB-LANX": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3768967.341,
+     -43304560.377,
+     -15720.636
+    ],
+    "from_star_km": 43468268,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 241945.3
+   },
+   "RMB-SIJO": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -3564358.135,
+     -43328754.298,
+     -15720.636
+    ],
+    "from_star_km": 43475118,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 292737.0
+   },
+   "RAB-ULTRA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -35624629.507,
+     25331229.274,
+     0.0
+    ],
+    "from_star_km": 43712531,
+    "nearest_body": "Terminus",
+    "altitude_km": 26325143.4
+   },
+   "RAB-MAT": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -24499721.539,
+     37607851.319,
+     0.0
+    ],
+    "from_star_km": 44884149,
+    "nearest_body": "Terminus",
+    "altitude_km": 26010158.0
+   },
+   "RMB-BORS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -2018644.902,
+     -46147142.385,
+     -14913.728
+    ],
+    "from_star_km": 46191275,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 3506771.9
+   },
+   "RAB-VICTORY": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -897138.388,
+     -46432367.416,
+     0.0
+    ],
+    "from_star_km": 46441034,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4378445.8
+   },
+   "RMB-SPAW": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4046410.604,
+     -46346733.525,
+     -15720.636
+    ],
+    "from_star_km": 46523042,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 3292627.3
+   },
+   "RAB-ZETA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -7685507.242,
+     -45996764.83,
+     0.0
+    ],
+    "from_star_km": 46634423,
+    "nearest_body": "Fairo",
+    "altitude_km": 4867450.8
+   },
+   "Cluster KKE-717": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -2307915.055,
+     -46782363.123,
+     -579237.421
+    ],
+    "from_star_km": 46842838,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4006457.4
+   },
+   "RMB-VERD": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -2656688.244,
+     -46828174.199,
+     -15720.636
+    ],
+    "from_star_km": 46903477,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 3899525.0
+   },
+   "RMB-FLAG": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -2061268.568,
+     -47165321.373,
+     -15720.636
+    ],
+    "from_star_km": 47210344,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4410725.5
+   },
+   "Gaslight": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -4296207.044,
+     -47014547.323,
+     17665.446
+    ],
+    "from_star_km": 47210437,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 3986811.3
+   },
+   "RAB-SIERRA": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -4988549.404,
+     -46968365.475,
+     0.0
+    ],
+    "from_star_km": 47232542,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4102608.8
+   },
+   "RMB-MURK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4635906.453,
+     -47499778.831,
+     -15720.636
+    ],
+    "from_star_km": 47725474,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4524795.9
+   },
+   "RMB-OLLA": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -4036594.546,
+     -47678952.676,
+     -15720.636
+    ],
+    "from_star_km": 47849523,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 4618978.3
+   },
+   "Nyx Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -35275901.202,
+     -36052297.816,
+     6.728
+    ],
+    "from_star_km": 50439641,
+    "nearest_body": "Vuur",
+    "altitude_km": 31914640.9
+   },
+   "RAB-JAK": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     4625823.731,
+     -51469445.282,
+     0.0
+    ],
+    "from_star_km": 51676900,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 11828079.1
+   },
+   "Stanton Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     34178603.991,
+     40592014.239,
+     6.728
+    ],
+    "from_star_km": 53064947,
+    "nearest_body": "Monox",
+    "altitude_km": 56770683.9
+   },
+   "Cluster MNK-833": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -41385531.236,
+     35305902.045,
+     608395.02
+    ],
+    "from_star_km": 54402565,
+    "nearest_body": "Terminus",
+    "altitude_km": 14827621.8
+   },
+   "RAB-QUAGMIRE": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -9867668.366,
+     -55089655.029,
+     0.0
+    ],
+    "from_star_km": 55966427,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 13506023.3
+   },
+   "Cluster LHB-976": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -29544311.4,
+     55454086.523,
+     557357.0
+    ],
+    "from_star_km": 62835760,
+    "nearest_body": "Terminus",
+    "altitude_km": 19839536.7
+   },
+   "RMB-SAIC": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -58157524.007,
+     26967945.678,
+     -14913.728
+    ],
+    "from_star_km": 64105912,
+    "nearest_body": "Terminus",
+    "altitude_km": 23759996.1
+   },
+   "Cluster DLO-486": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -58278069.656,
+     27146066.724,
+     919788.503
+    ],
+    "from_star_km": 64296877,
+    "nearest_body": "Terminus",
+    "altitude_km": 23668083.0
+   },
+   "RMB-DIRK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -58213898.004,
+     27418649.342,
+     -15720.636
+    ],
+    "from_star_km": 64347809,
+    "nearest_body": "Terminus",
+    "altitude_km": 23376567.4
+   },
+   "RMB-TIGS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -58473277.353,
+     27035707.396,
+     -15720.636
+    ],
+    "from_star_km": 64420912,
+    "nearest_body": "Terminus",
+    "altitude_km": 23834072.7
+   },
+   "RMB-UMUS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -46400234.455,
+     44739375.17,
+     -15720.636
+    ],
+    "from_star_km": 64456138,
+    "nearest_body": "Terminus",
+    "altitude_km": 4137077.0
+   },
+   "RMB-PLEX": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -58426724.955,
+     27357844.547,
+     -15720.636
+    ],
+    "from_star_km": 64514604,
+    "nearest_body": "Terminus",
+    "altitude_km": 23523905.4
+   },
+   "RMB-MEFF": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -47940811.813,
+     43358377.629,
+     -15720.636
+    ],
+    "from_star_km": 64639544,
+    "nearest_body": "Terminus",
+    "altitude_km": 5147552.0
+   },
+   "RMB-HARK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -45774967.322,
+     47215566.229,
+     -14913.728
+    ],
+    "from_star_km": 65762129,
+    "nearest_body": "Terminus",
+    "altitude_km": 2673501.1
+   },
+   "PYR6 L1": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -47417386.031,
+     46159162.831,
+     0.0
+    ],
+    "from_star_km": 66174593,
+    "nearest_body": "Terminus",
+    "altitude_km": 2446228.9
+   },
+   "RMB-SOWL": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -49430831.315,
+     45050406.665,
+     -15720.636
+    ],
+    "from_star_km": 66880090,
+    "nearest_body": "Terminus",
+    "altitude_km": 3693541.9
+   },
+   "RAB-LYNX": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -43705114.849,
+     50805491.317,
+     0.0
+    ],
+    "from_star_km": 67017423,
+    "nearest_body": "Terminus",
+    "altitude_km": 4977348.9
+   },
+   "RMB-CRUE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -46034592.023,
+     49496207.239,
+     -15720.636
+    ],
+    "from_star_km": 67594811,
+    "nearest_body": "Terminus",
+    "altitude_km": 2307999.9
+   },
+   "Megumi Refueling": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     29108876.042,
+     61780163.358,
+     12705.743
+    ],
+    "from_star_km": 68294329,
+    "nearest_body": "Bloom",
+    "altitude_km": 70575729.5
+   },
+   "Endgame": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     52140941.16,
+     -44113648.884,
+     2735.552
+    ],
+    "from_star_km": 68298549,
+    "nearest_body": "Pyro IV",
+    "altitude_km": 55854477.0
+   },
+   "Terminus": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 285.0,
+    "orbits": "Pyro",
+    "pos_km": [
+     -48118274.199,
+     48503130.832,
+     0.0
+    ],
+    "from_star_km": 68322193
+   },
+   "Ruin Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -48117999.061,
+     48503470.234,
+     -100.478
+    ],
+    "from_star_km": 68322240,
+    "nearest_body": "Terminus",
+    "altitude_km": 163.3
+   },
+   "RMB-LOWN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -45253872.79,
+     51202958.075,
+     -15720.636
+    ],
+    "from_star_km": 68334882,
+    "nearest_body": "Terminus",
+    "altitude_km": 3935970.8
+   },
+   "Dudley & Daughters": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -62062405.937,
+     -28602580.159,
+     -10765.064
+    ],
+    "from_star_km": 68336300,
+    "nearest_body": "Bloom",
+    "altitude_km": 58496923.9
+   },
+   "RMB-PIZE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -49757654.032,
+     47752557.774,
+     -15720.636
+    ],
+    "from_star_km": 68964709,
+    "nearest_body": "Terminus",
+    "altitude_km": 1802816.0
+   },
+   "Cluster EMM-567": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -46830093.124,
+     50782421.668,
+     -370709.27
+    ],
+    "from_star_km": 69080022,
+    "nearest_body": "Terminus",
+    "altitude_km": 2643954.5
+   },
+   "RAB-ION": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -52762317.767,
+     45054057.766,
+     0.0
+    ],
+    "from_star_km": 69381051,
+    "nearest_body": "Terminus",
+    "altitude_km": 5784457.5
+   },
+   "RMB-CHAM": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -45524603.18,
+     52883817.666,
+     -15720.636
+    ],
+    "from_star_km": 69779567,
+    "nearest_body": "Terminus",
+    "altitude_km": 5090667.1
+   },
+   "RMB-MARA": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -47978044.745,
+     51292190.203,
+     -15720.636
+    ],
+    "from_star_km": 70233765,
+    "nearest_body": "Terminus",
+    "altitude_km": 2792341.7
+   },
+   "RMB-SEER": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -46808680.341,
+     53169752.541,
+     -14913.728
+    ],
+    "from_star_km": 70838375,
+    "nearest_body": "Terminus",
+    "altitude_km": 4846633.3
+   },
+   "PYR6 L2": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -49918483.217,
+     50320251.22,
+     0.0
+    ],
+    "from_star_km": 70880058,
+    "nearest_body": "Terminus",
+    "altitude_km": 2557581.1
+   },
+   "RMB-QINS": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -51347896.862,
+     49211693.357,
+     -15720.636
+    ],
+    "from_star_km": 71122412,
+    "nearest_body": "Terminus",
+    "altitude_km": 3306189.0
+   },
+   "RMB-MOSK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -53372306.633,
+     47535488.756,
+     -15720.636
+    ],
+    "from_star_km": 71471855,
+    "nearest_body": "Terminus",
+    "altitude_km": 5342133.5
+   },
+   "RMB-RAWN": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -48933215.212,
+     53389018.323,
+     -15720.636
+    ],
+    "from_star_km": 72421316,
+    "nearest_body": "Terminus",
+    "altitude_km": 4953125.2
+   },
+   "RMB-RAIK": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -54546444.232,
+     48921308.648,
+     -15720.636
+    ],
+    "from_star_km": 73270794,
+    "nearest_body": "Terminus",
+    "altitude_km": 6441491.9
+   },
+   "Cluster HJS-232": {
+    "type": "asteroid_cluster",
+    "qt_destination": true,
+    "pos_km": [
+     -52302112.522,
+     51447891.775,
+     -468366.028
+    ],
+    "from_star_km": 73366313,
+    "nearest_body": "Terminus",
+    "altitude_km": 5137368.8
+   },
+   "RAB-COOK": {
+    "type": "asteroid_base",
+    "qt_destination": true,
+    "pos_km": [
+     -48600255.288,
+     56851009.899,
+     0.0
+    ],
+    "from_star_km": 74793196,
+    "nearest_body": "Terminus",
+    "altitude_km": 8361496.5
+   },
+   "RMB-NENE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -50302878.639,
+     55631179.787,
+     -15720.636
+    ],
+    "from_star_km": 75001387,
+    "nearest_body": "Terminus",
+    "altitude_km": 7455037.0
+   },
+   "RMB-KELT": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -54811277.826,
+     51473097.587,
+     -15720.636
+    ],
+    "from_star_km": 75191464,
+    "nearest_body": "Terminus",
+    "altitude_km": 7322094.9
+   },
+   "RMB-JADE": {
+    "type": "asteroid_base",
+    "qt_destination": false,
+    "pos_km": [
+     -52374473.575,
+     55510442.89,
+     -15720.636
+    ],
+    "from_star_km": 76318379,
+    "nearest_body": "Terminus",
+    "altitude_km": 8198367.5
+   }
+  }
+ },
+ "planetary": {
+  "Bloom": {
+   "radius_km": 413.9,
+   "orbits": "Pyro",
+   "locations": {
+    "Bueno Ravine": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -357.838,
+      -201.754,
+      -57.521
+     ],
+     "altitude_km": 0.9
+    },
+    "Carver's Ridge": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -344.354,
+      -225.623,
+      -48.106
+     ],
+     "altitude_km": 0.59
+    },
+    "Frigid Knot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      42.943,
+      -227.882,
+      -342.91
+     ],
+     "altitude_km": 0.06
+    },
+    "Narena's Rest": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      89.619,
+      404.338,
+      -11.78
+     ],
+     "altitude_km": 0.42
+    },
+    "Prospect Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -363.371,
+      -193.713,
+      -45.329
+     ],
+     "altitude_km": 0.37
+    },
+    "Shadowfall": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      390.575,
+      124.605,
+      -57.006
+     ],
+     "altitude_km": 0.01
+    },
+    "Shepherd's Rest": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      361.2,
+      0.604,
+      -202.126
+     ],
+     "altitude_km": 0.01
+    },
+    "The Golden Riviera": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      120.825,
+      395.888,
+      5.799
+     ],
+     "altitude_km": 0.06
+    },
+    "The Yard": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      216.762,
+      -326.961,
+      132.066
+     ],
+     "altitude_km": 0.02
+    },
+    "Windfall": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -381.414,
+      -162.069,
+      -12.215
+     ],
+     "altitude_km": 0.7
+    }
+   }
+  },
+  "Monox": {
+   "radius_km": 529.5,
+   "orbits": "Pyro",
+   "locations": {
+    "Arid Reach": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      518.949,
+      49.646,
+      -92.75
+     ],
+     "altitude_km": 0.01
+    },
+    "Jackson's Swap": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -213.119,
+      -402.231,
+      -272.467
+     ],
+     "altitude_km": 1.02
+    },
+    "Last Ditch": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -46.73,
+      139.839,
+      508.874
+     ],
+     "altitude_km": 0.3
+    },
+    "Ostler's Claim": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -11.854,
+      -512.205,
+      -136.104
+     ],
+     "altitude_km": 0.61
+    },
+    "Slowburn Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -49.825,
+      135.408,
+      509.79
+     ],
+     "altitude_km": 0.31
+    },
+    "Sunset Mesa": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -230.744,
+      -394.093,
+      -269.591
+     ],
+     "altitude_km": 0.81
+    },
+    "Yang's Place": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -85.816,
+      -470.25,
+      -229.886
+     ],
+     "altitude_km": 0.92
+    }
+   }
+  },
+  "Pyro I": {
+   "radius_km": 411.7,
+   "orbits": "Pyro",
+   "locations": {
+    "Gray Gardens Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      88.512,
+      389.043,
+      -101.323
+     ],
+     "altitude_km": -0.05
+    },
+    "Lazarus Transport Hub Phoenix-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      298.894,
+      166.432,
+      229.269
+     ],
+     "altitude_km": 0.13
+    },
+    "Lazarus Transport Hub Phoenix-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      355.539,
+      169.79,
+      120.664
+     ],
+     "altitude_km": 0.36
+    },
+    "Lazarus Transport Hub Phoenix-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      249.796,
+      290.017,
+      151.651
+     ],
+     "altitude_km": 0.01
+    },
+    "Lazarus Transport Hub Tithonus-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -329.777,
+      -126.321,
+      -211.927
+     ],
+     "altitude_km": 0.15
+    },
+    "Lazarus Transport Hub Tithonus-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -245.418,
+      -250.804,
+      -216.913
+     ],
+     "altitude_km": 0.83
+    },
+    "Lazarus Transport Hub Tithonus-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -312.99,
+      -225.92,
+      -143.834
+     ],
+     "altitude_km": 0.24
+    },
+    "Rustville": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -334.241,
+      168.641,
+      170.82
+     ],
+     "altitude_km": -0.2
+    },
+    "Stag's Rut": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      74.522,
+      391.017,
+      -103.639
+     ],
+     "altitude_km": -0.37
+    }
+   }
+  },
+  "Pyro IV": {
+   "radius_km": 321.4,
+   "orbits": "Pyro V",
+   "locations": {
+    "Chawla's Beach": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -105.953,
+      237.098,
+      189.412
+     ],
+     "altitude_km": 0.03
+    },
+    "Dinger's Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -147.471,
+      -106.792,
+      267.272
+     ],
+     "altitude_km": 2.0
+    },
+    "Fallow Field": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -170.233,
+      -82.771,
+      262.25
+     ],
+     "altitude_km": 2.03
+    },
+    "Farro Data Center I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -149.273,
+      -284.1,
+      17.854
+     ],
+     "altitude_km": 0.03
+    },
+    "Farro Data Center II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      40.962,
+      -309.897,
+      -74.817
+     ],
+     "altitude_km": 0.02
+    },
+    "Farro Data Center III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      212.616,
+      -179.096,
+      -161.386
+     ],
+     "altitude_km": 0.04
+    },
+    "Farro Data Center IV": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      223.635,
+      21.267,
+      -230.649
+     ],
+     "altitude_km": 0.57
+    },
+    "Farro Data Center IX": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -196.185,
+      -126.365,
+      -221.84
+     ],
+     "altitude_km": 0.58
+    },
+    "Farro Data Center V": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      299.82,
+      103.445,
+      -54.007
+     ],
+     "altitude_km": 0.33
+    },
+    "Farro Data Center VI": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      312.046,
+      -60.378,
+      -47.804
+     ],
+     "altitude_km": 0.01
+    },
+    "Farro Data Center VII": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      54.267,
+      80.515,
+      306.394
+     ],
+     "altitude_km": 0.01
+    },
+    "Farro Data Center VIII": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      114.329,
+      -128.433,
+      271.748
+     ],
+     "altitude_km": 0.18
+    },
+    "Farro Data Center X": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -108.845,
+      31.728,
+      -300.991
+     ],
+     "altitude_km": 0.24
+    },
+    "Goner's Deal": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -142.745,
+      -117.062,
+      265.305
+     ],
+     "altitude_km": 1.81
+    },
+    "Sacren's Plot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -117.072,
+      227.48,
+      194.621
+     ],
+     "altitude_km": 0.05
+    }
+   }
+  },
+  "Terminus": {
+   "radius_km": 285.0,
+   "orbits": "Pyro",
+   "locations": {
+    "Blackrock Exchange": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      172.68,
+      226.952,
+      -31.482
+     ],
+     "altitude_km": 1.91
+    },
+    "Bullock's Reach": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      31.839,
+      -268.174,
+      -93.113
+     ],
+     "altitude_km": 0.66
+    },
+    "Canard View": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      161.898,
+      214.2,
+      -102.07
+     ],
+     "altitude_km": 2.25
+    },
+    "Kinder Plots": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      30.346,
+      260.189,
+      -115.526
+     ],
+     "altitude_km": 1.3
+    },
+    "Last Landings": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -36.327,
+      282.578,
+      -7.854
+     ],
+     "altitude_km": 0.01
+    },
+    "Rough Landing": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -204.666,
+      182.421,
+      77.973
+     ],
+     "altitude_km": 0.04
+    },
+    "Scarper's Turn": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      15.693,
+      284.615,
+      0.249
+     ],
+     "altitude_km": 0.05
+    },
+    "Stonetree": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      16.457,
+      261.372,
+      -115.813
+     ],
+     "altitude_km": 1.35
+    },
+    "Watcher's Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -213.114,
+      160.878,
+      103.144
+     ],
+     "altitude_km": 1.25
+    }
+   }
+  }
+ },
+ "lunar": {
+  "Adir": {
+   "radius_km": 431.0,
+   "orbits": "Pyro V",
+   "locations": {
+    "Prophet's Peak": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -347.18,
+      206.028,
+      154.695
+     ],
+     "altitude_km": 1.33
+    }
+   }
+  },
+  "Fairo": {
+   "radius_km": 392.2,
+   "orbits": "Pyro V",
+   "locations": {
+    "Feo Canyon Depot": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -224.694,
+      310.975,
+      81.622
+     ],
+     "altitude_km": 0.0
+    }
+   }
+  },
+  "Ignis": {
+   "radius_km": 393.2,
+   "orbits": "Pyro V",
+   "locations": {
+    "Ashland": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -49.799,
+      289.331,
+      265.63
+     ],
+     "altitude_km": 2.75
+    },
+    "Kabir's Post": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      333.784,
+      184.197,
+      108.787
+     ],
+     "altitude_km": 3.28
+    }
+   }
+  },
+  "Vatra": {
+   "radius_km": 365.8,
+   "orbits": "Pyro V",
+   "locations": {
+    "Seer's Canyon": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      342.981,
+      -55.656,
+      -119.605
+     ],
+     "altitude_km": 1.67
+    }
+   }
+  }
+ },
+ "excluded": {
+  "in the starmap but not placed in the game world (upcoming, or not linked in the data yet)": [
+   "Akiro Cluster",
+   "Asteroid Mining Base",
+   "Cluster PQE-291",
+   "Cluster SGL-693",
+   "Cluster SZA-178",
+   "Cluster TYS-098",
+   "Cluster VUP-613",
+   "PYAM-FARSTAT-1-2",
+   "PYAM-FARSTAT-1-3",
+   "PYAM-FARSTAT-1-5",
+   "PYAM-FARSTAT-2-0",
+   "PYAM-FARSTAT-2-3",
+   "PYAM-FARSTAT-3-5",
+   "PYAM-FARSTAT-5-1",
+   "PYAM-FARSTAT-5-3",
+   "PYAM-FARSTAT-6-2",
+   "Slowburn Depot",
+   "Supply Gap"
+  ]
+ }
+}

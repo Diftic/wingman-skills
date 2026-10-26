@@ -1,0 +1,4851 @@
+{
+ "name": "Star Citizen distances: Stanton",
+ "system": "Stanton",
+ "format": 1,
+ "revision": 202610261602,
+ "units": "km (straight-line)",
+ "source": {
+  "game_branch": "sc-alpha-4.10.2",
+  "game_version": "4.10.197.2878",
+  "build": "12913470",
+  "data": "LIVE Data.p4k: ObjectContainers (positions) + DataCore starmap records (names, types) + english global.ini",
+  "extracted": "2026-10-26"
+ },
+ "how_to_read": {
+  "hierarchy": "One file per system: solar | planetary.<planet> | lunar.<moon>. Distances between systems are not covered.",
+  "solar": "Everything in space: star, planets and moons (as points at their centre), stations, Lagrange points, jump-point gateways, asteroid bases, comm arrays. pos_km is relative to the star. Planets and moons do not orbit in-game, so these distances are fixed.",
+  "planetary_lunar": "Surface locations (less than 100 km altitude) on that body, stored as coordinates only. pos_km is in the body's own frame (centre = 0), so distances between two locations on the same body hold whatever the body's rotation: straight line = |pos_A - pos_B|.",
+  "body_distance": "Distances to a planet or moon in `solar` are to its centre; subtract radius_km for distance to the surface.",
+  "lookup": "The file holds coordinates only. The SC_distances skill (dependencies/sc_distance.py) computes any distance from pos_km: space to space exact, same body straight line plus over the ground, and a min-max range for a surface location to anywhere else as the body rotates. By hand: straight line = |pos_A - pos_B| within the same group.",
+  "nearest_body": "Space locations name the nearest planet or moon and their altitude_km above its surface.",
+  "duplicate_names": "If a name occurs twice in one group, the label gets the nearest body or a short record id in brackets.",
+  "revision": "Higher revision = newer data. format changes only when readers must change."
+ },
+ "rules": {
+  "included": "Released systems only, one file each. Locations shown in the starmap and placed in the game world in the current LIVE build.",
+  "excluded": "Starmap-hidden markers, records with no localized name, locations marked NOT CURRENTLY ACCESSIBLE, event-only markers, gateways to unreleased systems, and starmap entries nothing places in the world. What was left out is listed under `excluded`."
+ },
+ "star": "Stanton",
+ "solar": {
+  "locations": {
+   "Stanton": {
+    "type": "star",
+    "qt_destination": false,
+    "pos_km": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "from_star_km": 0
+   },
+   "HUR-L1 Green Glade Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     11561412.556,
+     -262.923,
+     -484.614
+    ],
+    "from_star_km": 11561413,
+    "nearest_body": "Magda",
+    "altitude_km": 1233166.9
+   },
+   "Mining Base #WUO-ZRU": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12727892.066,
+     1775.512,
+     0.0
+    ],
+    "from_star_km": 12727892,
+    "nearest_body": "Magda",
+    "altitude_km": 99713.4
+   },
+   "Mining Base #365-YNZ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12735183.87,
+     53246.262,
+     0.0
+    ],
+    "from_star_km": 12735295,
+    "nearest_body": "Ita",
+    "altitude_km": 112944.2
+   },
+   "Mining Base #7LI-0OA": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12763485.601,
+     19272.554,
+     0.0
+    ],
+    "from_star_km": 12763500,
+    "nearest_body": "Hurston",
+    "altitude_km": 88081.3
+   },
+   "Mining Base #R08-Y3K": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12789641.532,
+     -32506.97,
+     0.0
+    ],
+    "from_star_km": 12789683,
+    "nearest_body": "Magda",
+    "altitude_km": 41727.1
+   },
+   "Magda": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 340.8,
+    "orbits": "Hurston",
+    "pos_km": [
+     12792686.359,
+     -74464.581,
+     0.0
+    ],
+    "from_star_km": 12792903
+   },
+   "Comm Array ST1-48": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     12792981.876,
+     -74051.535,
+     24.0
+    ],
+    "from_star_km": 12793196,
+    "nearest_body": "Magda",
+    "altitude_km": 167.6
+   },
+   "Mining Base #ODD-E9B": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12794917.153,
+     -104890.263,
+     0.0
+    ],
+    "from_star_km": 12795347,
+    "nearest_body": "Magda",
+    "altitude_km": 30166.6
+   },
+   "Mining Base #IGB-FXW": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12829935.928,
+     104236.437,
+     0.0
+    ],
+    "from_star_km": 12830359,
+    "nearest_body": "Ita",
+    "altitude_km": 10355.3
+   },
+   "Ita": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 325.0,
+    "orbits": "Hurston",
+    "pos_km": [
+     12830194.716,
+     114913.609,
+     0.0
+    ],
+    "from_star_km": 12830709
+   },
+   "Comm Array ST1-02": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     12830316.869,
+     114437.788,
+     24.0
+    ],
+    "from_star_km": 12830827,
+    "nearest_body": "Ita",
+    "altitude_km": 166.8
+   },
+   "HUR-L3 Thundering Express Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -12844743.551,
+     -1554.387,
+     1335.043
+    ],
+    "from_star_km": 12844744,
+    "nearest_body": "Daymar",
+    "altitude_km": 6621013.7
+   },
+   "HUR-L4 Melodic Fields Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     6427627.577,
+     11124766.832,
+     666.284
+    ],
+    "from_star_km": 12848145,
+    "nearest_body": "Ita",
+    "altitude_km": 12735833.5
+   },
+   "Mining Base #YTO-GLQ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12848638.026,
+     149978.643,
+     0.0
+    ],
+    "from_star_km": 12849513,
+    "nearest_body": "Ita",
+    "altitude_km": 39294.6
+   },
+   "Everus Harbor": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     12849949.351,
+     -903.464,
+     496.489
+    ],
+    "from_star_km": 12849949,
+    "nearest_body": "Hurston",
+    "altitude_km": 149.2
+   },
+   "HUR-L5 High Course Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     6425723.013,
+     -11128362.131,
+     -842.035
+    ],
+    "from_star_km": 12850306,
+    "nearest_body": "Magda",
+    "altitude_km": 12756103.6
+   },
+   "Hurston": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 1000.0,
+    "orbits": "Stanton",
+    "pos_km": [
+     12850457.093,
+     0.0,
+     0.0
+    ],
+    "from_star_km": 12850457
+   },
+   "Comm Array ST1-61": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     12851376.346,
+     -771.345,
+     24.0
+    ],
+    "from_star_km": 12851376,
+    "nearest_body": "Hurston",
+    "altitude_km": 200.2
+   },
+   "Comm Array ST1-13": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     12892594.549,
+     -30970.501,
+     24.0
+    ],
+    "from_star_km": 12892632,
+    "nearest_body": "Arial",
+    "altitude_km": 167.8
+   },
+   "Arial": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 344.5,
+    "orbits": "Hurston",
+    "pos_km": [
+     12892673.309,
+     -31476.129,
+     0.0
+    ],
+    "from_star_km": 12892712
+   },
+   "Mining Base #6IN-P02": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12895948.465,
+     -43797.235,
+     0.0
+    ],
+    "from_star_km": 12896023,
+    "nearest_body": "Arial",
+    "altitude_km": 12404.5
+   },
+   "Comm Array ST1-92": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     12905322.278,
+     40910.337,
+     24.0
+    ],
+    "from_star_km": 12905387,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 164.4
+   },
+   "Aberdeen": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 274.0,
+    "orbits": "Hurston",
+    "pos_km": [
+     12905757.636,
+     40955.551,
+     0.0
+    ],
+    "from_star_km": 12905823
+   },
+   "Mining Base #01K-I43": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12909246.447,
+     56043.92,
+     0.0
+    ],
+    "from_star_km": 12909368,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 15212.5
+   },
+   "Mining Base #BBR-4JQ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12930123.734,
+     77404.668,
+     0.0
+    ],
+    "from_star_km": 12930355,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 43569.4
+   },
+   "Mining Base #LBP-UN5": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     12934823.758,
+     -62785.185,
+     0.0
+    ],
+    "from_star_km": 12934976,
+    "nearest_body": "Arial",
+    "altitude_km": 52161.9
+   },
+   "HUR-L2 Faithful Dream Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     14139635.583,
+     -1967.278,
+     -527.794
+    ],
+    "from_star_km": 14139636,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 1234350.4
+   },
+   "Wikelo Emporium Dasi Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     14333387.187,
+     2001161.589,
+     0.0
+    ],
+    "from_star_km": 14472409,
+    "nearest_body": "Ita",
+    "altitude_km": 2411628.4
+   },
+   "CRU-L1 Ambitious Dream Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -17068753.721,
+     -2399482.273,
+     -20.044
+    ],
+    "from_star_km": 17236585,
+    "nearest_body": "Daymar",
+    "altitude_km": 1873372.6
+   },
+   "Mining Base #IO3-H1F": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18897651.719,
+     -2702682.27,
+     0.0
+    ],
+    "from_star_km": 19089938,
+    "nearest_body": "Crusader",
+    "altitude_km": 67291.9
+   },
+   "Mining Base #E38-S5G": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18923213.181,
+     -2600272.747,
+     0.0
+    ],
+    "from_star_km": 19101032,
+    "nearest_body": "Daymar",
+    "altitude_km": 12009.6
+   },
+   "Daymar": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 295.2,
+    "orbits": "Crusader",
+    "pos_km": [
+     -18930539.54,
+     -2610158.765,
+     0.0
+    ],
+    "from_star_km": 19109638
+   },
+   "Covalex Shipping Hub Gundo": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -18930780.738,
+     -2609720.788,
+     -300.0
+    ],
+    "from_star_km": 19109817,
+    "nearest_body": "Daymar",
+    "altitude_km": 287.9
+   },
+   "Comm Array ST2-47": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     -18930975.157,
+     -2610305.761,
+     24.0
+    ],
+    "from_star_km": 19110089,
+    "nearest_body": "Daymar",
+    "altitude_km": 165.2
+   },
+   "Mining Base #W79-2H7": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18945494.288,
+     -2628153.629,
+     0.0
+    ],
+    "from_star_km": 19126917,
+    "nearest_body": "Daymar",
+    "altitude_km": 23102.7
+   },
+   "Seraphim Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -18956299.902,
+     -2666344.207,
+     5565.883
+    ],
+    "from_star_km": 19142903,
+    "nearest_body": "Crusader",
+    "altitude_km": 761.2
+   },
+   "CRU-L4 Shallow Fields Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -7173768.307,
+     -17750056.492,
+     -2174.784
+    ],
+    "from_star_km": 19144907,
+    "nearest_body": "Cellin",
+    "altitude_km": 19125637.8
+   },
+   "CRU-L5 Beautiful Glen Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -11785012.209,
+     15091235.756,
+     -2796.441
+    ],
+    "from_star_km": 19147635,
+    "nearest_body": "Daymar",
+    "altitude_km": 19088914.8
+   },
+   "CRU L3": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     18962164.826,
+     2664965.041,
+     0.0
+    ],
+    "from_star_km": 19148518,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 6600142.2
+   },
+   "Crusader": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 7450.0,
+    "orbits": "Stanton",
+    "pos_km": [
+     -18962176.0,
+     -2664960.0,
+     0.0
+    ],
+    "from_star_km": 19148528
+   },
+   "Comm Array ST2-55": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     -18963563.917,
+     -2656157.796,
+     24.0
+    ],
+    "from_star_km": 19148680,
+    "nearest_body": "Crusader",
+    "altitude_km": 1461.0
+   },
+   "Mining Base #4PI-3YY": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18979932.376,
+     -2694302.488,
+     0.0
+    ],
+    "from_star_km": 19170214,
+    "nearest_body": "Cellin",
+    "altitude_km": 16330.8
+   },
+   "Mining Base #R75-5PZ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18991802.599,
+     -2649093.385,
+     0.0
+    ],
+    "from_star_km": 19175668,
+    "nearest_body": "Crusader",
+    "altitude_km": 26157.8
+   },
+   "Mining Base #QXS-NBS": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -18985224.002,
+     -2716387.579,
+     0.0
+    ],
+    "from_star_km": 19178569,
+    "nearest_body": "Cellin",
+    "altitude_km": 7494.2
+   },
+   "Comm Array ST2-28": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     -18987368.875,
+     -2708662.468,
+     24.0
+    ],
+    "from_star_km": 19179599,
+    "nearest_body": "Cellin",
+    "altitude_km": 163.7
+   },
+   "Cellin": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 260.3,
+    "orbits": "Crusader",
+    "pos_km": [
+     -18987611.119,
+     -2709009.661,
+     0.0
+    ],
+    "from_star_km": 19179888
+   },
+   "Security Post Kareah": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -18987599.499,
+     -2709429.5,
+     200.0
+    ],
+    "from_star_km": 19179936,
+    "nearest_body": "Cellin",
+    "altitude_km": 204.9
+   },
+   "Mining Base #Q4U-I20": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -19021733.509,
+     -2594109.037,
+     0.0
+    ],
+    "from_star_km": 19197806,
+    "nearest_body": "Yela",
+    "altitude_km": 19609.3
+   },
+   "Mining Base #UU6-1EI": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -19018843.032,
+     -2621903.228,
+     0.0
+    ],
+    "from_star_km": 19198718,
+    "nearest_body": "Yela",
+    "altitude_km": 8581.8
+   },
+   "Comm Array ST2-76": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     -19022766.463,
+     -2614450.58,
+     24.0
+    ],
+    "from_star_km": 19201588,
+    "nearest_body": "Yela",
+    "altitude_km": 166.3
+   },
+   "Yela": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 313.0,
+    "orbits": "Crusader",
+    "pos_km": [
+     -19022916.799,
+     -2613996.152,
+     0.0
+    ],
+    "from_star_km": 19201675
+   },
+   "Miner's Lament": {
+    "type": "asteroid",
+    "qt_destination": false,
+    "pos_km": [
+     -19023405.547,
+     -2613477.25,
+     4.333
+    ],
+    "from_star_km": 19202089,
+    "nearest_body": "Yela",
+    "altitude_km": 399.8
+   },
+   "Grim HEX": {
+    "type": "landing_zone",
+    "qt_destination": true,
+    "pos_km": [
+     -19023485.458,
+     -2613612.587,
+     -2.042
+    ],
+    "from_star_km": 19202187,
+    "nearest_body": "Yela",
+    "altitude_km": 372.9
+   },
+   "Mining Base #URB-H3V": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -19018076.601,
+     -2711814.687,
+     0.0
+    ],
+    "from_star_km": 19210444,
+    "nearest_body": "Cellin",
+    "altitude_km": 30334.0
+   },
+   "Mining Base #51F-OGH": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -19030902.737,
+     -2676614.665,
+     0.0
+    ],
+    "from_star_km": 19218208,
+    "nearest_body": "Cellin",
+    "altitude_km": 53810.0
+   },
+   "Mining Base #Z48-013": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     -19045942.067,
+     -2625428.33,
+     0.0
+    ],
+    "from_star_km": 19226044,
+    "nearest_body": "Yela",
+    "altitude_km": 25394.2
+   },
+   "Wikelo Emporium Selo Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -20156591.641,
+     -1263139.664,
+     0.0
+    ],
+    "from_star_km": 20196131,
+    "nearest_body": "Yela",
+    "altitude_km": 1763215.3
+   },
+   "CRU L2": {
+    "type": "lagrange_point",
+    "qt_destination": false,
+    "pos_km": [
+     -20858376.485,
+     -2931474.402,
+     0.0
+    ],
+    "from_star_km": 21063367,
+    "nearest_body": "Yela",
+    "altitude_km": 1862401.3
+   },
+   "ARC-L1 Wide Forest Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     16729220.035,
+     -19942048.186,
+     2239.765
+    ],
+    "from_star_km": 26029831,
+    "nearest_body": "Wala",
+    "altitude_km": 2638088.6
+   },
+   "Pyro Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     3310458.973,
+     -27979388.887,
+     -2676295.323
+    ],
+    "from_star_km": 28301376,
+    "nearest_body": "Wala",
+    "altitude_km": 16431105.8
+   },
+   "Mining Base #RSV-8HL": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18348845.006,
+     -21978903.431,
+     0.0
+    ],
+    "from_star_km": 28631317,
+    "nearest_body": "Wala",
+    "altitude_km": 37317.8
+   },
+   "Wala": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 283.8,
+    "orbits": "ArcCorp",
+    "pos_km": [
+     18379649.31,
+     -22000466.768,
+     0.0
+    ],
+    "from_star_km": 28667613
+   },
+   "Comm Array ST3-35": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     18380015.131,
+     -22000724.176,
+     24.0
+    ],
+    "from_star_km": 28668045,
+    "nearest_body": "Wala",
+    "altitude_km": 164.2
+   },
+   "Mining Base #8CG-OSA": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18382699.7,
+     -22020591.983,
+     0.0
+    ],
+    "from_star_km": 28685016,
+    "nearest_body": "Wala",
+    "altitude_km": 20071.3
+   },
+   "Mining Base #OYV-JKE": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18427706.793,
+     -21989379.638,
+     0.0
+    ],
+    "from_star_km": 28689949,
+    "nearest_body": "Wala",
+    "altitude_km": 49036.0
+   },
+   "Mining Base #4R0-NVX": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18525030.677,
+     -21929302.708,
+     0.0
+    ],
+    "from_star_km": 28706638,
+    "nearest_body": "Wala",
+    "altitude_km": 161580.5
+   },
+   "Mining Base #7YH-JX7": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18373849.949,
+     -22187174.107,
+     0.0
+    ],
+    "from_star_km": 28807448,
+    "nearest_body": "Wala",
+    "altitude_km": 186513.6
+   },
+   "Mining Base #0YX-O7Z": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18674230.446,
+     -21975738.292,
+     0.0
+    ],
+    "from_star_km": 28838515,
+    "nearest_body": "Lyria",
+    "altitude_km": 148616.7
+   },
+   "Mining Base #BRE-582": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18585489.065,
+     -22065174.345,
+     0.0
+    ],
+    "from_star_km": 28849477,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 85969.9
+   },
+   "Mining Base #74H-2DO": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18585007.346,
+     -22103858.276,
+     0.0
+    ],
+    "from_star_km": 28878765,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 47332.1
+   },
+   "Mining Base #A73-HTJ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18553789.938,
+     -22154782.503,
+     0.0
+    ],
+    "from_star_km": 28897708,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 33195.8
+   },
+   "ARC-L4 Faint Glen Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     28476140.156,
+     5018904.179,
+     959.732
+    ],
+    "from_star_km": 28915047,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 16346492.8
+   },
+   "Baijini Point": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     18586892.779,
+     -22152238.268,
+     -359.509
+    ],
+    "from_star_km": 28917023,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 110.2
+   },
+   "ArcCorp": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 800.0,
+    "orbits": "Stanton",
+    "pos_km": [
+     18587664.74,
+     -22151916.92,
+     0.0
+    ],
+    "from_star_km": 28917273
+   },
+   "Comm Array ST3-90": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     18588423.124,
+     -22152553.28,
+     24.0
+    ],
+    "from_star_km": 28918248,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 190.3
+   },
+   "ARC-L5 Yellow Core Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -9895751.577,
+     -27175156.672,
+     882.465
+    ],
+    "from_star_km": 28920841,
+    "nearest_body": "Cellin",
+    "altitude_km": 26100587.6
+   },
+   "ARC-L3 Modern Express Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -25045525.487,
+     14463255.233,
+     -1892.763
+    ],
+    "from_star_km": 28921689,
+    "nearest_body": "Yela",
+    "altitude_km": 18107815.9
+   },
+   "Mining Base #7IQ-29Q": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18663837.365,
+     -22105146.903,
+     0.0
+    ],
+    "from_star_km": 28930543,
+    "nearest_body": "Lyria",
+    "altitude_km": 42835.0
+   },
+   "Mining Base #BSK-IJ5": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18611264.407,
+     -22189276.494,
+     0.0
+    ],
+    "from_star_km": 28961063,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 43389.2
+   },
+   "Mining Base #N6J-XKH": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18693852.005,
+     -22125405.386,
+     0.0
+    ],
+    "from_star_km": 28965387,
+    "nearest_body": "Lyria",
+    "altitude_km": 10230.0
+   },
+   "Comm Array ST3-18": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     18703224.445,
+     -22121617.1,
+     24.0
+    ],
+    "from_star_km": 28968544,
+    "nearest_body": "Lyria",
+    "altitude_km": 161.9
+   },
+   "Lyria": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 223.0,
+    "orbits": "ArcCorp",
+    "pos_km": [
+     18703607.172,
+     -22121650.134,
+     0.0
+    ],
+    "from_star_km": 28968816
+   },
+   "Mining Base #CZW-RRY": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18732124.414,
+     -22100485.169,
+     0.0
+    ],
+    "from_star_km": 28971088,
+    "nearest_body": "Lyria",
+    "altitude_km": 35290.2
+   },
+   "Mining Base #8PV-WNE": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18455201.09,
+     -22361843.44,
+     0.0
+    ],
+    "from_star_km": 28993904,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 247425.2
+   },
+   "Mining Base #XJZ-JR2 (ArcCorp)": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     18638013.964,
+     -22319970.034,
+     0.0
+    ],
+    "from_star_km": 29078456,
+    "nearest_body": "ArcCorp",
+    "altitude_km": 174633.4
+   },
+   "ARC-L2 Lively Pathway Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     20451005.908,
+     -24368053.521,
+     -293.845
+    ],
+    "from_star_km": 31812665,
+    "nearest_body": "Lyria",
+    "altitude_km": 2845779.6
+   },
+   "MIC-L1 Shallow Frontier Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     20215827.269,
+     33467069.518,
+     -0.943
+    ],
+    "from_star_km": 39098906,
+    "nearest_body": "Euterpe",
+    "altitude_km": 4268821.5
+   },
+   "Mining Base #UDK-IJX": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22441906.837,
+     37086701.961,
+     0.0
+    ],
+    "from_star_km": 43348156,
+    "nearest_body": "Clio",
+    "altitude_km": 34750.9
+   },
+   "Mining Base #X92-IVA": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22494894.501,
+     37069950.215,
+     0.0
+    ],
+    "from_star_km": 43361290,
+    "nearest_body": "Euterpe",
+    "altitude_km": 12859.2
+   },
+   "Mining Base #U5X-NGQ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22462175.033,
+     37092743.053,
+     0.0
+    ],
+    "from_star_km": 43363820,
+    "nearest_body": "Clio",
+    "altitude_km": 14317.6
+   },
+   "Euterpe": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 212.8,
+    "orbits": "microTech",
+    "pos_km": [
+     22488109.736,
+     37081123.565,
+     0.0
+    ],
+    "from_star_km": 43367324
+   },
+   "Comm Array ST4-64": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     22488541.52,
+     37081331.599,
+     24.0
+    ],
+    "from_star_km": 43367726,
+    "nearest_body": "Euterpe",
+    "altitude_km": 267.1
+   },
+   "Clio": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 337.2,
+    "orbits": "microTech",
+    "pos_km": [
+     22476728.221,
+     37091020.074,
+     0.0
+    ],
+    "from_star_km": 43369887
+   },
+   "Comm Array ST4-59": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     22476478.957,
+     37091530.237,
+     24.0
+    ],
+    "from_star_km": 43370194,
+    "nearest_body": "Clio",
+    "altitude_km": 231.1
+   },
+   "Mining Base #1XA-3GI": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22388894.882,
+     37152246.886,
+     0.0
+    ],
+    "from_star_km": 43376861,
+    "nearest_body": "Calliope",
+    "altitude_km": 18867.8
+   },
+   "Mining Base #XJZ-JR2 (Euterpe)": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22518372.109,
+     37088217.147,
+     0.0
+    ],
+    "from_star_km": 43389088,
+    "nearest_body": "Euterpe",
+    "altitude_km": 30869.8
+   },
+   "Mining Base #JUG-0KZ": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22485354.447,
+     37109529.258,
+     0.0
+    ],
+    "from_star_km": 43390187,
+    "nearest_body": "Clio",
+    "altitude_km": 20083.4
+   },
+   "Calliope": {
+    "type": "moon",
+    "qt_destination": true,
+    "radius_km": 240.3,
+    "orbits": "microTech",
+    "pos_km": [
+     22398369.308,
+     37168840.679,
+     0.0
+    ],
+    "from_star_km": 43395964
+   },
+   "Comm Array ST4-31": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     22398627.814,
+     37169314.872,
+     24.0
+    ],
+    "from_star_km": 43396503,
+    "nearest_body": "Calliope",
+    "altitude_km": 300.3
+   },
+   "Mining Base #GO4-CH0": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22401206.196,
+     37171726.596,
+     0.0
+    ],
+    "from_star_km": 43399900,
+    "nearest_body": "Calliope",
+    "altitude_km": 3806.5
+   },
+   "Mining Base #CVF-T6H": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22371545.225,
+     37195454.608,
+     0.0
+    ],
+    "from_star_km": 43404929,
+    "nearest_body": "Calliope",
+    "altitude_km": 37546.4
+   },
+   "Mining Base #AL5-XPD": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22430185.241,
+     37172645.753,
+     0.0
+    ],
+    "from_star_km": 43415652,
+    "nearest_body": "Calliope",
+    "altitude_km": 31802.4
+   },
+   "Mining Base #R7J-WJ7": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22475091.324,
+     37162895.669,
+     0.0
+    ],
+    "from_star_km": 43430525,
+    "nearest_body": "microTech",
+    "altitude_km": 25291.6
+   },
+   "MIC-L3 Endless Odyssey Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -22452218.252,
+     -37179923.023,
+     -10590.411
+    ],
+    "from_star_km": 43433269,
+    "nearest_body": "Cellin",
+    "altitude_km": 34644327.8
+   },
+   "Port Tressler": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     22461523.781,
+     37185199.112,
+     808.832
+    ],
+    "from_star_km": 43442595,
+    "nearest_body": "microTech",
+    "altitude_km": 125.8
+   },
+   "microTech": {
+    "type": "planet",
+    "qt_destination": true,
+    "radius_km": 1000.0,
+    "orbits": "Stanton",
+    "pos_km": [
+     22462085.252,
+     37185744.965,
+     0.0
+    ],
+    "from_star_km": 43443353
+   },
+   "Comm Array ST4-22": {
+    "type": "comm_array",
+    "qt_destination": true,
+    "pos_km": [
+     22463480.44,
+     37187712.709,
+     24.0
+    ],
+    "from_star_km": 43445758,
+    "nearest_body": "microTech",
+    "altitude_km": 1412.3
+   },
+   "MIC-L4 Red Crossroads Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -20968720.663,
+     38056058.357,
+     -11799.275
+    ],
+    "from_star_km": 43450558,
+    "nearest_body": "Yela",
+    "altitude_km": 40716263.8
+   },
+   "MIC-L5 Modern Icarus Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     43448559.857,
+     -857708.037,
+     -7824.371
+    ],
+    "from_star_km": 43457026,
+    "nearest_body": "Aberdeen",
+    "altitude_km": 30555747.1
+   },
+   "Mining Base #RCD-OB3": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22439132.599,
+     37230397.527,
+     0.0
+    ],
+    "from_star_km": 43469727,
+    "nearest_body": "microTech",
+    "altitude_km": 49206.3
+   },
+   "Mining Base #Q9Q-090": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22502798.154,
+     37216558.48,
+     0.0
+    ],
+    "from_star_km": 43490782,
+    "nearest_body": "microTech",
+    "altitude_km": 50058.9
+   },
+   "Mining Base #SAG-2UN": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22449778.122,
+     37270791.829,
+     0.0
+    ],
+    "from_star_km": 43509820,
+    "nearest_body": "microTech",
+    "altitude_km": 84932.7
+   },
+   "Mining Base #5U5-TLC": {
+    "type": "mining_base",
+    "qt_destination": false,
+    "pos_km": [
+     22525124.398,
+     37249293.531,
+     0.0
+    ],
+    "from_star_km": 43530347,
+    "nearest_body": "microTech",
+    "altitude_km": 88511.8
+   },
+   "Wikelo Emporium Kinga Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     23761435.429,
+     39225377.3,
+     0.0
+    ],
+    "from_star_km": 45861051,
+    "nearest_body": "microTech",
+    "altitude_km": 2417348.8
+   },
+   "MIC-L2 Long Forest Station": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     24713774.898,
+     40912934.444,
+     -10634.827
+    ],
+    "from_star_km": 47797897,
+    "nearest_body": "microTech",
+    "altitude_km": 4353556.3
+   },
+   "Nyx Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -62284231.027,
+     23467599.567,
+     20198394.728
+    ],
+    "from_star_km": 69555940,
+    "nearest_body": "Yela",
+    "altitude_km": 54403419.3
+   }
+  }
+ },
+ "planetary": {
+  "ArcCorp": {
+   "radius_km": 800.0,
+   "orbits": "Stanton",
+   "locations": {
+    "Area04": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -314.337,
+      -601.493,
+      423.7
+     ],
+     "altitude_km": 0.08
+    },
+    "Area06": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -745.806,
+      -111.306,
+      267.38
+     ],
+     "altitude_km": 0.07
+    },
+    "Area11": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      508.333,
+      397.691,
+      473.042
+     ],
+     "altitude_km": 0.21
+    },
+    "Area17": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -323.01,
+      -595.132,
+      -426.209
+     ],
+     "altitude_km": 0.11
+    },
+    "Area18": {
+     "type": "landing_zone",
+     "qt_destination": true,
+     "pos_km": [
+      -747.409,
+      -116.734,
+      -262.094
+     ],
+     "altitude_km": 0.59
+    },
+    "Area20": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      506.937,
+      401.104,
+      -471.308
+     ],
+     "altitude_km": -0.0
+    },
+    "The Sky Scraper": {
+     "type": "poi",
+     "qt_destination": true,
+     "pos_km": [
+      -746.272,
+      -155.436,
+      -245.264
+     ],
+     "altitude_km": 0.77
+    }
+   }
+  },
+  "Crusader": {
+   "radius_km": 7450.0,
+   "orbits": "Stanton",
+   "locations": {
+    "Cloudrest Retreat": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -7396.172,
+      -1420.246,
+      29.007
+     ],
+     "altitude_km": 81.35
+    },
+    "Empyrean Park": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      1090.108,
+      7304.364,
+      1509.818
+     ],
+     "altitude_km": 88.01
+    },
+    "Orison": {
+     "type": "landing_zone",
+     "qt_destination": true,
+     "pos_km": [
+      5295.517,
+      -863.194,
+      5282.237
+     ],
+     "altitude_km": 79.25
+    },
+    "Prospect Point": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      3254.279,
+      -1225.248,
+      6683.686
+     ],
+     "altitude_km": 84.14
+    }
+   }
+  },
+  "Hurston": {
+   "radius_km": 1000.0,
+   "orbits": "Stanton",
+   "locations": {
+    "Broken Patch": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -740.15,
+      -401.507,
+      -543.923
+     ],
+     "altitude_km": 2.44
+    },
+    "Covalex Distribution Centre S1DC06": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      742.847,
+      15.48,
+      671.074
+     ],
+     "altitude_km": 1.2
+    },
+    "Cutter's Rig": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -455.119,
+      -200.497,
+      867.564
+     ],
+     "altitude_km": -0.0
+    },
+    "Dupree Industrial Manufacturing Facility": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      239.426,
+      -969.807,
+      68.635
+     ],
+     "altitude_km": 1.28
+    },
+    "Finn's Folly": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -196.592,
+      -197.871,
+      961.999
+     ],
+     "altitude_km": 1.62
+    },
+    "Greycat Stanton I Production Complex-B": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -407.457,
+      -656.296,
+      636.322
+     ],
+     "altitude_km": 0.83
+    },
+    "HDMS-Edmond": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -284.48,
+      -730.502,
+      620.924
+     ],
+     "altitude_km": 0.05
+    },
+    "HDMS-Hadley": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      626.167,
+      -583.971,
+      -518.485
+     ],
+     "altitude_km": 0.97
+    },
+    "HDMS-Oparei": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -556.126,
+      -72.591,
+      -828.071
+     ],
+     "altitude_km": 0.12
+    },
+    "HDMS-Pinewood": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      985.564,
+      90.029,
+      149.896
+     ],
+     "altitude_km": 0.95
+    },
+    "HDMS-Stanhope": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -648.608,
+      198.313,
+      735.121
+     ],
+     "altitude_km": 0.21
+    },
+    "HDMS-Thedus": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      443.322,
+      891.525,
+      101.509
+     ],
+     "altitude_km": 0.83
+    },
+    "HDPC-Cassillo": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -789.716,
+      615.354,
+      -2.353
+     ],
+     "altitude_km": 1.16
+    },
+    "HDPC-Farnesway": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      129.223,
+      63.888,
+      989.575
+     ],
+     "altitude_km": 0.02
+    },
+    "HDRSO-Baier": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -433.919,
+      301.727,
+      851.013
+     ],
+     "altitude_km": 1.77
+    },
+    "HDRSO-Bardie": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -419.852,
+      440.358,
+      794.891
+     ],
+     "altitude_km": 1.02
+    },
+    "HDRSO-Bersch": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -436.245,
+      419.946,
+      795.883
+     ],
+     "altitude_km": 0.05
+    },
+    "HDRSO-Bowes": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -435.775,
+      430.996,
+      790.232
+     ],
+     "altitude_km": 0.06
+    },
+    "HDRSO-Brel": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -420.218,
+      406.044,
+      813.71
+     ],
+     "altitude_km": 1.79
+    },
+    "HDRSO-Cronshaw": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -422.254,
+      382.551,
+      824.551
+     ],
+     "altitude_km": 2.26
+    },
+    "HDRSO-Foster": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -407.132,
+      372.886,
+      836.012
+     ],
+     "altitude_km": 1.86
+    },
+    "HDRSO-Franz": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -453.501,
+      371.879,
+      812.093
+     ],
+     "altitude_km": 1.72
+    },
+    "HDRSO-Giblin": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -549.109,
+      246.068,
+      801.997
+     ],
+     "altitude_km": 2.63
+    },
+    "HDRSO-Hosley": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -986.146,
+      -173.108,
+      -0.898
+     ],
+     "altitude_km": 1.22
+    },
+    "HDRSO-Malloy": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -982.073,
+      -188.907,
+      39.898
+     ],
+     "altitude_km": 0.87
+    },
+    "HDRSO-Marling": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -864.196,
+      -474.996,
+      -171.181
+     ],
+     "altitude_km": 0.88
+    },
+    "HDRSO-McKuen": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -834.443,
+      -514.533,
+      -198.282
+     ],
+     "altitude_km": 0.18
+    },
+    "HDRSO-Newman": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -807.598,
+      -562.498,
+      -177.634
+     ],
+     "altitude_km": 0.09
+    },
+    "HDRSO-Olliff": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -785.953,
+      -584.009,
+      -203.892
+     ],
+     "altitude_km": 0.18
+    },
+    "HDRSO-Pearce": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -785.362,
+      -589.559,
+      -188.888
+     ],
+     "altitude_km": 0.03
+    },
+    "HDRSO-Sheppard": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -786.392,
+      -599.621,
+      -151.02
+     ],
+     "altitude_km": 0.38
+    },
+    "HDRSO-Sims": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -751.438,
+      -630.785,
+      -193.547
+     ],
+     "altitude_km": 0.0
+    },
+    "HDRSO-Stott": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -676.84,
+      -709.291,
+      -198.744
+     ],
+     "altitude_km": 0.35
+    },
+    "HDRSO-Tillman": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -729.413,
+      -686.833,
+      10.067
+     ],
+     "altitude_km": 1.94
+    },
+    "HDRSO-Walker": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -610.036,
+      -794.239,
+      -16.094
+     ],
+     "altitude_km": 1.61
+    },
+    "HDRSO-Wyatt": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -567.315,
+      -815.069,
+      -128.385
+     ],
+     "altitude_km": 1.33
+    },
+    "HDSF-Adlai": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -237.086,
+      -810.782,
+      537.793
+     ],
+     "altitude_km": 1.4
+    },
+    "HDSF-Barnabas": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -895.943,
+      365.597,
+      -252.263
+     ],
+     "altitude_km": 0.01
+    },
+    "HDSF-Breckinridge": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -557.688,
+      680.563,
+      -477.688
+     ],
+     "altitude_km": 1.18
+    },
+    "HDSF-Colfax": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      902.219,
+      383.909,
+      -203.814
+     ],
+     "altitude_km": 1.46
+    },
+    "HDSF-Damaris": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -898.57,
+      420.343,
+      -142.012
+     ],
+     "altitude_km": 2.14
+    },
+    "HDSF-Elbridge": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      449.309,
+      838.693,
+      310.715
+     ],
+     "altitude_km": 0.91
+    },
+    "HDSF-Hendricks": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      63.634,
+      -969.033,
+      -242.667
+     ],
+     "altitude_km": 0.98
+    },
+    "HDSF-Hiram": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -942.505,
+      -317.02,
+      122.605
+     ],
+     "altitude_km": 1.92
+    },
+    "HDSF-Hobart": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -492.333,
+      768.276,
+      410.873
+     ],
+     "altitude_km": 0.73
+    },
+    "HDSF-Ishmael": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -266.783,
+      -158.616,
+      952.318
+     ],
+     "altitude_km": 1.62
+    },
+    "HDSF-Millerand": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -847.549,
+      517.449,
+      127.617
+     ],
+     "altitude_km": 1.19
+    },
+    "HDSF-Rufus": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -64.679,
+      11.413,
+      -998.44
+     ],
+     "altitude_km": 0.6
+    },
+    "HDSF-Sherman": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      899.436,
+      -406.041,
+      168.243
+     ],
+     "altitude_km": 1.08
+    },
+    "HDSF-Tamar": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      121.292,
+      -810.948,
+      -573.513
+     ],
+     "altitude_km": 0.63
+    },
+    "HDSF-Tompkins": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      374.82,
+      724.628,
+      579.686
+     ],
+     "altitude_km": 0.81
+    },
+    "HDSF-Zacharias": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      249.462,
+      398.477,
+      -884.879
+     ],
+     "altitude_km": 2.01
+    },
+    "Lorville": {
+     "type": "landing_zone",
+     "qt_destination": true,
+     "pos_km": [
+      -328.989,
+      -752.435,
+      572.12
+     ],
+     "altitude_km": 0.86
+    },
+    "Lowdown": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -93.423,
+      890.632,
+      -448.814
+     ],
+     "altitude_km": 1.69
+    },
+    "Ludlow": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -878.668,
+      -467.858,
+      111.091
+     ],
+     "altitude_km": 1.64
+    },
+    "Maker's Point": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -154.007,
+      128.325,
+      979.766
+     ],
+     "altitude_km": 0.06
+    },
+    "Picker's Field": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -679.766,
+      262.266,
+      -686.08
+     ],
+     "altitude_km": 0.79
+    },
+    "Rappel": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      352.952,
+      -661.89,
+      663.889
+     ],
+     "altitude_km": 1.71
+    },
+    "Reclamation & Disposal Orinth": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      1.203,
+      -794.237,
+      607.701
+     ],
+     "altitude_km": 0.06
+    },
+    "Rico's Remains": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -118.731,
+      -23.754,
+      993.786
+     ],
+     "altitude_km": 1.13
+    },
+    "Sakura Sun Magnolia Workcenter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -229.373,
+      -864.793,
+      -446.96
+     ],
+     "altitude_km": 0.13
+    },
+    "Trilo": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      421.159,
+      -901.888,
+      115.085
+     ],
+     "altitude_km": 2.01
+    },
+    "Weeping Cove": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -455.403,
+      -202.816,
+      866.881
+     ],
+     "altitude_km": 0.0
+    },
+    "Zephyr": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      108.16,
+      -133.662,
+      986.694
+     ],
+     "altitude_km": 1.56
+    }
+   }
+  },
+  "microTech": {
+   "radius_km": 1000.0,
+   "orbits": "Stanton",
+   "locations": {
+    "Astor's Clearing": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      810.219,
+      -577.884,
+      -101.43
+     ],
+     "altitude_km": 0.35
+    },
+    "Calhoun Pass Emergency Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -938.116,
+      347.818,
+      31.708
+     ],
+     "altitude_km": 1.02
+    },
+    "Clear View Emergency Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      609.561,
+      688.363,
+      393.203
+     ],
+     "altitude_km": 0.01
+    },
+    "Covalex Distribution Centre S4DC05": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      332.505,
+      -897.834,
+      -290.234
+     ],
+     "altitude_km": 0.45
+    },
+    "Cry-Astro Processing Plant 19-02": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -584.139,
+      0.789,
+      812.169
+     ],
+     "altitude_km": 0.42
+    },
+    "Cry-Astro Processing Plant 34-12": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      316.285,
+      882.04,
+      -350.639
+     ],
+     "altitude_km": 0.49
+    },
+    "Drifters": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      331.818,
+      -694.177,
+      -640.38
+     ],
+     "altitude_km": 1.04
+    },
+    "Dunboro": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      735.889,
+      -678.302,
+      11.155
+     ],
+     "altitude_km": 0.88
+    },
+    "Frostbite": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -539.62,
+      -762.339,
+      -361.448
+     ],
+     "altitude_km": 1.5
+    },
+    "Ghost Hollow": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      127.194,
+      -982.004,
+      149.145
+     ],
+     "altitude_km": 1.38
+    },
+    "Greycat Stanton IV Production Complex-A": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      423.347,
+      141.169,
+      -895.145
+     ],
+     "altitude_km": 0.22
+    },
+    "Harper's Point": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      687.373,
+      -716.613,
+      128.227
+     ],
+     "altitude_km": 1.23
+    },
+    "Hela's Regret": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      666.883,
+      561.293,
+      -490.322
+     ],
+     "altitude_km": 0.1
+    },
+    "Kelo Bottom": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -896.329,
+      -430.723,
+      -116.471
+     ],
+     "altitude_km": 1.25
+    },
+    "MT DataCenter 2UB-RB9-5": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -907.002,
+      -139.908,
+      -397.662
+     ],
+     "altitude_km": 0.18
+    },
+    "MT DataCenter 4HJ-LVE-A": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      100.841,
+      -962.407,
+      -255.721
+     ],
+     "altitude_km": 0.89
+    },
+    "MT DataCenter 5WQ-R2V-C": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -959.88,
+      -40.295,
+      -279.073
+     ],
+     "altitude_km": 0.44
+    },
+    "MT DataCenter 8FK-Q2X-K": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -22.397,
+      -2.905,
+      -1000.725
+     ],
+     "altitude_km": 0.98
+    },
+    "MT DataCenter D79-ECG-R": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -200.928,
+      -308.74,
+      -929.82
+     ],
+     "altitude_km": 0.13
+    },
+    "MT DataCenter E2Q-NSG-Y": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -916.832,
+      -187.159,
+      -354.144
+     ],
+     "altitude_km": 0.51
+    },
+    "MT DataCenter KH3-AAE-L": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      468.928,
+      -801.473,
+      -375.316
+     ],
+     "altitude_km": 1.56
+    },
+    "MT DataCenter L8P-JUC-8 (Offline)": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      86.563,
+      -218.56,
+      -972.07
+     ],
+     "altitude_km": 0.09
+    },
+    "MT DataCenter QVX-J88-J": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      247.945,
+      -892.699,
+      -379.678
+     ],
+     "altitude_km": 1.27
+    },
+    "MT DataCenter TMG-XEV-2": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      160.992,
+      -62.442,
+      985.998
+     ],
+     "altitude_km": 1.0
+    },
+    "MT OpCenter TLI-4": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -68.364,
+      -64.276,
+      -996.49
+     ],
+     "altitude_km": 0.9
+    },
+    "MT SecurityCenter 4HJ-LVE-A": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -22.73,
+      -367.755,
+      -930.638
+     ],
+     "altitude_km": 0.92
+    },
+    "MT SecurityCenter 9PL-Q42-K": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      39.24,
+      -329.736,
+      -943.42
+     ],
+     "altitude_km": 0.15
+    },
+    "MT SecurityCenter 9WB-HV7-P": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      176.911,
+      -301.184,
+      -938.154
+     ],
+     "altitude_km": 1.07
+    },
+    "MT SecurityCenter BH5-KEH-6": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      252.866,
+      -289.898,
+      -924.215
+     ],
+     "altitude_km": 1.08
+    },
+    "MT SecurityCenter D66-CRW-F": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      4.563,
+      -656.102,
+      -755.014
+     ],
+     "altitude_km": 0.27
+    },
+    "MT SecurityCenter DRC-F2S-6": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      74.729,
+      -751.459,
+      -656.156
+     ],
+     "altitude_km": 0.41
+    },
+    "MT SecurityCenter E6C-BRT-M": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -63.357,
+      -895.618,
+      -443.727
+     ],
+     "altitude_km": 1.52
+    },
+    "MT SecurityCenter GSW-NM3-E": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -295.253,
+      -952.24,
+      -91.084
+     ],
+     "altitude_km": 1.12
+    },
+    "MT SecurityCenter OEE-5RG-5": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -174.153,
+      -911.635,
+      -373.782
+     ],
+     "altitude_km": 0.56
+    },
+    "MT SecurityCenter SLP-VC3-W": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -158.266,
+      -945.127,
+      -287.522
+     ],
+     "altitude_km": 0.49
+    },
+    "MT SecurityCenter UDB-Z4W-2": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -106.256,
+      -972.504,
+      -211.209
+     ],
+     "altitude_km": 0.83
+    },
+    "MT SecurityCenter XGT-33W-7": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -9.641,
+      -894.309,
+      449.977
+     ],
+     "altitude_km": 1.18
+    },
+    "New Babbage": {
+     "type": "landing_zone",
+     "qt_destination": true,
+     "pos_km": [
+      -520.723,
+      -419.364,
+      743.655
+     ],
+     "altitude_km": 0.02
+    },
+    "Nuiqsut Emergency Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -750.613,
+      207.852,
+      -627.225
+     ],
+     "altitude_km": 0.02
+    },
+    "Outpost 54": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -113.566,
+      -14.479,
+      -994.363
+     ],
+     "altitude_km": 0.93
+    },
+    "Point Wain Emergency Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      627.441,
+      485.258,
+      611.733
+     ],
+     "altitude_km": 1.69
+    },
+    "Raven's Roost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -355.904,
+      75.594,
+      932.645
+     ],
+     "altitude_km": 1.1
+    },
+    "Rayari Deltana Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      693.91,
+      648.299,
+      316.681
+     ],
+     "altitude_km": 1.04
+    },
+    "Sakura Sun Goldenrod Workcenter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      173.422,
+      923.63,
+      -343.265
+     ],
+     "altitude_km": 0.5
+    },
+    "Shubin Mining Facility SM0-10": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -85.476,
+      950.856,
+      298.799
+     ],
+     "altitude_km": 0.36
+    },
+    "Shubin Mining Facility SM0-13": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      172.819,
+      981.308,
+      97.767
+     ],
+     "altitude_km": 1.19
+    },
+    "Shubin Mining Facility SM0-18": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -920.21,
+      389.542,
+      43.837
+     ],
+     "altitude_km": 0.23
+    },
+    "Shubin Mining Facility SM0-22": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -24.299,
+      822.591,
+      568.174
+     ],
+     "altitude_km": 0.03
+    },
+    "The Barrens": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -231.942,
+      973.238,
+      -1.731
+     ],
+     "altitude_km": 0.5
+    },
+    "The Necropolis": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -63.643,
+      162.085,
+      985.651
+     ],
+     "altitude_km": 0.91
+    },
+    "microTech Logistics Depot S4LD01": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -884.615,
+      -467.868,
+      -19.153
+     ],
+     "altitude_km": 0.9
+    },
+    "microTech Logistics Depot S4LD13": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -843.838,
+      179.535,
+      505.834
+     ],
+     "altitude_km": 0.08
+    }
+   }
+  }
+ },
+ "lunar": {
+  "Aberdeen": {
+   "radius_km": 274.0,
+   "orbits": "Hurston",
+   "locations": {
+    "Barton Flats Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      54.341,
+      217.12,
+      -159.881
+     ],
+     "altitude_km": 1.06
+    },
+    "Boondoggle": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      134.849,
+      -191.27,
+      -144.287
+     ],
+     "altitude_km": 0.93
+    },
+    "HDMS-Anderson": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -26.95,
+      180.221,
+      206.879
+     ],
+     "altitude_km": 1.69
+    },
+    "HDMS-Norgaard": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -141.572,
+      195.318,
+      132.098
+     ],
+     "altitude_km": 1.03
+    },
+    "Klescher Rehabilitation Facility": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      44.976,
+      221.564,
+      -156.584
+     ],
+     "altitude_km": 1.01
+    },
+    "Ruptura OLP": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -143.763,
+      75.499,
+      237.375
+     ],
+     "altitude_km": 13.6
+    },
+    "Ruptura PAF-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -135.103,
+      69.995,
+      229.333
+     ],
+     "altitude_km": 1.22
+    },
+    "Ruptura PAF-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -141.271,
+      69.076,
+      226.037
+     ],
+     "altitude_km": 1.36
+    },
+    "Ruptura PAF-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -138.452,
+      75.932,
+      224.923
+     ],
+     "altitude_km": 0.82
+    },
+    "The Grove": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -187.075,
+      169.927,
+      -108.364
+     ],
+     "altitude_km": 0.98
+    },
+    "Vivere OLP": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      199.731,
+      98.278,
+      -182.205
+     ],
+     "altitude_km": 13.66
+    },
+    "Vivere PAF-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      194.316,
+      95.552,
+      -169.697
+     ],
+     "altitude_km": 1.11
+    },
+    "Vivere PAF-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      190.769,
+      89.322,
+      -177.233
+     ],
+     "altitude_km": 1.29
+    },
+    "Vivere PAF-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      187.7,
+      97.786,
+      -176.091
+     ],
+     "altitude_km": 1.32
+    }
+   }
+  },
+  "Arial": {
+   "radius_km": 344.5,
+   "orbits": "Hurston",
+   "locations": {
+    "Coven": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      134.643,
+      285.357,
+      -139.695
+     ],
+     "altitude_km": 0.57
+    },
+    "HDMS-Bezdek": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      26.735,
+      -234.698,
+      251.505
+     ],
+     "altitude_km": 0.54
+    },
+    "HDMS-Lathan": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      339.193,
+      33.686,
+      55.843
+     ],
+     "altitude_km": 0.91
+    },
+    "Smokestack": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -311.896,
+      -147.411,
+      -10.655
+     ],
+     "altitude_km": 0.64
+    },
+    "The Dregs": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      143.735,
+      -232.741,
+      210.212
+     ],
+     "altitude_km": 0.49
+    }
+   }
+  },
+  "Calliope": {
+   "radius_km": 240.3,
+   "orbits": "microTech",
+   "locations": {
+    "Blighter's Run": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      206.788,
+      -51.687,
+      110.564
+     ],
+     "altitude_km": -0.21
+    },
+    "Hard Knocks": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -218.837,
+      -52.591,
+      84.53
+     ],
+     "altitude_km": 0.09
+    },
+    "Hasbin Hall": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      181.913,
+      -149.785,
+      -46.792
+     ],
+     "altitude_km": -0.09
+    },
+    "MT SecurityCenter 6EE-GVH-9": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -153.564,
+      183.494,
+      -21.655
+     ],
+     "altitude_km": -0.08
+    },
+    "MT SecurityCenter CTB-B3U-1": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -142.618,
+      191.51,
+      -28.744
+     ],
+     "altitude_km": 0.17
+    },
+    "MT SecurityCenter DXC-25G-L": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -124.93,
+      202.288,
+      -33.289
+     ],
+     "altitude_km": -0.26
+    },
+    "MT SecurityCenter FQ5-URX-8": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -106.028,
+      199.821,
+      -81.202
+     ],
+     "altitude_km": 0.01
+    },
+    "MT SecurityCenter H36-YBG-R": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -68.55,
+      206.513,
+      -101.3
+     ],
+     "altitude_km": -0.32
+    },
+    "MT SecurityCenter JWB-D9L-4": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -45.161,
+      215.401,
+      -95.895
+     ],
+     "altitude_km": -0.26
+    },
+    "MT SecurityCenter KWS-GPZ-5": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -28.243,
+      205.478,
+      -120.902
+     ],
+     "altitude_km": -0.26
+    },
+    "MT SecurityCenter PLM-9YW-Q": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -38.499,
+      195.145,
+      -134.642
+     ],
+     "altitude_km": -0.14
+    },
+    "MT SecurityCenter VD9-87R-P": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -0.489,
+      220.694,
+      -94.335
+     ],
+     "altitude_km": -0.32
+    },
+    "Rayari Anvik Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -184.632,
+      -127.794,
+      84.724
+     ],
+     "altitude_km": -0.34
+    },
+    "Rayari Kaltag Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      205.267,
+      6.261,
+      -124.485
+     ],
+     "altitude_km": -0.19
+    },
+    "Regiment Downs": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -60.059,
+      226.418,
+      -52.74
+     ],
+     "altitude_km": -0.22
+    },
+    "Shubin Mining Facility SMCa-6": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      50.066,
+      233.437,
+      24.936
+     ],
+     "altitude_km": -0.29
+    },
+    "Shubin Mining Facility SMCa-8": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      160.166,
+      168.987,
+      -58.4
+     ],
+     "altitude_km": -0.29
+    },
+    "Shubin Processing Facility SPMC-10": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -222.947,
+      -74.155,
+      -48.946
+     ],
+     "altitude_km": -0.33
+    },
+    "Shubin Processing Facility SPMC-11": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      72.652,
+      -187.77,
+      131.025
+     ],
+     "altitude_km": -0.12
+    },
+    "Shubin Processing Facility SPMC-14": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      228.647,
+      -21.168,
+      71.032
+     ],
+     "altitude_km": 0.03
+    },
+    "Shubin Processing Facility SPMC-3": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      239.598,
+      -11.47,
+      8.83
+     ],
+     "altitude_km": -0.3
+    },
+    "Shubin Processing Facility SPMC-5": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -230.046,
+      66.604,
+      19.441
+     ],
+     "altitude_km": -0.05
+    }
+   }
+  },
+  "Cellin": {
+   "radius_km": 260.3,
+   "orbits": "Crusader",
+   "locations": {
+    "Ashburn Channel Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      3.024,
+      -257.942,
+      -37.129
+     ],
+     "altitude_km": 0.29
+    },
+    "Consumption": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      64.288,
+      -237.509,
+      85.093
+     ],
+     "altitude_km": 0.02
+    },
+    "Fetch": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      241.761,
+      -47.094,
+      -84.846
+     ],
+     "altitude_km": 0.18
+    },
+    "Flanagan's Ravine Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -194.282,
+      151.722,
+      84.997
+     ],
+     "altitude_km": 0.42
+    },
+    "Gallete Family Farms": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -89.471,
+      106.717,
+      220.041
+     ],
+     "altitude_km": 0.07
+    },
+    "Hickes Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      3.27,
+      13.091,
+      -260.316
+     ],
+     "altitude_km": 0.33
+    },
+    "Julep Ravine Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -111.528,
+      -56.297,
+      -228.95
+     ],
+     "altitude_km": 0.48
+    },
+    "Mogote Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -198.664,
+      50.79,
+      160.875
+     ],
+     "altitude_km": 0.3
+    },
+    "NT-999-XV": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      146.849,
+      135.264,
+      167.452
+     ],
+     "altitude_km": 0.25
+    },
+    "PRIVATE PROPERTY": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      97.749,
+      -173.764,
+      167.078
+     ],
+     "altitude_km": -0.21
+    },
+    "Security Post Awala": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      241.708,
+      32.956,
+      92.301
+     ],
+     "altitude_km": 0.49
+    },
+    "Security Post Birbari": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -152.438,
+      -195.542,
+      81.449
+     ],
+     "altitude_km": 0.64
+    },
+    "Security Post Chilad": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -223.496,
+      -115.735,
+      66.944
+     ],
+     "altitude_km": 0.1
+    },
+    "Security Post Criska": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      252.518,
+      62.917,
+      13.988
+     ],
+     "altitude_km": 0.28
+    },
+    "Security Post Dipur": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      197.594,
+      57.562,
+      -160.055
+     ],
+     "altitude_km": 0.39
+    },
+    "Security Post Gandan": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      43.976,
+      -179.168,
+      184.168
+     ],
+     "altitude_km": 0.35
+    },
+    "Security Post Kota": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      67.248,
+      -95.146,
+      232.975
+     ],
+     "altitude_km": 0.15
+    },
+    "Security Post Lespin": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -214.293,
+      -149.184,
+      4.123
+     ],
+     "altitude_km": 0.81
+    },
+    "Security Post Pakote": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      94.224,
+      -71.327,
+      232.359
+     ],
+     "altitude_km": 0.35
+    },
+    "Security Post Saktigar": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      126.781,
+      -71.928,
+      215.954
+     ],
+     "altitude_km": 0.21
+    },
+    "Security Post Sharga": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      102.725,
+      -55.538,
+      233.874
+     ],
+     "altitude_km": 1.07
+    },
+    "Stone's Throw": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -187.393,
+      -71.585,
+      -166.115
+     ],
+     "altitude_km": 0.12
+    },
+    "Terra Mills HydroFarm": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      100.137,
+      27.701,
+      239.024
+     ],
+     "altitude_km": 0.3
+    },
+    "The Hollows": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      2.938,
+      201.304,
+      165.52
+     ],
+     "altitude_km": 0.3
+    },
+    "Tram & Myers Mining": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -241.164,
+      2.396,
+      -98.7
+     ],
+     "altitude_km": 0.26
+    }
+   }
+  },
+  "Clio": {
+   "radius_km": 337.2,
+   "orbits": "microTech",
+   "locations": {
+    "Kant's Peak": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -63.761,
+      220.298,
+      247.966
+     ],
+     "altitude_km": 0.6
+    },
+    "Rayari Cantwell Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -217.175,
+      215.278,
+      142.842
+     ],
+     "altitude_km": 0.34
+    },
+    "Rayari McGrath Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -325.904,
+      -85.713,
+      -18.786
+     ],
+     "altitude_km": 0.34
+    },
+    "Tremonte": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      170.603,
+      -270.457,
+      107.535
+     ],
+     "altitude_km": 0.2
+    }
+   }
+  },
+  "Daymar": {
+   "radius_km": 295.2,
+   "orbits": "Crusader",
+   "locations": {
+    "ArcCorp Mining Area 141": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -18.167,
+      180.362,
+      -232.76
+     ],
+     "altitude_km": -0.15
+    },
+    "Attritus OLP": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -63.545,
+      132.86,
+      269.974
+     ],
+     "altitude_km": 12.37
+    },
+    "Attritus PAF-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -65.555,
+      129.836,
+      256.575
+     ],
+     "altitude_km": -0.23
+    },
+    "Attritus PAF-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -57.973,
+      131.036,
+      257.946
+     ],
+     "altitude_km": -0.1
+    },
+    "Attritus PAF-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -60.601,
+      122.899,
+      261.369
+     ],
+     "altitude_km": -0.06
+    },
+    "Bountiful Harvest Hydroponics": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      57.552,
+      -92.267,
+      -274.246
+     ],
+     "altitude_km": -0.15
+    },
+    "Brio's Breaker Yard": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -176.974,
+      -160.953,
+      173.849
+     ],
+     "altitude_km": 0.55
+    },
+    "Dunlow Ridge Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -51.85,
+      280.932,
+      75.331
+     ],
+     "altitude_km": 0.27
+    },
+    "Eager Flats Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      200.545,
+      -104.917,
+      190.097
+     ],
+     "altitude_km": 0.4
+    },
+    "Hospice": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -9.001,
+      71.718,
+      -286.52
+     ],
+     "altitude_km": 0.33
+    },
+    "Jumptown": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      80.439,
+      242.716,
+      -147.634
+     ],
+     "altitude_km": 0.09
+    },
+    "Kudre Ore": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      146.617,
+      -177.093,
+      -184.862
+     ],
+     "altitude_km": -0.15
+    },
+    "Lamina OLP": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -80.372,
+      -272.419,
+      -118.207
+     ],
+     "altitude_km": 12.48
+    },
+    "Lamina PAF-I": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -71.073,
+      -262.047,
+      -115.642
+     ],
+     "altitude_km": -0.05
+    },
+    "Lamina PAF-II": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -78.987,
+      -263.371,
+      -107.23
+     ],
+     "altitude_km": -0.04
+    },
+    "Lamina PAF-III": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -81.511,
+      -259.065,
+      -116.457
+     ],
+     "altitude_km": 0.33
+    },
+    "Minlo Spire": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      32.019,
+      -203.544,
+      211.215
+     ],
+     "altitude_km": -0.1
+    },
+    "NT-999-XVI": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      250.895,
+      154.055,
+      -24.263
+     ],
+     "altitude_km": 0.25
+    },
+    "Nuen Waste Management": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -18.943,
+      293.341,
+      25.478
+     ],
+     "altitude_km": -0.11
+    },
+    "Security Post Dawu": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      138.795,
+      -259.884,
+      18.369
+     ],
+     "altitude_km": 0.03
+    },
+    "Security Post Erden": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      114.598,
+      -269.978,
+      32.11
+     ],
+     "altitude_km": -0.12
+    },
+    "Security Post Menian": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      119.404,
+      -263.294,
+      -62.655
+     ],
+     "altitude_km": 0.65
+    },
+    "Security Post Moluto": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      188.858,
+      33.746,
+      -224.163
+     ],
+     "altitude_km": -0.12
+    },
+    "Security Post Prashad": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -223.887,
+      65.623,
+      180.749
+     ],
+     "altitude_km": -0.04
+    },
+    "Security Post Reawick": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      105.287,
+      -262.019,
+      -87.862
+     ],
+     "altitude_km": 0.57
+    },
+    "Security Post Tavan": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      154.635,
+      -238.234,
+      -82.131
+     ],
+     "altitude_km": 0.49
+    },
+    "Security Post Thaquray": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -6.981,
+      -89.665,
+      281.36
+     ],
+     "altitude_km": 0.22
+    },
+    "Security Post Ulaga": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      150.88,
+      -244.523,
+      -69.995
+     ],
+     "altitude_km": 0.56
+    },
+    "Security Post Yafa": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      150.046,
+      -250.093,
+      -48.435
+     ],
+     "altitude_km": 0.48
+    },
+    "Shubin Mining Facility SCD-1": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      126.025,
+      -149.581,
+      221.253
+     ],
+     "altitude_km": 0.15
+    },
+    "TPF": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      37.248,
+      203.877,
+      -209.981
+     ],
+     "altitude_km": -0.13
+    },
+    "Tamdon Plains Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -138.114,
+      -24.463,
+      -259.849
+     ],
+     "altitude_km": 0.12
+    },
+    "The Garden": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -175.97,
+      146.723,
+      186.026
+     ],
+     "altitude_km": -0.04
+    },
+    "Wailing Rock": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      291.271,
+      14.332,
+      44.391
+     ],
+     "altitude_km": -0.18
+    },
+    "Wolf Point Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -4.42,
+      279.067,
+      95.733
+     ],
+     "altitude_km": -0.1
+    }
+   }
+  },
+  "Euterpe": {
+   "radius_km": 212.8,
+   "orbits": "microTech",
+   "locations": {
+    "Adair's Retreat": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -165.447,
+      134.814,
+      -4.2
+     ],
+     "altitude_km": 0.63
+    },
+    "Bud's Growery": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      50.173,
+      -172.259,
+      115.271
+     ],
+     "altitude_km": 0.42
+    },
+    "Devlin Scrap & Salvage": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      14.887,
+      211.192,
+      25.985
+     ],
+     "altitude_km": 0.47
+    },
+    "Shanks": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      212.586,
+      -4.558,
+      18.229
+     ],
+     "altitude_km": 0.58
+    },
+    "The Icebreaker": {
+     "type": "poi",
+     "qt_destination": true,
+     "pos_km": [
+      -42.104,
+      198.138,
+      66.611
+     ],
+     "altitude_km": 0.4
+    }
+   }
+  },
+  "Ita": {
+   "radius_km": 325.0,
+   "orbits": "Hurston",
+   "locations": {
+    "HDMS-Ryder": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -175.874,
+      -263.381,
+      73.709
+     ],
+     "altitude_km": 0.17
+    },
+    "HDMS-Woodruff": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      114.792,
+      219.661,
+      210.467
+     ],
+     "altitude_km": 0.15
+    },
+    "The Shades": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      167.705,
+      231.211,
+      -155.324
+     ],
+     "altitude_km": 0.13
+    },
+    "Thimblerig": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -215.66,
+      -147.318,
+      -193.859
+     ],
+     "altitude_km": 0.26
+    }
+   }
+  },
+  "Lyria": {
+   "radius_km": 223.0,
+   "orbits": "ArcCorp",
+   "locations": {
+    "\"The Pit\"": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      59.094,
+      68.115,
+      204.997
+     ],
+     "altitude_km": 0.95
+    },
+    "\"Wheeler's\"": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -53.37,
+      -209.9,
+      -57.123
+     ],
+     "altitude_km": 0.99
+    },
+    "ArcCorp Security Post 011": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -208.537,
+      82.098,
+      0.23
+     ],
+     "altitude_km": 1.12
+    },
+    "ArcCorp Security Post 024": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -199.653,
+      7.718,
+      101.345
+     ],
+     "altitude_km": 1.04
+    },
+    "ArcCorp Security Post 029": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -182.518,
+      27.376,
+      127.161
+     ],
+     "altitude_km": 1.13
+    },
+    "ArcCorp Security Post 033": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -168.833,
+      30.068,
+      144.404
+     ],
+     "altitude_km": 1.19
+    },
+    "ArcCorp Security Post 038": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -173.07,
+      23.745,
+      140.53
+     ],
+     "altitude_km": 1.2
+    },
+    "ArcCorp Security Post 042": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -174.729,
+      -26.067,
+      137.583
+     ],
+     "altitude_km": 0.92
+    },
+    "ArcCorp Security Post 045": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -180.818,
+      -31.263,
+      128.529
+     ],
+     "altitude_km": 1.04
+    },
+    "ArcCorp Security Post 052": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -161.869,
+      -68.343,
+      138.93
+     ],
+     "altitude_km": 1.0
+    },
+    "ArcCorp Security Post 059": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -21.225,
+      142.614,
+      171.772
+     ],
+     "altitude_km": 1.26
+    },
+    "ArcCorp Security Post 060": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -17.078,
+      142.644,
+      172.037
+     ],
+     "altitude_km": 1.13
+    },
+    "Balto's Blind": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -80.96,
+      -208.719,
+      0.596
+     ],
+     "altitude_km": 0.87
+    },
+    "Buckets": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -194.039,
+      -67.997,
+      -89.48
+     ],
+     "altitude_km": 1.23
+    },
+    "Burnout": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -213.528,
+      1.117,
+      68.089
+     ],
+     "altitude_km": 1.12
+    },
+    "Downlow": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      216.316,
+      -50.93,
+      -28.836
+     ],
+     "altitude_km": 1.09
+    },
+    "Elsewhere": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      207.832,
+      -67.344,
+      -50.273
+     ],
+     "altitude_km": 1.18
+    },
+    "Humboldt Mines": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      5.311,
+      -193.819,
+      -112.545
+     ],
+     "altitude_km": 1.19
+    },
+    "Last Day": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -95.229,
+      94.387,
+      -179.594
+     ],
+     "altitude_km": 1.12
+    },
+    "Launch Pad": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -213.84,
+      -65.163,
+      16.508
+     ],
+     "altitude_km": 1.16
+    },
+    "Loveridge Mineral Reserve": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      181.8,
+      128.166,
+      24.94
+     ],
+     "altitude_km": 0.83
+    },
+    "Rock Bottom": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      81.65,
+      139.798,
+      154.66
+     ],
+     "altitude_km": 0.9
+    },
+    "Shubin Mining Facility SAL-2": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      150.636,
+      -53.619,
+      156.668
+     ],
+     "altitude_km": 0.85
+    },
+    "Shubin Mining Facility SAL-5": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      98.07,
+      78.361,
+      185.821
+     ],
+     "altitude_km": 1.25
+    },
+    "Shubin Processing Facility SPAL-12": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -173.503,
+      124.81,
+      66.784
+     ],
+     "altitude_km": 0.92
+    },
+    "Shubin Processing Facility SPAL-16": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -40.101,
+      -66.263,
+      209.892
+     ],
+     "altitude_km": 0.73
+    },
+    "Shubin Processing Facility SPAL-21": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -19.527,
+      13.462,
+      222.716
+     ],
+     "altitude_km": 0.98
+    },
+    "Shubin Processing Facility SPAL-3": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -208.404,
+      11.275,
+      -81.322
+     ],
+     "altitude_km": 0.99
+    },
+    "Shubin Processing Facility SPAL-7": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      37.914,
+      -126.142,
+      181.387
+     ],
+     "altitude_km": 1.17
+    },
+    "Shubin Processing Facility SPAL-9": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      146.676,
+      -169.035,
+      8.34
+     ],
+     "altitude_km": 0.96
+    },
+    "Teddy's Playhouse": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      95.429,
+      160.94,
+      -122.846
+     ],
+     "altitude_km": 0.83
+    },
+    "The Orphanage": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -91.99,
+      92.484,
+      182.182
+     ],
+     "altitude_km": 1.07
+    },
+    "World's End": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      82.35,
+      -155.839,
+      138.588
+     ],
+     "altitude_km": 1.22
+    }
+   }
+  },
+  "Magda": {
+   "radius_km": 340.8,
+   "orbits": "Hurston",
+   "locations": {
+    "Gonzo": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      315.109,
+      -86.768,
+      -96.936
+     ],
+     "altitude_km": 0.08
+    },
+    "HDMS-Hahn": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -147.384,
+      -292.217,
+      95.247
+     ],
+     "altitude_km": 0.03
+    },
+    "HDMS-Perlman": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -140.696,
+      287.922,
+      -116.688
+     ],
+     "altitude_km": 0.21
+    },
+    "Nevermind": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -214.094,
+      -180.366,
+      194.506
+     ],
+     "altitude_km": 0.05
+    }
+   }
+  },
+  "Wala": {
+   "radius_km": 283.8,
+   "orbits": "ArcCorp",
+   "locations": {
+    "Ako's Return": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      227.662,
+      78.831,
+      147.02
+     ],
+     "altitude_km": -1.59
+    },
+    "ArcCorp Mining Area 045": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -282.798,
+      14.108,
+      10.62
+     ],
+     "altitude_km": -0.48
+    },
+    "ArcCorp Mining Area 048": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -178.193,
+      97.756,
+      -196.34
+     ],
+     "altitude_km": -1.24
+    },
+    "ArcCorp Mining Area 056": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      116.546,
+      -50.147,
+      253.155
+     ],
+     "altitude_km": -0.66
+    },
+    "ArcCorp Mining Area 061": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -21.04,
+      -247.548,
+      -132.57
+     ],
+     "altitude_km": -2.24
+    },
+    "ArcCorp Processing Center 115": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -277.356,
+      50.11,
+      27.88
+     ],
+     "altitude_km": -0.61
+    },
+    "ArcCorp Processing Center 123": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      130.624,
+      -247.521,
+      43.129
+     ],
+     "altitude_km": -0.66
+    },
+    "ArcCorp Security Post 066": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -271.897,
+      -78.902,
+      1.436
+     ],
+     "altitude_km": -0.72
+    },
+    "ArcCorp Security Post 074": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -236.968,
+      -152.349,
+      26.677
+     ],
+     "altitude_km": -0.86
+    },
+    "ArcCorp Security Post 078": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      176.459,
+      219.007,
+      -27.47
+     ],
+     "altitude_km": -1.24
+    },
+    "ArcCorp Security Post 087": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      207.018,
+      193.721,
+      -16.964
+     ],
+     "altitude_km": 0.19
+    },
+    "ArcCorp Security Post 089": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      77.121,
+      268.303,
+      46.801
+     ],
+     "altitude_km": -0.77
+    },
+    "ArcCorp Security Post 092": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      104.307,
+      262.595,
+      7.223
+     ],
+     "altitude_km": -1.19
+    },
+    "ArcCorp Security Post 094": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      68.307,
+      274.421,
+      13.922
+     ],
+     "altitude_km": -0.7
+    },
+    "ArcCorp Security Post 101": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      187.506,
+      207.716,
+      -38.282
+     ],
+     "altitude_km": -1.4
+    },
+    "ArcCorp Security Post 108": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      65.503,
+      249.177,
+      117.531
+     ],
+     "altitude_km": -0.65
+    },
+    "ArcCorp Security Post 111": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      182.516,
+      196.265,
+      -90.068
+     ],
+     "altitude_km": -1.09
+    },
+    "Good Times Temple": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -113.3,
+      179.51,
+      187.366
+     ],
+     "altitude_km": -0.7
+    },
+    "Lost and Found": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      62.556,
+      114.33,
+      251.559
+     ],
+     "altitude_km": -0.52
+    },
+    "Paradise Cove": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      79.975,
+      -217.911,
+      162.335
+     ],
+     "altitude_km": -0.58
+    },
+    "Samson & Son's Salvage Center": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -42.6,
+      279.055,
+      19.23
+     ],
+     "altitude_km": -0.89
+    },
+    "Scuttle": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      10.026,
+      -280.775,
+      -26.625
+     ],
+     "altitude_km": -1.62
+    },
+    "Shady Glen Farms": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -20.622,
+      268.985,
+      87.534
+     ],
+     "altitude_km": -0.21
+    },
+    "Washout": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -200.344,
+      179.033,
+      90.388
+     ],
+     "altitude_km": -0.35
+    },
+    "Wiley Flats": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -231.254,
+      -64.899,
+      -150.276
+     ],
+     "altitude_km": -0.51
+    }
+   }
+  },
+  "Yela": {
+   "radius_km": 313.0,
+   "orbits": "Crusader",
+   "locations": {
+    "Afterlife": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -254.263,
+      -153.39,
+      99.058
+     ],
+     "altitude_km": 0.03
+    },
+    "ArcCorp Mining Area 157": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      6.023,
+      222.356,
+      220.313
+     ],
+     "altitude_km": 0.08
+    },
+    "Aston Ridge Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      207.944,
+      24.051,
+      -232.785
+     ],
+     "altitude_km": 0.06
+    },
+    "Benson Mining Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      48.998,
+      -275.606,
+      -140.136
+     ],
+     "altitude_km": 0.05
+    },
+    "Connor's": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -139.77,
+      -254.31,
+      118.129
+     ],
+     "altitude_km": 0.31
+    },
+    "Deakins Research Outpost": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      231.587,
+      -210.279,
+      13.278
+     ],
+     "altitude_km": 0.09
+    },
+    "Half Stack": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      241.301,
+      -10.196,
+      -199.123
+     ],
+     "altitude_km": 0.02
+    },
+    "Kosso Basin Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -31.289,
+      -118.13,
+      288.314
+     ],
+     "altitude_km": 0.14
+    },
+    "Mainline": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -68.611,
+      302.162,
+      -46.109
+     ],
+     "altitude_km": 0.27
+    },
+    "NT-999-XX": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -205.659,
+      -73.988,
+      224.325
+     ],
+     "altitude_km": 0.2
+    },
+    "NT-999-XXII": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      54.565,
+      55.939,
+      -303.344
+     ],
+     "altitude_km": 0.25
+    },
+    "Nakamura Valley Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -275.722,
+      124.074,
+      81.717
+     ],
+     "altitude_km": 0.2
+    },
+    "Rolo's Crater": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -124.437,
+      -191.255,
+      -214.861
+     ],
+     "altitude_km": 0.41
+    },
+    "Security Post Hasik": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      208.442,
+      95.447,
+      213.177
+     ],
+     "altitude_km": 0.05
+    },
+    "Security Post Iteke": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      193.746,
+      106.8,
+      221.443
+     ],
+     "altitude_km": 0.02
+    },
+    "Security Post Klipra": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      182.52,
+      120.862,
+      224.068
+     ],
+     "altitude_km": 0.25
+    },
+    "Security Post Moka": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      187.695,
+      136.653,
+      210.118
+     ],
+     "altitude_km": 0.13
+    },
+    "Security Post Opal": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      241.073,
+      96.291,
+      -175.019
+     ],
+     "altitude_km": 0.08
+    },
+    "Security Post Peska": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      139.437,
+      168.323,
+      224.702
+     ],
+     "altitude_km": 0.47
+    },
+    "Security Post Triolet": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      121.57,
+      151.521,
+      245.999
+     ],
+     "altitude_km": 0.45
+    },
+    "Security Post Walvis": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      102.466,
+      162.7,
+      246.987
+     ],
+     "altitude_km": 0.01
+    },
+    "Security Post Wan": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -208.367,
+      53.166,
+      -227.454
+     ],
+     "altitude_km": 0.02
+    },
+    "Talarine Divide Aid Shelter": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -21.221,
+      310.79,
+      30.932
+     ],
+     "altitude_km": 0.05
+    },
+    "Utopia": {
+     "type": "outpost",
+     "qt_destination": true,
+     "pos_km": [
+      -0.173,
+      -1.851,
+      -313.08
+     ],
+     "altitude_km": 0.09
+    }
+   }
+  }
+ },
+ "excluded": {
+  "event-only marker, no description": [
+   "RSI Event Platform"
+  ],
+  "gateway to unreleased system Terra": [
+   "Terra Gateway"
+  ],
+  "in the starmap but not placed in the game world (upcoming, or not linked in the data yet)": [
+   "ArcCorp Security Post 017",
+   "Asteroid Mining Base",
+   "Cry-Astro Service 042",
+   "Distress Beacon",
+   "Downded Relay AC-652",
+   "Echo Isle",
+   "Green",
+   "HDOF-Palomar",
+   "ICC Probe 126",
+   "INS Jericho",
+   "MT OpCenter TLI-4",
+   "Mining Base #0Z9-SVV",
+   "Mining Base #6RU-55R",
+   "Mining Base #734-A26",
+   "Mining Base #851-81H",
+   "Mining Base #90O-0HA",
+   "Mining Base #C6P-3KJ",
+   "Mining Base #DU4-XBU",
+   "Mining Base #PHB-DYC",
+   "Mining Base #TP1-N76",
+   "Mining Base #ZHY-77G",
+   "NT-999-XV",
+   "Operations Depot Lyria-1",
+   "Orbital Relay AC-421",
+   "Outpost 54",
+   "Prospect Point",
+   "Reyes Mining Compound-A",
+   "Reyes Mining Compound-B",
+   "Reyes Mining Compound-C",
+   "Reyes Mining Compound-D",
+   "Shubin Processing Facility SPMC-1",
+   "Sloane Mining Compound-A",
+   "Sloane Mining Compound-B",
+   "Sloane Mining Compound-C",
+   "Sloane Mining Compound-D",
+   "WIP Refinery_0001"
+  ]
+ }
+}

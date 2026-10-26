@@ -1,0 +1,210 @@
+{
+ "name": "Star Citizen distances: Nyx",
+ "system": "Nyx",
+ "format": 1,
+ "revision": 202610261602,
+ "units": "km (straight-line)",
+ "source": {
+  "game_branch": "sc-alpha-4.10.2",
+  "game_version": "4.10.197.2878",
+  "build": "12913470",
+  "data": "LIVE Data.p4k: ObjectContainers (positions) + DataCore starmap records (names, types) + english global.ini",
+  "extracted": "2026-10-26"
+ },
+ "how_to_read": {
+  "hierarchy": "One file per system: solar | planetary.<planet> | lunar.<moon>. Distances between systems are not covered.",
+  "solar": "Everything in space: star, planets and moons (as points at their centre), stations, Lagrange points, jump-point gateways, asteroid bases, comm arrays. pos_km is relative to the star. Planets and moons do not orbit in-game, so these distances are fixed.",
+  "planetary_lunar": "Surface locations (less than 100 km altitude) on that body, stored as coordinates only. pos_km is in the body's own frame (centre = 0), so distances between two locations on the same body hold whatever the body's rotation: straight line = |pos_A - pos_B|.",
+  "body_distance": "Distances to a planet or moon in `solar` are to its centre; subtract radius_km for distance to the surface.",
+  "lookup": "The file holds coordinates only. The SC_distances skill (dependencies/sc_distance.py) computes any distance from pos_km: space to space exact, same body straight line plus over the ground, and a min-max range for a surface location to anywhere else as the body rotates. By hand: straight line = |pos_A - pos_B| within the same group.",
+  "nearest_body": "Space locations name the nearest planet or moon and their altitude_km above its surface.",
+  "duplicate_names": "If a name occurs twice in one group, the label gets the nearest body or a short record id in brackets.",
+  "revision": "Higher revision = newer data. format changes only when readers must change."
+ },
+ "rules": {
+  "included": "Released systems only, one file each. Locations shown in the starmap and placed in the game world in the current LIVE build.",
+  "excluded": "Starmap-hidden markers, records with no localized name, locations marked NOT CURRENTLY ACCESSIBLE, event-only markers, gateways to unreleased systems, and starmap entries nothing places in the world. What was left out is listed under `excluded`."
+ },
+ "star": "Nyx",
+ "solar": {
+  "locations": {
+   "Nyx": {
+    "type": "star",
+    "qt_destination": false,
+    "pos_km": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "from_star_km": 0
+   },
+   "Transit Point Glaciem Alpha": {
+    "type": "transit_point",
+    "qt_destination": true,
+    "pos_km": [
+     -13592383.232,
+     6338233.621,
+     0.0
+    ],
+    "from_star_km": 14997536
+   },
+   "Transit Point Glaciem Bravo": {
+    "type": "transit_point",
+    "qt_destination": true,
+    "pos_km": [
+     9640228.784,
+     -11488779.774,
+     0.0
+    ],
+    "from_star_km": 14997536
+   },
+   "Transit Point Glaciem Charlie": {
+    "type": "transit_point",
+    "qt_destination": true,
+    "pos_km": [
+     9640231.386,
+     11488779.851,
+     0.0
+    ],
+    "from_star_km": 14997537
+   },
+   "Levski": {
+    "type": "landing_zone",
+    "qt_destination": true,
+    "pos_km": [
+     -9641672.903,
+     -11490734.474,
+     -93.643
+    ],
+    "from_star_km": 14999961
+   },
+   "Pyro Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -12000044.53,
+     20784580.529,
+     -38.674
+    ],
+    "from_star_km": 23999997
+   },
+   "Stanton Gateway": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -13499931.61,
+     -23382701.964,
+     -36.662
+    ],
+    "from_star_km": 26999980
+   },
+   "QV Breaker Station BRK-425": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     27531031.539,
+     -39318355.602,
+     0.0
+    ],
+    "from_star_km": 47998862
+   },
+   "QV Breaker Station BRK-320": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -27531183.169,
+     39318601.164,
+     0.0
+    ],
+    "from_star_km": 47999150
+   },
+   "QV Breaker Station BRK-127": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     47270353.273,
+     -8335028.392,
+     0.0
+    ],
+    "from_star_km": 47999573
+   },
+   "QV Breaker Station BRK-204": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -45105001.775,
+     16416857.971,
+     0.0
+    ],
+    "from_star_km": 47999733
+   },
+   "QV Breaker Station BRK-546": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     16416937.214,
+     45105181.259,
+     0.0
+    ],
+    "from_star_km": 47999929
+   },
+   "People's Service Station Alpha": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -45804303.545,
+     -14351319.147,
+     29.57
+    ],
+    "from_star_km": 47999944
+   },
+   "People's Service Station Delta": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     -6432457.406,
+     -47567013.167,
+     13.905
+    ],
+    "from_star_km": 47999971
+   },
+   "People's Service Station Lambda": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     43327760.363,
+     20656826.663,
+     25.671
+    ],
+    "from_star_km": 47999993
+   },
+   "People's Service Station Theta": {
+    "type": "station",
+    "qt_destination": true,
+    "pos_km": [
+     40472701.12,
+     -25806231.983,
+     40.59
+    ],
+    "from_star_km": 48000012
+   }
+  }
+ },
+ "planetary": {},
+ "lunar": {},
+ "excluded": {
+  "in the starmap but not placed in the game world (upcoming, or not linked in the data yet)": [
+   "Asteroid Cluster",
+   "Delamar",
+   "Nyx - Bremen Jump Point",
+   "Nyx - Odin Jump Point",
+   "Nyx - Tohil Jump Point",
+   "Nyx - Virgil Jump Point"
+  ],
+  "marked [NOT CURRENTLY ACCESSIBLE] in game data (upcoming)": [
+   "Nyx I",
+   "Nyx II",
+   "Nyx III"
+  ]
+ }
+}

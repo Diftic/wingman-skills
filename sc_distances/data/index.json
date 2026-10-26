@@ -1,0 +1,29 @@
+{
+ "format": 1,
+ "revision": 202610261602,
+ "game_version": "4.10.197.2878",
+ "build": "12913470",
+ "systems": {
+  "stanton": {
+   "system": "Stanton",
+   "file": "stanton.json",
+   "revision": 202610261602,
+   "sha256": "e7b2e9890e1d77790da67d4f33889f36d638decb82dec971cdac45b7e85ced3c",
+   "bytes": 93126
+  },
+  "pyro": {
+   "system": "Pyro",
+   "file": "pyro.json",
+   "revision": 202610261602,
+   "sha256": "d6eb0e7a2f041561374b5f7cde8f53a6287379e4d7b250b71f7975ee9b1cf2cc",
+   "bytes": 56148
+  },
+  "nyx": {
+   "system": "Nyx",
+   "file": "nyx.json",
+   "revision": 202610261602,
+   "sha256": "05ac356d6805a5808bb72c0934657143fbcc02d500f776c8c14d42166aca067e",
+   "bytes": 5814
+  }
+ }
+}
