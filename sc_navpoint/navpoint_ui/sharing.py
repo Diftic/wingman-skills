@@ -2,7 +2,9 @@
 import base64
 import io
 import logging
+import secrets
 import socket
+from pathlib import Path
 
 
 def get_lan_ip() -> str:
@@ -14,6 +16,23 @@ def get_lan_ip() -> str:
             return address if not address.startswith('127.') else ''
     except OSError:
         return ''
+
+
+def dashboard_token(directory) -> str:
+    """The phone link's key, kept so a scanned QR code keeps working."""
+    path = Path(directory) / 'dashboard_token'
+    try:
+        token = path.read_text(encoding='utf-8').strip()
+        if len(token) >= 24:
+            return token
+    except OSError:
+        pass
+    token = secrets.token_urlsafe(18)
+    try:
+        path.write_text(token, encoding='utf-8')
+    except OSError:
+        logging.getLogger(__name__).warning('NavPoint dashboard token not saved', exc_info=True)
+    return token
 
 
 def qr_png_base64(url: str) -> str | None:

@@ -5,7 +5,10 @@ Author: Mallachi
 
 from __future__ import annotations
 
+import ipaddress
 import logging
+import re
+import secrets
 import threading
 import time
 from collections.abc import Callable
@@ -13,8 +16,9 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 import uvicorn
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from starlette.middleware.base import BaseHTTPMiddleware
 
 import coordinate_stack
 from navigation import POSITION_FRESHNESS_S, space_guidance, ring_deflection, stack_space_guidance
@@ -27,6 +31,15 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 _STATIC_DIR = Path(__file__).parent / "static"
+# The only files the page loads. A requested name is looked up here and never
+# joined onto a path, so "../", backslashes, drive letters and UNC names cannot
+# reach any other file on disk.
+_STATIC_FILES = {"app.js": "application/javascript", "style.css": "text/css"}
+# Requests addressed to this computer. Wingman's frozen build has no Starlette
+# trustedhost module, so _protect() checks the Host header itself, the same way
+# Accountant's dashboard (skills/sc_accountant/erp_web.py) does.
+_LOCAL_HOST = re.compile(r"(?:127\.0\.0\.1|localhost|\[::1\])(?::[0-9]{1,5})?", re.IGNORECASE)
+_SESSION_COOKIE = "sc_navpoint_session"
 
 # POSITION_FRESHNESS_S is re-exported from navigation so the page, the server
 # and the ring overlay all enforce one staleness rule; see its definition there.
@@ -42,9 +55,27 @@ class NavPointServer:
         arrival_alert_m: float = 1000.0,
         arrival_stop_m: float = 250.0,
         on_target_change: "Callable[[NavPoint | None], None] | None" = None,
+        share_on_lan: bool = False,
+        access_token: str = "",
     ) -> None:
         self._db = db
         self._port = port
+        # The API has no other authentication, so the server listens on
+        # loopback unless phone sharing is asked for, and a phone then needs
+        # the QR code's token (see _protect).
+        self._lan_host = ""
+        if share_on_lan:
+            from .sharing import get_lan_ip
+            address = get_lan_ip()
+            if address:
+                parsed = ipaddress.ip_address(address)
+                if parsed.is_private and not (
+                    parsed.is_loopback or parsed.is_unspecified or parsed.is_multicast
+                ):
+                    self._lan_host = address
+        self._access_token = (
+            (access_token or secrets.token_urlsafe(18)) if self._lan_host else ""
+        )
         self._arrival_alert_m = arrival_alert_m
         self._arrival_stop_m = arrival_stop_m
         # The page can change the target too, and until this existed that change
@@ -89,6 +120,66 @@ class NavPointServer:
         self._update_token += 1
 
     # ------------------------------------------------------------------ #
+    # Access
+    # ------------------------------------------------------------------ #
+
+    async def _protect(self, request: Request, call_next):
+        """Admit this computer, and a phone holding the QR code's session."""
+        host = request.headers.get("host", "")
+        local_host = _LOCAL_HOST.fullmatch(host)
+        shared_host = self._lan_host and re.fullmatch(
+            re.escape(self._lan_host) + r"(?::[0-9]{1,5})?", host
+        )
+        if not (local_host or shared_host):
+            # Another site's page that rebinds its name to this computer.
+            return JSONResponse({"error": "Invalid host"}, status_code=400)
+        # A spoofed Host header never skips the session check.
+        local_client = request.client and request.client.host in {"127.0.0.1", "::1"}
+        if self._lan_host and not (local_host and local_client):
+            supplied = request.query_params.get("share", "")
+            if (
+                request.method == "GET"
+                and request.url.path == "/"
+                and secrets.compare_digest(supplied.encode(), self._access_token.encode())
+            ):
+                response = RedirectResponse(
+                    "/",
+                    status_code=303,
+                    headers={"Referrer-Policy": "no-referrer", "Cache-Control": "no-store"},
+                )
+                response.set_cookie(
+                    _SESSION_COOKIE, self._access_token, httponly=True, samesite="strict"
+                )
+                return response
+            session = request.cookies.get(_SESSION_COOKIE, "")
+            if not secrets.compare_digest(session.encode(), self._access_token.encode()):
+                return JSONResponse(
+                    {"error": "Scan NavPoint's QR code in Wingman to open this dashboard."},
+                    status_code=403,
+                )
+        if request.method not in {"GET", "HEAD"}:
+            # Changes must come from this dashboard's own page.
+            expected = f"{request.url.scheme}://{host}"
+            if (
+                request.headers.get("origin", "") != expected
+                or request.headers.get("sec-fetch-site") == "cross-site"
+            ):
+                return JSONResponse(
+                    {"error": "Open this dashboard directly to make changes."},
+                    status_code=403,
+                )
+        return await call_next(request)
+
+    @property
+    def served_app(self):
+        """The app as the network sees it, with _protect() before every route.
+
+        Route tests drive ``_app`` directly through TestClient; access tests
+        drive this.
+        """
+        return BaseHTTPMiddleware(self._app, dispatch=self._protect)
+
+    # ------------------------------------------------------------------ #
     # App
     # ------------------------------------------------------------------ #
 
@@ -102,13 +193,10 @@ class NavPointServer:
 
         @app.get("/static/{filename:path}")
         async def static_file(filename: str):
-            fp = _STATIC_DIR / filename
-            if not fp.exists():
+            media = _STATIC_FILES.get(filename)
+            if media is None:
                 return JSONResponse({"error": "Not found"}, status_code=404)
-            content = fp.read_text(encoding="utf-8")
-            media = "text/css" if filename.endswith(".css") else (
-                "application/javascript" if filename.endswith(".js") else "text/plain"
-            )
+            content = _STATIC_DIR.joinpath(filename).read_text(encoding="utf-8")
             return HTMLResponse(content=content, media_type=media,
                                 headers={"Cache-Control": "no-cache"})
 
@@ -297,9 +385,11 @@ class NavPointServer:
         if self._thread and self._thread.is_alive():
             return
         config = uvicorn.Config(
-            self._app,
-            host="0.0.0.0",
+            self.served_app,
+            host=self.bind_host,
             port=self._port,
+            # _protect() trusts loopback, so the peer must be the real one.
+            proxy_headers=False,
             log_level="warning",
         )
         self._server = uvicorn.Server(config)
@@ -309,7 +399,7 @@ class NavPointServer:
             daemon=True,
         )
         self._thread.start()
-        logger.info("NavPoint HUD started on port %d", self._port)
+        logger.info("NavPoint HUD started on %s:%d", self.bind_host, self._port)
 
     def stop(self) -> None:
         if self._server:
@@ -323,10 +413,15 @@ class NavPointServer:
         return f"http://127.0.0.1:{self._port}"
 
     @property
+    def bind_host(self) -> str:
+        """All interfaces only while phone sharing is on."""
+        return "0.0.0.0" if self._lan_host else "127.0.0.1"
+
+    @property
     def lan_url(self) -> str:
-        from .sharing import get_lan_ip
-        address = get_lan_ip()
-        return f"http://{address}:{self._port}" if address else ""
+        if not self._lan_host:
+            return ""
+        return f"http://{self._lan_host}:{self._port}/?share={self._access_token}"
 
     @property
     def is_running(self) -> bool:

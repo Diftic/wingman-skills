@@ -381,6 +381,7 @@ class SC_NavPoint(Skill):
 
         try:
             from navpoint_ui.app import NavPointServer  # noqa: E402
+            from navpoint_ui.sharing import dashboard_token  # noqa: E402
             from navpoint_ui.window import NavPointWindow  # noqa: E402
 
             self._ui_server = NavPointServer(
@@ -389,6 +390,10 @@ class SC_NavPoint(Skill):
                 arrival_alert_m=self._get_arrival_alert_m(),
                 arrival_stop_m=self._get_arrival_stop_m(),
                 on_target_change=self._on_hud_target_change,
+                # The startup card's phone QR. Its token is kept with the
+                # skill's generated files, so a scanned code keeps working.
+                share_on_lan=True,
+                access_token=dashboard_token(db_dir),
             )
             self._ui_server.start()
             self._ui_window = NavPointWindow(url=self._ui_server.url)
