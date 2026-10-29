@@ -321,3 +321,63 @@ breathable, hydrogen low, boarded a ground vehicle.
 - **PWR**: perhaps only on specific power faults.
 - A second ground vehicle (e.g. Cyclone) to confirm "no vehicle frame" for ground vehicles in general.
 - After every game patch: does the "Service … registered" line still appear?
+
+---
+
+## 8. How it was found, and how to find it again after a patch
+
+Read-only steps; nothing in the game is modified. Checked again on 2026-10-29 against build 12913470.
+
+1. **The service is in the game binary.** `LIVE\Bin64\StarCitizen.exe` contains the strings
+   `sc.game.telemetry.v1`, `GameTelemetryService`, `CGameTelemetryServer` and "Client connected (id=.. total=..)".
+   Quick check (PowerShell):
+   `Select-String -Path "D:\Roberts Space Industries\StarCitizen\LIVE\Bin64\StarCitizen.exe" -Pattern "sc.game.telemetry.v1" -SimpleMatch -Quiet`
+2. **The schema is embedded.** gRPC binaries keep each `.proto` file as a serialized `FileDescriptorProto`.
+   `tools/proto_dump.py` finds every `sc/game/telemetry/*.proto` name in the binary, parses the descriptor that starts
+   there and prints it as proto text:
+   `python tools/proto_dump.py "D:\Roberts Space Industries\StarCitizen\LIVE\Bin64\StarCitizen.exe" sc/game/telemetry/`
+   Output: `sc/game/telemetry/v1/api.proto` (the service, one server-streaming RPC `TelemetryStream`) and
+   `v1/types.proto` (28 messages). That output became `sc_telemetry.proto`; `schema.desc` is compiled from it.
+   **After a patch, run it again and diff** against `dependencies/sc_telemetry_core/sc_telemetry.proto`: new or
+   renumbered fields show up there first. Gaps in the field numbers (response 1-2, VehicleFrame 1, vitals 6, force
+   feedback 1) suggest removed or reserved fields.
+3. **The switch is a services config option.** The same binary has the option table row
+   `grpc.client.server.enabled` ("Boolean telling whether grpc services are hosted"), with the forms
+   `grpc-client-server-enabled` (command line) and `GRPC_CLIENT_SERVER_ENABLED` (environment), and
+   `grpc.client.server.address` (default `127.0.0.1:2942`, env `GRPC_CLIENT_SERVER_ADDRESS`), plus
+   `GRPC_CLIENT_SERVER_CHANNEL_ARGS`. An `sc-services.json` file is another source; none exists in a normal install.
+   Search the binary for `GRPC_CLIENT_SERVER` to see whether a patch renamed them.
+4. **Proof it is live.** Start the RSI Launcher with the variable (`sc_navpoint/telemetry_dev/launch_with_telemetry.ps1`
+   sets it for that process only), start the game. `Game.log` then shows
+   `Service 'sc.game.telemetry.v1.GameTelemetryService' registered` and `127.0.0.1:2942 [Insecure]`;
+   `netstat -ano | findstr 2942` shows the port listening. No token was needed, although the binary also looks for an
+   `authorization: Bearer` header.
+5. **Read it.** `sc_navpoint/telemetry_dev/probe.py --wait --log frames.jsonl` is a plain Python gRPC client that
+   prints a summary line per frame and logs every frame as JSON. `fake_server.py` replays frames for offline tests.
+   Frames start only after the player has spawned.
+6. **Map each field to the game.** Done by doing one thing at a time in the game (lower the gear, toggle each power
+   switch, turn 90 degrees, get shot at, eat, die) and reading which fields changed in the log at that moment;
+   `tools/cut_fixture.py` cuts those moments out as test fixtures. Section 2-5 are the results.
+
+Not to be confused with: the **D-BOX LiveMotion** feed (the game loads D-BOX's DLL, gRPC over TLS to
+`127.0.0.1:61666`): 6DOF motion and haptics only, no ship state.
+
+## 9. The data on disk
+
+| What | Where | Size |
+|---|---|---|
+| All frames, test 1 (Clipper, 2026-10-26) | `sc_navpoint/telemetry_dev/frames.jsonl` | 42 MB |
+| All frames, day 1 (Ironclad, Command Module, Vulture, 2026-10-27) | `sc_navpoint/telemetry_dev/frames_2026-10-27.jsonl` | 772 MB |
+| All frames, day 2 (Cutter, Ursa, 2026-10-28) | `sc_navpoint/telemetry_dev/frames_2026-10-28.jsonl` | 170 MB |
+| `/showlocation` samples (Hurston, 2026-10-27) | `sc_navpoint/telemetry_dev/showlocation_2026-10-27.jsonl` | 0.4 KB |
+| Probe and launcher output per day | `sc_navpoint/telemetry_dev/probe_output*.txt`, `launch_output*.txt` | |
+| The 11 test moments | `sc_telemetry/tests/fixtures/*.jsonl` (gzipped copies in Core: `tests/star_citizen/sc_telemetry_fixtures/`) | 3.7 MB |
+| Decoded schema, as dumped | `sc_navpoint/SC_TELEMETRY_API_4.10.2.proto.txt` | |
+| Compilable schema + descriptor set | `sc_telemetry/dependencies/sc_telemetry_core/sc_telemetry.proto`, `schema.desc` | |
+| History of the investigation | `sc_navpoint/NO_OVERLAY_RESEARCH_2026-10-26.md` (section H), `sc_navpoint/TELEMETRY_REPORT_2026-10-26.md` | |
+| Day-3 test (2026-10-29) | in the installed skill's feed (`%APPDATA%\ShipBit\WingmanAI\generated_files\SC_Telemetry\`), not recorded separately | |
+| Session logs (every command and prompt) | `~/.claude/logs/D-/2026-10-26.jsonl` to `2026-10-29.jsonl` | |
+
+Each line of a frames file is `{"t": <unix time>, "frame": <TelemetryStreamResponse as JSON>}`; fields at their
+default value are left out.
+
