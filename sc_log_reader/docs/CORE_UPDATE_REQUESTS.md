@@ -25,6 +25,8 @@ Core paths below are relative to the `wingman-ai` repository.
 | 13 | A contract keeps only its last objective | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 14 | Item names stay current without a Wingman release | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 15 | Routine pacing (#472) silences arrivals; make the gap a setting | Draft PR ShipBit/wingman-ai#476 |
+| 16 | Read-only "info" property for skill settings (sc_telemetry: show tracked states) | Requested |
+| 17 | Bundle `grpcio` (and pin `protobuf`) in Core for the sc_telemetry skill | Requested |
 
 ---
 
@@ -321,3 +323,55 @@ departures are not paced (the quantum steps keep their own group), and the gap
 is the slider "Minutes between routine lines" (`routine_gap_minutes`), 2 to 20
 minutes, default 5. Ten minutes reads as harsh, and players differ on how
 chatty they want it. No migration (new property, merged by id).
+
+## 16. Read-only "info" property for skill settings
+
+Found while designing the `sc_telemetry` skill (2026-10-28). The user wants the
+settings menu to show two kinds of rows: **events**, each with an on/off switch
+(like `sc_log_reader`), and **tracked states** (speed, heading, altitude, power,
+vitals, ...) that the skill always reads and that the player cannot switch off.
+They are shown only so the player can see what the skill provides.
+
+`CustomPropertyType` (`api/enums.py`) has no read-only type, and
+`CustomProperty` (`api/interface.py`) has no `readonly`/`disabled` flag. A
+boolean shown for a state could be switched off, which would be misleading.
+
+**Proposed:** either a new `CustomPropertyType.INFO` (label + hint, no value,
+rendered as a non-editable row, optionally with a "tracked" badge), or an
+optional `readonly: bool` on `CustomProperty` that the client renders disabled.
+Needs a client change (closed source) and an API type regeneration.
+
+**Until then** `sc_telemetry` lists its tracked states in the skill `hint`
+(HTML), which the client already renders.
+
+**Same request, second part (user, 2026-10-28): dependent switches.** A group
+master ("All flight") switched off leaves its child switches looking active,
+though they are ignored (Core's own `sc_game_events` has the same problem). An
+optional `depends_on: <property id>` on `CustomProperty`, which the client
+renders greyed out while that property is false, would show it. Related: the
+client lays booleans out in a two-column grid, so a group master can land in the
+right-hand column mid-row; a header / separator property type (or a group field)
+would let skills show their groups clearly.
+
+## 17. Bundle grpcio (and pin protobuf) in Core
+
+Found while building the `sc_telemetry` skill (2026-10-28). Star Citizen 4.10.2
+has a local gRPC telemetry server (`sc.game.telemetry.v1.GameTelemetryService`
+on `127.0.0.1:2942`, switched on with `GRPC_CLIENT_SERVER_ENABLED=true`; see
+`sc_telemetry/TELEMETRY_REPORT.md`). Reading it needs a gRPC client.
+
+The installed Wingman (3.2.11) bundles no `grpcio` and no HTTP/2 library. It has
+protobuf only indirectly (the frozen `google/_upb/_message.pyd`), in a version a
+skill cannot rely on. A skill cannot ship `grpcio` itself safely: it is a
+compiled wheel tied to Core's Python ABI, and a second `google.protobuf` next to
+the frozen one can collide.
+
+**Proposed:** add `grpcio` to `requirements.txt` (and the PyInstaller spec, if it
+needs a hidden import), and make `protobuf` a direct, pinned dependency so skills
+can rely on its version. The user chose this over shipping the libraries in the
+skill.
+
+**Until then** `sc_telemetry` imports `grpc` lazily and, when it is missing,
+reports "needs a Wingman version with gRPC support" instead of failing. It builds
+its message classes at runtime from the schema (`descriptor_pool` +
+`message_factory`), so it does not depend on one protobuf gencode version.
