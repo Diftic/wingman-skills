@@ -1,0 +1,19 @@
+module: skills.navpoint_linux_probe.main
+api_version: 3
+name: NavPointLinuxProbe
+display_name: NavPoint Linux Probe
+author: Mallachi
+auto_activate: true
+tags:
+  - Star Citizen
+  - Utility
+description:
+  en: "Test tool for the NavPoint skill on Linux: checks whether Wingman can see the Star Citizen window and its position panel. Run it once while in the game."
+discovery_keywords:
+  - navpoint probe
+  - linux test
+  - navpoint linux probe
+prompt: |
+  The NavPoint Linux Probe has one tool, run_navpoint_linux_probe. Run it when the
+  player asks to run the NavPoint probe or the Linux test. It takes a few seconds,
+  then say where the report was saved, exactly as the tool says.

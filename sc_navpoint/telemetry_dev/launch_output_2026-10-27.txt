@@ -1,0 +1,27 @@
+Launcher started with GRPC_CLIENT_SERVER_ENABLED=true GRPC_CLIENT_SERVER_ADDRESS=127.0.0.1:2942
+Start the game from the launcher. Waiting up to 60 min for StarCitizen.exe ...
+StarCitizen.exe running (pid 9360). Watching its listening ports and Game.log ...
+listening: 0.0.0.0:31318
+listening: 127.0.0.1:2942  <-- expected telemetry port
+Port 2942 is open. Run: python probe.py
+--- Game.log lines about gRPC services / telemetry ---
+<2026-10-27T16:32:48.442Z>    grpc.default_compression_level=3
+<2026-10-27T16:32:48.442Z>    grpc.max_receive_message_length=16777216
+<2026-10-27T16:32:48.442Z>    grpc.http2.max_pings_without_data=0
+<2026-10-27T16:32:48.442Z>    grpc.max_send_message_length=4194304
+<2026-10-27T16:32:48.442Z>    grpc.keepalive_permit_without_calls=1
+<2026-10-27T16:32:48.442Z>    grpc.keepalive_time_ms=120000
+<2026-10-27T16:32:48.442Z>    grpc.keepalive_timeout_ms=20000
+<2026-10-27T16:32:48.442Z>    grpc.http2.min_time_between_pings_ms=10000
+<2026-10-27T16:32:48.442Z>    grpc.http2.min_ping_interval_without_data_ms=5000
+<2026-10-27T16:32:48.442Z> [Notice] <ReuseChannel> Reusing channel for 'sc.external.services.push.v1.PushService' to endpoint pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 (transport security: 1) [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:48.442Z> [Notice] <ReuseChannel> Reusing channel for 'sc.external.services.presence.v1.PresenceService' to endpoint pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 (transport security: 1) [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:48.443Z> [Notice] <ReuseChannel> Reusing channel for 'sc.external.services.trace.v1.TraceService' to endpoint pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 (transport security: 1) [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:48.460Z> [CIG] startupParams.szSystemCmdLine["D:\Roberts Space Industries\StarCitizen\LIVE\Bin64/StarCitizen.exe" -no_login_dialog -envtag PUB --client-login-show-dialog 0 --services-config-enabled 1 --system-trace-service-enabled 1 --system-trace-env-id pub-sc-alpha-4102-12881860 --grpc-client-endpoint-override https://pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 --grpc-client-use-native-dns-resolver 1 -no-vr]
+<2026-10-27T16:32:48.460Z> [Notice] <Init> Process sc-client started (Local: c5842904-9335-724b-80c5-1a67f22d54a7. Env: pub-sc-alpha-4102-12881860). bDedicatedServer[0] bIsService[0] bIsHeadlessClient[0] bOnline[1] bShardPersistence[1] bTools[0] szSystemCmdLine["D:\Roberts Space Industries\StarCitizen\LIVE\Bin64/StarCitizen.exe" -no_login_dialog -envtag PUB --client-login-show-dialog 0 --services-config-enabled 1 --system-trace-service-enabled 1 --system-trace-env-id pub-sc-alpha-4102-12881860 --grpc-client-endpoint-override https://pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 --grpc-client-use-native-dns-resolver 1 -no-vr]  [Team_OnlineTech][ProcessInit]
+<2026-10-27T16:32:54.883Z> [Notice] <Register Service> Service 'sc.game.telemetry.v1.GameTelemetryService' registered [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:54.883Z> [Notice] <Service Startup> Services started with: [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:54.883Z>    Service 'sc.game.telemetry.v1.GameTelemetryService'
+<2026-10-27T16:32:54.884Z> [Notice] <GRPC Server> Services configured: 1 [Team_OnlineTech][gRPC]
+<2026-10-27T16:32:54.884Z>    [sc.game.telemetry.v1.GameTelemetryService]: 127.0.0.1:2942 [Insecure]
+<2026-10-27T16:32:59.442Z> [Notice] <ReuseChannel> Reusing channel for 'sc.external.services.login.v1.LoginService' to endpoint pub-sc-alpha-4102-12881860.test1.cloudimperiumgames.com:443 (transport security: 1) [Team_OnlineTech][gRPC]
