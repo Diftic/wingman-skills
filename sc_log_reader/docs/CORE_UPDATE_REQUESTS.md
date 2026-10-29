@@ -26,7 +26,7 @@ Core paths below are relative to the `wingman-ai` repository.
 | 14 | Item names stay current without a Wingman release | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 15 | Routine pacing (#472) silences arrivals; make the gap a setting | Draft PR ShipBit/wingman-ai#476 |
 | 16 | Read-only "info" property for skill settings (sc_telemetry: show tracked states) | Requested |
-| 17 | Bundle `grpcio` (and pin `protobuf`) in Core for the sc_telemetry skill | Requested |
+| 17 | Bundle `grpcio` (and pin `protobuf`) in Core for the sc_telemetry skill | PR ShipBit/wingman-ai#521 (skill bundled in Core, grpcio added), 29 Oct |
 
 ---
 
