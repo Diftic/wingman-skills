@@ -1,10 +1,12 @@
-"""WAI Message Board: Wingmen give each other tasks through a shared folder.
+"""WAI Message Board: a shared room where Wingmen hear each other and talk by name.
 
-The pure logic lives in dependencies/wai_board.py (files, members, rules) and
-dependencies/wai_toolloop.py (tool steps for a task). Core puts the dependencies folder on
-the import path while it loads a custom skill. This module ties them to Wingman: joining on
-load, the post_to_board tool, the background loop that reads the inbox, and speaking or
-showing results.
+Every member logs its conversation (the user's lines and its own answers) into the room on
+disk. When a Wingman says another member's name, that member answers in the room, in its own
+voice, with its own tools. A brake stops Wingman-only banter until the user speaks again.
+
+The pure logic lives in dependencies/wai_board.py (room files, members, who-answers-whom) and
+dependencies/wai_toolloop.py (tool steps without native tool calls). Core puts the
+dependencies folder on the import path while it loads a custom skill.
 """
 
 from __future__ import annotations
@@ -17,20 +19,32 @@ from typing import TYPE_CHECKING, Any
 from api.enums import SpeechPriority
 from api.interface import SettingsConfig, SkillConfig
 from skills.skill_base import Skill, tool
-from wai_board import EVERYONE, Board, BoardError, Member, Message
-from wai_toolloop import Outcome, run_task
+from wai_board import USER, Board, ChatLine, Member, mentioned, should_answer
+from wai_toolloop import run_task
 
 if TYPE_CHECKING:
     from wingmen.wingman_context import WingmanContext
 
-OWN_TOOLS = {"post_to_board"}
 JOIN_EVERY_SECONDS = 30
-HISTORY_MESSAGES = 6
-CHECK_TOOL_STEPS = 2
+ROOM_SCAN_LINES = 40
+ROOM_CONTEXT_LINES = 12
+REPLY_MAX_AGE_SECONDS = 60
 BUSY_WAIT_SECONDS = 1.0
 MODEL_TIMEOUT_SECONDS = 120
 TOOL_TIMEOUT_SECONDS = 60
 MAX_QUEUED_NOTES = 10
+MAX_CHAT_LINES = 50
+MAX_CHAT_CHARS = 4000
+PROMPT_RECENT_SECONDS = 600
+PROMPT_RECENT_LINES = 4
+SEEN_LIMIT = 1000
+ROOM_WORDS = ("all", "room", "everyone")
+QUIET_WAIT_LIMIT_SECONDS = 120
+MAX_REPLY_CHARS = 1000
+MAX_ROLE_CHARS = 200
+TRIM_EVERY_APPENDS = 100
+MAX_BANTER_LIMIT = 20
+MAX_TOOL_STEPS_LIMIT = 8
 
 
 class WaiMessageBoard(Skill):
@@ -40,8 +54,7 @@ class WaiMessageBoard(Skill):
         self._run_id = 0
         self._lock = threading.Lock()
         self._notes: list[str] = []
-        self._pending: dict[str, tuple[float, str, str]] = {}
-        """thread id -> (deadline, recipient, topic) for tasks this Wingman is waiting on."""
+        self._appends = 0
 
     # --- settings (read fresh: the user changes them while the skill runs) ---
 
@@ -49,20 +62,34 @@ class WaiMessageBoard(Skill):
         value = self.retrieve_custom_property_value(prop_id, [])
         return default if value is None or value == "" else value
 
-    def _number(self, prop_id: str, default: float, minimum: float) -> float:
+    def _number(self, prop_id: str, default: float, minimum: float, maximum: float) -> float:
         try:
-            return max(minimum, float(self._prop(prop_id, default)))
+            return min(maximum, max(minimum, float(self._prop(prop_id, default))))
         except (TypeError, ValueError):
             return default
+
+    def _max_banter(self) -> int:
+        return int(self._number("max_banter", 6, 1, MAX_BANTER_LIMIT))
+
+    def _max_tool_steps(self) -> int:
+        if not self._prop("room_tools", True):
+            return 0
+        return int(self._number("max_tool_steps", 4, 0, MAX_TOOL_STEPS_LIMIT))
 
     def _board(self) -> Board:
         return Board(self._prop("board_directory", "") or self.get_generated_files_dir())
 
+    def _answers(self) -> bool:
+        return bool(self._prop("answers", True))
+
+    def _sharing_chat(self) -> bool:
+        return bool(self._prop("share_chat", True))
+
     def _me(self) -> Member:
         functions = [s.get("display_name") or s.get("name") for s in self.wingman.skills.active()
                      if s.get("name") != self.name]
-        return Member(name=self.wingman.name, role=str(self._prop("role", "")),
-                      functions=[f for f in functions if f], answers=bool(self._prop("answers", True)))
+        return Member(name=self.wingman.name, role=str(self._prop("role", ""))[:MAX_ROLE_CHARS],
+                      functions=[f for f in functions if f], answers=self._answers())
 
     # --- lifecycle ---
 
@@ -71,20 +98,19 @@ class WaiMessageBoard(Skill):
         try:
             board = self._board()
             board.join(self._me())
-            removed = board.cleanup()
-            requeued = board.requeue_abandoned(self.wingman.name)
-            if removed or requeued:
-                self.log.info(f"Message board: removed {removed} old messages, picked up "
-                              f"{requeued} unfinished tasks again.", server_only=True)
+            if self._sharing_chat():
+                board.trim_chat(self.wingman.name)
+            else:  # switched off: what was shared before is taken back
+                board.clear_chat(self.wingman.name)
         except OSError as error:
             self.log.warning(f"Message board: couldn't set up the board folder: {error}",
                              server_only=True)
         self._run_id += 1
-        self.wingman.run_in_thread(self._loop, self._run_id)
+        self.wingman.run_in_thread(self._room_loop, self._run_id)
         self.wingman.run_in_thread(self._presence_loop, self._run_id)
 
     async def unload(self) -> None:
-        self._run_id += 1  # the background loop checks this and stops
+        self._run_id += 1  # the background loops check this and stop
         try:
             self._board().leave(self.wingman.name)
         except OSError as error:
@@ -93,255 +119,210 @@ class WaiMessageBoard(Skill):
 
     async def get_prompt(self) -> str | None:
         base = await super().get_prompt() or ""
-        return f"{base}\n{self._roster_text()}".strip()
+        board = self._board()
+        parts = [base, self._roster_text(board)]
+        recent = self._said_to_me(board)
+        if recent:
+            parts.append("Recently said to you in the room:\n" + self._room_text(recent))
+        return "\n".join(p for p in parts if p).strip()
 
     async def on_add_user_message(self, message: str) -> None:
         with self._lock:
             notes, self._notes = self._notes, []
         for note in notes:
             await self.wingman.conversation.add_note(note)
+        if self._sharing_chat():
+            self._log_chat(USER, message)
+
+    async def on_add_assistant_message(self, message: str, tool_calls: list) -> None:
+        if message and self._sharing_chat():
+            self._log_chat(self.wingman.name, message)
 
     def _queue_note(self, text: str) -> None:
         with self._lock:
             self._notes = [*self._notes, text][-MAX_QUEUED_NOTES:]
 
-    def _roster_text(self) -> str:
-        others = [m for m in self._board().members()
+    def _log_chat(self, speaker: str, text: str) -> None:
+        if not isinstance(text, str):
+            return
+        try:
+            board = self._board()
+            board.append_chat(self.wingman.name, speaker, text)
+            with self._lock:
+                self._appends += 1
+                trim = self._appends % TRIM_EVERY_APPENDS == 0
+            if trim:
+                board.trim_chat(self.wingman.name)
+        except OSError as error:
+            self.log.warning(f"Message board: couldn't write to the room: {error}",
+                             server_only=True)
+
+    # --- what the model sees ---
+
+    def _roster_text(self, board: Board) -> str:
+        others = [m for m in board.members()
                   if m.name.casefold() != self.wingman.name.casefold()]
         if not others:
-            return "No other Wingmen are on the message board right now."
+            return "No other Wingmen are in the room right now."
         lines = [f"- {m.name}: {m.role or 'no role given'}"
                  + (f" (functions: {', '.join(m.functions)})" if m.functions else "")
-                 + ("" if m.answers else " [doesn't take tasks]") for m in others]
-        return "Message board members:\n" + "\n".join(lines)
+                 + ("" if m.answers else " [listens only]") for m in others]
+        return "Wingmen in the room:\n" + "\n".join(lines)
+
+    def _said_to_me(self, board: Board) -> list[ChatLine]:
+        cutoff = time.time() - PROMPT_RECENT_SECONDS
+        names = self._member_names(board)
+        lines = [line for line in board.read_all_chat(exclude=self.wingman.name,
+                                                      last=ROOM_SCAN_LINES)
+                 if line.time >= cutoff and line.speaker != USER
+                 and self.wingman.name in mentioned(line.text, names)]
+        return lines[-PROMPT_RECENT_LINES:]
+
+    def _member_names(self, board: Board) -> list[str]:
+        names = [m.name for m in board.members()]
+        return names if self.wingman.name in names else [*names, self.wingman.name]
+
+    @staticmethod
+    def _room_text(lines: list[ChatLine]) -> str:
+        return "\n".join(
+            f"{line.speaker if line.speaker != USER else f'User (to {line.member})'}: {line.text}"
+            for line in lines)
 
     # --- the tool ---
 
     @tool()
-    async def post_to_board(self, to: str, message: str, answer_to: str = "sender",
-                            confirmed: bool = False, **kwargs: Any) -> str:
-        """Give a task to another Wingman on the message board. Use it when the task fits another
-        member's role better than yours. You are the sender automatically. The answer arrives
-        later on its own; don't wait for it.
+    async def read_board_chat(self, member: str = "room", last: int = 10, **kwargs: Any) -> str:
+        """Read what was said recently in the room shared by the Wingmen, or in one Wingman's
+        conversation with the user. Use it when you need context you don't have.
 
         Args:
-            to: The recipient: the member's name (as listed under message board members), or "all".
-            message: The full task, with everything the member needs (ship, location, numbers).
-            answer_to: "sender" to get the answer back yourself, "user" to let the member tell
-                the user directly.
-            confirmed: True only after the user agreed to send it.
+            member: A Wingman's name for their conversation, or "room" for everyone.
+            last: How many of the newest lines to read (1 to 50).
         """
-        if kwargs:  # small models invent parameters ("action", "answered"); Core skips **kwargs
+        if kwargs:  # small models invent parameters; Core leaves **kwargs out of the schema
             self.log.info(f"Message board: ignored unknown parameters {sorted(kwargs)}",
                           server_only=True)
         board = self._board()
-        if to.strip().casefold() == EVERYONE:
-            target = EVERYONE
-        else:
-            member = board.resolve(to, exclude=self.wingman.name)
-            if member is None:
-                names = ", ".join(m.name for m in board.members()
-                                  if m.name.casefold() != self.wingman.name.casefold())
-                return f"No board member called {to}. Members: {names or 'none'}."
-            target = member.name
-        if self._prop("confirm_before_sending", True) and not confirmed:
-            return (f"Not sent yet. Ask the user whether to send this to {target}. If they "
-                    "agree, call post_to_board again with the same values and confirmed=true.")
         try:
-            # The sender is always this Wingman, never a parameter: the model can't post as another.
-            task = Message.task(sender=self.wingman.name, to=target, text=message,
-                                answer_to=answer_to if answer_to in ("sender", "user") else "sender",
-                                now=board.now())
-            written = board.post(task)
-        except (BoardError, OSError) as error:
-            return f"Couldn't post to the board: {error}"
-        if not written:
-            return "Nobody on the board takes tasks right now."
-        if target != EVERYONE:
-            timeout = self._number("reply_timeout_seconds", 180, 10)
-            with self._lock:
-                self._pending[task.thread] = (time.time() + timeout, target, task.topic)
-        return (f"Posted to {target}. Tell the user in a few words that you've passed it on; "
-                "the answer will arrive on its own.")
+            count = max(1, min(int(last or 10), MAX_CHAT_LINES))
+        except (TypeError, ValueError):
+            count = 10
+        if (member or "room").strip().casefold() in ROOM_WORDS:
+            lines = board.read_all_chat(exclude=None, last=count)
+            who = "the room"
+        else:
+            found = board.resolve(member)
+            if found is None:
+                names = ", ".join(m.name for m in board.members())
+                return f"No Wingman called {member} in the room. In the room: {names or 'none'}."
+            lines = board.read_chat(found.name, last=count)
+            who = found.name
+        if not lines:
+            return (f"Nothing from {who} yet. Only Wingmen with the message board on are in the "
+                    "room, from when they joined.")
+        rendered = [f"{time.strftime('%H:%M', time.localtime(line.time))} {line_text}"
+                    for line, line_text in zip(lines, self._room_text(lines).split("\n"))]
+        while len(rendered) > 1 and sum(len(r) + 1 for r in rendered) > MAX_CHAT_CHARS:
+            rendered = rendered[1:]  # keep the newest lines
+        return "\n".join(rendered)
 
-    # --- background loop ---
+    # --- background loops ---
 
-    async def _loop(self, run_id: int) -> None:
-        """Reads the inbox and works through it, one message at a time."""
+    async def _room_loop(self, run_id: int) -> None:
+        """Listens to the room and answers lines where another Wingman names this one."""
+        seen: set[str] = set()
+        since = time.time()  # never answer what was said before this Wingman joined
         while run_id == self._run_id:
             try:
-                board = self._board()
-                messages = board.inbox(self.wingman.name)
-                for path in board.skipped_files:
-                    self.log.warning(f"Message board: unreadable message {path}", server_only=True)
+                if self._answers():
+                    board = self._board()
+                    room = board.read_all_chat(exclude=None, last=ROOM_SCAN_LINES)
+                    for line in room:
+                        if line.id in seen or line.time < since:
+                            continue
+                        seen.add(line.id)
+                        if not self._should_answer(board, line, room):
+                            continue
+                        if not await self._wait_until_quiet(run_id) or run_id != self._run_id:
+                            continue
+                        # the user may have spoken, or others answered, while we waited
+                        fresh = board.read_all_chat(exclude=None, last=ROOM_SCAN_LINES)
+                        if self._should_answer(board, line, fresh):
+                            await self._reply(line, run_id)
+                    if len(seen) > SEEN_LIMIT:
+                        seen = {line.id for line in room}
             except Exception as error:  # one bad pass must not end the loop
-                self.log.error(f"Message board: couldn't read the inbox: {error}", server_only=True)
-                messages = []
-            for message in messages:
-                if run_id != self._run_id:
-                    return
-                try:
-                    await self._handle(board, message, run_id)
-                except Exception as error:
-                    self.log.error(f"Message board: '{message.topic}' from {message.sender} "
-                                   f"failed: {error}", server_only=True)
-            await asyncio.sleep(self._number("poll_seconds", 2, 0.5))
+                self.log.error(f"Message board: {error}", server_only=True)
+            await asyncio.sleep(self._number("poll_seconds", 2, 0.5, 60))
+
+    def _should_answer(self, board: Board, line: ChatLine, room: list[ChatLine]) -> bool:
+        return should_answer(self.wingman.name, line, room, member_names=self._member_names(board),
+                             max_streak=self._max_banter(), max_age=REPLY_MAX_AGE_SECONDS,
+                             now=time.time())
 
     async def _presence_loop(self, run_id: int) -> None:
-        """Keeps this Wingman on the member list and reports tasks nobody answered.
-        Separate from _loop, so a long task doesn't make the Wingman look gone."""
-        last_join = 0.0
+        """Keeps this Wingman on the member list, also while it's busy answering."""
         while run_id == self._run_id:
             try:
-                if time.time() - last_join >= JOIN_EVERY_SECONDS:
-                    self._board().join(self._me())
-                    last_join = time.time()
-                await self._check_timeouts()
+                self._board().join(self._me())
             except Exception as error:
                 self.log.error(f"Message board: {error}", server_only=True)
+            for _ in range(JOIN_EVERY_SECONDS):
+                if run_id != self._run_id:
+                    return
+                await asyncio.sleep(1)
+
+    async def _wait_until_quiet(self, run_id: int) -> bool:
+        """Wait while the user talks or a Wingman answers. False when it never got quiet."""
+        deadline = time.time() + QUIET_WAIT_LIMIT_SECONDS
+        while self.wingman.conversation.user_busy and run_id == self._run_id:
+            if time.time() > deadline:
+                return False
             await asyncio.sleep(BUSY_WAIT_SECONDS)
+        return True
 
-    async def _handle(self, board: Board, message: Message, run_id: int) -> None:
-        if message.kind == "task":
-            while self.wingman.conversation.user_busy and run_id == self._run_id:
-                await asyncio.sleep(BUSY_WAIT_SECONDS)
-        if run_id != self._run_id or not board.claim(self.wingman.name, message.id):
-            return
+    # --- answering in the room ---
+
+    async def _reply(self, line: ChatLine, run_id: int) -> None:
+        context = self._board().read_all_chat(exclude=None, last=ROOM_CONTEXT_LINES)
+        prompt = (f"The conversation in the room so far:\n{self._room_text(context)}\n\n"
+                  f"{line.speaker} just said to you: \"{line.text}\"\n"
+                  "Answer in character, in one to three short sentences, as if speaking. If you "
+                  "want another Wingman to answer you, say their name; otherwise don't name them.")
         try:
-            if message.kind == "task":
-                await self._work_on_task(board, message)
-            else:
-                await self._handle_reply(message)
-        except Exception as error:
-            if message.kind == "task":  # the sender would otherwise wait for nothing
-                board.post(message.reply(sender=self.wingman.name, delivered_to_user=True,
-                                         text=f"{self.wingman.name} couldn't do that: {error}",
-                                         now=board.now()))
-            raise
-        finally:
-            board.finish(self.wingman.name, message.id)
-
-    async def _check_timeouts(self) -> None:
-        now = time.time()
-        with self._lock:
-            expired = [(k, v) for k, v in self._pending.items() if v[0] < now]
-            for key, _ in expired:
-                del self._pending[key]
-        for _, (_, recipient, topic) in expired:
-            await self._say(f"{recipient} didn't answer about {topic}.")
-
-    # --- working on a task ---
-
-    async def _work_on_task(self, board: Board, task: Message) -> None:
-        if not self._prop("answers", True):
-            board.post(task.reply(sender=self.wingman.name, delivered_to_user=True,
-                                  text=f"{self.wingman.name} doesn't take board tasks.",
-                                  now=board.now()))
+            outcome = await run_task(
+                system=self._system(), history=[], task=prompt, list_tools=self._tool_list,
+                generate=self._generate, invoke=self._invoke,
+                max_steps=self._max_tool_steps(), allow_forward=False)
+        except asyncio.TimeoutError:
+            self.log.warning(f"Message board: answering {line.speaker} timed out.", server_only=True)
             return
-        outcome = await self._run(task, self._task_prompt(task), allow_forward=True)
-        if outcome.kind == "forward":
-            refusal = self._forward(board, task, outcome)
-            if refusal is None:
-                return
-            outcome = await self._run(task, f"{self._task_prompt(task)}\n\n(You can't pass "
-                                      f"this on: {refusal} Answer it yourself.)", allow_forward=False)
-        to_user = task.answer_to == "user"
-        board.post(task.reply(sender=self.wingman.name, text=outcome.text,
-                              delivered_to_user=to_user, now=board.now()))
-        if to_user:
-            await self._say(outcome.text)
-        else:
-            await self.wingman.conversation.show(outcome.text)
-        self._queue_note(f"Board task from {task.sender}: {task.text}\n"
-                         f"Your answer: {outcome.text}")
-
-    def _forward(self, board: Board, task: Message, outcome: Outcome) -> str | None:
-        """Pass the task on. Returns why it couldn't, or None when it went out."""
-        member = board.resolve(outcome.forward_to, exclude=self.wingman.name)
-        if member is None:
-            return f"there's no board member called {outcome.forward_to}."
-        try:
-            forwarded = task.forward(by=self.wingman.name, to=member.name, note=outcome.text,
-                                     max_hops=int(self._number("max_hops", 3, 0)), now=board.now())
-        except BoardError as error:
-            return str(error)
-        board.post(forwarded)
-        self._queue_note(f"You passed the board task '{task.topic}' from {task.sender} "
-                         f"on to {member.name}.")
-        return None
-
-    async def _handle_reply(self, reply: Message) -> None:
-        with self._lock:
-            self._pending.pop(reply.thread, None)
-        if reply.delivered_to_user:  # the user already has it, or it's a refusal/error
-            self._queue_note(f"{reply.sender} replied about '{reply.topic}': {reply.text}")
+        if run_id != self._run_id:  # unloaded or re-prepared while thinking: stay silent
             return
-        prompt = (f"{reply.sender} answered your board task '{reply.topic}'. The user has "
-                  f"already seen the answer in the chat.\n\nTheir answer:\n{reply.text}\n\n"
-                  "Check it where you can (a tool if one fits: prices, ship data): right ship "
-                  "or item, plausible numbers, game version stated. Then tell the user in one "
-                  "or two short sentences, in character, whether it checks out and the bottom "
-                  "line. Don't repeat the whole answer. If the answer is empty, garbled or only "
-                  "a link, say the answer didn't come through properly instead of guessing.")
-        outcome = await self._run(reply, prompt, allow_forward=False,
-                                  max_steps=min(CHECK_TOOL_STEPS, self._tool_steps()))
-        await self._say(outcome.text)
-        self._queue_note(f"{reply.sender} answered '{reply.topic}': {reply.text}\n"
-                         f"You told the user: {outcome.text}")
+        text = outcome.text[:MAX_REPLY_CHARS]
+        await self._say(text)
+        self._queue_note(f"{line.speaker} said to you in the room: {line.text}\n"
+                         f"You answered: {text}")
 
-    # --- model, tools, voice ---
-
-    def _tool_steps(self) -> int:
-        return int(self._number("max_tool_steps", 4, 0))
-
-    async def _run(self, message: Message, prompt: str, *, allow_forward: bool,
-                   max_steps: int | None = None) -> Outcome:
-        return await run_task(
-            system=self._system(message), history=self._recent_history(), task=prompt,
-            list_tools=self._tool_list, generate=self._generate, invoke=self._invoke,
-            max_steps=self._tool_steps() if max_steps is None else max_steps,
-            allow_forward=allow_forward,
-        )
-
-    def _system(self, message: Message) -> str:
+    def _system(self) -> str:
         """The facade's model calls don't add the Wingman's system prompt, so build one."""
         try:
             backstory = str(self.wingman.config.prompts.backstory or "")
         except AttributeError:
             backstory = ""
-        heard = ("read aloud to the user and shown in the chat" if message.answer_to == "user"
-                 and message.kind == "task" else "shown in the chat")
-        return (f"{backstory}\n\nYou are {self.wingman.name} on the WAI message board. Answer in "
-                f"{self.wingman.language.name}. What you answer is {heard}: start with one "
-                "sentence that gives the result, then at most five short lines. No tables or "
-                f"headings.\n\n{self._roster_text()}").strip()
-
-    @staticmethod
-    def _task_prompt(task: Message) -> str:
-        return f"Board task from {task.sender}:\n{task.text}"
-
-    def _recent_history(self) -> list[dict]:
-        turns = [{"role": m.get("role"), "content": m.get("content")}
-                 for m in self.wingman.conversation.history()
-                 if m.get("role") in ("user", "assistant")
-                 and isinstance(m.get("content"), str) and m.get("content").strip()]
-        return turns[-HISTORY_MESSAGES:]
-
-    @staticmethod
-    def _is_own_tool(name: str) -> bool:
-        """The board's own tool, also under a prefixed name: a board task must never post new
-        tasks itself, or two Wingmen could keep sending each other work."""
-        return any(name == own or name.endswith(f"_{own}") or name.endswith(f".{own}")
-                   for own in OWN_TOOLS)
+        return (f"{backstory}\n\nYou are {self.wingman.name}. You share a room with the user and "
+                "other Wingmen; everyone hears what is said. Stay in character, including your "
+                "opinions of the others. Answer in "
+                f"{self.wingman.language.name}. What you say is read aloud: no lists, tables or "
+                f"headings.\n\n{self._roster_text(self._board())}").strip()
 
     def _tool_list(self) -> list[dict]:
+        if not self._prop("room_tools", True):
+            return []
         return [{"name": d.name, "description": d.description, "parameters": d.parameters}
-                for d in self.wingman.tools.all()
-                if d is not None and not self._is_own_tool(d.name)]
+                for d in self.wingman.tools.all() if d is not None]
 
     async def _invoke(self, name: str, arguments: dict) -> str:
-        if self._is_own_tool(name):
-            return "That tool isn't available while working on a board task."
         try:
             result = await asyncio.wait_for(self.wingman.tools.invoke(name, arguments),
                                             TOOL_TIMEOUT_SECONDS)
@@ -363,5 +344,7 @@ class WaiMessageBoard(Skill):
                 MODEL_TIMEOUT_SECONDS)
 
     async def _say(self, text: str) -> None:
+        """A line this Wingman says in the room: shown, logged to the room, spoken."""
         await self.wingman.conversation.show(text)
+        self._log_chat(self.wingman.name, text)
         await self.wingman.tts.speak(text, priority=SpeechPriority.EVENT)

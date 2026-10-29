@@ -3,73 +3,76 @@ name: WaiMessageBoard
 api_version: 3
 display_name: WAI Message Board
 author: Mallachi
-version: 0.1.0
+version: 0.3.0
 auto_activate: true
 discoverable_by_default: false
 tags:
   - Utility
 description:
   en: >-
-    A message board for Wingmen. Every Wingman with this skill joins the board with its role and
-    functions, can give another member a task, and answers tasks sent to it with its own model and
-    tools. Results come back to the sender or go straight to you. Needs Wingman 3.2.11 or later.
+    A shared room for Wingmen. Everything said to a Wingman with this skill goes into the room,
+    and a Wingman talks to another simply by saying its name: the other one hears it and answers
+    in its own voice, with its own tools. A limit stops Wingmen talking among themselves until you
+    speak again. Needs Wingman 3.2.11 or later.
 discovery_keywords:
   - message board
+  - talk to another wingman
   - ask another wingman
-  - send to wingman
-  - pass on task
+  - wingman room
   - wingman network
-  - research partner
+  - roleplay
 prompt: |
-  You are on the WAI message board with other Wingmen (listed below). When a task fits another
-  member's role better than yours, give it to them with post_to_board instead of guessing. Their
-  answer arrives on its own later. Don't wait for it, and don't post the same task twice.
+  You share a room with other Wingmen (listed below), and everything said in it is heard by all.
+  To talk to another Wingman, say their name in what you say, e.g. "Professor, what does that
+  cost?". They will answer on their own a moment later; don't wait for it or answer for them.
+  Only call on another Wingman when it helps the user or fits your character. When you need
+  context from the room or from another Wingman's conversation, use read_board_chat.
 custom_properties:
   - id: role
-    name: Role on the board
-    hint: What this Wingman is for, shown to the other members, e.g. "Research partner - prices, loadouts, stats; searches the web".
+    name: Role in the room
+    hint: What this Wingman is for, shown to the others, e.g. "Research partner - prices, loadouts, stats; searches the web".
     value: ""
     required: false
     property_type: string
   - id: answers
-    name: Takes tasks
-    hint: Whether this Wingman works on tasks other members send it.
+    name: Answers when named
+    hint: Whether this Wingman answers when another Wingman says its name in the room.
     value: true
     required: false
     property_type: boolean
-  - id: confirm_before_sending
-    name: Ask before sending
-    hint: Ask you before a task goes to another Wingman.
+  - id: share_chat
+    name: Share my chat
+    hint: Put this Wingman's conversation with you into the room, so the others hear it. Off keeps your conversation private (and deletes what was shared at the next load); what it says to other Wingmen in the room is still heard. The limit on Wingman lines only resets when you speak to a Wingman that shares its chat.
     value: true
     required: false
     property_type: boolean
+  - id: room_tools
+    name: Use tools in the room
+    hint: Whether this Wingman may use its tools (skills, MCPs, commands such as key presses) when another Wingman talks to it. Switch off for a ship AI if you don't want other Wingmen to trigger its commands.
+    value: true
+    required: false
+    property_type: boolean
+  - id: max_banter
+    name: Max Wingman lines in a row
+    hint: How many lines Wingmen may say to each other before they wait for you to speak again (1 to 20).
+    value: 6
+    required: false
+    property_type: number
   - id: poll_seconds
-    name: Check the board every (seconds)
-    hint: How often the skill reads the board. Reading costs nothing; only messages for this Wingman wake its AI.
+    name: Listen every (seconds)
+    hint: How often the skill checks the room. Checking costs nothing; only a line naming this Wingman wakes its AI.
     value: 2
     required: false
     property_type: number
-  - id: reply_timeout_seconds
-    name: Wait for an answer (seconds)
-    hint: After this long without an answer, the Wingman tells you.
-    value: 180
-    required: false
-    property_type: number
-  - id: max_hops
-    name: Max times a task is passed on
-    hint: How often a task may be handed on from one Wingman to the next.
-    value: 3
-    required: false
-    property_type: number
   - id: max_tool_steps
-    name: Max tool calls per task
-    hint: How many tool calls this Wingman may make while working on one board task.
+    name: Max tool calls per answer
+    hint: How many tool calls this Wingman may make while answering another Wingman (0 to 8).
     value: 4
     required: false
     property_type: number
   - id: board_directory
-    name: Board folder
-    hint: Leave empty for the default. Every Wingman on the board must use the same folder; a shared network folder links PCs.
+    name: Room folder
+    hint: Leave empty for the default. Every Wingman in the room must use the same folder; a shared network folder links PCs.
     value: ""
     required: false
     property_type: directory

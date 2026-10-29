@@ -1,12 +1,13 @@
-"""The message board on disk. Pure Python, no Wingman imports, so it can be tested alone.
+"""The board's room on disk, and the rules for who answers whom. Pure Python, no Wingman
+imports, so it can be tested alone.
 
 Layout under the board folder:
-    members/<slug>.json            one file per member, written only by that member
-    messages/<slug>/<id>.json      a message waiting in that member's inbox
-    messages/<slug>/<id>.taken     claimed, being worked on
-    messages/<slug>/<id>.done      handled, deleted by cleanup() after a day
+    members/<slug>.json    one file per member, written only by that member
+    chat/<slug>.jsonl      what that member's conversation said in the room, one JSON line each
 
-Every file is written to a temporary name and renamed, so a reader never sees half a file.
+The room is every member's chat file merged by time. Each member appends only to its own file,
+because Wingmen run on separate threads. Member files are written to a temporary name and
+renamed, so a reader never sees half a file; a half chat line is skipped on read.
 """
 
 from __future__ import annotations
@@ -23,16 +24,18 @@ from pathlib import Path
 from typing import Callable
 
 MEMBER_STALE_SECONDS = 120
-HANDLED_MAX_AGE_SECONDS = 86400
-ABANDONED_TAKEN_SECONDS = 600
-ANSWER_TO = ("sender", "user")
-EVERYONE = "all"
+CHAT_MAX_TEXT = 2000
+CHAT_KEEP_LINES = 500
 FILE_RETRIES = 5
 FILE_RETRY_SLEEP = 0.05
-
-
-class BoardError(Exception):
-    """A message that breaks the board's rules (hop limit, loop, wrong kind)."""
+USER = "User"
+MIN_NAME_WORD = 3
+COMMON_WORDS = frozenset({
+    "the", "and", "for", "who", "you", "mister", "mrs", "miss", "doctor", "captain", "commander",
+    "star", "citizen", "ship", "computer", "assistant", "bot", "ai", "wingman",
+})
+"""Words that are part of a name but too common to count as calling that Wingman on their own:
+"Star Citizen Helper" answers to its full name or "Helper", not to "star" or "citizen"."""
 
 
 def slug(name: str) -> str:
@@ -44,20 +47,8 @@ def slug(name: str) -> str:
     return f"{readable}_{digest}" if readable else digest
 
 
-LABEL_WORDS = 10
-
-
-def short_label(text: str) -> str:
-    """A short label for a task, made from its first words, for chat lines and notes."""
-    words = text.split()
-    if not words:
-        return "a task"
-    label = " ".join(words[:LABEL_WORDS])
-    return f"{label}…" if len(words) > LABEL_WORDS else label
-
-
 def _retry(action: Callable[[], None]) -> None:
-    """Windows refuses a rename while another process has the file open; that clears quickly."""
+    """Windows refuses a rename or write while another thread has the file open; that clears quickly."""
     for attempt in range(FILE_RETRIES):
         try:
             action()
@@ -88,75 +79,86 @@ class Member:
 
 
 @dataclass(frozen=True)
-class Message:
+class ChatLine:
     id: str
-    thread: str
-    kind: str  # "task" or "reply"
-    sender: str
-    to: str
-    topic: str  # a short label taken from the text, not something the sender writes
+    member: str  # whose conversation this line belongs to
+    speaker: str  # USER or the Wingman's name
     text: str
-    answer_to: str  # "sender" or "user"
-    reply_to: str  # the member a reply goes back to
-    in_reply_to: str
-    path: list[str]
-    hops: int
-    created: float
-    delivered_to_user: bool = False
+    time: float
 
-    @classmethod
-    def task(cls, *, sender: str, to: str, text: str, answer_to: str, now: float,
-             topic: str = "") -> "Message":
-        if answer_to not in ANSWER_TO:
-            raise BoardError(f"answer_to must be one of {ANSWER_TO}, not {answer_to!r}.")
-        message_id = uuid.uuid4().hex
-        return cls(id=message_id, thread=message_id, kind="task", sender=sender, to=to,
-                   topic=topic.strip() or short_label(text), text=text, answer_to=answer_to,
-                   reply_to=sender, in_reply_to="", path=[sender], hops=0, created=now)
 
-    def reply(self, *, sender: str, text: str, delivered_to_user: bool, now: float) -> "Message":
-        return Message(id=uuid.uuid4().hex, thread=self.thread, kind="reply", sender=sender,
-                       to=self.reply_to, topic=self.topic, text=text, answer_to="sender",
-                       reply_to=sender, in_reply_to=self.id, path=[sender], hops=self.hops,
-                       created=now, delivered_to_user=delivered_to_user)
+# --- room rules ---
 
-    def forward(self, *, by: str, to: str, note: str, max_hops: int, now: float) -> "Message":
-        """Hand this task on. The result still goes to the original sender (reply_to)."""
-        if self.kind != "task":
-            raise BoardError("Only a task can be passed on, not a reply.")
-        if self.hops + 1 > max_hops:
-            raise BoardError(f"This task was already passed on {self.hops} times "
-                             f"(limit {max_hops}). Answer it with what you have.")
-        chain = [p.casefold() for p in [*self.path, by]]
-        if to.casefold() in chain:
-            raise BoardError(f"{to} already had this task. Don't send it back into the chain.")
-        text = f"{self.text}\n\n{by}'s note: {note}" if note else self.text
-        return replace(self, id=uuid.uuid4().hex, sender=by, to=to, text=text,
-                       path=[*self.path, by], hops=self.hops + 1, created=now)
+def _name_forms(name: str, all_names: list[str]) -> list[str]:
+    """The full name, plus each word of a multi-word name that is long enough, not a common
+    word, and not shared with another member's name (two Professors: "Professor" calls neither)."""
+    words = name.split()
+    if len(words) < 2:
+        return [name]
+    others = {w.casefold() for other in all_names if other.casefold() != name.casefold()
+              for w in other.split()}
+    usable = [w for w in words if len(w) >= MIN_NAME_WORD
+              and w.casefold() not in COMMON_WORDS and w.casefold() not in others]
+    return [name, *usable]
 
-    def to_dict(self) -> dict:
-        return asdict(self)
 
-    @classmethod
-    def from_dict(cls, data: dict) -> "Message":
-        return cls(
-            id=str(data["id"]), thread=str(data["thread"]), kind=str(data["kind"]),
-            sender=str(data["sender"]), to=str(data["to"]), topic=str(data.get("topic") or ""),
-            text=str(data.get("text") or ""), answer_to=str(data.get("answer_to") or "sender"),
-            reply_to=str(data.get("reply_to") or data["sender"]),
-            in_reply_to=str(data.get("in_reply_to") or ""),
-            path=[str(p) for p in data.get("path") or []], hops=int(data.get("hops") or 0),
-            created=float(data.get("created") or 0.0),
-            delivered_to_user=bool(data.get("delivered_to_user", False)),
-        )
+def mentioned(text: str, names: list[str]) -> list[str]:
+    """The names (from `names`, in that order) the text addresses, as whole words, any case.
+    `names` should be every member, so words two names share can be left out."""
+    found = []
+    for name in names:
+        for form in _name_forms(name, names):
+            if re.search(rf"(?<!\w){re.escape(form)}(?!\w)", text, re.IGNORECASE):
+                found.append(name)
+                break
+    return found
+
+
+def banter_streak(room: list[ChatLine], line_id: str) -> int:
+    """How many Wingman lines in a row end at this line, counted back to the user's last line."""
+    index = next((i for i, line in enumerate(room) if line.id == line_id), None)
+    if index is None:
+        return 0
+    streak = 0
+    for line in reversed(room[:index + 1]):
+        if line.speaker == USER:
+            break
+        streak += 1
+    return streak
+
+
+def wingman_lines_since_user(room: list[ChatLine]) -> int:
+    """All Wingman lines after the user's last line: the count the brake uses, so one line
+    naming several Wingmen can't multiply the limit."""
+    count = 0
+    for line in reversed(room):
+        if line.speaker == USER:
+            break
+        count += 1
+    return count
+
+
+def should_answer(me: str, line: ChatLine, room: list[ChatLine], *, member_names: list[str],
+                  max_streak: int, max_age: float, now: float) -> bool:
+    """Answer when another Wingman named me in a recent line, unless the user has spoken since
+    or the room already holds max_streak Wingman lines in a row. User lines never trigger:
+    Core already sends the user's words to the Wingman they name."""
+    if line.speaker == USER or line.speaker.casefold() == me.casefold():
+        return False
+    if now - line.time > max_age:
+        return False
+    names = [*member_names, me] if me not in member_names else member_names
+    if me not in mentioned(line.text, names):
+        return False
+    if any(other.speaker == USER and other.time > line.time for other in room):
+        return False
+    return wingman_lines_since_user(room) < max_streak
 
 
 class Board:
     def __init__(self, root: str | os.PathLike, clock: Callable[[], float] = time.time) -> None:
         self.root = Path(root)
         self._clock = clock
-        self.skipped_files: list[str] = []
-        """Files that couldn't be read on the last inbox() pass, for the skill to log."""
 
     def now(self) -> float:
         return self._clock()
@@ -207,100 +209,77 @@ class Board:
                         for w in words)]
         return loose[0] if len(loose) == 1 else None
 
-    # --- messages ---
+    # --- the room: chat/<slug>.jsonl, appended only by that member ---
 
-    def post(self, message: Message) -> list[Message]:
-        """Write the message to its inbox. To "all", one copy per other answering member."""
-        if message.to.casefold() != EVERYONE:
-            self._write(self._inbox(message.to) / f"{message.id}.json", message.to_dict())
-            return [message]
-        written = []
-        for member in self.members():
-            if member.name.casefold() == message.sender.casefold() or not member.answers:
-                continue
-            copy = replace(message, id=f"{message.id}.{slug(member.name)}", to=member.name)
-            self._write(self._inbox(member.name) / f"{copy.id}.json", copy.to_dict())
-            written.append(copy)
-        return written
+    def append_chat(self, name: str, speaker: str, text: str) -> ChatLine | None:
+        text = " ".join(text.split())
+        if not text:
+            return None
+        if len(text) > CHAT_MAX_TEXT:
+            text = f"{text[:CHAT_MAX_TEXT]}…"
+        line = ChatLine(id=uuid.uuid4().hex, member=name, speaker=speaker, text=text,
+                        time=self.now())
+        path = self._chat_file(name)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        payload = json.dumps(asdict(line), ensure_ascii=False) + "\n"
 
-    def inbox(self, name: str) -> list[Message]:
-        folder = self._inbox(name)
-        self.skipped_files = []
-        if not folder.is_dir():
+        def append() -> None:
+            with open(path, "a", encoding="utf-8") as file:
+                file.write(payload)
+
+        _retry(append)
+        return line
+
+    def read_chat(self, name: str, last: int) -> list[ChatLine]:
+        return self._read_chat_file(self._chat_file(name))[-last:] if last > 0 else []
+
+    def read_all_chat(self, exclude: str | None, last: int) -> list[ChatLine]:
+        """The room: the newest `last` lines of every member's log but `exclude`'s, by time."""
+        folder = self.root / "chat"
+        if last <= 0 or not folder.is_dir():
             return []
-        messages = []
-        for path in folder.glob("*.json"):
-            data = self._read(path)
-            if data is None:
-                self.skipped_files.append(str(path))
-                continue
-            try:
-                messages.append(Message.from_dict(data))
-            except (KeyError, TypeError, ValueError):
-                self.skipped_files.append(str(path))
-        return sorted(messages, key=lambda m: m.created)
+        skip = f"{slug(exclude)}.jsonl" if exclude else None
+        lines = [line for path in folder.glob("*.jsonl") if path.name != skip
+                 for line in self._read_chat_file(path)]
+        return sorted(lines, key=lambda l: l.time)[-last:]
 
-    def claim(self, name: str, message_id: str) -> bool:
-        """Mark a message as taken. False when someone (another pass) took it first."""
-        folder = self._inbox(name)
+    def trim_chat(self, name: str, keep: int = CHAT_KEEP_LINES) -> None:
+        path = self._chat_file(name)
         try:
-            _retry(lambda: os.rename(folder / f"{message_id}.json", folder / f"{message_id}.taken"))
-            return True
+            raw = path.read_text(encoding="utf-8").splitlines()
         except OSError:
-            return False
+            return
+        if len(raw) > keep:
+            self._write_text(path, "\n".join(raw[-keep:]) + "\n")
 
-    def finish(self, name: str, message_id: str) -> None:
-        folder = self._inbox(name)
+    def clear_chat(self, name: str) -> None:
+        self._chat_file(name).unlink(missing_ok=True)
+
+    @staticmethod
+    def _read_chat_file(path: Path) -> list[ChatLine]:
         try:
-            _retry(lambda: os.replace(folder / f"{message_id}.taken", folder / f"{message_id}.done"))
+            raw = path.read_text(encoding="utf-8").splitlines()
         except OSError:
-            pass  # cleanup() removes a leftover .taken later
-
-    def requeue_abandoned(self, name: str,
-                          older_than_seconds: float = ABANDONED_TAKEN_SECONDS) -> int:
-        """Put this member's tasks back in its inbox that were taken but never finished
-        (Wingman closed mid-task). Uses the file's real age. Returns the count."""
-        folder = self._inbox(name)
-        if not folder.is_dir():
-            return 0
-        cutoff = time.time() - older_than_seconds
-        count = 0
-        for path in folder.glob("*.taken"):
+            return []
+        lines = []
+        for entry in raw:
             try:
-                if path.stat().st_mtime < cutoff:
-                    _retry(lambda p=path: os.rename(p, p.with_suffix(".json")))
-                    count += 1
-            except OSError:
+                data = json.loads(entry)
+                member, when = str(data["member"]), float(data["time"])
+                lines.append(ChatLine(id=str(data.get("id") or f"{member}:{when!r}"),
+                                      member=member, speaker=str(data["speaker"]),
+                                      text=str(data["text"]), time=when))
+            except (ValueError, KeyError, TypeError):
                 continue
-        return count
-
-    def cleanup(self, max_age_seconds: float = HANDLED_MAX_AGE_SECONDS) -> int:
-        """Delete handled (and abandoned taken) messages older than max_age. Returns the count.
-        A file that can't be read right now (another Wingman has it open) is left alone."""
-        folder = self.root / "messages"
-        if not folder.is_dir():
-            return 0
-        cutoff = self.now() - max_age_seconds
-        removed = 0
-        for path in [*folder.glob("*/*.done"), *folder.glob("*/*.taken")]:
-            data = self._read(path)
-            if data is None:
-                continue
-            if float(data.get("created") or 0.0) < cutoff:
-                try:
-                    path.unlink(missing_ok=True)
-                    removed += 1
-                except OSError:
-                    continue
-        return removed
+        return lines
 
     # --- files ---
 
+    def _chat_file(self, name: str) -> Path:
+        return self.root / "chat" / f"{slug(name)}.jsonl"
+
     def _member_file(self, name: str) -> Path:
         return self.root / "members" / f"{slug(name)}.json"
-
-    def _inbox(self, name: str) -> Path:
-        return self.root / "messages" / slug(name)
 
     @staticmethod
     def _read(path: Path) -> dict | None:
@@ -312,9 +291,13 @@ class Board:
 
     @staticmethod
     def _write(path: Path, data: dict) -> None:
+        Board._write_text(path, json.dumps(data, ensure_ascii=False, indent=1))
+
+    @staticmethod
+    def _write_text(path: Path, text: str) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         tmp = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
-        tmp.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+        tmp.write_text(text, encoding="utf-8")
         try:
             _retry(lambda: os.replace(tmp, path))
         except OSError:

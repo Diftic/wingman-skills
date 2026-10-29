@@ -1,5 +1,55 @@
 # WAI Message Board — design (draft, 2026-10-25)
 
+> **v0.3 (2026-10-25 evening) replaced the task system below with a shared room.** The user
+> wanted "a common message board that all chat is written to", where a Wingman talks to another
+> "simply by saying it in the chat", as a start for roleplay (even arguments between Wingmen).
+> The user chose to replace `post_to_board` rather than keep both. The sections further down
+> describe v0.1/0.2 (inboxes, tasks, forwarding, timeouts). That code lives in commit `588d75f`.
+>
+> **v0.3 in short:**
+> - **Room:** each member appends its conversation (the user's lines, its answers, its room
+>   lines) to `chat/<slug>.jsonl`. The room is all files merged by time; there are no inboxes.
+> - **Talking by name:** a line by a Wingman that names another member (full name, or any name
+>   word of 3+ letters, as a whole word) makes that member answer. It answers in character,
+>   1–3 sentences, with the last 12 room lines as context, its own tools via the JSON tool loop,
+>   shown + logged + spoken (EVENT priority). User lines never trigger, because Core already
+>   routes them.
+> - **Brake:** a Wingman doesn't answer when the line ends a run of `max_banter` (default 6)
+>   Wingman lines without a user line. It also skips lines older than 60 s, lines from before
+>   it joined, and its own lines.
+> - **Awareness:** `get_prompt()` carries the member list plus up to 4 lines from the last 10
+>   minutes that named this Wingman. `read_board_chat(member="room")` reads more on demand.
+> - **Settings:** `role`, `answers` (answers when named), `share_chat`, `max_banter`,
+>   `poll_seconds`, `max_tool_steps`, `board_directory`.
+> - **Leftovers:** a v0.1/0.2 `messages/` folder in the board folder is no longer used and can
+>   be deleted.
+>
+> **After the v0.3 review (ecc:python-reviewer, 2026-10-25):**
+> - **Brake:** counts all Wingman lines since the user's last line
+>   (`wingman_lines_since_user`), so a line naming several Wingmen can't multiply the limit.
+> - **Re-check after waiting:** after waiting for quiet, the line is checked again against a
+>   fresh room. It's skipped if the user spoke after it, it's older than 60 s, or the brake is
+>   hit. Waiting gives up after 120 s.
+> - **Mentions:**
+>   - Name words shared by two members don't count.
+>   - `COMMON_WORDS` (star, citizen, ship, the, doctor, captain, ...) only count as part of the
+>     full name.
+>   - A one-word name always counts.
+> - **Limits:** `max_banter` 1–20, `max_tool_steps` 0–8, replies ≤ 1000 characters, roles ≤ 200.
+>   The chat log is trimmed every 100 appends.
+> - **No silent leftovers:** no speaking after unload or re-prepare (the run_id is checked before
+>   `_say`).
+> - **New setting `room_tools`** (default on): off means no tools when answering in the room
+>   (guards key-press commands against other Wingmen and relayed web text).
+> - **Known limits, documented rather than coded:**
+>   - **Clock skew:** ordering uses each writer's clock, so it's fine on one PC but skewed clocks
+>     across PCs on a network folder can misorder lines.
+>   - **Brake reset:** only a user line logged by a Wingman with the board and `share_chat` on
+>     resets the brake (talking only to non-sharing Wingmen leaves the room quiet). User-role
+>     messages that other skills inject also reset it.
+>   - **Replies are public:** room replies are always in the room, even with `share_chat` off.
+>   - **Trimming:** `trim_chat` at load can drop a line appended at that instant.
+
 A message board that lets Wingmen talk to each other. First use: the game Wingman (ORIN) hands
 research questions to a research Wingman ("Professor Martin", Claude with web search, see
 [SETUP.md](SETUP.md)), checks the answer and sums it up.
@@ -201,6 +251,19 @@ Where the code differs from the plan above, the code wins:
     `wai_board.short_label`), used only in chat lines and notes such as "X didn't answer about …".
   - Reason: fewer fields for small models. ORIN's DeepSeek Flash had sent `question` instead of
     `topic`/`message`.
+- **v0.2.0, shared chat log (the user asked, read on demand).** Wingmen can't read each other's
+  chat in Core 3.2.11: `conversation.history()` is per Wingman, and `persistent_memory` uses one
+  collection per Wingman. So the board keeps its own log:
+  - **Writing:** each member appends to `chat/<slug>.jsonl`: the user's lines
+    (`on_add_user_message`), its own answers (`on_add_assistant_message`), and the board's chat
+    lines (`_show`). Only that member writes its file.
+  - **Reading:** with the tool `read_board_chat(member, last=10)`, or `member="all"` for every
+    other member merged by time. At most 50 lines and 4000 characters, newest kept. It's also
+    available inside board tasks (read-only, so no loop risk).
+  - **Opt-out:** `share_chat` per Wingman (default on). Off means nothing is logged, and the
+    existing log is deleted at the next load.
+  - **Size:** trimmed to 500 lines at load; lines over 2000 characters are cut.
+  - **Privacy:** the log is plain text in the board folder, just like the messages.
 - **Known limit:** `confirm_before_sending` relies on the model asking. The model sets
   `confirmed`, so it's guidance, not a lock.
 
