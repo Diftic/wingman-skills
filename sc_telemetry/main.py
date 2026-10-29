@@ -162,6 +162,8 @@ class SC_Telemetry(Skill):
 
         The last applied value is remembered, so a variable the user set by hand is never removed just because the
         setting still has its default (off)."""
+        if not enable.MANAGED:  # not Windows: the user sets the variable in their launcher (enable.py)
+            return
         wanted = bool(self._setting("enable_telemetry", False))
         record = Path(self.get_generated_files_dir()) / ENABLE_APPLIED_FILE
         if not self._enable_record_read:

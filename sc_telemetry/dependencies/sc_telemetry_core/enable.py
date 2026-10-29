@@ -3,6 +3,12 @@
 Star Citizen inherits it from the RSI Launcher, which reads the user environment when it starts. Changing it only
 takes effect after the launcher is quit completely (tray too) and started again. Only called on the user's explicit
 choice in the settings, since it is persistent configuration.
+
+This module is the only Windows-specific part of the skill. On Linux (the game under Wine/Proton, e.g. Lutris or
+Steam) Wingman cannot see or set the environment the game starts with, so `MANAGED` is False there: `is_enabled()`
+returns None (unknown), the setting does nothing, and the status line tells the user to add the variable to their
+launcher instead (health.MESSAGES["other_os"]). Everything else (the gRPC stream on 127.0.0.1:2942, the parsing,
+the reactions) is plain Python and has no OS code.
 """
 from __future__ import annotations
 
@@ -14,12 +20,14 @@ _ENV_KEY = "Environment"
 _HWND_BROADCAST = 0xFFFF
 _WM_SETTINGCHANGE = 0x001A
 _SMTO_ABORTIFHUNG = 0x0002
+MANAGED = sys.platform == "win32"
+"""True where the skill can switch telemetry itself."""
 
 
-def is_enabled() -> bool:
-    """True when the user variable is set to 'true' (case-insensitive) or '1'."""
-    if sys.platform != "win32":
-        return False
+def is_enabled() -> bool | None:
+    """True when the user variable is set to 'true' (case-insensitive) or '1'; None where it can't be known."""
+    if not MANAGED:
+        return None
     import winreg
 
     try:
@@ -32,7 +40,7 @@ def is_enabled() -> bool:
 
 def set_enabled(enabled: bool) -> None:
     """Set or remove the user variable and tell Windows the environment changed."""
-    if sys.platform != "win32":
+    if not MANAGED:
         raise OSError("Star Citizen telemetry can only be switched on Windows")
     import winreg
 

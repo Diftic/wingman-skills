@@ -11,6 +11,47 @@ Vulture) and 2026-10-28 (Drake Cutter, RSI Ursa Rover). All frames are recorded 
 
 ---
 
+## 0. At a glance (2026-10-29)
+
+**Connection.** Star Citizen 4.10.2 runs a local gRPC server when `GRPC_CLIENT_SERVER_ENABLED=true` is in the game's
+environment. On Windows the game inherits it from the RSI Launcher, so: set the Windows **user** variable (the skill's
+"Enable Star Citizen telemetry" does it), **quit the launcher completely (tray too)**, start it again, start the game.
+The server is `127.0.0.1:2942`, insecure, no token; one server-streaming call
+`sc.game.telemetry.v1.GameTelemetryService/TelemetryStream` sends about 17 frames a second once you have spawned.
+`Game.log` proves it with `Service 'sc.game.telemetry.v1.GameTelemetryService' registered`. Read-only: nothing is
+sent to the game, no game file or memory is touched. The skill connects only to loopback.
+
+**Works (confirmed live, 2026-10-26 to 10-29):**
+- Ships: speed, heading (inside a planet's frame only), altitude, radar altitude, vertical speed, g-force, hydrogen
+  fuel, boost, landing gear, flight modes (coupled, VTOL, cruise, precision, quantum mode), quantum jump, power
+  on/off (9 flags), the warning lights (THR, SHLD, PROX, WPN, HIT, RADR, QDRV), weapons per seat (name, powered,
+  ready), countermeasure counts, ship and seat name, Command Module separation (becomes a new vehicle).
+- Pilot: health (0 = down or dead, 0 → 100 = respawned), hunger, thirst, heart rate, locomotion (on foot, seated,
+  EVA), surroundings (atmosphere, gravity), UEC balance, enter/leave seat events.
+- The skill: the real start path (Wingman starts first, then the launcher and game), reactions in character
+  (took off, quantum jump, being locked on, under fire, shields down, powerplant/engines, countermeasures, ...), and
+  both tools answering (`get_ship_status`, `get_player_status`).
+
+**Does not work / not in the API:**
+- No position and no camera direction (NavPoint keeps `/showlocation` and the game log).
+- No amounts: power allocation, heat, ammo, capacitor, hull or component health. Ballistic overheating and an empty
+  magazine change nothing (tested twice).
+- Ground vehicles (Ursa) send no vehicle frame at all; only the seat name shows you are in one.
+- Never filled: doors, weapon presets, quantum fuel, manufacturer, death events, force feedback.
+- Missiles and the MISL light: nothing seen, but the game's missiles are bugged right now, so not final. A hostile
+  locking on shows as RADR (it is not your own missile lock).
+- Heading freezes during a quantum jump; WPN MINOR is broad (quantum mode, empty capacitor, landed with guns
+  firing), so it is not reported.
+
+**Untested:** intoxication, oxygen low, unbreathable air, hydrogen low, boarding a ground vehicle (marked * in the
+skill), PWR and COOL lights, a second ground vehicle, Linux (Wine/Proton: see the Core skill's README).
+
+**The skill.** `sc_telemetry` 0.1.0, two settings ("Enable Star Citizen telemetry", "Enable Proactive
+Notifications"), every reaction on. Needs `grpcio` in Wingman: proposed to ShipBit as a bundled Core skill (PR to
+`develop`, which adds `grpcio` to Core's requirements).
+
+---
+
 ## 1. Startup sequence and requirements (telemetry activation)
 
 ### What the game offers

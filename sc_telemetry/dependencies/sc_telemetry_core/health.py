@@ -17,16 +17,22 @@ MESSAGES = {
                "restart the game.",
     "unsupported": "Star Citizen is running, but its log does not show the telemetry service. A game patch may "
                    "have changed how telemetry is switched on.",
+    "other_os": "Star Citizen telemetry is not on yet. Add the environment variable GRPC_CLIENT_SERVER_ENABLED=true "
+                "to how you start the game (Lutris: Configure > System options > Environment variables; Steam: "
+                "launch options GRPC_CLIENT_SERVER_ENABLED=true %command%), then restart the game.",
     "connected": "Connected to Star Citizen. Frames start once you have spawned.",
     "live": "Star Citizen telemetry is live.",
     "stopped": "Telemetry reading is stopped.",
 }
 
 
-def overall(reader_status: str, variable_set: bool, game_log_registered: bool | None) -> str:
-    """One status for the user. `game_log_registered` is None when the log can't be checked."""
+def overall(reader_status: str, variable_set: bool | None, game_log_registered: bool | None) -> str:
+    """One status for the user. `variable_set` is None where the skill can't see the game's environment (not
+    Windows), `game_log_registered` is None when the log can't be checked."""
     if reader_status in ("no_grpc", "live", "connected", "stopped"):
         return reader_status
+    if variable_set is None:
+        return "other_os"
     if not variable_set:
         return "off"
     if game_log_registered is False:

@@ -98,6 +98,8 @@ def test_stale_snapshot_reads_as_none(tmp_path, monkeypatch):
     ("waiting", False, None, "off"),
     ("waiting", True, False, "unsupported"),
     ("waiting", True, None, "waiting"),
+    ("waiting", None, None, "other_os"),  # not Windows: the variable is set in the user's launcher
+    ("live", None, None, "live"),
 ])
 def test_health_status(reader_status, variable, registered, expected):
     assert health.overall(reader_status, variable, registered) == expected
