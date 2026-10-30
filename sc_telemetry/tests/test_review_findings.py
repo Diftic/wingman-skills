@@ -12,11 +12,12 @@ from test_runtime import _serve
 SHIP = "DRAK_Cutter_907038284543"
 
 
-def _ship_frame(**lights) -> dict:
+def _ship_frame(gear: str = "retracted", **lights) -> dict:
     annunciators = {key: f"ANNUNCIATOR_STATE_{value.upper()}" for key, value in lights.items()}
     return {"vehicle": {"state": {"name": SHIP, "class_name": "DRAK_Cutter", "annunciators": annunciators,
                                   "power": {"powerplants": True, "engines": True},
-                                  "flight": {"instruments": {"altitude": 900.0, "g_meter": {"current": 1.0}}}}}}
+                                  "flight": {"instruments": {"altitude": 900.0, "g_meter": {"current": 1.0}},
+                                             "state": {"gear": f"VEHICLE_COMPONENT_DEPLOYMENT_STATE_{gear.upper()}"}}}}}
 
 
 def _player_frame(health: float, **vitals) -> dict:
@@ -140,3 +141,13 @@ def test_11_feed_gets_events_the_cooldown_holds_back():
         fired += [e.id for e in handler.update(frame, when, Thresholds())]
         raw += [e.id for e in handler.last_unfiltered]
     assert fired.count("under_fire") == 1 and raw.count("under_fire") == 3
+
+
+def test_no_proximity_warning_with_the_gear_down():
+    """Landing is meant to be close (user, 2026-10-30); with the gear up the warning still fires."""
+    handler = Handler()
+    frames = [(0.0, _ship_frame(gear="deployed", prox="nominal"))]
+    frames += [(1.0 + i * 0.2, _ship_frame(gear="deployed", prox="major_on")) for i in range(10)]
+    assert _run(handler, frames) == []
+    frames = [(4.0 + i * 0.2, _ship_frame(gear="retracted", prox="major_on")) for i in range(10)]
+    assert _run(handler, frames) == ["gear_retracted", "proximity_warning"]
