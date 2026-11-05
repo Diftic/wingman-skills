@@ -4,6 +4,9 @@
 /ledger/
 /screenshots/
 /ocr_dev/
+/telemetry_dev/_gen/
+/telemetry_dev/.venv/
+/telemetry_dev/*.jsonl
 /*.zip
 /*.zip.sha256
 /overlay_glyphs*

@@ -25,6 +25,7 @@ Core paths below are relative to the `wingman-ai` repository.
 | 13 | A contract keeps only its last objective | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 14 | Item names stay current without a Wingman release | Merged: ShipBit/wingman-ai#473, 16 Oct (3.2.9) |
 | 15 | Routine pacing (#472) silences arrivals; make the gap a setting | Draft PR ShipBit/wingman-ai#476 |
+| 16 | DeepSeek speaks its tool call as text after an instant command | Requested |
 
 ---
 
@@ -321,3 +322,79 @@ departures are not paced (the quantum steps keep their own group), and the gap
 is the slider "Minutes between routine lines" (`routine_gap_minutes`), 2 to 20
 minutes, default 5. Ten minutes reads as harsh, and players differ on how
 chatty they want it. No migration (new property, merged by id).
+
+## 17. Jev fires irreversible commands at the same 0.8 bar as harmless ones
+
+Not a log-pipeline item. Found 5 Nov in 3.2.13 (log
+`3_2_13\logs\wingman-core.2026-11-05_20-30-25.log`, 20:46:49). The player said
+"Yeah, we're gonna have to empty bags first." (on foot, talking about inventory).
+Jev scored `Jettison Cargo` at 0.84 — above `COMMAND_CONFIDENCE` 0.8
+(`services/jev_gate.py`) — and Core pressed alt+j without asking. The command
+had no instant-activation phrases; the criterion was its one-line description
+"Dump the cargo out of the hold, right now." The choice instructions already say
+"decide by what the speaker wants done, not by which words appear", so the
+model simply got it wrong, as the docstring on `COMMAND_CONFIDENCE` predicts
+("put the gear down" → Landing Sequence at 0.92).
+
+The gap is in the design, not the number: one bar for every command, whether it
+toggles a light or dumps the hold, self-destructs, ejects or exits the seat. A
+wrong headlight costs a second; a wrong jettison costs the cargo run.
+
+**Worked around** in the user's config: the description now says what the
+command is NOT ("Emptying bags, backpacks, pockets or the inventory is NOT this
+command"). That is per-command, per-user, and only for the confusions already
+seen.
+
+**Proposed** (either):
+
+- A per-command flag (`irreversible: true` or a `confidence` field) that raises
+  the Jev bar for that command (0.95+) or routes it to the main model, which
+  understands context. Default off, set in the shipped Star Citizen template for
+  jettison, self-destruct, eject, exit seat.
+- Or a confirmation step for flagged commands: Jev picks, the wingman asks
+  "Jettison the cargo?", a yes fires it.
+
+Related: item 16's footnote (View 3 at 0.88 for "Contract three on screen").
+
+## 16. DeepSeek speaks its tool call as text after an instant command
+
+Not a log-pipeline item: it breaks every voice command answered by the fast
+path. Found 30 Oct in 3.2.12 with `deepseek/deepseek-v4.1-flash-1017` through
+the Wingman gateway (log `3_2_12\logs\wingman-core.2026-10-30_16-49-31.log`).
+
+After an instant activation or a Jev pick, the key press goes out ("Executed
+instant command"), then the main model is asked for a spoken line with the tools
+sent and `tool_choice="none"` (`wingmen/wingman.py` `_llm_call`, and
+`_run_jev_command` "with tools switched off"). A wingman whose persona checks
+telemetry after acting still wants `get_ship_status`. DeepSeek does not honour
+`"none"`: it writes its native tool-call tokens into the text, Wingman speaks and
+shows them, and no tool runs. The player hears garbage and reads it as a failed
+command.
+
+Five of six fast-path commands in a 25-minute session:
+
+| Time | Command | Answer shown |
+|---|---|---|
+| 16:54:40 | View 3 | `<｜tool_call｜>analyse_what_you_or_user_sees<｜tool_call_end｜>…` |
+| 17:07:30 | Toggle Decoupled Mode | `<｜tool_call｜>get_ship_status<｜tool_call_end｜>` |
+| 17:11:02 | Initiate Quantum Jump | `<｜tool_call｜>get_ship_status` |
+| 17:12:16 | Toggle Quantum or Navigation or SCM or Master Mode | `<key>Quantum mode disengaged.</code>` |
+| 17:14:47 | Toggle Thrusters | `<｜tool_call｜>get_ship_status` |
+
+The one clean answer (17:12:41, Shields Increase Power) needed no check. The
+leaked text then sits in the history as the assistant's turn (it shows up in
+Jev's `recent` context on the next turn).
+
+**Proposed** (either):
+
+- Allow tools on the confirmation turn (`"auto"`) and let the normal tool loop
+  run. The command is already in the history as a forced call, so a status check
+  can confirm it.
+- Or keep `"none"` and, before the text is spoken or stored, drop DeepSeek's
+  tool-call markup (`<｜tool▁calls▁begin｜>`, `<｜tool_call…｜>`,
+  `<｜tool_call_end｜>` and the stray `<key>`/`</code>` seen here). If nothing is
+  left, say nothing or a short default acknowledgement.
+
+Related, minor: Jev picked "View 3" at 0.88 for "Contract three on screen"
+(16:54:38), so a number in normal speech pressed a camera key. A command whose
+name is mostly a number may need a higher bar than 0.8.
